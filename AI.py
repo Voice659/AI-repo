@@ -1,4 +1,6 @@
 import random, datetime, os, math, string, json, re, hashlib, base64, uuid, time, statistics
+import space_data, mini_games, trivia_pack, word_play, art_extra
+import HubBasePE.Main as HB
 
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
@@ -4380,7 +4382,7 @@ def random_inventor():
     name, field = random.choice(people)
     return "{} - invented: {}".format(name, field)
 
-def show_help():
+def show_help(role=None):
     print("15 - ASCII house            16 - ASCII flower")
     print("17 - ASCII smiley           18 - Fibonacci")
     print("19 - Prime check            20 - Factorial")
@@ -4511,27 +4513,153 @@ def show_help():
     print("268 - Mythical creature     269 - Planet type")
     print("270 - Chemical reaction     271 - Mathematician")
     print("272 - Biologist             273 - Physicist")
-    print("274 - Inventor")
+    print("274 - Inventor              275 - Planet weight")
+    print("276 - Solar age             277 - Space distance")
+    print("278 - Apollo missions       279 - Rocket facts")
+    print("280 - Mars facts            281 - Jupiter facts")
+    print("282 - Deep space fact       283 - Random moon")
+    print("284 - Random exoplanet      285 - ISS crew")
+    print("286 - Asteroid belt         287 - Tic Tac Toe")
+    print("288 - Connect Four          289 - Word search")
+    print("290 - Number puzzle         291 - Memory game")
+    print("292 - Reaction game         293 - Binary search game")
+    print("294 - Word association      295 - Rapid math")
+    print("296 - Movie trivia          297 - Music trivia")
+    print("298 - Sports trivia         299 - Art trivia")
+    print("300 - Food trivia           301 - Animal trivia")
+    print("302 - Tech trivia           303 - Nature trivia")
+    print("304 - Random trivia         305 - Random sentence")
+    print("306 - Random poem           307 - Haiku")
+    print("308 - Tongue twister        309 - Proverb")
+    print("310 - Idiom                 311 - Simile")
+    print("312 - Metaphor              313 - Oxymoron")
+    print("314 - Palindrome word       315 - Anagra")
+    print("316 - Chessboard            317 - Sierpinski")
+    print("318 - Radial star           319 - Spiral")
+    print("320 - Maze                  321 - Target")
+    print("322 - Snowflake             323 - Fractal tree")
+    print("324 - Flower garden         325 - Cross")
+    print("326 - Fence                 327 - Railroad")
+    print("328 - Tunnel                329 - Lighthouse")
+    print("330 - Rocket                331 - Submarine")
+    print("332 - Helicopter            333 - Airplane")
+    print("334 - Bicycle               335 - Umbrella")
+    print("336 - Compass               337 - Web")
+    print("338 - Bridge                339 - Castle tower")
+    print("340 - Sword                 341 - Shield")
+    print("342 - Anchor                343 - Crown king")
+    print("344 - Throne")
+    print("345 - HubBasePE (launch PE)")
+    print()
+    if role:
+        print("=== {} COMMANDS ===".format(role))
+        if role == "Admin":
+            print("system_info - System information")
+            print("list_users  - List online users")
+            print("clear_logs  - Clear system logs")
+            print("toggle_debug - Toggle debug mode")
+        elif role == "Mod":
+            print("featured_joke - Show featured joke")
+            print("mute_user     - Mute a user")
+            print("warn_user     - Warn a user")
+        elif role == "Vip":
+            print("vip_fact  - VIP exclusive fact")
+            print("vip_quote - VIP exclusive quote")
+        print()
     print("h  - Show this help")
     print("q  - Quit")
     print()
 
+def check_role(pw):
+
+    if pw == "A-52-80-A":
+        return "Admin"
+    if pw == "M-5280-M":
+        return "Mod"
+    if pw == "5280":
+        return "Vip"
+    return None
+
+debug_mode = False
+
+def toggle_debug():
+    global debug_mode
+    debug_mode = not debug_mode
+    return "Debug mode is now {}.".format("ON" if debug_mode else "OFF")
+
+def get_role_commands(role):
+    if role == "Admin":
+        return ["system_info", "list_users", "clear_logs", "toggle_debug", "reload_config"]
+    if role == "Mod":
+        return ["mute_user", "warn_user", "featured_joke", "pin_message"]
+    if role == "Vip":
+        return ["vip_joke", "vip_quote", "vip_fact", "skip_ad"]
+    return []
+
+def role_badge(role):
+    badges = {"Admin": "[ADMIN]", "Mod": "[MOD]", "Vip": "[VIP]"}
+    return badges.get(role, "")
+
+def admin_system_info():
+    import platform
+    return "System: {}\nNode: {}\nPython: {}\nPlatform: {}".format(
+        platform.system(), platform.node(), platform.python_version(), platform.platform())
+
+def admin_list_users():
+    return "Online users: you ({})".format("Admin")
+
+def mod_featured_joke():
+    return "FEATURED JOKE: Why did the Admin cross the road? To change permissions on the other side!"
+
+def vip_extra_fact():
+    return "VIP FACT: You are valued! Did you know? The first computer bug was a real moth."
+
+def vip_extra_quote():
+    return "VIP QUOTE: 'With great power comes great responsibility.' - Uncle Ben"
+
 def main():
     clear()
-    print("Welcome to hi.py! 274 commands.")
+    print("Welcome to hi.py! 345 commands.")
     name = input("What's your name? ").strip() or "Stranger"
+
+    pw = input("Role password (or press Enter for none): ").strip()
+    role = check_role(pw) if pw else None
+    if role:
+        print("{} authenticated as {}!".format(name, role))
+        print("You now have access to special commands.")
+        extra_cmds = get_role_commands(role)
+        if extra_cmds:
+            print("Your extra commands: {}".format(", ".join(extra_cmds)))
+
     word, lang = random_greeting()
-    print("{} {}, nice to meet you!".format(get_time_greeting(), name))
+    badge = role_badge(role)
+    print("{} {}, nice to meet you! {}".format(get_time_greeting(), name, badge))
     print("{} means hello in {}!".format(word, lang))
     print("Tip: type 'h' for commands.\n")
-    show_help()
+    show_help(role)
     while True:
-        cmd = input("{} >> ".format(name)).lower().strip()
+        prompt = "{} {} >> ".format(badge, name).strip() if badge else "{} >> ".format(name)
+        cmd = input(prompt).lower().strip()
         if cmd == "q":
-            print("Goodbye {}!".format(name))
+            badge = role_badge(role)
+            print("Goodbye {} {}!".format(badge, name).strip())
             break
         elif cmd == "h":
-            show_help()
+            show_help(role)
+        elif cmd == "system_info" and role == "Admin":
+            print(admin_system_info())
+        elif cmd == "list_users" and role == "Admin":
+            print(admin_list_users())
+        elif cmd == "toggle_debug" and role == "Admin":
+            print(toggle_debug())
+        elif cmd == "featured_joke" and role == "Mod":
+            print(mod_featured_joke())
+        elif cmd == "vip_fact" and role == "Vip":
+            print(vip_extra_fact())
+        elif cmd == "vip_quote" and role == "Vip":
+            print(vip_extra_quote())
+        elif cmd in ("system_info","list_users","toggle_debug","featured_joke","vip_fact","vip_quote"):
+            print("Access denied. You need a higher role.")
         elif cmd == "1":
             print("{} {}!".format(get_time_greeting(), name))
         elif cmd == "2":
@@ -5501,6 +5629,160 @@ def main():
             print(random_physicist())
         elif cmd == "274":
             print(random_inventor())
+        elif cmd == "275":
+            try:
+                w = float(input("Your weight in kg: "))
+                print(space_data.planet_weight(w))
+            except: print("Invalid.")
+        elif cmd == "276":
+            try:
+                a = float(input("Your age in years: "))
+                print(space_data.solar_system_age(a))
+            except: print("Invalid.")
+        elif cmd == "277":
+            print(space_data.space_distance_scale())
+        elif cmd == "278":
+            print(space_data.apollo_missions())
+        elif cmd == "279":
+            print(space_data.rocket_facts())
+        elif cmd == "280":
+            print(space_data.mars_facts())
+        elif cmd == "281":
+            print(space_data.jupiter_facts())
+        elif cmd == "282":
+            print(space_data.deep_space_fact())
+        elif cmd == "283":
+            print("Moon: {}".format(space_data.random_moon()))
+        elif cmd == "284":
+            print("Exoplanet: {}".format(space_data.random_exoplanet()))
+        elif cmd == "285":
+            print(space_data.astronauts_on_iss())
+        elif cmd == "286":
+            print(space_data.asteroid_belt_fact())
+        elif cmd == "287":
+            mini_games.tic_tac_toe()
+        elif cmd == "288":
+            mini_games.connect_four()
+        elif cmd == "289":
+            mini_games.word_search_puzzle()
+        elif cmd == "290":
+            mini_games.number_puzzle()
+        elif cmd == "291":
+            mini_games.memory_challenge()
+        elif cmd == "292":
+            mini_games.reaction_game()
+        elif cmd == "293":
+            mini_games.guess_the_number_advanced()
+        elif cmd == "294":
+            mini_games.word_association()
+        elif cmd == "295":
+            mini_games.rapid_math()
+        elif cmd == "296":
+            trivia_pack.movie_trivia()
+        elif cmd == "297":
+            trivia_pack.music_trivia()
+        elif cmd == "298":
+            trivia_pack.sports_trivia()
+        elif cmd == "299":
+            trivia_pack.art_trivia()
+        elif cmd == "300":
+            trivia_pack.food_trivia()
+        elif cmd == "301":
+            trivia_pack.animal_trivia()
+        elif cmd == "302":
+            trivia_pack.tech_trivia()
+        elif cmd == "303":
+            trivia_pack.nature_trivia()
+        elif cmd == "304":
+            print(trivia_pack.random_trivia_fact())
+        elif cmd == "305":
+            print(word_play.random_sentence())
+        elif cmd == "306":
+            print(word_play.random_poem())
+        elif cmd == "307":
+            print(word_play.random_haiku())
+        elif cmd == "308":
+            print(word_play.random_tongue_twister())
+        elif cmd == "309":
+            print(word_play.random_proverb())
+        elif cmd == "310":
+            print(word_play.random_idiom())
+        elif cmd == "311":
+            print(word_play.random_simile())
+        elif cmd == "312":
+            print(word_play.random_metaphor())
+        elif cmd == "313":
+            print(word_play.random_oxymoron())
+        elif cmd == "314":
+            print("Palindrome word: {}".format(word_play.random_palindrome_word()))
+        elif cmd == "315":
+            w = input("Enter a word: ")
+            print("Anagram: {}".format(word_play.anagram_generator(w)))
+        elif cmd == "316":
+            try:
+                n = int(input("Size (4-12): ") or 8)
+                print(art_extra.draw_chessboard(min(n, 12)))
+            except: print("Invalid.")
+        elif cmd == "317":
+            print(art_extra.draw_sierpinski(4))
+        elif cmd == "318":
+            print(art_extra.draw_radial_star(5))
+        elif cmd == "319":
+            print(art_extra.draw_spiral(12))
+        elif cmd == "320":
+            print(art_extra.draw_maze())
+        elif cmd == "321":
+            print(art_extra.draw_target(5))
+        elif cmd == "322":
+            print(art_extra.draw_snowflake(5))
+        elif cmd == "323":
+            print(art_extra.draw_fractal_tree(3))
+        elif cmd == "324":
+            print(art_extra.draw_flower_garden())
+        elif cmd == "325":
+            print(art_extra.draw_cross())
+        elif cmd == "326":
+            print(art_extra.draw_fence(4))
+        elif cmd == "327":
+            print(art_extra.draw_railroad())
+        elif cmd == "328":
+            print(art_extra.draw_tunnel())
+        elif cmd == "329":
+            print(art_extra.draw_lighthouse())
+        elif cmd == "330":
+            print(art_extra.draw_rocket())
+        elif cmd == "331":
+            print(art_extra.draw_submarine())
+        elif cmd == "332":
+            print(art_extra.draw_helicopter())
+        elif cmd == "333":
+            print(art_extra.draw_airplane())
+        elif cmd == "334":
+            print(art_extra.draw_bicycle())
+        elif cmd == "335":
+            print(art_extra.draw_umbrella())
+        elif cmd == "336":
+            print(art_extra.draw_compass())
+        elif cmd == "337":
+            print(art_extra.draw_web())
+        elif cmd == "338":
+            print(art_extra.draw_bridge())
+        elif cmd == "339":
+            print(art_extra.draw_castle_tower())
+        elif cmd == "340":
+            print(art_extra.draw_sword())
+        elif cmd == "341":
+            print(art_extra.draw_shield())
+        elif cmd == "342":
+            print(art_extra.draw_anchor())
+        elif cmd == "343":
+            print(art_extra.draw_crown_king())
+        elif cmd == "344":
+            print(art_extra.draw_throne())
+        elif cmd == "345":
+            print("Launching HubBasePE...")
+            HB.Enter()
+            HB.Code()
         else:
             print("Unknown. Type 'h' for help.")
 
