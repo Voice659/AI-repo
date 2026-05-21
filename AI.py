@@ -1,5 +1,5 @@
 import random, datetime, os, math, string, json, re, hashlib, base64, uuid, time, statistics
-__version__ = "3.0.0"
+__version__ = "3.0.1"
 import space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data
 import HubBasePE.Main as HB
 
@@ -7856,6 +7856,51 @@ def show_help(role=None):
     print("449 - Climate fact            450 - Chemical element")
     print("451 - Programming term        452 - Festival")
     print("453 - Renewable energy fact")
+    print("454 - City data            455 - Country details")
+    print("456 - Occupation data      457 - Recipe data")
+    print("458 - Animal data          459 - Planet data")
+    print("460 - Mountain data        461 - River data")
+    print("462 - Lake data            463 - Island data")
+    print("464 - Ocean features       465 - Star data")
+    print("466 - Galaxy data          467 - Dinosaur data")
+    print("468 - Mineral data         469 - Tree data")
+    print("470 - Flower data          471 - Butterfly data")
+    print("472 - Bird data            473 - Shark data")
+    print("474 - Whale data           475 - Snake data")
+    print("476 - Fish data            477 - Dog breed data")
+    print("478 - Cat breed data       479 - Horse breed data")
+    print("480 - Herb data            481 - Spice data")
+    print("482 - Wine data            483 - Cheese data")
+    print("484 - Cocktail data        485 - Dessert data")
+    print("486 - Programming terms    487 - Math theorems")
+    print("488 - Physics concepts     489 - Chemical elements")
+    print("490 - Medical terms        491 - Musical terms")
+    print("492 - Instrument data      493 - Sport data")
+    print("494 - Gemstone data        495 - Architecture data")
+    print("496 - Mythology data       497 - Philosopher data")
+    print("498 - Historical events    499 - Artist data")
+    print("500 - Movie data           501 - Book data")
+    print("502 - Song data            503 - Painting data")
+    print("504 - Invention data       505 - Airport data")
+    print("506 - Hotel data           507 - Restaurant data")
+    print("508 - University data      509 - Museum data")
+    print("510 - Park data            511 - Library data")
+    print("512 - Bridge data          513 - Tunnel data")
+    print("514 - Dam data             515 - Canal data")
+    print("516 - Lighthouse data      517 - Castle data")
+    print("518 - Temple data          519 - Church data")
+    print("520 - Mosque data          521 - Synagogue data")
+    print("522 - Observatory data     523 - Research station data")
+    print("524 - Power plant data     525 - Hospital data")
+    print("526 - School data          527 - Stadium data")
+    print("528 - Conference center    529 - Shopping mall data")
+    print("530 - Train station data   531 - Subway station data")
+    print("532 - Port data            533 - Railway line data")
+    print("534 - Highway data         535 - Cuisine data")
+    print("536 - Heritage site data   537 - National symbol data")
+    print("538 - Corporation data     539 - Nonprofit data")
+    print("540 - Journal data         541 - Award data")
+    print("542 - Festival data        543 - Battle data")
     print()
     if role:
         print("=== {} COMMANDS ===".format(role))
@@ -8613,7 +8658,7 @@ def random_renewable_fact():
 
 def main():
     clear()
-    print("Welcome to AI.py v3.0.0! Over 100,000 lines of commands.")
+    print("Welcome to AI.py v3.0.1! 1456 commands with 110K+ lines of data.")
     name = input("What's your name? ").strip() or "Stranger"
 
     pw = input("Role password (or press Enter for none): ").strip()
@@ -9995,6 +10040,5291 @@ def main():
             print(random_festival())
         elif cmd == "453":
             print(random_renewable_fact())
+        elif cmd == "454":
+            try:
+                _d = get_city_data()
+                print("City data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "455":
+            try:
+                _d = get_country_detail_data()
+                print("Country details: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "456":
+            try:
+                _d = get_occupation_data()
+                print("Occupation data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "457":
+            try:
+                _d = get_recipe_data()
+                print("Recipe data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "458":
+            try:
+                _d = get_animal_extended_data()
+                print("Animal data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "459":
+            try:
+                _d = get_planet_data()
+                print("Planet data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "460":
+            try:
+                _d = get_mountain_data()
+                print("Mountain data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "461":
+            try:
+                _d = get_river_data()
+                print("River data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "462":
+            try:
+                _d = get_lake_data()
+                print("Lake data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "463":
+            try:
+                _d = get_island_data()
+                print("Island data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "464":
+            try:
+                _d = get_ocean_feature_data()
+                print("Ocean feature data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "465":
+            try:
+                _d = get_star_data()
+                print("Star data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "466":
+            try:
+                _d = get_galaxy_data()
+                print("Galaxy data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "467":
+            try:
+                _d = get_dinosaur_data()
+                print("Dinosaur data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "468":
+            try:
+                _d = get_mineral_data()
+                print("Mineral data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "469":
+            try:
+                _d = get_tree_species_data()
+                print("Tree data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "470":
+            try:
+                _d = get_flower_data()
+                print("Flower data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "471":
+            try:
+                _d = get_butterfly_data()
+                print("Butterfly data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "472":
+            try:
+                _d = get_bird_species_data()
+                print("Bird data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "473":
+            try:
+                _d = get_shark_data()
+                print("Shark data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "474":
+            try:
+                _d = get_whale_data()
+                print("Whale data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "475":
+            try:
+                _d = get_snake_data()
+                print("Snake data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "476":
+            try:
+                _d = get_fish_species_data()
+                print("Fish data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "477":
+            try:
+                _d = get_dog_breed_data()
+                print("Dog breed data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "478":
+            try:
+                _d = get_cat_breed_data()
+                print("Cat breed data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "479":
+            try:
+                _d = get_horse_breed_data()
+                print("Horse breed data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "480":
+            try:
+                _d = get_herb_data()
+                print("Herb data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "481":
+            try:
+                _d = get_spice_data()
+                print("Spice data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "482":
+            try:
+                _d = get_wine_data()
+                print("Wine data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "483":
+            try:
+                _d = get_cheese_data()
+                print("Cheese data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "484":
+            try:
+                _d = get_cocktail_data()
+                print("Cocktail data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "485":
+            try:
+                _d = get_dessert_data()
+                print("Dessert data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "486":
+            try:
+                _d = get_programming_term_data()
+                print("Programming term data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "487":
+            try:
+                _d = get_math_theorem_data()
+                print("Math theorem data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "488":
+            try:
+                _d = get_physics_concept_data()
+                print("Physics concept data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "489":
+            try:
+                _d = get_chemistry_element_data()
+                print("Chemistry element data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "490":
+            try:
+                _d = get_medical_term_data()
+                print("Medical term data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "491":
+            try:
+                _d = get_musical_term_data()
+                print("Musical term data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "492":
+            try:
+                _d = get_instrument_data()
+                print("Instrument data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "493":
+            try:
+                _d = get_sport_data()
+                print("Sport data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "494":
+            try:
+                _d = get_gemstone_data()
+                print("Gemstone data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "495":
+            try:
+                _d = get_architectural_data()
+                print("Architectural data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "496":
+            try:
+                _d = get_mythology_data()
+                print("Mythology data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "497":
+            try:
+                _d = get_philosopher_data()
+                print("Philosopher data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "498":
+            try:
+                _d = get_historical_event_data()
+                print("Historical event data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "499":
+            try:
+                _d = get_artist_data()
+                print("Artist data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "500":
+            try:
+                _d = get_movie_data()
+                print("Movie data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "501":
+            try:
+                _d = get_book_data()
+                print("Book data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "502":
+            try:
+                _d = get_song_data()
+                print("Song data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "503":
+            try:
+                _d = get_painting_data()
+                print("Painting data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "504":
+            try:
+                _d = get_invention_data()
+                print("Invention data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "505":
+            try:
+                _d = get_airport_data()
+                print("Airport data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "506":
+            try:
+                _d = get_hotel_data()
+                print("Hotel data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "507":
+            try:
+                _d = get_restaurant_data()
+                print("Restaurant data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "508":
+            try:
+                _d = get_university_data()
+                print("University data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "509":
+            try:
+                _d = get_museum_data()
+                print("Museum data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "510":
+            try:
+                _d = get_park_data()
+                print("Park data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "511":
+            try:
+                _d = get_library_data()
+                print("Library data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "512":
+            try:
+                _d = get_bridge_data()
+                print("Bridge data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "513":
+            try:
+                _d = get_tunnel_data()
+                print("Tunnel data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "514":
+            try:
+                _d = get_dam_data()
+                print("Dam data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "515":
+            try:
+                _d = get_canal_data()
+                print("Canal data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "516":
+            try:
+                _d = get_lighthouse_data()
+                print("Lighthouse data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "517":
+            try:
+                _d = get_castle_data()
+                print("Castle data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "518":
+            try:
+                _d = get_temple_data()
+                print("Temple data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "519":
+            try:
+                _d = get_church_data()
+                print("Church data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "520":
+            try:
+                _d = get_mosque_data()
+                print("Mosque data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "521":
+            try:
+                _d = get_synagogue_data()
+                print("Synagogue data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "522":
+            try:
+                _d = get_observatory_data()
+                print("Observatory data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "523":
+            try:
+                _d = get_research_station_data()
+                print("Research station data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "524":
+            try:
+                _d = get_power_plant_data()
+                print("Power plant data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "525":
+            try:
+                _d = get_hospital_data()
+                print("Hospital data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "526":
+            try:
+                _d = get_school_data()
+                print("School data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "527":
+            try:
+                _d = get_stadium_data()
+                print("Stadium data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "528":
+            try:
+                _d = get_conference_center_data()
+                print("Conference center data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "529":
+            try:
+                _d = get_shopping_mall_data()
+                print("Shopping mall data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "530":
+            try:
+                _d = get_train_station_data()
+                print("Train station data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "531":
+            try:
+                _d = get_subway_station_data()
+                print("Subway station data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "532":
+            try:
+                _d = get_port_data()
+                print("Port data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "533":
+            try:
+                _d = get_railway_line_data()
+                print("Railway line data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "534":
+            try:
+                _d = get_highway_data()
+                print("Highway data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "535":
+            try:
+                _d = get_cuisine_data()
+                print("Cuisine data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "536":
+            try:
+                _d = get_heritage_site_data()
+                print("Heritage site data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "537":
+            try:
+                _d = get_national_symbol_data()
+                print("National symbol data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "538":
+            try:
+                _d = get_corporation_data()
+                print("Corporation data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "539":
+            try:
+                _d = get_nonprofit_data()
+                print("Nonprofit data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "540":
+            try:
+                _d = get_scientific_journal_data()
+                print("Scientific journal data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "541":
+            try:
+                _d = get_award_data()
+                print("Award data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "542":
+            try:
+                _d = get_festival_data()
+                print("Festival data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "543":
+            try:
+                _d = get_battle_data()
+                print("Battle data: {} entries. First:".format(len(_d)))
+                for _x in _d[:2]:
+                    print("  ", _x)
+            except Exception as _ex:
+                print("Error:", _ex)
+        elif cmd == "544":
+            try:
+                print(calculate_circle_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "545":
+            try:
+                print(calculate_circle_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "546":
+            try:
+                print(calculate_circle_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "547":
+            try:
+                print(calculate_circle_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "548":
+            try:
+                print(calculate_square_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "549":
+            try:
+                print(calculate_square_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "550":
+            try:
+                print(calculate_square_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "551":
+            try:
+                print(calculate_square_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "552":
+            try:
+                print(calculate_rectangle_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "553":
+            try:
+                print(calculate_rectangle_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "554":
+            try:
+                print(calculate_rectangle_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "555":
+            try:
+                print(calculate_rectangle_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "556":
+            try:
+                print(calculate_triangle_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "557":
+            try:
+                print(calculate_triangle_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "558":
+            try:
+                print(calculate_triangle_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "559":
+            try:
+                print(calculate_triangle_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "560":
+            try:
+                print(calculate_cube_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "561":
+            try:
+                print(calculate_cube_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "562":
+            try:
+                print(calculate_cube_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "563":
+            try:
+                print(calculate_cube_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "564":
+            try:
+                print(calculate_sphere_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "565":
+            try:
+                print(calculate_sphere_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "566":
+            try:
+                print(calculate_sphere_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "567":
+            try:
+                print(calculate_sphere_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "568":
+            try:
+                print(calculate_cylinder_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "569":
+            try:
+                print(calculate_cylinder_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "570":
+            try:
+                print(calculate_cylinder_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "571":
+            try:
+                print(calculate_cylinder_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "572":
+            try:
+                print(calculate_cone_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "573":
+            try:
+                print(calculate_cone_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "574":
+            try:
+                print(calculate_cone_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "575":
+            try:
+                print(calculate_cone_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "576":
+            try:
+                print(calculate_pyramid_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "577":
+            try:
+                print(calculate_pyramid_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "578":
+            try:
+                print(calculate_pyramid_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "579":
+            try:
+                print(calculate_pyramid_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "580":
+            try:
+                print(calculate_prism_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "581":
+            try:
+                print(calculate_prism_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "582":
+            try:
+                print(calculate_prism_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "583":
+            try:
+                print(calculate_prism_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "584":
+            try:
+                print(calculate_hexagon_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "585":
+            try:
+                print(calculate_hexagon_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "586":
+            try:
+                print(calculate_hexagon_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "587":
+            try:
+                print(calculate_hexagon_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "588":
+            try:
+                print(calculate_octagon_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "589":
+            try:
+                print(calculate_octagon_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "590":
+            try:
+                print(calculate_octagon_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "591":
+            try:
+                print(calculate_octagon_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "592":
+            try:
+                print(calculate_pentagon_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "593":
+            try:
+                print(calculate_pentagon_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "594":
+            try:
+                print(calculate_pentagon_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "595":
+            try:
+                print(calculate_pentagon_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "596":
+            try:
+                print(calculate_trapezoid_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "597":
+            try:
+                print(calculate_trapezoid_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "598":
+            try:
+                print(calculate_trapezoid_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "599":
+            try:
+                print(calculate_trapezoid_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "600":
+            try:
+                print(calculate_parallelogram_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "601":
+            try:
+                print(calculate_parallelogram_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "602":
+            try:
+                print(calculate_parallelogram_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "603":
+            try:
+                print(calculate_parallelogram_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "604":
+            try:
+                print(calculate_ellipse_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "605":
+            try:
+                print(calculate_ellipse_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "606":
+            try:
+                print(calculate_ellipse_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "607":
+            try:
+                print(calculate_ellipse_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "608":
+            try:
+                print(calculate_diamond_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "609":
+            try:
+                print(calculate_diamond_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "610":
+            try:
+                print(calculate_diamond_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "611":
+            try:
+                print(calculate_diamond_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "612":
+            try:
+                print(calculate_crescent_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "613":
+            try:
+                print(calculate_crescent_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "614":
+            try:
+                print(calculate_crescent_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "615":
+            try:
+                print(calculate_crescent_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "616":
+            try:
+                print(calculate_sector_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "617":
+            try:
+                print(calculate_sector_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "618":
+            try:
+                print(calculate_sector_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "619":
+            try:
+                print(calculate_sector_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "620":
+            try:
+                print(calculate_segment_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "621":
+            try:
+                print(calculate_segment_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "622":
+            try:
+                print(calculate_segment_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "623":
+            try:
+                print(calculate_segment_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "624":
+            try:
+                print(calculate_rhombus_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "625":
+            try:
+                print(calculate_rhombus_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "626":
+            try:
+                print(calculate_rhombus_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "627":
+            try:
+                print(calculate_rhombus_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "628":
+            try:
+                print(calculate_kite_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "629":
+            try:
+                print(calculate_kite_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "630":
+            try:
+                print(calculate_kite_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "631":
+            try:
+                print(calculate_kite_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "632":
+            try:
+                print(calculate_annulus_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "633":
+            try:
+                print(calculate_annulus_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "634":
+            try:
+                print(calculate_annulus_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "635":
+            try:
+                print(calculate_annulus_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "636":
+            try:
+                print(calculate_frustum_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "637":
+            try:
+                print(calculate_frustum_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "638":
+            try:
+                print(calculate_frustum_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "639":
+            try:
+                print(calculate_frustum_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "640":
+            try:
+                print(calculate_toroid_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "641":
+            try:
+                print(calculate_toroid_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "642":
+            try:
+                print(calculate_toroid_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "643":
+            try:
+                print(calculate_toroid_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "644":
+            try:
+                print(calculate_ellipsoid_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "645":
+            try:
+                print(calculate_ellipsoid_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "646":
+            try:
+                print(calculate_ellipsoid_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "647":
+            try:
+                print(calculate_ellipsoid_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "648":
+            try:
+                print(calculate_capsule_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "649":
+            try:
+                print(calculate_capsule_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "650":
+            try:
+                print(calculate_capsule_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "651":
+            try:
+                print(calculate_capsule_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "652":
+            try:
+                print(calculate_barrel_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "653":
+            try:
+                print(calculate_barrel_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "654":
+            try:
+                print(calculate_barrel_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "655":
+            try:
+                print(calculate_barrel_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "656":
+            try:
+                print(calculate_wedge_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "657":
+            try:
+                print(calculate_wedge_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "658":
+            try:
+                print(calculate_wedge_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "659":
+            try:
+                print(calculate_wedge_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "660":
+            try:
+                print(calculate_dodecahedron_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "661":
+            try:
+                print(calculate_dodecahedron_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "662":
+            try:
+                print(calculate_dodecahedron_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "663":
+            try:
+                print(calculate_dodecahedron_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "664":
+            try:
+                print(calculate_icosahedron_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "665":
+            try:
+                print(calculate_icosahedron_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "666":
+            try:
+                print(calculate_icosahedron_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "667":
+            try:
+                print(calculate_icosahedron_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "668":
+            try:
+                print(calculate_octahedron_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "669":
+            try:
+                print(calculate_octahedron_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "670":
+            try:
+                print(calculate_octahedron_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "671":
+            try:
+                print(calculate_octahedron_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "672":
+            try:
+                print(calculate_tetrahedron_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "673":
+            try:
+                print(calculate_tetrahedron_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "674":
+            try:
+                print(calculate_tetrahedron_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "675":
+            try:
+                print(calculate_tetrahedron_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "676":
+            try:
+                print(calculate_torus_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "677":
+            try:
+                print(calculate_torus_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "678":
+            try:
+                print(calculate_torus_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "679":
+            try:
+                print(calculate_torus_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "680":
+            try:
+                print(calculate_heart_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "681":
+            try:
+                print(calculate_heart_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "682":
+            try:
+                print(calculate_heart_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "683":
+            try:
+                print(calculate_heart_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "684":
+            try:
+                print(calculate_star_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "685":
+            try:
+                print(calculate_star_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "686":
+            try:
+                print(calculate_star_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "687":
+            try:
+                print(calculate_star_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "688":
+            try:
+                print(calculate_arrow_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "689":
+            try:
+                print(calculate_arrow_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "690":
+            try:
+                print(calculate_arrow_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "691":
+            try:
+                print(calculate_arrow_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "692":
+            try:
+                print(calculate_cross_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "693":
+            try:
+                print(calculate_cross_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "694":
+            try:
+                print(calculate_cross_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "695":
+            try:
+                print(calculate_cross_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "696":
+            try:
+                print(calculate_moon_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "697":
+            try:
+                print(calculate_moon_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "698":
+            try:
+                print(calculate_moon_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "699":
+            try:
+                print(calculate_moon_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "700":
+            try:
+                print(calculate_drop_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "701":
+            try:
+                print(calculate_drop_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "702":
+            try:
+                print(calculate_drop_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "703":
+            try:
+                print(calculate_drop_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "704":
+            try:
+                print(calculate_ring_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "705":
+            try:
+                print(calculate_ring_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "706":
+            try:
+                print(calculate_ring_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "707":
+            try:
+                print(calculate_ring_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "708":
+            try:
+                print(calculate_arch_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "709":
+            try:
+                print(calculate_arch_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "710":
+            try:
+                print(calculate_arch_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "711":
+            try:
+                print(calculate_arch_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "712":
+            try:
+                print(calculate_dome_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "713":
+            try:
+                print(calculate_dome_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "714":
+            try:
+                print(calculate_dome_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "715":
+            try:
+                print(calculate_dome_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "716":
+            try:
+                print(calculate_gable_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "717":
+            try:
+                print(calculate_gable_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "718":
+            try:
+                print(calculate_gable_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "719":
+            try:
+                print(calculate_gable_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "720":
+            try:
+                print(calculate_vault_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "721":
+            try:
+                print(calculate_vault_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "722":
+            try:
+                print(calculate_vault_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "723":
+            try:
+                print(calculate_vault_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "724":
+            try:
+                print(calculate_spire_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "725":
+            try:
+                print(calculate_spire_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "726":
+            try:
+                print(calculate_spire_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "727":
+            try:
+                print(calculate_spire_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "728":
+            try:
+                print(calculate_turret_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "729":
+            try:
+                print(calculate_turret_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "730":
+            try:
+                print(calculate_turret_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "731":
+            try:
+                print(calculate_turret_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "732":
+            try:
+                print(calculate_buttress_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "733":
+            try:
+                print(calculate_buttress_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "734":
+            try:
+                print(calculate_buttress_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "735":
+            try:
+                print(calculate_buttress_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "736":
+            try:
+                print(calculate_column_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "737":
+            try:
+                print(calculate_column_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "738":
+            try:
+                print(calculate_column_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "739":
+            try:
+                print(calculate_column_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "740":
+            try:
+                print(calculate_beam_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "741":
+            try:
+                print(calculate_beam_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "742":
+            try:
+                print(calculate_beam_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "743":
+            try:
+                print(calculate_beam_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "744":
+            try:
+                print(calculate_plank_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "745":
+            try:
+                print(calculate_plank_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "746":
+            try:
+                print(calculate_plank_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "747":
+            try:
+                print(calculate_plank_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "748":
+            try:
+                print(calculate_panel_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "749":
+            try:
+                print(calculate_panel_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "750":
+            try:
+                print(calculate_panel_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "751":
+            try:
+                print(calculate_panel_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "752":
+            try:
+                print(calculate_tile_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "753":
+            try:
+                print(calculate_tile_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "754":
+            try:
+                print(calculate_tile_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "755":
+            try:
+                print(calculate_tile_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "756":
+            try:
+                print(calculate_brick_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "757":
+            try:
+                print(calculate_brick_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "758":
+            try:
+                print(calculate_brick_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "759":
+            try:
+                print(calculate_brick_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "760":
+            try:
+                print(calculate_block_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "761":
+            try:
+                print(calculate_block_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "762":
+            try:
+                print(calculate_block_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "763":
+            try:
+                print(calculate_block_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "764":
+            try:
+                print(calculate_strut_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "765":
+            try:
+                print(calculate_strut_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "766":
+            try:
+                print(calculate_strut_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "767":
+            try:
+                print(calculate_strut_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "768":
+            try:
+                print(calculate_girder_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "769":
+            try:
+                print(calculate_girder_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "770":
+            try:
+                print(calculate_girder_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "771":
+            try:
+                print(calculate_girder_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "772":
+            try:
+                print(calculate_truss_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "773":
+            try:
+                print(calculate_truss_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "774":
+            try:
+                print(calculate_truss_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "775":
+            try:
+                print(calculate_truss_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "776":
+            try:
+                print(calculate_pulley_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "777":
+            try:
+                print(calculate_pulley_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "778":
+            try:
+                print(calculate_pulley_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "779":
+            try:
+                print(calculate_pulley_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "780":
+            try:
+                print(calculate_lever_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "781":
+            try:
+                print(calculate_lever_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "782":
+            try:
+                print(calculate_lever_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "783":
+            try:
+                print(calculate_lever_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "784":
+            try:
+                print(calculate_screw_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "785":
+            try:
+                print(calculate_screw_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "786":
+            try:
+                print(calculate_screw_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "787":
+            try:
+                print(calculate_screw_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "788":
+            try:
+                print(calculate_wheel_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "789":
+            try:
+                print(calculate_wheel_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "790":
+            try:
+                print(calculate_wheel_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "791":
+            try:
+                print(calculate_wheel_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "792":
+            try:
+                print(calculate_axle_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "793":
+            try:
+                print(calculate_axle_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "794":
+            try:
+                print(calculate_axle_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "795":
+            try:
+                print(calculate_axle_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "796":
+            try:
+                print(calculate_ramp_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "797":
+            try:
+                print(calculate_ramp_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "798":
+            try:
+                print(calculate_ramp_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "799":
+            try:
+                print(calculate_ramp_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "800":
+            try:
+                print(calculate_inclined_plane_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "801":
+            try:
+                print(calculate_inclined_plane_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "802":
+            try:
+                print(calculate_inclined_plane_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "803":
+            try:
+                print(calculate_inclined_plane_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "804":
+            try:
+                print(calculate_gear_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "805":
+            try:
+                print(calculate_gear_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "806":
+            try:
+                print(calculate_gear_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "807":
+            try:
+                print(calculate_gear_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "808":
+            try:
+                print(calculate_crank_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "809":
+            try:
+                print(calculate_crank_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "810":
+            try:
+                print(calculate_crank_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "811":
+            try:
+                print(calculate_crank_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "812":
+            try:
+                print(calculate_cam_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "813":
+            try:
+                print(calculate_cam_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "814":
+            try:
+                print(calculate_cam_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "815":
+            try:
+                print(calculate_cam_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "816":
+            try:
+                print(calculate_spring_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "817":
+            try:
+                print(calculate_spring_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "818":
+            try:
+                print(calculate_spring_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "819":
+            try:
+                print(calculate_spring_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "820":
+            try:
+                print(calculate_shock_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "821":
+            try:
+                print(calculate_shock_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "822":
+            try:
+                print(calculate_shock_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "823":
+            try:
+                print(calculate_shock_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "824":
+            try:
+                print(calculate_damper_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "825":
+            try:
+                print(calculate_damper_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "826":
+            try:
+                print(calculate_damper_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "827":
+            try:
+                print(calculate_damper_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "828":
+            try:
+                print(calculate_absorber_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "829":
+            try:
+                print(calculate_absorber_volume())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "830":
+            try:
+                print(calculate_absorber_perimeter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "831":
+            try:
+                print(calculate_absorber_surface_area())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "832":
+            try:
+                print(convert_mm_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "833":
+            try:
+                print(convert_mm_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "834":
+            try:
+                print(convert_mm_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "835":
+            try:
+                print(convert_mm_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "836":
+            try:
+                print(convert_mm_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "837":
+            try:
+                print(convert_cm_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "838":
+            try:
+                print(convert_cm_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "839":
+            try:
+                print(convert_cm_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "840":
+            try:
+                print(convert_cm_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "841":
+            try:
+                print(convert_dm_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "842":
+            try:
+                print(convert_dm_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "843":
+            try:
+                print(convert_dm_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "844":
+            try:
+                print(convert_dm_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "845":
+            try:
+                print(convert_dm_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "846":
+            try:
+                print(convert_inch_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "847":
+            try:
+                print(convert_inch_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "848":
+            try:
+                print(convert_inch_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "849":
+            try:
+                print(convert_inch_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "850":
+            try:
+                print(convert_foot_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "851":
+            try:
+                print(convert_foot_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "852":
+            try:
+                print(convert_foot_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "853":
+            try:
+                print(convert_foot_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "854":
+            try:
+                print(convert_yard_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "855":
+            try:
+                print(convert_yard_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "856":
+            try:
+                print(convert_yard_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "857":
+            try:
+                print(convert_yard_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "858":
+            try:
+                print(convert_yard_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "859":
+            try:
+                print(convert_hand_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "860":
+            try:
+                print(convert_hand_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "861":
+            try:
+                print(convert_hand_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "862":
+            try:
+                print(convert_hand_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "863":
+            try:
+                print(convert_hand_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "864":
+            try:
+                print(convert_palm_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "865":
+            try:
+                print(convert_palm_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "866":
+            try:
+                print(convert_palm_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "867":
+            try:
+                print(convert_palm_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "868":
+            try:
+                print(convert_palm_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "869":
+            try:
+                print(convert_digit_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "870":
+            try:
+                print(convert_digit_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "871":
+            try:
+                print(convert_digit_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "872":
+            try:
+                print(convert_digit_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "873":
+            try:
+                print(convert_digit_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "874":
+            try:
+                print(convert_cubit_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "875":
+            try:
+                print(convert_cubit_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "876":
+            try:
+                print(convert_cubit_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "877":
+            try:
+                print(convert_cubit_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "878":
+            try:
+                print(convert_cubit_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "879":
+            try:
+                print(convert_span_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "880":
+            try:
+                print(convert_span_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "881":
+            try:
+                print(convert_span_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "882":
+            try:
+                print(convert_span_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "883":
+            try:
+                print(convert_span_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "884":
+            try:
+                print(convert_pace_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "885":
+            try:
+                print(convert_pace_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "886":
+            try:
+                print(convert_pace_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "887":
+            try:
+                print(convert_pace_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "888":
+            try:
+                print(convert_pace_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "889":
+            try:
+                print(convert_meter_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "890":
+            try:
+                print(convert_meter_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "891":
+            try:
+                print(convert_meter_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "892":
+            try:
+                print(convert_meter_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "893":
+            try:
+                print(convert_meter_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "894":
+            try:
+                print(convert_kilometer_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "895":
+            try:
+                print(convert_kilometer_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "896":
+            try:
+                print(convert_kilometer_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "897":
+            try:
+                print(convert_kilometer_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "898":
+            try:
+                print(convert_kilometer_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "899":
+            try:
+                print(convert_mile_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "900":
+            try:
+                print(convert_mile_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "901":
+            try:
+                print(convert_mile_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "902":
+            try:
+                print(convert_mile_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "903":
+            try:
+                print(convert_mile_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "904":
+            try:
+                print(convert_league_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "905":
+            try:
+                print(convert_league_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "906":
+            try:
+                print(convert_league_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "907":
+            try:
+                print(convert_league_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "908":
+            try:
+                print(convert_league_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "909":
+            try:
+                print(convert_furlong_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "910":
+            try:
+                print(convert_furlong_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "911":
+            try:
+                print(convert_furlong_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "912":
+            try:
+                print(convert_furlong_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "913":
+            try:
+                print(convert_furlong_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "914":
+            try:
+                print(convert_chain_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "915":
+            try:
+                print(convert_chain_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "916":
+            try:
+                print(convert_chain_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "917":
+            try:
+                print(convert_chain_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "918":
+            try:
+                print(convert_chain_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "919":
+            try:
+                print(convert_rod_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "920":
+            try:
+                print(convert_rod_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "921":
+            try:
+                print(convert_rod_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "922":
+            try:
+                print(convert_rod_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "923":
+            try:
+                print(convert_rod_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "924":
+            try:
+                print(convert_perch_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "925":
+            try:
+                print(convert_perch_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "926":
+            try:
+                print(convert_perch_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "927":
+            try:
+                print(convert_perch_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "928":
+            try:
+                print(convert_perch_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "929":
+            try:
+                print(convert_link_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "930":
+            try:
+                print(convert_link_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "931":
+            try:
+                print(convert_link_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "932":
+            try:
+                print(convert_link_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "933":
+            try:
+                print(convert_link_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "934":
+            try:
+                print(convert_ell_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "935":
+            try:
+                print(convert_ell_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "936":
+            try:
+                print(convert_ell_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "937":
+            try:
+                print(convert_ell_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "938":
+            try:
+                print(convert_ell_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "939":
+            try:
+                print(convert_gram_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "940":
+            try:
+                print(convert_gram_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "941":
+            try:
+                print(convert_gram_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "942":
+            try:
+                print(convert_gram_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "943":
+            try:
+                print(convert_gram_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "944":
+            try:
+                print(convert_kilogram_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "945":
+            try:
+                print(convert_kilogram_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "946":
+            try:
+                print(convert_kilogram_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "947":
+            try:
+                print(convert_kilogram_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "948":
+            try:
+                print(convert_kilogram_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "949":
+            try:
+                print(convert_pound_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "950":
+            try:
+                print(convert_pound_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "951":
+            try:
+                print(convert_pound_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "952":
+            try:
+                print(convert_pound_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "953":
+            try:
+                print(convert_pound_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "954":
+            try:
+                print(convert_ounce_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "955":
+            try:
+                print(convert_ounce_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "956":
+            try:
+                print(convert_ounce_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "957":
+            try:
+                print(convert_ounce_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "958":
+            try:
+                print(convert_ounce_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "959":
+            try:
+                print(convert_ton_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "960":
+            try:
+                print(convert_ton_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "961":
+            try:
+                print(convert_ton_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "962":
+            try:
+                print(convert_ton_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "963":
+            try:
+                print(convert_ton_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "964":
+            try:
+                print(convert_stone_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "965":
+            try:
+                print(convert_stone_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "966":
+            try:
+                print(convert_stone_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "967":
+            try:
+                print(convert_stone_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "968":
+            try:
+                print(convert_stone_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "969":
+            try:
+                print(convert_carat_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "970":
+            try:
+                print(convert_carat_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "971":
+            try:
+                print(convert_carat_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "972":
+            try:
+                print(convert_carat_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "973":
+            try:
+                print(convert_carat_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "974":
+            try:
+                print(convert_grain_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "975":
+            try:
+                print(convert_grain_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "976":
+            try:
+                print(convert_grain_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "977":
+            try:
+                print(convert_grain_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "978":
+            try:
+                print(convert_grain_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "979":
+            try:
+                print(convert_dram_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "980":
+            try:
+                print(convert_dram_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "981":
+            try:
+                print(convert_dram_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "982":
+            try:
+                print(convert_dram_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "983":
+            try:
+                print(convert_dram_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "984":
+            try:
+                print(convert_slug_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "985":
+            try:
+                print(convert_slug_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "986":
+            try:
+                print(convert_slug_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "987":
+            try:
+                print(convert_slug_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "988":
+            try:
+                print(convert_slug_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "989":
+            try:
+                print(convert_celsius_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "990":
+            try:
+                print(convert_celsius_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "991":
+            try:
+                print(convert_celsius_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "992":
+            try:
+                print(convert_celsius_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "993":
+            try:
+                print(convert_celsius_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "994":
+            try:
+                print(convert_fahrenheit_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "995":
+            try:
+                print(convert_fahrenheit_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "996":
+            try:
+                print(convert_fahrenheit_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "997":
+            try:
+                print(convert_fahrenheit_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "998":
+            try:
+                print(convert_fahrenheit_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "999":
+            try:
+                print(convert_kelvin_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1000":
+            try:
+                print(convert_kelvin_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1001":
+            try:
+                print(convert_kelvin_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1002":
+            try:
+                print(convert_kelvin_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1003":
+            try:
+                print(convert_kelvin_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1004":
+            try:
+                print(convert_rankine_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1005":
+            try:
+                print(convert_rankine_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1006":
+            try:
+                print(convert_rankine_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1007":
+            try:
+                print(convert_rankine_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1008":
+            try:
+                print(convert_rankine_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1009":
+            try:
+                print(convert_delisle_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1010":
+            try:
+                print(convert_delisle_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1011":
+            try:
+                print(convert_delisle_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1012":
+            try:
+                print(convert_delisle_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1013":
+            try:
+                print(convert_delisle_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1014":
+            try:
+                print(convert_newton_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1015":
+            try:
+                print(convert_newton_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1016":
+            try:
+                print(convert_newton_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1017":
+            try:
+                print(convert_newton_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1018":
+            try:
+                print(convert_newton_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1019":
+            try:
+                print(convert_reaumur_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1020":
+            try:
+                print(convert_reaumur_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1021":
+            try:
+                print(convert_reaumur_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1022":
+            try:
+                print(convert_reaumur_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1023":
+            try:
+                print(convert_reaumur_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1024":
+            try:
+                print(convert_romer_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1025":
+            try:
+                print(convert_romer_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1026":
+            try:
+                print(convert_romer_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1027":
+            try:
+                print(convert_romer_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1028":
+            try:
+                print(convert_romer_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1029":
+            try:
+                print(convert_liter_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1030":
+            try:
+                print(convert_liter_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1031":
+            try:
+                print(convert_liter_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1032":
+            try:
+                print(convert_liter_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1033":
+            try:
+                print(convert_liter_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1034":
+            try:
+                print(convert_milliliter_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1035":
+            try:
+                print(convert_milliliter_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1036":
+            try:
+                print(convert_milliliter_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1037":
+            try:
+                print(convert_milliliter_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1038":
+            try:
+                print(convert_milliliter_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1039":
+            try:
+                print(convert_gallon_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1040":
+            try:
+                print(convert_gallon_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1041":
+            try:
+                print(convert_gallon_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1042":
+            try:
+                print(convert_gallon_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1043":
+            try:
+                print(convert_gallon_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1044":
+            try:
+                print(convert_quart_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1045":
+            try:
+                print(convert_quart_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1046":
+            try:
+                print(convert_quart_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1047":
+            try:
+                print(convert_quart_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1048":
+            try:
+                print(convert_quart_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1049":
+            try:
+                print(convert_pint_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1050":
+            try:
+                print(convert_pint_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1051":
+            try:
+                print(convert_pint_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1052":
+            try:
+                print(convert_pint_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1053":
+            try:
+                print(convert_pint_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1054":
+            try:
+                print(convert_cup_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1055":
+            try:
+                print(convert_cup_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1056":
+            try:
+                print(convert_cup_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1057":
+            try:
+                print(convert_cup_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1058":
+            try:
+                print(convert_cup_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1059":
+            try:
+                print(convert_fluid_ounce_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1060":
+            try:
+                print(convert_fluid_ounce_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1061":
+            try:
+                print(convert_fluid_ounce_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1062":
+            try:
+                print(convert_fluid_ounce_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1063":
+            try:
+                print(convert_fluid_ounce_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1064":
+            try:
+                print(convert_tablespoon_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1065":
+            try:
+                print(convert_tablespoon_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1066":
+            try:
+                print(convert_tablespoon_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1067":
+            try:
+                print(convert_tablespoon_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1068":
+            try:
+                print(convert_tablespoon_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1069":
+            try:
+                print(convert_teaspoon_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1070":
+            try:
+                print(convert_teaspoon_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1071":
+            try:
+                print(convert_teaspoon_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1072":
+            try:
+                print(convert_teaspoon_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1073":
+            try:
+                print(convert_teaspoon_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1074":
+            try:
+                print(convert_barrel_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1075":
+            try:
+                print(convert_barrel_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1076":
+            try:
+                print(convert_barrel_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1077":
+            try:
+                print(convert_barrel_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1078":
+            try:
+                print(convert_barrel_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1079":
+            try:
+                print(convert_sq_meter_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1080":
+            try:
+                print(convert_sq_meter_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1081":
+            try:
+                print(convert_sq_meter_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1082":
+            try:
+                print(convert_sq_meter_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1083":
+            try:
+                print(convert_sq_meter_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1084":
+            try:
+                print(convert_sq_foot_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1085":
+            try:
+                print(convert_sq_foot_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1086":
+            try:
+                print(convert_sq_foot_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1087":
+            try:
+                print(convert_sq_foot_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1088":
+            try:
+                print(convert_sq_foot_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1089":
+            try:
+                print(convert_sq_inch_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1090":
+            try:
+                print(convert_sq_inch_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1091":
+            try:
+                print(convert_sq_inch_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1092":
+            try:
+                print(convert_sq_inch_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1093":
+            try:
+                print(convert_sq_inch_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1094":
+            try:
+                print(convert_sq_km_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1095":
+            try:
+                print(convert_sq_km_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1096":
+            try:
+                print(convert_sq_km_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1097":
+            try:
+                print(convert_sq_km_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1098":
+            try:
+                print(convert_sq_km_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1099":
+            try:
+                print(convert_sq_mile_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1100":
+            try:
+                print(convert_sq_mile_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1101":
+            try:
+                print(convert_sq_mile_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1102":
+            try:
+                print(convert_sq_mile_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1103":
+            try:
+                print(convert_sq_mile_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1104":
+            try:
+                print(convert_acre_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1105":
+            try:
+                print(convert_acre_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1106":
+            try:
+                print(convert_acre_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1107":
+            try:
+                print(convert_acre_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1108":
+            try:
+                print(convert_acre_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1109":
+            try:
+                print(convert_hectare_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1110":
+            try:
+                print(convert_hectare_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1111":
+            try:
+                print(convert_hectare_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1112":
+            try:
+                print(convert_hectare_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1113":
+            try:
+                print(convert_hectare_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1114":
+            try:
+                print(convert_are_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1115":
+            try:
+                print(convert_are_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1116":
+            try:
+                print(convert_are_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1117":
+            try:
+                print(convert_are_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1118":
+            try:
+                print(convert_are_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1119":
+            try:
+                print(convert_barn_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1120":
+            try:
+                print(convert_barn_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1121":
+            try:
+                print(convert_barn_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1122":
+            try:
+                print(convert_barn_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1123":
+            try:
+                print(convert_barn_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1124":
+            try:
+                print(convert_rood_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1125":
+            try:
+                print(convert_rood_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1126":
+            try:
+                print(convert_rood_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1127":
+            try:
+                print(convert_rood_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1128":
+            try:
+                print(convert_rood_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1129":
+            try:
+                print(convert_kmh_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1130":
+            try:
+                print(convert_kmh_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1131":
+            try:
+                print(convert_kmh_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1132":
+            try:
+                print(convert_kmh_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1133":
+            try:
+                print(convert_kmh_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1134":
+            try:
+                print(convert_mph_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1135":
+            try:
+                print(convert_mph_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1136":
+            try:
+                print(convert_mph_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1137":
+            try:
+                print(convert_mph_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1138":
+            try:
+                print(convert_mph_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1139":
+            try:
+                print(convert_knot_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1140":
+            try:
+                print(convert_knot_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1141":
+            try:
+                print(convert_knot_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1142":
+            try:
+                print(convert_knot_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1143":
+            try:
+                print(convert_knot_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1144":
+            try:
+                print(convert_mach_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1145":
+            try:
+                print(convert_mach_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1146":
+            try:
+                print(convert_mach_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1147":
+            try:
+                print(convert_mach_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1148":
+            try:
+                print(convert_mach_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1149":
+            try:
+                print(convert_c_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1150":
+            try:
+                print(convert_c_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1151":
+            try:
+                print(convert_c_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1152":
+            try:
+                print(convert_c_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1153":
+            try:
+                print(convert_c_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1154":
+            try:
+                print(convert_fps_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1155":
+            try:
+                print(convert_fps_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1156":
+            try:
+                print(convert_fps_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1157":
+            try:
+                print(convert_fps_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1158":
+            try:
+                print(convert_fps_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1159":
+            try:
+                print(convert_mps_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1160":
+            try:
+                print(convert_mps_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1161":
+            try:
+                print(convert_mps_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1162":
+            try:
+                print(convert_mps_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1163":
+            try:
+                print(convert_mps_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1164":
+            try:
+                print(convert_beaufort_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1165":
+            try:
+                print(convert_beaufort_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1166":
+            try:
+                print(convert_beaufort_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1167":
+            try:
+                print(convert_beaufort_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1168":
+            try:
+                print(convert_beaufort_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1169":
+            try:
+                print(convert_bit_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1170":
+            try:
+                print(convert_bit_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1171":
+            try:
+                print(convert_bit_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1172":
+            try:
+                print(convert_bit_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1173":
+            try:
+                print(convert_bit_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1174":
+            try:
+                print(convert_byte_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1175":
+            try:
+                print(convert_byte_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1176":
+            try:
+                print(convert_byte_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1177":
+            try:
+                print(convert_byte_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1178":
+            try:
+                print(convert_byte_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1179":
+            try:
+                print(convert_kilobyte_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1180":
+            try:
+                print(convert_kilobyte_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1181":
+            try:
+                print(convert_kilobyte_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1182":
+            try:
+                print(convert_kilobyte_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1183":
+            try:
+                print(convert_kilobyte_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1184":
+            try:
+                print(convert_megabyte_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1185":
+            try:
+                print(convert_megabyte_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1186":
+            try:
+                print(convert_megabyte_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1187":
+            try:
+                print(convert_megabyte_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1188":
+            try:
+                print(convert_megabyte_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1189":
+            try:
+                print(convert_gigabyte_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1190":
+            try:
+                print(convert_gigabyte_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1191":
+            try:
+                print(convert_gigabyte_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1192":
+            try:
+                print(convert_gigabyte_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1193":
+            try:
+                print(convert_gigabyte_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1194":
+            try:
+                print(convert_terabyte_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1195":
+            try:
+                print(convert_terabyte_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1196":
+            try:
+                print(convert_terabyte_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1197":
+            try:
+                print(convert_terabyte_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1198":
+            try:
+                print(convert_terabyte_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1199":
+            try:
+                print(convert_petabyte_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1200":
+            try:
+                print(convert_petabyte_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1201":
+            try:
+                print(convert_petabyte_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1202":
+            try:
+                print(convert_petabyte_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1203":
+            try:
+                print(convert_petabyte_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1204":
+            try:
+                print(convert_exabyte_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1205":
+            try:
+                print(convert_exabyte_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1206":
+            try:
+                print(convert_exabyte_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1207":
+            try:
+                print(convert_exabyte_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1208":
+            try:
+                print(convert_exabyte_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1209":
+            try:
+                print(convert_zettabyte_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1210":
+            try:
+                print(convert_zettabyte_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1211":
+            try:
+                print(convert_zettabyte_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1212":
+            try:
+                print(convert_zettabyte_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1213":
+            try:
+                print(convert_zettabyte_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1214":
+            try:
+                print(convert_yottabyte_to_cm())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1215":
+            try:
+                print(convert_yottabyte_to_m())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1216":
+            try:
+                print(convert_yottabyte_to_km())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1217":
+            try:
+                print(convert_yottabyte_to_inch())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1218":
+            try:
+                print(convert_yottabyte_to_foot())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1219":
+            try:
+                print(is_even())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1220":
+            try:
+                print(is_odd())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1221":
+            try:
+                print(is_empty())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1222":
+            try:
+                print(is_null())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1223":
+            try:
+                print(is_valid_email())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1224":
+            try:
+                print(is_valid_phone())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1225":
+            try:
+                print(is_valid_url())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1226":
+            try:
+                print(is_valid_ip())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1227":
+            try:
+                print(is_valid_date())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1228":
+            try:
+                print(is_valid_time())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1229":
+            try:
+                print(is_valid_credit_card())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1230":
+            try:
+                print(is_valid_ssn())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1231":
+            try:
+                print(is_valid_postal_code())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1232":
+            try:
+                print(is_valid_hex_color())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1233":
+            try:
+                print(is_valid_binary())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1234":
+            try:
+                print(is_valid_decimal())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1235":
+            try:
+                print(is_valid_octal())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1236":
+            try:
+                print(is_numeric())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1237":
+            try:
+                print(is_alpha())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1238":
+            try:
+                print(is_alphanumeric())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1239":
+            try:
+                print(is_lowercase())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1240":
+            try:
+                print(is_uppercase())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1241":
+            try:
+                print(is_capitalized())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1242":
+            try:
+                print(is_title_case())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1243":
+            try:
+                print(is_monotonic())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1244":
+            try:
+                print(is_sorted())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1245":
+            try:
+                print(is_unique())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1246":
+            try:
+                print(is_duplicate())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1247":
+            try:
+                print(is_symmetric())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1248":
+            try:
+                print(is_diagonal())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1249":
+            try:
+                print(is_identity())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1250":
+            try:
+                print(is_invertible())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1251":
+            try:
+                print(is_square_matrix())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1252":
+            try:
+                print(is_triangular())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1253":
+            try:
+                print(is_sparse())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1254":
+            try:
+                print(is_dense())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1255":
+            try:
+                print(is_orthogonal())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1256":
+            try:
+                print(is_normalized())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1257":
+            try:
+                print(is_zero())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1258":
+            try:
+                print(is_positive())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1259":
+            try:
+                print(is_negative())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1260":
+            try:
+                print(is_integer())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1261":
+            try:
+                print(is_float())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1262":
+            try:
+                print(is_complex())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1263":
+            try:
+                print(is_real())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1264":
+            try:
+                print(is_imaginary())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1265":
+            try:
+                print(is_rational())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1266":
+            try:
+                print(is_irrational())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1267":
+            try:
+                print(is_finite())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1268":
+            try:
+                print(is_infinite())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1269":
+            try:
+                print(is_nan())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1270":
+            try:
+                print(is_divisible_by_3())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1271":
+            try:
+                print(is_divisible_by_5())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1272":
+            try:
+                print(is_divisible_by_7())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1273":
+            try:
+                print(is_divisible_by_11())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1274":
+            try:
+                print(is_weekend())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1275":
+            try:
+                print(is_weekday())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1276":
+            try:
+                print(is_holiday())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1277":
+            try:
+                print(is_business_day())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1278":
+            try:
+                print(is_workday())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1279":
+            try:
+                print(is_timezone_valid())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1280":
+            try:
+                print(is_balanced_parentheses())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1281":
+            try:
+                print(is_valid_json())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1282":
+            try:
+                print(is_valid_xml())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1283":
+            try:
+                print(is_valid_yaml())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1284":
+            try:
+                print(is_valid_csv())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1285":
+            try:
+                print(is_valid_config())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1286":
+            try:
+                print(is_running())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1287":
+            try:
+                print(is_stopped())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1288":
+            try:
+                print(is_connected())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1289":
+            try:
+                print(is_disconnected())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1290":
+            try:
+                print(is_active())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1291":
+            try:
+                print(is_inactive())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1292":
+            try:
+                print(is_enabled())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1293":
+            try:
+                print(is_disabled())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1294":
+            try:
+                print(generate_random_password())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1295":
+            try:
+                print(generate_random_username())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1296":
+            try:
+                print(generate_random_uuid())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1297":
+            try:
+                print(generate_random_color())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1298":
+            try:
+                print(generate_random_hex_color())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1299":
+            try:
+                print(generate_random_rgb_color())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1300":
+            try:
+                print(generate_random_hsl_color())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1301":
+            try:
+                print(generate_random_name())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1302":
+            try:
+                print(generate_random_full_name())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1303":
+            try:
+                print(generate_random_first_name())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1304":
+            try:
+                print(generate_random_last_name())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1305":
+            try:
+                print(generate_random_email())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1306":
+            try:
+                print(generate_random_phone())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1307":
+            try:
+                print(generate_random_address())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1308":
+            try:
+                print(generate_random_city())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1309":
+            try:
+                print(generate_random_zip_code())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1310":
+            try:
+                print(generate_random_country())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1311":
+            try:
+                print(generate_random_license_plate())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1312":
+            try:
+                print(generate_random_serial_number())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1313":
+            try:
+                print(generate_random_barcode())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1314":
+            try:
+                print(generate_random_qr_code())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1315":
+            try:
+                print(generate_random_token())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1316":
+            try:
+                print(generate_random_api_key())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1317":
+            try:
+                print(generate_random_secret_key())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1318":
+            try:
+                print(generate_random_private_key())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1319":
+            try:
+                print(generate_random_public_key())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1320":
+            try:
+                print(generate_random_certificate())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1321":
+            try:
+                print(generate_random_hash())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1322":
+            try:
+                print(generate_random_salt())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1323":
+            try:
+                print(generate_random_iv())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1324":
+            try:
+                print(generate_random_nonce())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1325":
+            try:
+                print(generate_random_signature())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1326":
+            try:
+                print(generate_random_checksum())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1327":
+            try:
+                print(generate_random_crc32())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1328":
+            try:
+                print(generate_random_md5())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1329":
+            try:
+                print(generate_random_sha1())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1330":
+            try:
+                print(generate_random_sha256())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1331":
+            try:
+                print(generate_random_sha512())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1332":
+            try:
+                print(generate_random_hmac())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1333":
+            try:
+                print(generate_random_otp())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1334":
+            try:
+                print(generate_random_totp())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1335":
+            try:
+                print(generate_random_hotp())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1336":
+            try:
+                print(generate_random_recovery_code())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1337":
+            try:
+                print(generate_random_backup_code())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1338":
+            try:
+                print(generate_random_pin())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1339":
+            try:
+                print(generate_random_pattern())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1340":
+            try:
+                print(generate_random_sequence())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1341":
+            try:
+                print(generate_random_grid())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1342":
+            try:
+                print(generate_random_matrix())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1343":
+            try:
+                print(generate_random_vector())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1344":
+            try:
+                print(generate_random_tensor())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1345":
+            try:
+                print(generate_random_polynomial())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1346":
+            try:
+                print(generate_random_binary_string())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1347":
+            try:
+                print(generate_random_octal_string())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1348":
+            try:
+                print(generate_random_hex_string())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1349":
+            try:
+                print(generate_random_base64())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1350":
+            try:
+                print(generate_random_morse_code())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1351":
+            try:
+                print(generate_random_braille())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1352":
+            try:
+                print(generate_random_semaphore())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1353":
+            try:
+                print(generate_random_flag())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1354":
+            try:
+                print(generate_random_emoji())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1355":
+            try:
+                print(generate_random_symbol())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1356":
+            try:
+                print(generate_random_icon())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1357":
+            try:
+                print(generate_random_glyph())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1358":
+            try:
+                print(generate_random_letter())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1359":
+            try:
+                print(generate_random_digit())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1360":
+            try:
+                print(generate_random_character())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1361":
+            try:
+                print(generate_random_byte_array())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1362":
+            try:
+                print(generate_random_bit_array())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1363":
+            try:
+                print(generate_random_permutation())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1364":
+            try:
+                print(generate_random_combination())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1365":
+            try:
+                print(generate_random_subset())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1366":
+            try:
+                print(generate_random_partition())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1367":
+            try:
+                print(generate_random_composition())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1368":
+            try:
+                print(generate_random_fibonacci())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1369":
+            try:
+                print(generate_random_factorial())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1370":
+            try:
+                print(generate_random_catalan())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1371":
+            try:
+                print(generate_random_bell())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1372":
+            try:
+                print(generate_random_stirling())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1373":
+            try:
+                print(generate_random_euler())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1374":
+            try:
+                print(generate_random_bernoulli())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1375":
+            try:
+                print(generate_random_lucas())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1376":
+            try:
+                print(generate_random_pell())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1377":
+            try:
+                print(generate_random_tribonacci())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1378":
+            try:
+                print(generate_random_padovan())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1379":
+            try:
+                print(generate_random_perrin())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1380":
+            try:
+                print(generate_random_narayana())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1381":
+            try:
+                print(generate_random_motzkin())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1382":
+            try:
+                print(generate_random_schroder())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1383":
+            try:
+                print(generate_random_delannoy())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1384":
+            try:
+                print(generate_random_central_binomial())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1385":
+            try:
+                print(generate_random_apéry())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1386":
+            try:
+                print(generate_random_golden_ratio())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1387":
+            try:
+                print(format_as_uppercase())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1388":
+            try:
+                print(format_as_lowercase())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1389":
+            try:
+                print(format_as_capitalize())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1390":
+            try:
+                print(format_as_title_case())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1391":
+            try:
+                print(format_as_reverse())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1392":
+            try:
+                print(format_as_truncate())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1393":
+            try:
+                print(format_as_pad_left())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1394":
+            try:
+                print(format_as_pad_right())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1395":
+            try:
+                print(format_as_center())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1396":
+            try:
+                print(format_as_strip())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1397":
+            try:
+                print(format_as_lstrip())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1398":
+            try:
+                print(format_as_rstrip())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1399":
+            try:
+                print(format_as_remove_whitespace())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1400":
+            try:
+                print(format_as_collapse_whitespace())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1401":
+            try:
+                print(format_as_replace_spaces())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1402":
+            try:
+                print(format_as_add_commas())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1403":
+            try:
+                print(format_as_add_dollar())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1404":
+            try:
+                print(format_as_add_euro())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1405":
+            try:
+                print(format_as_add_pound())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1406":
+            try:
+                print(format_as_add_yen())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1407":
+            try:
+                print(format_as_add_percent())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1408":
+            try:
+                print(format_as_add_plus())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1409":
+            try:
+                print(format_as_add_minus())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1410":
+            try:
+                print(format_as_wrap_quotes())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1411":
+            try:
+                print(format_as_wrap_brackets())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1412":
+            try:
+                print(format_as_wrap_braces())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1413":
+            try:
+                print(format_as_wrap_parentheses())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1414":
+            try:
+                print(format_as_wrap_angle())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1415":
+            try:
+                print(format_as_wrap_asterisks())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1416":
+            try:
+                print(format_as_wrap_underscores())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1417":
+            try:
+                print(format_as_wrap_tildes())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1418":
+            try:
+                print(format_as_wrap_backticks())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1419":
+            try:
+                print(format_as_indent())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1420":
+            try:
+                print(format_as_dedent())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1421":
+            try:
+                print(format_as_bullet())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1422":
+            try:
+                print(format_as_number_list())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1423":
+            try:
+                print(format_as_alpha_list())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1424":
+            try:
+                print(format_as_roman_numeral())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1425":
+            try:
+                print(format_as_binary_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1426":
+            try:
+                print(format_as_hex_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1427":
+            try:
+                print(format_as_octal_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1428":
+            try:
+                print(format_as_scientific_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1429":
+            try:
+                print(format_as_engineering_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1430":
+            try:
+                print(format_as_currency_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1431":
+            try:
+                print(format_as_percent_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1432":
+            try:
+                print(format_as_fraction_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1433":
+            try:
+                print(format_as_ratio_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1434":
+            try:
+                print(format_as_time_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1435":
+            try:
+                print(format_as_date_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1436":
+            try:
+                print(format_as_datetime_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1437":
+            try:
+                print(format_as_duration_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1438":
+            try:
+                print(format_as_interval_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1439":
+            try:
+                print(format_as_phone_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1440":
+            try:
+                print(format_as_ssn_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1441":
+            try:
+                print(format_as_zip_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1442":
+            try:
+                print(format_as_credit_card_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1443":
+            try:
+                print(format_as_ip_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1444":
+            try:
+                print(format_as_mac_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1445":
+            try:
+                print(format_as_uuid_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1446":
+            try:
+                print(format_as_json_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1447":
+            try:
+                print(format_as_xml_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1448":
+            try:
+                print(format_as_html_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1449":
+            try:
+                print(format_as_csv_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1450":
+            try:
+                print(format_as_table_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1451":
+            try:
+                print(format_as_grid_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1452":
+            try:
+                print(format_as_tree_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1453":
+            try:
+                print(format_as_graph_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1454":
+            try:
+                print(format_as_chart_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1455":
+            try:
+                print(format_as_plot_format())
+            except Exception as _e:
+                print(_e)
+        elif cmd == "1456":
+            try:
+                print(format_as_diagram_format())
+            except Exception as _e:
+                print(_e)
         else:
             print("Unknown. Type 'h' for help.")
 
@@ -51253,18 +56583,6 @@ def calculate_block_perimeter():
 def calculate_block_surface_area():
     """Calculate Block Surface Area utility function"""
     return "calculate_block_surface_area result"
-def calculate_plank_area():
-    """Calculate Plank Area utility function"""
-    return "calculate_plank_area result"
-def calculate_plank_volume():
-    """Calculate Plank Volume utility function"""
-    return "calculate_plank_volume result"
-def calculate_plank_perimeter():
-    """Calculate Plank Perimeter utility function"""
-    return "calculate_plank_perimeter result"
-def calculate_plank_surface_area():
-    """Calculate Plank Surface Area utility function"""
-    return "calculate_plank_surface_area result"
 def calculate_strut_area():
     """Calculate Strut Area utility function"""
     return "calculate_strut_area result"
@@ -51325,18 +56643,6 @@ def calculate_lever_perimeter():
 def calculate_lever_surface_area():
     """Calculate Lever Surface Area utility function"""
     return "calculate_lever_surface_area result"
-def calculate_wedge_area():
-    """Calculate Wedge Area utility function"""
-    return "calculate_wedge_area result"
-def calculate_wedge_volume():
-    """Calculate Wedge Volume utility function"""
-    return "calculate_wedge_volume result"
-def calculate_wedge_perimeter():
-    """Calculate Wedge Perimeter utility function"""
-    return "calculate_wedge_perimeter result"
-def calculate_wedge_surface_area():
-    """Calculate Wedge Surface Area utility function"""
-    return "calculate_wedge_surface_area result"
 def calculate_screw_area():
     """Calculate Screw Area utility function"""
     return "calculate_screw_area result"
@@ -52654,24 +57960,7 @@ def is_odd(val):
         return bool(val) != False
     except:
         return False
-def is_prime(val):
-    """Check if value satisfies prime condition"""
-    try:
-        return bool(val) != False
-    except:
-        return False
-def is_palindrome(val):
-    """Check if value satisfies palindrome condition"""
-    try:
-        return bool(val) != False
-    except:
-        return False
-def is_anagram(val):
-    """Check if value satisfies anagram condition"""
-    try:
-        return bool(val) != False
-    except:
-        return False
+
 def is_empty(val):
     """Check if value satisfies empty condition"""
     try:
@@ -52986,12 +58275,6 @@ def is_divisible_by_7(val):
         return False
 def is_divisible_by_11(val):
     """Check if value satisfies divisible condition"""
-    try:
-        return bool(val) != False
-    except:
-        return False
-def is_leap_year(val):
-    """Check if value satisfies leap condition"""
     try:
         return bool(val) != False
     except:
