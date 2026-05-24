@@ -6,7 +6,9 @@ curated_names = {
     'get_chemistry_element_data','get_planet_data','get_city_data','get_mountain_data',
     'get_country_detail_data','get_river_data','get_lake_data','get_language_data',
     'get_invention_data','get_dinosaur_data','get_ocean_data','get_volcano_data',
-    'get_earthquake_data','get_hurricane_data'
+    'get_earthquake_data','get_hurricane_data',
+    'get_constellation_data','get_galaxy_data','get_gemstone_data','get_mineral_data',
+    'get_ocean_current_data','get_geological_formation_data','get_soil_type_data'
 }
 
 data_index = []   # (name, display_name, count, is_curated)
@@ -170,6 +172,8 @@ def build_docs():
         ("3.4.0","CLI colors, badges, pager, chart, quiz"),
         ("3.5.0","Bulk data (424 tables), module split"),
         ("3.6.0","Curated data, flashcard, AI query, timer, calc, docs"),
+        ("3.7.0","133 new data functions (data_bulk2.py), 67K lines"),
+        ("3.8.0","103 new data functions (data_bulk3.py), 50K lines, 465 total data tables, stats/changelog pages"),
     ]
     curated_sample_map = {}
     for name in curated_names:
@@ -237,12 +241,16 @@ def build_docs():
   <span style="color:#30363d;margin:0 12px;">|</span>
   <a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
   <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="stats.html" style="color:#58a6ff;text-decoration:none;">Statistics</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="changelog.html" style="color:#58a6ff;text-decoration:none;">Changelog</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
   <span style="color:#8b949e;">AI.py v''' + VERSION + r''' Docs</span>
 </div>
 <div class="container">
 
 <h1>AI.py v''' + VERSION + r'''</h1>
-<p class="subtitle">A massive Python CLI assistant — 2671+ commands, 500K+ lines, 229+ data tables</p>
+<p class="subtitle">A massive Python CLI assistant — 2700+ commands, 550K+ lines, 465 data tables</p>
 
 <p>
   <span class="badge badge-admin">ADMIN</span>
@@ -253,7 +261,7 @@ def build_docs():
 
 <h2>Statistics</h2>
 <p>
-  <span class="stat-box"><span class="num">2671+</span><br><span class="label">Commands</span></span>
+  <span class="stat-box"><span class="num">2700+</span><br><span class="label">Commands</span></span>
   <span class="stat-box"><span class="num">''' + "{:,}".format(total_entries) + r'''</span><br><span class="label">Data Entries</span></span>
   <span class="stat-box"><span class="num">''' + str(len(data_index)) + r'''</span><br><span class="label">Data Tables</span></span>
   <span class="stat-box"><span class="num">''' + str(len(curated_names)) + r'''</span><br><span class="label">Curated Tables</span></span>
@@ -353,6 +361,7 @@ python AI.py
   <li>Python 3.x</li>
   <li>HubBasePE v0.0.1.2.01 (PyPI)</li>
   <li>9 external modules: space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data, data_bulk</li>
+  <li>data_bulk2.py (133 functions), data_bulk3.py (103 functions)</li>
 </ul>
 
 <div class="footer">
@@ -460,6 +469,10 @@ def build_dashboard():
   <span style="color:var(--border);">|</span>
   <a href="AI.py-docs.html" style="color:var(--accent);text-decoration:none;">Documentation</a>
   <span style="color:var(--border);">|</span>
+  <a href="stats.html" style="color:var(--accent);text-decoration:none;">Statistics</a>
+  <span style="color:var(--border);">|</span>
+  <a href="changelog.html" style="color:var(--accent);text-decoration:none;">Changelog</a>
+  <span style="color:var(--border);">|</span>
   <span style="color:var(--fg2);">Dashboard</span>
 </div>
 
@@ -486,7 +499,7 @@ def build_dashboard():
     <div class="stat-card"><div class="num">''' + "{:,}".format(len(data_index)) + r'''</div><div class="lbl">Data Tables</div></div>
     <div class="stat-card"><div class="num">''' + "{:,}".format(total_entries) + r'''</div><div class="lbl">Data Entries</div></div>
     <div class="stat-card"><div class="num">''' + str(len(curated_names)) + r'''</div><div class="lbl">Curated Tables</div></div>
-    <div class="stat-card"><div class="num">3.6.0</div><div class="lbl">Version</div></div>
+    <div class="stat-card"><div class="num">3.8.0</div><div class="lbl">Version</div></div>
   </div>
   <h3>Quick Features</h3>
   <p style="color:var(--fg2);line-height:1.8;">

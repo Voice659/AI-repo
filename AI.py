@@ -1,11 +1,13 @@
 import random, datetime, os, math, string, json, re, hashlib, base64, uuid, time, statistics, sys, textwrap
-__version__ = "3.7.0"
+__version__ = "3.8.0"
 import space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data
 import HubBasePE.Main as HB
 import data_bulk
 from data_bulk import *
 import data_bulk2
 from data_bulk2 import *
+import data_bulk3
+from data_bulk3 import *
 HB.VipAccess = "F"
 HB.PassGuess = 0
 HB.Login = "usr"
