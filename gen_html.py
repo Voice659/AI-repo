@@ -175,6 +175,7 @@ def build_docs():
         ("3.7.0","133 new data functions (data_bulk2.py), 67K lines"),
         ("3.8.0","103 new data functions (data_bulk3.py), 50K lines, 465 total data tables, stats/changelog pages"),
         ("3.9.0","data-index.html page, updated welcome message, rebuilt updater"),
+        ("4.0.0","Major: 200 new data functions (data_bulk4.py), ~201K lines, 665 total tables, visual installer (AIInstaller.exe), download/features site pages, 800K+ total lines"),
     ]
     curated_sample_map = {}
     for name in curated_names:
@@ -241,6 +242,12 @@ def build_docs():
   <a href="index.html" style="color:#58a6ff;text-decoration:none;">&#x2190; Home</a>
   <span style="color:#30363d;margin:0 12px;">|</span>
   <a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="data-index.html" style="color:#58a6ff;text-decoration:none;">Data Index</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="features.html" style="color:#58a6ff;text-decoration:none;">Features</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="download.html" style="color:#58a6ff;text-decoration:none;">Downloads</a>
   <span style="color:#30363d;margin:0 12px;">|</span>
   <a href="stats.html" style="color:#58a6ff;text-decoration:none;">Statistics</a>
   <span style="color:#30363d;margin:0 12px;">|</span>
@@ -470,6 +477,12 @@ def build_dashboard():
   <span style="color:var(--border);">|</span>
   <a href="AI.py-docs.html" style="color:var(--accent);text-decoration:none;">Documentation</a>
   <span style="color:var(--border);">|</span>
+  <a href="data-index.html" style="color:var(--accent);text-decoration:none;">Data Index</a>
+  <span style="color:var(--border);">|</span>
+  <a href="features.html" style="color:var(--accent);text-decoration:none;">Features</a>
+  <span style="color:var(--border);">|</span>
+  <a href="download.html" style="color:var(--accent);text-decoration:none;">Downloads</a>
+  <span style="color:var(--border);">|</span>
   <a href="stats.html" style="color:var(--accent);text-decoration:none;">Statistics</a>
   <span style="color:var(--border);">|</span>
   <a href="changelog.html" style="color:var(--accent);text-decoration:none;">Changelog</a>
@@ -496,11 +509,11 @@ def build_dashboard():
   <h2>AI.py Dashboard</h2>
   <p style="color:var(--fg2);margin-bottom:20px;">A massive Python CLI assistant — interactive web companion.</p>
   <div class="stats">
-    <div class="stat-card"><div class="num">2,671+</div><div class="lbl">Commands</div></div>
+    <div class="stat-card"><div class="num">2,700+</div><div class="lbl">Commands</div></div>
     <div class="stat-card"><div class="num">''' + "{:,}".format(len(data_index)) + r'''</div><div class="lbl">Data Tables</div></div>
     <div class="stat-card"><div class="num">''' + "{:,}".format(total_entries) + r'''</div><div class="lbl">Data Entries</div></div>
     <div class="stat-card"><div class="num">''' + str(len(curated_names)) + r'''</div><div class="lbl">Curated Tables</div></div>
-    <div class="stat-card"><div class="num">3.8.0</div><div class="lbl">Version</div></div>
+    <div class="stat-card"><div class="num">4.0.0</div><div class="lbl">Version</div></div>
   </div>
   <h3>Quick Features</h3>
   <p style="color:var(--fg2);line-height:1.8;">
@@ -914,6 +927,10 @@ def build_data_index():
   <a href="AI.py-docs.html" style="color:#58a6ff;text-decoration:none;">Documentation</a>
   <span style="color:#30363d;margin:0 12px;">|</span>
   <a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="features.html" style="color:#58a6ff;text-decoration:none;">Features</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="download.html" style="color:#58a6ff;text-decoration:none;">Downloads</a>
   <span style="color:#30363d;margin:0 12px;">|</span>
   <a href="stats.html" style="color:#58a6ff;text-decoration:none;">Statistics</a>
   <span style="color:#30363d;margin:0 12px;">|</span>

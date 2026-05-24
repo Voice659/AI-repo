@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI.py v4.0.0 — Downloads</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', Arial, sans-serif; }
+  .container { max-width: 900px; margin: auto; padding: 20px; }
+  h1 { color: #58a6ff; font-size: 2em; margin: 20px 0 5px; }
+  h2 { color: #79c0ff; font-size: 1.4em; margin: 30px 0 10px; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+  .subtitle { color: #8b949e; font-size: 0.95em; margin-bottom: 25px; }
+  .nav { background: #161b22; border-bottom: 1px solid #30363d; padding: 8px 20px; text-align: center; font-size: 0.85em; }
+  .nav a { color: #58a6ff; text-decoration: none; margin: 0 8px; }
+  .nav span { color: #30363d; margin: 0 4px; }
+  .nav .current { color: #8b949e; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin: 15px 0; }
+  .card h3 { color: #a5d6ff; font-size: 1.1em; margin-bottom: 8px; }
+  .card p { color: #8b949e; font-size: 0.9em; line-height: 1.6; }
+  .btn { display: inline-block; padding: 10px 22px; border-radius: 6px; font-weight: bold; font-size: 0.9em; text-decoration: none; margin: 5px 10px 5px 0; }
+  .btn-primary { background: #1f6feb; color: #fff; }
+  .btn-secondary { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; }
+  .btn:hover { filter: brightness(1.2); }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  th { text-align: left; color: #8b949e; border-bottom: 1px solid #30363d; padding: 8px 12px; font-size: 0.85em; }
+  td { padding: 6px 12px; border-bottom: 1px solid #21262d; font-size: 0.9em; }
+  tr:hover { background: #161b22; }
+  .tag { display: inline-block; background: #21262d; color: #8b949e; font-size: 0.75em; padding: 2px 8px; border-radius: 3px; }
+  .badge-python { background: #3572A5; color: #fff; }
+  .badge-exe { background: #4ec9b0; color: #000; }
+  .badge-html { background: #e34c26; color: #fff; }
+  .badge-data { background: #563d7c; color: #fff; }
+  .badge-new { background: #238636; color: #fff; }
+  .file-icon { font-size: 0.9em; margin-right: 6px; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #30363d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="index.html">Home</a><span>|</span>
+  <a href="AI.py-docs.html">Docs</a><span>|</span>
+  <a href="dashboard.html">Dashboard</a><span>|</span>
+  <a href="data-index.html">Data Index</a><span>|</span>
+  <a href="features.html">Features</a><span>|</span>
+  <a href="stats.html">Stats</a><span>|</span>
+  <a href="changelog.html">Changelog</a><span>|</span>
+  <span class="current">Downloads</span>
+</div>
+<div class="container">
+
+<h1>AI.py Downloads</h1>
+<p class="subtitle">Get the latest version of AI.py — v4.0.0, 800K+ lines, 665 data tables</p>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>&#x1F4E6; Visual Installer (GUI)</h3>
+    <p>The recommended way to install AI.py. Features a graphical interface with progress bars, file verification, and one-click update checking. Built with tkinter.</p>
+    <p style="margin: 12px 0;">
+      <span class="tag badge-exe">EXE</span>
+      <span class="tag badge-new">v4.0.0</span>
+      <span class="tag">12.3 MB</span>
+    </p>
+    <a href="#" class="btn btn-primary" onclick="alert('Available on GitHub Releases')">Download AIInstaller.exe</a>
+  </div>
+  <div class="card">
+    <h3>&#x1F4E6; CLI Updater</h3>
+    <p>Lightweight command-line updater for automated installations. Supports configurable URL, version comparison, and backup creation. 10.2 MB.</p>
+    <p style="margin: 12px 0;">
+      <span class="tag badge-exe">EXE</span>
+      <span class="tag badge-new">v2.0.1</span>
+      <span class="tag">10.2 MB</span>
+    </p>
+    <a href="#" class="btn btn-secondary" onclick="alert('Available on GitHub Releases')">Download AIUpdater.exe</a>
+  </div>
+</div>
+
+<h2>Core Files</h2>
+<table>
+<tr><th>File</th><th>Size</th><th>Lines</th><th>Type</th></tr>
+<tr><td><span class="file-icon">&#x1F4D1;</span> AI.py</td><td>14.1 MB</td><td>277K</td><td><span class="tag badge-python">Python</span> Main</td></tr>
+<tr><td><span class="file-icon">&#x1F4D1;</span> data_bulk.py</td><td>9.0 MB</td><td>214K</td><td><span class="tag badge-data">Data</span> Bulk 1</td></tr>
+<tr><td><span class="file-icon">&#x1F4D1;</span> data_bulk2.py</td><td>3.7 MB</td><td>67K</td><td><span class="tag badge-data">Data</span> Bulk 2</td></tr>
+<tr><td><span class="file-icon">&#x1F4D1;</span> data_bulk3.py</td><td>2.9 MB</td><td>52K</td><td><span class="tag badge-data">Data</span> Bulk 3</td></tr>
+<tr><td><span class="file-icon">&#x1F4D1;</span> data_bulk4.py</td><td>13.4 MB</td><td>201K</td><td><span class="tag badge-data">Data</span> Bulk 4</td></tr>
+</table>
+
+<h2>External Modules</h2>
+<table>
+<tr><th>Module</th><th>Purpose</th></tr>
+<tr><td>space_data.py</td><td>Astronomy, planets, stars, galaxies data</td></tr>
+<tr><td>mini_games.py</td><td>Guess number, hangman, word scramble, riddles</td></tr>
+<tr><td>trivia_pack.py</td><td>Trivia questions across many categories</td></tr>
+<tr><td>word_play.py</td><td>Pig Latin, Caesar cipher, anagrams, palindrome</td></tr>
+<tr><td>art_extra.py</td><td>Additional ASCII art and drawing functions</td></tr>
+<tr><td>world_data.py</td><td>Country, city, mountain, river geographic data</td></tr>
+<tr><td>story_data.py</td><td>Story generation prompts and templates</td></tr>
+</table>
+
+<h2>Site Pages</h2>
+<table>
+<tr><th>Page</th><th>Description</th></tr>
+<tr><td><a href="index.html" style="color:#58a6ff;">index.html</a></td><td>Landing page with stats, cards, navigation hub</td></tr>
+<tr><td><a href="AI.py-docs.html" style="color:#58a6ff;">AI.py-docs.html</a></td><td>Full documentation: commands, data index, samples, version history</td></tr>
+<tr><td><a href="dashboard.html" style="color:#58a6ff;">dashboard.html</a></td><td>Interactive web UI: commands, data browser, quiz, chart tool</td></tr>
+<tr><td><a href="data-index.html" style="color:#58a6ff;">data-index.html</a></td><td>Searchable, sortable index of all 665 data tables</td></tr>
+<tr><td><a href="features.html" style="color:#58a6ff;">features.html</a></td><td>Complete feature showcase with descriptions</td></tr>
+<tr><td><a href="stats.html" style="color:#58a6ff;">stats.html</a></td><td>Project statistics: function counts, file sizes, line counts</td></tr>
+<tr><td><a href="changelog.html" style="color:#58a6ff;">changelog.html</a></td><td>Full version history from v3.0.2 to v4.0.0</td></tr>
+</table>
+
+<div class="footer">
+  AI.py v4.0.0 Downloads &mdash; All files available on GitHub
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI.py v4.0.0 — Features</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', Arial, sans-serif; }
+  .container { max-width: 960px; margin: auto; padding: 20px; }
+  h1 { color: #58a6ff; font-size: 2em; margin: 20px 0 5px; }
+  h2 { color: #79c0ff; font-size: 1.4em; margin: 35px 0 10px; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+  h3 { color: #a5d6ff; font-size: 1.1em; margin: 20px 0 8px; }
+  .subtitle { color: #8b949e; font-size: 0.95em; margin-bottom: 25px; }
+  .nav { background: #161b22; border-bottom: 1px solid #30363d; padding: 8px 20px; text-align: center; font-size: 0.85em; }
+  .nav a { color: #58a6ff; text-decoration: none; margin: 0 8px; }
+  .nav span { color: #30363d; margin: 0 4px; }
+  .nav .current { color: #8b949e; }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 15px; margin: 20px 0; }
+  .feature-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; transition: border-color 0.2s, transform 0.2s; }
+  .feature-card:hover { border-color: #58a6ff; transform: translateY(-2px); }
+  .feature-card .icon { font-size: 1.8em; margin-bottom: 8px; }
+  .feature-card h3 { color: #a5d6ff; font-size: 1em; margin-bottom: 6px; }
+  .feature-card p { color: #8b949e; font-size: 0.85em; line-height: 1.5; }
+  .feature-card .tag { display: inline-block; background: #21262d; color: #8b949e; font-size: 0.7em; padding: 2px 6px; border-radius: 3px; margin: 1px; }
+  .feature-card .new { background: #238636; color: #fff; }
+  .stats-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 25px 0; }
+  .stat-box { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 18px 22px; text-align: center; flex: 1; min-width: 100px; }
+  .stat-box .num { font-size: 1.6em; font-weight: bold; color: #58a6ff; }
+  .stat-box .lbl { font-size: 0.8em; color: #8b949e; margin-top: 3px; }
+  .role-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .role-table th { text-align: left; color: #8b949e; border-bottom: 1px solid #30363d; padding: 8px 12px; font-size: 0.85em; }
+  .role-table td { padding: 6px 12px; border-bottom: 1px solid #21262d; font-size: 0.9em; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 0.75em; }
+  .badge-admin { background: #d73a49; color: #fff; }
+  .badge-mod { background: #0366d6; color: #fff; }
+  .badge-vip { background: #28a745; color: #fff; }
+  .badge-user { background: #30363d; color: #c9d1d9; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #30363d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  a { color: #58a6ff; }
+  @media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="index.html">Home</a><span>|</span>
+  <a href="AI.py-docs.html">Docs</a><span>|</span>
+  <a href="dashboard.html">Dashboard</a><span>|</span>
+  <a href="data-index.html">Data Index</a><span>|</span>
+  <a href="download.html">Downloads</a><span>|</span>
+  <a href="stats.html">Stats</a><span>|</span>
+  <a href="changelog.html">Changelog</a><span>|</span>
+  <span class="current">Features</span>
+</div>
+<div class="container">
+
+<h1>AI.py Features</h1>
+<p class="subtitle">A massive Python CLI assistant — 2700+ commands, 800K+ lines, 665 data tables, 7 site pages</p>
+
+<div class="stats-row">
+  <div class="stat-box"><div class="num">2700+</div><div class="lbl">Commands</div></div>
+  <div class="stat-box"><div class="num">800K+</div><div class="lbl">Lines</div></div>
+  <div class="stat-box"><div class="num">665</div><div class="lbl">Data Tables</div></div>
+  <div class="stat-box"><div class="num">28</div><div class="lbl">Curated</div></div>
+  <div class="stat-box"><div class="num">4.0.0</div><div class="lbl">Version</div></div>
+</div>
+
+<h2>Core System</h2>
+<div class="feature-grid">
+  <div class="feature-card">
+    <div class="icon">&#x1F3AE;</div>
+    <h3>Role System</h3>
+    <p>Four access levels: User, VIP, Mod, Admin. Each with distinct command sets and colored badges.</p>
+    <span class="tag">User</span>
+    <span class="tag new">VIP</span>
+    <span class="tag">Mod</span>
+    <span class="tag">Admin</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F9E9;</div>
+    <h3>Debug Console</h3>
+    <p>Enhanced REPL: Python eval/exec, HBPE programs, command routing, stop/reset controls.</p>
+    <span class="tag">debug_exec</span>
+    <span class="tag">eval/exec</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F3B2;</div>
+    <h3>HBPE Integration</h3>
+    <p>HubBasePE programs 1-19, P1-P5. All users can run programs and dev console. Direct VIP access.</p>
+    <span class="tag">hbpe_start</span>
+    <span class="tag">programs</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4D6;</div>
+    <h3>2700+ Commands</h3>
+    <p>Drawing, math, utilities, games, data, admin. Searchable via suggest/find command.</p>
+    <span class="tag">categorized</span>
+    <span class="tag">searchable</span>
+  </div>
+</div>
+
+<h2>Data &amp; Learning</h2>
+<div class="feature-grid">
+  <div class="feature-card">
+    <div class="icon">&#x1F4CA;</div>
+    <h3>665 Data Tables</h3>
+    <p>229 + 133 + 103 + 200 functions across 4 bulk modules. 500-1000 entries each. 231K+ total entries.</p>
+    <span class="tag">procedural</span>
+    <span class="tag new">curated</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4DD;</div>
+    <h3>Quiz System</h3>
+    <p>Interactive quiz on 16 curated data tables. Multiple choice, scoring, and feedback.</p>
+    <span class="tag">quiz</span>
+    <span class="tag">multiple choice</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4A1;</div>
+    <h3>Flashcard Learner</h3>
+    <p>Learn from 16 data tables with spaced repetition and score tracking.</p>
+    <span class="tag">flashcard</span>
+    <span class="tag">learn</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F50D;</div>
+    <h3>AI Data Query</h3>
+    <p>Natural-language search across all 665 data tables. Find anything by keyword.</p>
+    <span class="tag">ask</span>
+    <span class="tag">ai</span>
+    <span class="tag">query</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4E5;</div>
+    <h3>Data Export</h3>
+    <p>Export any data table to file for external analysis.</p>
+    <span class="tag">save</span>
+    <span class="tag">export</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4CB;</div>
+    <h3>28 Curated Tables</h3>
+    <p>Real verified data: elements, planets, cities, countries, mountains, rivers, lakes, languages, inventions, dinosaurs, oceans, volcanoes, earthquakes, hurricanes, constellations, galaxies, gemstones, minerals, ocean currents, geological formations, soil types.</p>
+    <span class="tag new">real data</span>
+  </div>
+</div>
+
+<h2>Utilities &amp; Tools</h2>
+<div class="feature-grid">
+  <div class="feature-card">
+    <div class="icon">&#x23F1;</div>
+    <h3>Timer &amp; Stopwatch</h3>
+    <p>Countdown timer with live display. Lap-capable stopwatch with split times.</p>
+    <span class="tag">timer</span>
+    <span class="tag">stopwatch</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F522;</div>
+    <h3>Calculator REPL</h3>
+    <p>Full calculator with history, math functions, variable storage.</p>
+    <span class="tag">calc</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4C8;</div>
+    <h3>ASCII Charts</h3>
+    <p>Generate bar charts from comma-separated numbers with labels and titles.</p>
+    <span class="tag">chart</span>
+    <span class="tag">barchart</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F3A8;</div>
+    <h3>ASCII Art</h3>
+    <p>Draw 50+ shapes and patterns: diamond, tree, heart, star, cat, dragon, spaceship, DNA, and more.</p>
+    <span class="tag">drawing</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F3B5;</div>
+    <h3>Color System</h3>
+    <p>Customizable colors, role-based colored badges, color picker, screen clear.</p>
+    <span class="tag">colors</span>
+    <span class="tag">badge</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4DD;</div>
+    <h3>Notes &amp; Todo</h3>
+    <p>Persistent notes and todo lists (JSON files). Add, list, remove, clear operations.</p>
+    <span class="tag">notes</span>
+    <span class="tag">todo</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x23F0;</div>
+    <h3>Reminders</h3>
+    <p>Set timed reminders with custom messages.</p>
+    <span class="tag">remind</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x2753;</div>
+    <h3>Explain Command</h3>
+    <p>Detailed help for any command: why/whatis/help_&lt;cmd&gt;.</p>
+    <span class="tag">explain</span>
+    <span class="tag">whatis</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4AD;</div>
+    <h3>Categorized Help</h3>
+    <p>Commands grouped by category: drawing, math, utilities, games, data, admin, HBPE.</p>
+    <span class="tag">help2</span>
+    <span class="tag">categories</span>
+  </div>
+</div>
+
+<h2>Site Pages</h2>
+<div class="feature-grid">
+  <div class="feature-card">
+    <div class="icon">&#x1F3E0;</div>
+    <h3>Landing Page</h3>
+    <p>Central hub with stats, navigation cards, curated table list, quick links.</p>
+    <span class="tag new">index.html</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4D6;</div>
+    <h3>Documentation</h3>
+    <p>Complete reference: command lists, data index, curated samples, version history, role system.</p>
+    <span class="tag">AI.py-docs.html</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4CA;</div>
+    <h3>Dashboard</h3>
+    <p>Interactive web UI: searchable commands, data browser with sortable tables, quiz, ASCII chart tool, dark/light theme.</p>
+    <span class="tag new">dashboard.html</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4CB;</div>
+    <h3>Data Index</h3>
+    <p>Searchable, sortable, filterable index of all 665 data tables. Curated/bulk badges.</p>
+    <span class="tag new">data-index.html</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F4E6;</div>
+    <h3>Downloads</h3>
+    <p>File listing with sizes, visual installer and CLI updater, external modules.</p>
+    <span class="tag new">download.html</span>
+  </div>
+  <div class="feature-card">
+    <div class="icon">&#x1F3A0;</div>
+    <h3>Features</h3>
+    <p>This page — complete feature showcase for developers and users.</p>
+    <span class="tag new">features.html</span>
+  </div>
+</div>
+
+<h2>Data Categories (28 Curated)</h2>
+<div class="feature-grid">
+  <div class="feature-card"><h3>Elements</h3><p>118 chemical elements with symbol, atomic number, mass, category</p><span class="tag">chemistry</span></div>
+  <div class="feature-card"><h3>Planets</h3><p>50 planets with distance, mass, diameter, type</p><span class="tag">astronomy</span></div>
+  <div class="feature-card"><h3>Cities</h3><p>171 world cities with country, population, coordinates</p><span class="tag">geography</span></div>
+  <div class="feature-card"><h3>Countries</h3><p>195 countries with continent, capital, population, area</p><span class="tag">geography</span></div>
+  <div class="feature-card"><h3>Mountains</h3><p>39 peaks with height, range, location, first ascent</p><span class="tag">geography</span></div>
+  <div class="feature-card"><h3>Rivers</h3><p>40 major rivers with length, outflow, countries</p><span class="tag">geography</span></div>
+  <div class="feature-card"><h3>Lakes</h3><p>40 lakes with area, depth, location</p><span class="tag">geography</span></div>
+  <div class="feature-card"><h3>Languages</h3><p>50 languages with speaker count, family</p><span class="tag">linguistics</span></div>
+  <div class="feature-card"><h3>Inventions</h3><p>50 inventions with year, inventor, category</p><span class="tag">history</span></div>
+  <div class="feature-card"><h3>Dinosaurs</h3><p>30 dinosaurs with period, diet, length, mass</p><span class="tag">paleontology</span></div>
+  <div class="feature-card"><h3>Oceans</h3><p>5 oceans with area, depth, volume</p><span class="tag">geography</span></div>
+  <div class="feature-card"><h3>Volcanoes</h3><p>20 volcanoes with height, type, last eruption</p><span class="tag">geology</span></div>
+  <div class="feature-card"><h3>Earthquakes</h3><p>20 earthquakes with magnitude, depth, location</p><span class="tag">geology</span></div>
+  <div class="feature-card"><h3>Hurricanes</h3><p>20 hurricanes with category, winds, pressure</p><span class="tag">meteorology</span></div>
+  <div class="feature-card"><h3>Constellations</h3><p>88 IAU constellations with season, brightest star</p><span class="tag">astronomy</span></div>
+  <div class="feature-card"><h3>Galaxies</h3><p>50 galaxies with type, distance, constellation</p><span class="tag">astronomy</span></div>
+  <div class="feature-card"><h3>Gemstones</h3><p>50 gemstones with color, hardness, chemical formula</p><span class="tag">mineralogy</span></div>
+  <div class="feature-card"><h3>Minerals</h3><p>80 minerals with hardness, streak, luster</p><span class="tag">mineralogy</span></div>
+  <div class="feature-card"><h3>Ocean Currents</h3><p>30 currents with type, speed, direction</p><span class="tag">oceanography</span></div>
+  <div class="feature-card"><h3>Geological Formations</h3><p>30 formations with type, age, location</p><span class="tag">geology</span></div>
+  <div class="feature-card"><h3>Soil Types</h3><p>20 soil orders with characteristics, climate</p><span class="tag">geology</span></div>
+</div>
+
+<div class="footer">
+  AI.py v4.0.0 Features &mdash; 800K+ lines, 665 data tables, 7 site pages
+</div>
+
+</div>
+</body>
+</html>

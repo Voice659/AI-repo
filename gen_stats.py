@@ -8,12 +8,13 @@ funcs = sorted([f for f in dir(AI) if f.startswith('get_') and f.endswith('_data
 total_funcs = len(funcs)
 
 files_info = {}
-for fname in ['AI.py', 'data_bulk.py', 'data_bulk2.py', 'data_bulk3.py']:
+for fname in ['AI.py', 'data_bulk.py', 'data_bulk2.py', 'data_bulk3.py', 'data_bulk4.py']:
     if os.path.exists(fname):
         sz = os.path.getsize(fname)
         with open(fname, 'rb') as f:
             lc = sum(1 for _ in f)
         files_info[fname] = (sz, lc)
+
 total_lines = sum(lc for _, lc in files_info.values())
 
 curated_names = {
@@ -83,7 +84,7 @@ html_str += '  <div class="stat-card"><div class="num">2700+</div><div class="lb
 html_str += '  <div class="stat-card"><div class="num">10</div><div class="lbl">Ext Modules</div></div>\n'
 html_str += '  <div class="stat-card"><div class="num">' + VERSION + '</div><div class="lbl">Version</div></div>\n'
 html_str += '</div>\n<h2>File Distribution</h2>\n<table>\n<tr><th>File</th><th>Size</th><th>Lines</th><th>Type</th></tr>\n'
-for fname in ['AI.py', 'data_bulk.py', 'data_bulk2.py', 'data_bulk3.py']:
+for fname in ['AI.py', 'data_bulk.py', 'data_bulk2.py', 'data_bulk3.py', 'data_bulk4.py']:
     sz, lc = files_info[fname]
     sz_str = '{:.1f} KB'.format(sz/1024)
     ftype = 'Main' if fname == 'AI.py' else 'Bulk'
@@ -95,6 +96,7 @@ html_str += '</table>\n<h2>Data Function Distribution</h2>\n<table>\n<tr><th>Mod
 html_str += '<tr><td>AI.py + data_bulk.py</td><td>229</td><td>Bulk</td></tr>\n'
 html_str += '<tr><td>data_bulk2.py</td><td>133</td><td>Bulk</td></tr>\n'
 html_str += '<tr><td>data_bulk3.py</td><td>103</td><td>Bulk</td></tr>\n'
+html_str += '<tr><td>data_bulk4.py</td><td>200</td><td>Bulk</td></tr>\n'
 html_str += '</table>\n<h2>External Modules</h2>\n<table>\n<tr><th>Module</th><th>Purpose</th></tr>\n'
 html_str += '<tr><td>space_data.py</td><td>Astronomy data</td></tr>\n'
 html_str += '<tr><td>mini_games.py</td><td>Games: guess, hangman, scramble, riddles</td></tr>\n'
@@ -105,7 +107,8 @@ html_str += '<tr><td>world_data.py</td><td>Geographic data tables</td></tr>\n'
 html_str += '<tr><td>story_data.py</td><td>Story prompts</td></tr>\n'
 html_str += '<tr><td>data_bulk.py</td><td>424 tables (214K lines)</td></tr>\n'
 html_str += '<tr><td>data_bulk2.py</td><td>133 tables (67K lines)</td></tr>\n'
-html_str += '<tr><td>data_bulk3.py</td><td>103 tables (50K lines)</td></tr>\n'
+html_str += '<tr><td>data_bulk3.py</td><td>103 tables (52K lines)</td></tr>\n'
+html_str += '<tr><td>data_bulk4.py</td><td>200 tables (201K lines)</td></tr>\n'
 html_str += '</table>\n<h2>Role System</h2>\n<table>\n<tr><th>Role</th><th>Password</th><th>Badge</th></tr>\n'
 html_str += '<tr><td>User</td><td>-</td><td>Gray</td></tr>\n'
 html_str += '<tr><td>VIP</td><td>5280</td><td>Green</td></tr>\n'

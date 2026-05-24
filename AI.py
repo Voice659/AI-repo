@@ -1,5 +1,5 @@
 import random, datetime, os, math, string, json, re, hashlib, base64, uuid, time, statistics, sys, textwrap
-__version__ = "3.9.0"
+__version__ = "4.0.0"
 import space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data
 import HubBasePE.Main as HB
 import data_bulk
@@ -8,6 +8,8 @@ import data_bulk2
 from data_bulk2 import *
 import data_bulk3
 from data_bulk3 import *
+import data_bulk4
+from data_bulk4 import *
 HB.VipAccess = "F"
 HB.PassGuess = 0
 HB.Login = "usr"
@@ -22004,7 +22006,7 @@ def handle_cmd(cmd, role, name, badge):
 
 def main():
     clear()
-    print(C_CYAN + C_BOLD + "Welcome to AI.py v" + __version__ + "! 2700+ commands, 610K+ lines, 465 data tables, notes, todo, remind, explain, curated data." + C_RESET)
+    print(C_CYAN + C_BOLD + "Welcome to AI.py v" + __version__ + "! 2700+ commands, 800K+ lines, 665 data tables, visual installer, data-index, features." + C_RESET)
     name = input(C_YELLOW + "What's your name? " + C_RESET).strip() or "Stranger"
 
     pw = input("Role password (or press Enter for none): ").strip()
