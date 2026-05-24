@@ -1,7 +1,7 @@
 import random, datetime, os, math, string, json, re, hashlib, base64, uuid, time, statistics, sys, textwrap
-__version__ = "4.0.0"
+__version__ = "4.1.0"
 import space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data
-import HubBasePE.Main as HB
+import hbpe_compat as HB
 import data_bulk
 from data_bulk import *
 import data_bulk2
@@ -10,9 +10,8 @@ import data_bulk3
 from data_bulk3 import *
 import data_bulk4
 from data_bulk4 import *
-HB.VipAccess = "F"
-HB.PassGuess = 0
-HB.Login = "usr"
+import data_bulk5
+from data_bulk5 import *
 
 if os.name == "nt":
     os.system("color")
@@ -7940,7 +7939,7 @@ def show_help(role=None):
             print("hbpe_advance  - Advance HubBasePE")
             print("hbpe_restart  - Restart HubBasePE")
             print("hbpe_stop     - Stop HubBasePE")
-            print("hbpe_program1-19 - Run programs 1-19")
+            print("hbpe_program1-20 - Run programs 1-20")
             print("hbpe_programp1-5 - Run programs P1-P5")
             print("hbpe_dev_console - HubBasePE dev console")
             print("docs          - Open HTML documentation")
@@ -7952,7 +7951,7 @@ def show_help(role=None):
             print("hbpe_start    - Start HubBasePE")
             print("hbpe_advance  - Advance HubBasePE")
             print("hbpe_stop     - Stop HubBasePE")
-            print("hbpe_program1-19 - Run programs 1-19")
+            print("hbpe_program1-20 - Run programs 1-20")
             print("hbpe_dev_console - HubBasePE dev console")
             print("docs          - Open HTML documentation")
             print("dashboard     - Open HTML dashboard")
@@ -7960,7 +7959,7 @@ def show_help(role=None):
             print("vip_fact  - VIP exclusive fact")
             print("vip_quote - VIP exclusive quote")
             print("hbpe_start    - Start HubBasePE")
-            print("hbpe_program1-19 - Run programs 1-19")
+            print("hbpe_program1-20 - Run programs 1-20")
             print("hbpe_dev_console - HubBasePE dev console")
             print("docs          - Open HTML documentation")
             print("dashboard     - Open HTML dashboard")
@@ -7981,8 +7980,9 @@ def show_help(role=None):
     print("remind <s> <m> - Set a timer reminder")
     print("explain <cmd> - Detailed help for a specific command")
     print("hbpe_start    - Start HubBasePE (turtle graphics)")
-    print("hbpe_program1-19 - Run HBPE programs 1-19")
-    print("hbpe_dev_console - HBPE developer console (requires 345 login)")
+    print("hbpe_program1-20 - Run HBPE programs 1-20")
+    print("hbpe_programp1-5 - Run HBPE programs P1-P5")
+    print("hbpe_dev_console - HBPE developer console")
     print("quiz          - Interactive data quiz")
     print("chart         - ASCII bar chart generator")
     print("flashcard     - Flashcard learner")
@@ -8851,8 +8851,9 @@ def cmd_suggest(partial):
               "hbpe_program18", "hbpe_prog18", "hbpe_program19", "hbpe_prog19",
               "hbpe_programp1", "hbpe_progp1", "hbpe_programp2", "hbpe_progp2",
               "hbpe_programp3", "hbpe_progp3", "hbpe_programp4", "hbpe_progp4",
-              "hbpe_programp5", "hbpe_progp5",
-              "gen_html", "regenerate", "html_docs", "html_dash",
+               "hbpe_programp5", "hbpe_progp5",
+               "hbpe_program20", "hbpe_prog20",
+               "gen_html", "regenerate", "html_docs", "html_dash",
               "notes", "todo", "remind", "help_", "explain", "whatis"]
     matches = [n for n in names if partial.lower() in n]
     if not matches: return "No matches for '" + partial + "'."
@@ -9064,7 +9065,8 @@ def cmd_help_detail(topic):
         "docs": "Opens AI.py-docs.html in your web browser (comprehensive documentation).",
         "dashboard": "Opens dashboard.html in your web browser (interactive web UI).",
         "hbpe_start": "Starts HubBasePE turtle graphics environment.",
-        "hbpe_program1": "Runs HBPE Program 1 (turtle graphics demo). Programs 1-19 and P1-P5 available.",
+        "hbpe_program1": "Runs HBPE Program 1 (turtle graphics demo). Programs 1-20 and P1-P5 available.",
+        "hbpe_dev_console": "Opens HBPE developer console (requires 0.0.2.0.00b1+).",
         "345": "Launches HubBasePE Code system with VIP authentication.",
         "debug_exec": "Interactive debug console. Type Python expressions, HBPE program numbers, or 'stop' to exit.",
         "notes": "Simple note taking. 'notes add <text>', 'notes list', 'notes remove N', 'notes clear'.",
@@ -9088,7 +9090,7 @@ def help_cat():
         ("Data", "67-75, 121-132 (quote, animals, colors, fruits, vegetables, elements, random number, UUID, shuffle, flatten, chunk, unique, intersect)"),
         ("Admin/Mod/VIP", "system_info, list_users, toggle_debug, featured_joke, vip_fact, vip_quote"),
         ("Debug", "debug_functions, debug_vars, debug_cmd_count, debug_exec"),
-        ("HBPE", "345, hbpe_start, hbpe_advance, hbpe_restart, hbpe_stop, hbpe_program1-19, hbpe_programp1-5, hbpe_dev_console"),
+        ("HBPE", "345, hbpe_start, hbpe_advance, hbpe_restart, hbpe_stop, hbpe_program1-20, hbpe_programp1-5, hbpe_dev_console"),
         ("New v3.6", "quiz, chart, suggest, ask/ai/query, flashcard/learn, colors, pager_test, cls, version, timer, stopwatch, calc, categories, save/export"),
         ("HTML Docs", "docs (open AI.py-docs.html), dashboard (open dashboard.html), gen_html/regenerate (rebuild HTML files)"),
         ("Notes/Todo", "notes (add/list/remove/clear), todo (add/list/done/remove/clear), remind <sec> <msg>"),
@@ -9230,12 +9232,17 @@ def handle_cmd(cmd, role, name, badge):
         print("Running HubBasePE Program P4..."); HB.ProgrammP4()
     elif cmd in ("hbpe_programp5","hbpe_progp5"):
         print("Running HubBasePE Program P5..."); HB.ProgrammP5()
+    elif cmd in ("hbpe_program20","hbpe_prog20"):
+        if HB.HBPE_HAS_PROGRAM20:
+            print("Running HubBasePE Program 20..."); HB.Programm20()
+        else:
+            print("Program 20 requires HubBasePE 0.0.2.0.00b1 or later.")
     elif cmd == "hbpe_dev_console":
-        if HB.VipAccess == "T":
+        if HB.HBPE_HAS_DEV_CONSOLE:
             print("Opening HubBasePE developer console...")
             HB.dev_console()
         else:
-            print("Dev console requires VIP access. Use '345' to log in first.")
+            print("Dev console requires HubBasePE 0.0.2.0.00b1 or later.")
     elif cmd in ("docs","html_docs"):
         if os.path.exists("AI.py-docs.html"):
             os.startfile("AI.py-docs.html")
@@ -22006,7 +22013,7 @@ def handle_cmd(cmd, role, name, badge):
 
 def main():
     clear()
-    print(C_CYAN + C_BOLD + "Welcome to AI.py v" + __version__ + "! 2700+ commands, 800K+ lines, 665 data tables, visual installer, data-index, features." + C_RESET)
+    print(C_CYAN + C_BOLD + "Welcome to AI.py v" + __version__ + "! 2700+ commands, 900K+ lines, 750+ data tables, dual HBPE, visual installer." + C_RESET)
     name = input(C_YELLOW + "What's your name? " + C_RESET).strip() or "Stranger"
 
     pw = input("Role password (or press Enter for none): ").strip()
