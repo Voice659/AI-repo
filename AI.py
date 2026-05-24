@@ -7934,8 +7934,11 @@ def show_help(role=None):
             print("hbpe_advance  - Advance HubBasePE")
             print("hbpe_restart  - Restart HubBasePE")
             print("hbpe_stop     - Stop HubBasePE")
-            print("hbpe_program1-3 - Run programs 1-3")
+            print("hbpe_program1-19 - Run programs 1-19")
+            print("hbpe_programp1-5 - Run programs P1-P5")
             print("hbpe_dev_console - HubBasePE dev console")
+            print("docs          - Open HTML documentation")
+            print("dashboard     - Open HTML dashboard")
         elif role == "Mod":
             print("featured_joke - Show featured joke")
             print("mute_user     - Mute a user")
@@ -7943,14 +7946,18 @@ def show_help(role=None):
             print("hbpe_start    - Start HubBasePE")
             print("hbpe_advance  - Advance HubBasePE")
             print("hbpe_stop     - Stop HubBasePE")
-            print("hbpe_program1 - Run program 1")
+            print("hbpe_program1-19 - Run programs 1-19")
             print("hbpe_dev_console - HubBasePE dev console")
+            print("docs          - Open HTML documentation")
+            print("dashboard     - Open HTML dashboard")
         elif role == "Vip":
             print("vip_fact  - VIP exclusive fact")
             print("vip_quote - VIP exclusive quote")
             print("hbpe_start    - Start HubBasePE")
-            print("hbpe_program1 - Run program 1")
+            print("hbpe_program1-19 - Run programs 1-19")
             print("hbpe_dev_console - HubBasePE dev console")
+            print("docs          - Open HTML documentation")
+            print("dashboard     - Open HTML dashboard")
         print()
     if debug_mode:
         print("=== DEBUG COMMANDS ===")
@@ -7959,6 +7966,24 @@ def show_help(role=None):
         print("debug_cmd_count  - Show command total")
         print("debug_exec       - Interactive Python console (type stop to exit)")
         print()
+    print("=== ALL-USER COMMANDS ===")
+    print("docs          - Open HTML documentation in browser")
+    print("dashboard     - Open HTML dashboard in browser")
+    print("gen_html      - Regenerate HTML files from current data")
+    print("hbpe_start    - Start HubBasePE (turtle graphics)")
+    print("hbpe_program1-19 - Run HBPE programs 1-19")
+    print("hbpe_dev_console - HBPE developer console (requires 345 login)")
+    print("quiz          - Interactive data quiz")
+    print("chart         - ASCII bar chart generator")
+    print("flashcard     - Flashcard learner")
+    print("ask/ai/query  - Natural-language data query")
+    print("timer         - Countdown timer")
+    print("stopwatch     - Stopwatch with laps")
+    print("calc          - Calculator REPL")
+    print("categories    - Categorized command listing")
+    print("save/export   - Export data table to file")
+    print("345           - Launch HubBasePE Code system")
+    print()
     print("h  - Show this help")
     print("q  - Quit")
     print()
@@ -8797,14 +8822,27 @@ def ascii_chart(values, labels=None, width=40, title=""):
 
 def cmd_suggest(partial):
     names = []
-    for i in range(1, 2672):
+    for i in range(1, 2676):
         names.append(str(i))
     names += ["h", "q", "system_info", "list_users", "toggle_debug", "featured_joke", "vip_fact", "vip_quote",
               "hbpe_start", "hbpe_advance", "hbpe_restart", "hbpe_stop", "hbpe_program1", "hbpe_program2",
               "hbpe_program3", "hbpe_dev_console", "debug_functions", "debug_vars", "debug_cmd_count", "debug_exec",
               "quiz", "chart", "suggest", "cls", "clear", "pager_test", "version", "ask", "ai", "query",
               "flashcard", "learn", "help2", "categories", "save", "export", "color_test", "badge", "colorbadge",
-              "data_quiz", "barchart", "find", "ver", "colors", "timer", "countdown", "stopwatch", "calc", "calculator"]
+              "data_quiz", "barchart", "find", "ver", "colors",               "timer", "countdown", "stopwatch", "calc", "calculator",
+              "docs", "html_docs", "dashboard", "html_dash",
+              "hbpe_program4", "hbpe_prog4", "hbpe_program5", "hbpe_prog5",
+              "hbpe_program6", "hbpe_prog6", "hbpe_program7", "hbpe_prog7",
+              "hbpe_program8", "hbpe_prog8", "hbpe_program9", "hbpe_prog9",
+              "hbpe_program10", "hbpe_prog10", "hbpe_program11", "hbpe_prog11",
+              "hbpe_program12", "hbpe_prog12", "hbpe_program13", "hbpe_prog13",
+              "hbpe_program14", "hbpe_prog14", "hbpe_program15", "hbpe_prog15",
+              "hbpe_program16", "hbpe_prog16", "hbpe_program17", "hbpe_prog17",
+              "hbpe_program18", "hbpe_prog18", "hbpe_program19", "hbpe_prog19",
+              "hbpe_programp1", "hbpe_progp1", "hbpe_programp2", "hbpe_progp2",
+              "hbpe_programp3", "hbpe_progp3", "hbpe_programp4", "hbpe_progp4",
+              "hbpe_programp5", "hbpe_progp5",
+              "gen_html", "regenerate", "html_docs", "html_dash"]
     matches = [n for n in names if partial.lower() in n]
     if not matches: return "No matches for '" + partial + "'."
     return "Matches: " + ", ".join(matches[:30])
@@ -8921,8 +8959,9 @@ def help_cat():
         ("Data", "67-75, 121-132 (quote, animals, colors, fruits, vegetables, elements, random number, UUID, shuffle, flatten, chunk, unique, intersect)"),
         ("Admin/Mod/VIP", "system_info, list_users, toggle_debug, featured_joke, vip_fact, vip_quote"),
         ("Debug", "debug_functions, debug_vars, debug_cmd_count, debug_exec"),
-        ("HBPE", "hbpe_start, hbpe_advance, hbpe_restart, hbpe_stop, hbpe_program1-3, hbpe_dev_console"),
-        ("New v3.6", "quiz, chart, suggest, ask/ai/query, flashcard/learn, colors, pager_test, cls, version"),
+        ("HBPE", "345, hbpe_start, hbpe_advance, hbpe_restart, hbpe_stop, hbpe_program1-19, hbpe_programp1-5, hbpe_dev_console"),
+        ("New v3.6", "quiz, chart, suggest, ask/ai/query, flashcard/learn, colors, pager_test, cls, version, timer, stopwatch, calc, categories, save/export"),
+        ("HTML Docs", "docs (open AI.py-docs.html), dashboard (open dashboard.html), gen_html/regenerate (rebuild HTML files)"),
     ]
     for name, desc in cats:
         print(C_CYAN + name + C_RESET + ": " + desc)
@@ -8997,34 +9036,90 @@ def handle_cmd(cmd, role, name, badge):
         print(vip_extra_fact())
     elif cmd == "vip_quote" and role == "Vip":
         print(vip_extra_quote())
-    elif cmd == "hbpe_start" and role:
+    elif cmd == "hbpe_start":
         print("Starting HubBasePE...")
         HB.Start()
-    elif cmd == "hbpe_advance" and role:
+    elif cmd == "hbpe_advance":
         print("Advancing HubBasePE...")
         HB.Advance()
     elif cmd == "hbpe_restart" and role == "Admin":
         print("Restarting HubBasePE...")
         HB.Restart()
-    elif cmd == "hbpe_stop" and role:
+    elif cmd == "hbpe_stop":
         HB.PStop()
         print("HubBasePE stopped.")
-    elif cmd == "hbpe_program1" and role:
+    elif cmd == "hbpe_program1":
         print("Running HubBasePE Program 1...")
         HB.Programm1()
-    elif cmd == "hbpe_program2" and role:
+    elif cmd == "hbpe_program2":
         print("Running HubBasePE Program 2...")
         HB.Programm2()
-    elif cmd == "hbpe_program3" and role:
+    elif cmd == "hbpe_program3":
         print("Running HubBasePE Program 3...")
         HB.Programm3()
-    elif cmd == "hbpe_dev_console" and role:
+    elif cmd in ("hbpe_program4","hbpe_prog4"):
+        print("Running HubBasePE Program 4..."); HB.Programm4()
+    elif cmd in ("hbpe_program5","hbpe_prog5"):
+        print("Running HubBasePE Program 5..."); HB.Programm5()
+    elif cmd in ("hbpe_program6","hbpe_prog6"):
+        print("Running HubBasePE Program 6..."); HB.Programm6()
+    elif cmd in ("hbpe_program7","hbpe_prog7"):
+        print("Running HubBasePE Program 7..."); HB.Programm7()
+    elif cmd in ("hbpe_program8","hbpe_prog8"):
+        print("Running HubBasePE Program 8..."); HB.Programm8()
+    elif cmd in ("hbpe_program9","hbpe_prog9"):
+        print("Running HubBasePE Program 9..."); HB.Programm9()
+    elif cmd in ("hbpe_program10","hbpe_prog10"):
+        print("Running HubBasePE Program 10..."); HB.Programm10()
+    elif cmd in ("hbpe_program11","hbpe_prog11"):
+        print("Running HubBasePE Program 11..."); HB.Programm11()
+    elif cmd in ("hbpe_program12","hbpe_prog12"):
+        print("Running HubBasePE Program 12..."); HB.Programm12()
+    elif cmd in ("hbpe_program13","hbpe_prog13"):
+        print("Running HubBasePE Program 13..."); HB.Programm13()
+    elif cmd in ("hbpe_program14","hbpe_prog14"):
+        print("Running HubBasePE Program 14..."); HB.Programm14()
+    elif cmd in ("hbpe_program15","hbpe_prog15"):
+        print("Running HubBasePE Program 15..."); HB.Programm15()
+    elif cmd in ("hbpe_program16","hbpe_prog16"):
+        print("Running HubBasePE Program 16..."); HB.Programm16()
+    elif cmd in ("hbpe_program17","hbpe_prog17"):
+        print("Running HubBasePE Program 17..."); HB.Programm17()
+    elif cmd in ("hbpe_program18","hbpe_prog18"):
+        print("Running HubBasePE Program 18..."); HB.Programm18()
+    elif cmd in ("hbpe_program19","hbpe_prog19"):
+        print("Running HubBasePE Program 19..."); HB.Programm19()
+    elif cmd in ("hbpe_programp1","hbpe_progp1"):
+        print("Running HubBasePE Program P1..."); HB.ProgrammP1()
+    elif cmd in ("hbpe_programp2","hbpe_progp2"):
+        print("Running HubBasePE Program P2..."); HB.ProgrammP2()
+    elif cmd in ("hbpe_programp3","hbpe_progp3"):
+        print("Running HubBasePE Program P3..."); HB.ProgrammP3()
+    elif cmd in ("hbpe_programp4","hbpe_progp4"):
+        print("Running HubBasePE Program P4..."); HB.ProgrammP4()
+    elif cmd in ("hbpe_programp5","hbpe_progp5"):
+        print("Running HubBasePE Program P5..."); HB.ProgrammP5()
+    elif cmd == "hbpe_dev_console":
         if HB.VipAccess == "T":
             print("Opening HubBasePE developer console...")
             HB.dev_console()
         else:
             print("Dev console requires VIP access. Use '345' to log in first.")
-    elif cmd in ("system_info","list_users","toggle_debug","featured_joke","vip_fact","vip_quote","hbpe_start","hbpe_advance","hbpe_restart","hbpe_stop","hbpe_program1","hbpe_program2","hbpe_program3","hbpe_dev_console"):
+    elif cmd in ("docs","html_docs"):
+        if os.path.exists("AI.py-docs.html"):
+            os.startfile("AI.py-docs.html")
+        else:
+            print("AI.py-docs.html not found. Run gen_html.py to generate it.")
+    elif cmd in ("dashboard","html_dash"):
+        if os.path.exists("dashboard.html"):
+            os.startfile("dashboard.html")
+        else:
+            print("dashboard.html not found. Run gen_html.py to generate it.")
+    elif cmd in ("2672","gen_html","regenerate"):
+        print("Regenerating HTML documentation...")
+        os.system(".venv\\Scripts\\python gen_html.py")
+        print("Done. Type 'docs' or 'dashboard' to open.")
+    elif cmd in ("system_info","list_users","toggle_debug","featured_joke","vip_fact","vip_quote"):
         if debug_mode:
             print("Access denied. Debug mode active but role insufficient.")
         else:
@@ -10211,17 +10306,11 @@ def handle_cmd(cmd, role, name, badge):
             print("Auto-login as {} (RA={})...".format(role, ra_level))
             global RA
             RA = ra_level
-            HB.VipAccess = "T"
-            HB.PassGuess = "5280"
-            print("Login successful!")
-            HB.Code()
-        else:
-            print("Launching HubBasePE with manual login...")
-            HB.Enter()
-            if HB.VipAccess == "T":
-                HB.Code()
-            else:
-                print("Standard access only. Type '345' for full features.")
+        HB.VipAccess = "T"
+        HB.PassGuess = "5280"
+        HB.Login = role if role else "user"
+        print("Launching HubBasePE...")
+        HB.Code()
     elif cmd == "346":
         print(world_data.random_country())
     elif cmd == "347":
@@ -21785,7 +21874,7 @@ def main():
     badge = role_badge(role)
     print("{} {}, nice to meet you! {}".format(get_time_greeting(), name, badge))
     print("{} means hello in {}!".format(word, lang))
-    print("Tip: type 'h' for commands. Type 'quiz' to test your knowledge, 'chart' for ASCII charts.\n")
+    print("Tip: type 'h' for commands, 'docs' for HTML docs, 'dashboard' for web UI, 'quiz' for knowledge test.\n")
     show_help(role)
     while True:
         prompt = (C_BOLD + badge + " " + C_CYAN + name + C_RESET + " >> ") if badge else (C_CYAN + name + C_RESET + " >> ")
