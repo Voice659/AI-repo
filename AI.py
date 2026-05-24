@@ -1,5 +1,5 @@
 import random, datetime, os, math, string, json, re, hashlib, base64, uuid, time, statistics
-__version__ = "3.0.1"
+__version__ = "3.0.2"
 import space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data
 import HubBasePE.Main as HB
 
@@ -7905,17 +7905,35 @@ def show_help(role=None):
     if role:
         print("=== {} COMMANDS ===".format(role))
         if role == "Admin":
-            print("system_info - System information")
-            print("list_users  - List online users")
-            print("clear_logs  - Clear system logs")
-            print("toggle_debug - Toggle debug mode")
+            print("system_info   - System information")
+            print("list_users    - List online users")
+            print("clear_logs    - Clear system logs")
+            print("toggle_debug  - Toggle debug mode")
+            print("hbpe_start    - Start HubBasePE")
+            print("hbpe_advance  - Advance HubBasePE")
+            print("hbpe_restart  - Restart HubBasePE")
+            print("hbpe_stop     - Stop HubBasePE")
+            print("hbpe_program1-3 - Run programs 1-3")
         elif role == "Mod":
             print("featured_joke - Show featured joke")
             print("mute_user     - Mute a user")
             print("warn_user     - Warn a user")
+            print("hbpe_start    - Start HubBasePE")
+            print("hbpe_advance  - Advance HubBasePE")
+            print("hbpe_stop     - Stop HubBasePE")
+            print("hbpe_program1 - Run program 1")
         elif role == "Vip":
             print("vip_fact  - VIP exclusive fact")
             print("vip_quote - VIP exclusive quote")
+            print("hbpe_start    - Start HubBasePE")
+            print("hbpe_program1 - Run program 1")
+        print()
+    if debug_mode:
+        print("=== DEBUG COMMANDS ===")
+        print("debug_functions  - List all available functions")
+        print("debug_vars       - Show global state")
+        print("debug_cmd_count  - Show command total")
+        print("debug_exec       - Interactive Python console (type stop to exit)")
         print()
     print("h  - Show this help")
     print("q  - Quit")
@@ -7940,16 +7958,23 @@ def toggle_debug():
 
 def get_role_commands(role):
     if role == "Admin":
-        return ["system_info", "list_users", "clear_logs", "toggle_debug", "reload_config"]
+        return ["system_info", "list_users", "clear_logs", "toggle_debug", "reload_config",
+                "hbpe_start", "hbpe_advance", "hbpe_restart", "hbpe_stop",
+                "hbpe_program1", "hbpe_program2", "hbpe_program3"]
     if role == "Mod":
-        return ["mute_user", "warn_user", "featured_joke", "pin_message"]
+        return ["mute_user", "warn_user", "featured_joke", "pin_message",
+                "hbpe_start", "hbpe_advance", "hbpe_stop", "hbpe_program1"]
     if role == "Vip":
-        return ["vip_joke", "vip_quote", "vip_fact", "skip_ad"]
+        return ["vip_joke", "vip_quote", "vip_fact", "skip_ad",
+                "hbpe_start", "hbpe_program1"]
     return []
 
 def role_badge(role):
     badges = {"Admin": "[ADMIN]", "Mod": "[MOD]", "Vip": "[VIP]"}
-    return badges.get(role, "")
+    badge = badges.get(role, "")
+    if debug_mode and badge:
+        badge += "[DEBUG]"
+    return badge
 
 def admin_system_info():
     import platform
@@ -8697,8 +8722,62 @@ def main():
             print(vip_extra_fact())
         elif cmd == "vip_quote" and role == "Vip":
             print(vip_extra_quote())
-        elif cmd in ("system_info","list_users","toggle_debug","featured_joke","vip_fact","vip_quote"):
-            print("Access denied. You need a higher role.")
+        elif cmd == "hbpe_start" and role:
+            print("Starting HubBasePE...")
+            HB.Start()
+        elif cmd == "hbpe_advance" and role:
+            print("Advancing HubBasePE...")
+            HB.Advance()
+        elif cmd == "hbpe_restart" and role == "Admin":
+            print("Restarting HubBasePE...")
+            HB.Restart()
+        elif cmd == "hbpe_stop" and role:
+            HB.PStop()
+            print("HubBasePE stopped.")
+        elif cmd == "hbpe_program1" and role:
+            print("Running HubBasePE Program 1...")
+            HB.Programm1()
+        elif cmd == "hbpe_program2" and role:
+            print("Running HubBasePE Program 2...")
+            HB.Programm2()
+        elif cmd == "hbpe_program3" and role:
+            print("Running HubBasePE Program 3...")
+            HB.Programm3()
+        elif cmd in ("system_info","list_users","toggle_debug","featured_joke","vip_fact","vip_quote","hbpe_start","hbpe_advance","hbpe_restart","hbpe_stop","hbpe_program1","hbpe_program2","hbpe_program3"):
+            if debug_mode:
+                print("Access denied. Debug mode active but role insufficient.")
+            else:
+                print("Access denied. You need a higher role.")
+        elif cmd == "debug_functions" and debug_mode:
+            funcs = [k for k in dir() if not k.startswith('_')]
+            print("Functions in scope: {}".format(len(funcs)))
+            for f in sorted(funcs)[:50]:
+                print("  ", f)
+            if len(funcs) > 50:
+                print("  ... and {} more".format(len(funcs)-50))
+        elif cmd == "debug_vars" and debug_mode:
+            print("debug_mode:", debug_mode)
+            print("role:", role if 'role' in locals() else 'N/A')
+        elif cmd == "debug_cmd_count" and debug_mode:
+            print("Total command bindings: 1456")
+        elif cmd == "debug_exec" and debug_mode:
+            print("Interactive debug exec. Type Python code or 'stop' to exit.")
+            while True:
+                try:
+                    _line = input(">>> ")
+                    if _line.strip().lower() == "stop":
+                        print("Exiting debug exec.")
+                        break
+                    try:
+                        _result = eval(_line)
+                        if _result is not None:
+                            print(_result)
+                    except SyntaxError:
+                        exec(_line)
+                except Exception as _ex:
+                    print("Error:", _ex)
+        elif cmd in ("debug_functions","debug_vars","debug_cmd_count","debug_exec"):
+            print("Debug commands require debug mode. Use 'toggle_debug' as Admin first.")
         elif cmd == "1":
             print("{} {}!".format(get_time_greeting(), name))
         elif cmd == "2":
@@ -9819,11 +9898,23 @@ def main():
         elif cmd == "344":
             print(art_extra.draw_throne())
         elif cmd == "345":
-            print("Launching HubBasePE...")
-            global RA
-            RA = 0
-            HB.Enter()
-            HB.Code()
+            if role:
+                ra_level = {"Admin": 3, "Mod": 2, "Vip": 1}.get(role, 0)
+                print("--- HubBase 0.0.1.1.00 (AI.py integrated) ---")
+                print("Auto-login as {} (RA={})...".format(role, ra_level))
+                global RA
+                RA = ra_level
+                HB.VipAccess = "T"
+                HB.PassGuess = "5280"
+                print("Login successful!")
+                HB.Code()
+            else:
+                print("Launching HubBasePE with manual login...")
+                HB.Enter()
+                if HB.VipAccess == "T":
+                    HB.Code()
+                else:
+                    print("Standard access only. Type '345' for full features.")
         elif cmd == "346":
             print(world_data.random_country())
         elif cmd == "347":
