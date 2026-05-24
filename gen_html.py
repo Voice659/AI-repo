@@ -174,6 +174,7 @@ def build_docs():
         ("3.6.0","Curated data, flashcard, AI query, timer, calc, docs"),
         ("3.7.0","133 new data functions (data_bulk2.py), 67K lines"),
         ("3.8.0","103 new data functions (data_bulk3.py), 50K lines, 465 total data tables, stats/changelog pages"),
+        ("3.9.0","data-index.html page, updated welcome message, rebuilt updater"),
     ]
     curated_sample_map = {}
     for name in curated_names:
@@ -873,8 +874,149 @@ drawChart();
         f.write(html_str)
     print("Written dashboard.html ({:,} chars)".format(len(html_str)))
 
+# ============ BUILD DATA INDEX HTML ============
+def build_data_index():
+    html_str = r'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI.py v''' + VERSION + r''' — Data Tables Index</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', Arial, sans-serif; }
+  .container { max-width: 1000px; margin: auto; padding: 20px; }
+  h1 { color: #58a6ff; font-size: 2em; margin: 20px 0 5px; }
+  .subtitle { color: #8b949e; font-size: 0.95em; margin-bottom: 20px; }
+  .controls { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+  .controls input, .controls select { background: #161b22; border: 1px solid #30363d; color: #c9d1d9; padding: 8px 12px; border-radius: 4px; font-size: 0.9em; }
+  .controls input { flex: 1; min-width: 200px; }
+  .controls select { width: 160px; }
+  .controls input:focus, .controls select:focus { outline: none; border-color: #58a6ff; }
+  .stats-row { color: #8b949e; font-size: 0.85em; margin: 10px 0; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; color: #8b949e; border-bottom: 1px solid #30363d; padding: 8px 12px; font-size: 0.85em; cursor: pointer; position: sticky; top: 0; background: #0d1117; }
+  th:hover { color: #58a6ff; }
+  td { padding: 6px 12px; border-bottom: 1px solid #21262d; font-size: 0.9em; }
+  tr:hover { background: #161b22; }
+  .tag-curated { display: inline-block; background: #1f6feb; color: #fff; font-size: 0.7em; padding: 1px 6px; border-radius: 3px; }
+  .tag-bulk { display: inline-block; background: #21262d; color: #8b949e; font-size: 0.7em; padding: 1px 6px; border-radius: 3px; }
+  .num { color: #58a6ff; font-family: monospace; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #30363d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  a { color: #58a6ff; }
+  .nav { background: #161b22; border-bottom: 1px solid #30363d; padding: 8px 20px; text-align: center; font-size: 0.85em; }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="index.html" style="color:#58a6ff;text-decoration:none;">&#x2190; Home</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="AI.py-docs.html" style="color:#58a6ff;text-decoration:none;">Documentation</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="stats.html" style="color:#58a6ff;text-decoration:none;">Statistics</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="changelog.html" style="color:#58a6ff;text-decoration:none;">Changelog</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <span style="color:#8b949e;">Data Index</span>
+</div>
+<div class="container">
+<h1>AI.py Data Tables Index</h1>
+<p class="subtitle">All ''' + str(len(data_index)) + r''' data tables — searchable, sortable, filterable</p>
+
+<div class="controls">
+  <input id="search" placeholder="Search tables..." oninput="filterTable()">
+  <select id="filter" onchange="filterTable()">
+    <option value="all">All Types</option>
+    <option value="curated">Curated Only</option>
+    <option value="bulk">Bulk Only</option>
+  </select>
+  <select id="sort" onchange="filterTable()">
+    <option value="name">Sort by Name</option>
+    <option value="count">Sort by Count</option>
+  </select>
+</div>
+<div class="stats-row" id="stats">''' + str(len(data_index)) + r''' tables — ''' + '{:,}'.format(total_entries) + r''' total entries</div>
+<table id="table">
+<tr><th onclick="sortTable(0)">#</th><th onclick="sortTable(1)">Table Name</th><th onclick="sortTable(2)">Entries</th><th onclick="sortTable(3)">Type</th></tr>
+</table>
+</div>
+<div class="footer">
+  AI.py v''' + VERSION + r''' Data Index
+</div>
+<script>
+var DATA = [
+'''
+    for i, (name, disp, cnt, is_cur) in enumerate(data_index, 1):
+        typ = 'curated' if is_cur else 'bulk'
+        tag = 'C' if is_cur else 'B'
+        html_str += '  {{"n":"{}","d":"{}","c":{},"t":"{}","tag":"{}"}},\n'.format(
+            esc(name.replace('"','\\"')), esc(disp.replace('"','\\"')), cnt, typ, tag)
+    html_str += r"""];
+var sortDir = [1,1,-1,1];
+var sortCol = 1;
+
+function filterTable() {
+  var q = document.getElementById('search').value.toLowerCase();
+  var f = document.getElementById('filter').value;
+  var s = document.getElementById('sort').value;
+  var filtered = DATA.filter(function(d) {
+    if (f === 'curated' && d.t !== 'curated') return false;
+    if (f === 'bulk' && d.t !== 'bulk') return false;
+    return d.d.toLowerCase().includes(q) || d.n.toLowerCase().includes(q);
+  });
+  var sorted = filtered.slice().sort(function(a, b) {
+    var va, vb;
+    if (s === 'name') { va = a.d.toLowerCase(); vb = b.d.toLowerCase(); }
+    else { va = a.c; vb = b.c; }
+    if (va < vb) return -1;
+    if (va > vb) return 1;
+    return 0;
+  });
+  var tbody = document.getElementById('table');
+  tbody.innerHTML = '<tr><th onclick="sortTable(0)">#</th><th onclick="sortTable(1)">Table Name</th><th onclick="sortTable(2)">Entries</th><th onclick="sortTable(3)">Type</th></tr>';
+  sorted.forEach(function(d, i) {
+    var tr = tbody.insertRow();
+    tr.insertCell().textContent = i + 1;
+    tr.insertCell().innerHTML = d.d;
+    var cCell = tr.insertCell();
+    cCell.textContent = d.c.toLocaleString();
+    cCell.className = 'num';
+    tr.insertCell().innerHTML = d.t === 'curated' ? '<span class="tag-curated">C</span>' : '<span class="tag-bulk">B</span>';
+  });
+  document.getElementById('stats').textContent = sorted.length + ' tables shown';
+}
+
+function sortTable(col) {
+  sortDir[col] *= -1;
+  document.getElementById('sort').value = 'name';
+  var tbody = document.getElementById('table');
+  var rows = Array.from(tbody.rows).slice(1);
+  rows.sort(function(a, b) {
+    var va = a.cells[col].textContent.toLowerCase();
+    var vb = b.cells[col].textContent.toLowerCase();
+    if (col === 2) { va = parseInt(a.cells[col].textContent.replace(/,/g,'')); vb = parseInt(b.cells[col].textContent.replace(/,/g,'')); }
+    if (va < vb) return -1 * sortDir[col];
+    if (va > vb) return 1 * sortDir[col];
+    return 0;
+  });
+  for (var i = tbody.rows.length - 1; i > 0; i--) tbody.deleteRow(i);
+  for (var i = 0; i < rows.length; i++) tbody.appendChild(rows[i]);
+}
+
+filterTable();
+</script>
+</body>
+</html>"""
+
+    with open("data-index.html", "w", encoding="utf-8") as f:
+        f.write(html_str)
+    print("Written data-index.html ({:,} chars)".format(len(html_str)))
+
 # === MAIN ===
 total_entries = sum(c for n,d,c,cu in data_index)
 build_docs()
+build_data_index()
 build_dashboard()
 print("Done!")

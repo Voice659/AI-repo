@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI.py v3.9.0 — Data Tables Index</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', Arial, sans-serif; }
+  .container { max-width: 1000px; margin: auto; padding: 20px; }
+  h1 { color: #58a6ff; font-size: 2em; margin: 20px 0 5px; }
+  .subtitle { color: #8b949e; font-size: 0.95em; margin-bottom: 20px; }
+  .controls { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+  .controls input, .controls select { background: #161b22; border: 1px solid #30363d; color: #c9d1d9; padding: 8px 12px; border-radius: 4px; font-size: 0.9em; }
+  .controls input { flex: 1; min-width: 200px; }
+  .controls select { width: 160px; }
+  .controls input:focus, .controls select:focus { outline: none; border-color: #58a6ff; }
+  .stats-row { color: #8b949e; font-size: 0.85em; margin: 10px 0; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; color: #8b949e; border-bottom: 1px solid #30363d; padding: 8px 12px; font-size: 0.85em; cursor: pointer; position: sticky; top: 0; background: #0d1117; }
+  th:hover { color: #58a6ff; }
+  td { padding: 6px 12px; border-bottom: 1px solid #21262d; font-size: 0.9em; }
+  tr:hover { background: #161b22; }
+  .tag-curated { display: inline-block; background: #1f6feb; color: #fff; font-size: 0.7em; padding: 1px 6px; border-radius: 3px; }
+  .tag-bulk { display: inline-block; background: #21262d; color: #8b949e; font-size: 0.7em; padding: 1px 6px; border-radius: 3px; }
+  .num { color: #58a6ff; font-family: monospace; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #30363d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  a { color: #58a6ff; }
+  .nav { background: #161b22; border-bottom: 1px solid #30363d; padding: 8px 20px; text-align: center; font-size: 0.85em; }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="index.html" style="color:#58a6ff;text-decoration:none;">&#x2190; Home</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="AI.py-docs.html" style="color:#58a6ff;text-decoration:none;">Documentation</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="stats.html" style="color:#58a6ff;text-decoration:none;">Statistics</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="changelog.html" style="color:#58a6ff;text-decoration:none;">Changelog</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <span style="color:#8b949e;">Data Index</span>
+</div>
+<div class="container">
+<h1>AI.py Data Tables Index</h1>
+<p class="subtitle">All 465 data tables — searchable, sortable, filterable</p>
+
+<div class="controls">
+  <input id="search" placeholder="Search tables..." oninput="filterTable()">
+  <select id="filter" onchange="filterTable()">
+    <option value="all">All Types</option>
+    <option value="curated">Curated Only</option>
+    <option value="bulk">Bulk Only</option>
+  </select>
+  <select id="sort" onchange="filterTable()">
+    <option value="name">Sort by Name</option>
+    <option value="count">Sort by Count</option>
+  </select>
+</div>
+<div class="stats-row" id="stats">465 tables — 231,398 total entries</div>
+<table id="table">
+<tr><th onclick="sortTable(0)">#</th><th onclick="sortTable(1)">Table Name</th><th onclick="sortTable(2)">Entries</th><th onclick="sortTable(3)">Type</th></tr>
+</table>
+</div>
+<div class="footer">
+  AI.py v3.9.0 Data Index
+</div>
+<script>
+var DATA = [
+  {"n":"get_academy_award_data_data","d":"Academy Award","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_actor_data","d":"Actor","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_ai_model_data","d":"Ai Model","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_ai_researcher_data","d":"Ai Researcher","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_airline_data","d":"Airline","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_airport_international_data_data","d":"Airport International","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_algorithm_data","d":"Algorithm","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_amusement_park_data","d":"Amusement Park","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_amusement_park_extended_data","d":"Amusement Park Extended","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_ancient_civilization_data","d":"Ancient Civilization","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_ancient_script_data","d":"Ancient Script","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_ancient_wonder_extended_data","d":"Ancient Wonder Extended","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_animal_extended_data","d":"Animal Extended","c":1500,"t":"bulk","tag":"B"},
+  {"n":"get_animal_national_data_data","d":"Animal National","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_anime_series_detail_data","d":"Anime Series Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_anthropologist_data","d":"Anthropologist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_antibiotic_drug_data","d":"Antibiotic Drug","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_anzac_medal_data","d":"Anzac Medal","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_api_protocol_data","d":"Api Protocol","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_aquarium_collection_data","d":"Aquarium Collection","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_aquarium_data","d":"Aquarium","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_archaeological_find_data","d":"Archaeological Find","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_archaeological_site_data","d":"Archaeological Site","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_archaeological_site_extra_data","d":"Archaeological Site Extra","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_archaeologist_data","d":"Archaeologist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_architectural_data","d":"Architectural","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_architectural_style_data","d":"Architectural Style","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_artificial_intelligence_model_data","d":"Artificial Intelligence Model","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_artist_data","d":"Artist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_asteroid_characteristic_data","d":"Asteroid Characteristic","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_astrological_sign_data","d":"Astrological Sign","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_astronaut_data","d":"Astronaut","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_astronomy_discovery_data","d":"Astronomy Discovery","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_automaker_data","d":"Automaker","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_aviation_history_data","d":"Aviation History","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_award_ceremony_data_data","d":"Award Ceremony","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_award_data","d":"Award","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_award_show_data","d":"Award Show","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_bank_data","d":"Bank","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_basketball_legend_data","d":"Basketball Legend","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_battle_data","d":"Battle","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_biologist_data","d":"Biologist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_biology_breakthrough_data","d":"Biology Breakthrough","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_biome_data","d":"Biome","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_biosphere_reserve_data","d":"Biosphere Reserve","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_bird_species_data","d":"Bird Species","c":1500,"t":"bulk","tag":"B"},
+  {"n":"get_blockchain_project_data","d":"Blockchain Project","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_board_game_data","d":"Board Game","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_board_game_detail_data","d":"Board Game Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_book_data","d":"Book","c":1000,"t":"bulk","tag":"B"},
+  {"n":"get_bread_variety_data","d":"Bread Variety","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_bridge_data","d":"Bridge","c":800,"t":"bulk","tag":"B"},
+  {"n":"get_british_monarch_data_data","d":"British Monarch","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_butterfly_data","d":"Butterfly","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_calendar_data","d":"Calendar","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_canal_data","d":"Canal","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_canal_waterway_data_data","d":"Canal Waterway","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_capital_detail_data","d":"Capital Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_card_game_data","d":"Card Game","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_card_game_detail_data","d":"Card Game Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_carnivorous_plant_data","d":"Carnivorous Plant","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_casino_landmark_data_data","d":"Casino Landmark","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_castle_data","d":"Castle","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_cat_breed_data","d":"Cat Breed","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_cave_system_data","d":"Cave System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cell_type_data","d":"Cell Type","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cheese_data","d":"Cheese","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_cheese_variety_data","d":"Cheese Variety","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_chemical_element_extra_data","d":"Chemical Element Extra","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_chemical_process_data","d":"Chemical Process","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_chemist_data","d":"Chemist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_chemistry_discovery_data","d":"Chemistry Discovery","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_chemistry_element_data","d":"Chemistry Element","c":118,"t":"curated","tag":"C"},
+  {"n":"get_chess_opening_data","d":"Chess Opening","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_chinese_dynasty_data_data","d":"Chinese Dynasty","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_church_data","d":"Church","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_circulatory_system_data","d":"Circulatory System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_city_data","d":"City","c":171,"t":"curated","tag":"C"},
+  {"n":"get_classical_composer_data","d":"Classical Composer","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_climate_record_data","d":"Climate Record","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_climate_zone_data","d":"Climate Zone","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cloud_platform_data","d":"Cloud Platform","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cloud_service_data","d":"Cloud Service","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cloud_type_data","d":"Cloud Type","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cocktail_data","d":"Cocktail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cocktail_recipe_data","d":"Cocktail Recipe","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_coffee_variety_data","d":"Coffee Variety","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_comet_observation_data","d":"Comet Observation","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_composer_data","d":"Composer","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_concert_hall_data","d":"Concert Hall","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_concert_hall_detail_data","d":"Concert Hall Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_conference_center_data","d":"Conference Center","c":300,"t":"bulk","tag":"B"},
+  {"n":"get_constellation_data","d":"Constellation","c":88,"t":"curated","tag":"C"},
+  {"n":"get_continent_detail_data","d":"Continent Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cooking_technique_data","d":"Cooking Technique","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_coral_reef_data","d":"Coral Reef","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_corporation_data","d":"Corporation","c":800,"t":"bulk","tag":"B"},
+  {"n":"get_country_calling_code_data","d":"Country Calling Code","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_country_detail_data","d":"Country Detail","c":195,"t":"curated","tag":"C"},
+  {"n":"get_cricket_world_cup_data_data","d":"Cricket World Cup","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cryptid_data_data","d":"Cryptid","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_crypto_data","d":"Crypto","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cryptocurrency_data","d":"Cryptocurrency","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_cuisine_data","d":"Cuisine","c":1000,"t":"bulk","tag":"B"},
+  {"n":"get_currency_detail_data","d":"Currency Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_dam_data","d":"Dam","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_dam_reservoir_data_data","d":"Dam Reservoir","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_dance_form_data","d":"Dance Form","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_dance_style_data","d":"Dance Style","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_data_structure_data","d":"Data Structure","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_database_data","d":"Database","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_database_technology_data","d":"Database Technology","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_deep_sea_creature_data","d":"Deep Sea Creature","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_desert_detail_data","d":"Desert Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_desert_ecosystem_data","d":"Desert Ecosystem","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_dessert_data","d":"Dessert","c":800,"t":"bulk","tag":"B"},
+  {"n":"get_digestive_system_data","d":"Digestive System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_dinosaur_data","d":"Dinosaur","c":30,"t":"curated","tag":"C"},
+  {"n":"get_director_data","d":"Director","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_disease_data","d":"Disease","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_dog_breed_data","d":"Dog Breed","c":800,"t":"bulk","tag":"B"},
+  {"n":"get_drink_brand_data","d":"Drink Brand","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_drink_national_data_data","d":"Drink National","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_earthquake_data","d":"Earthquake","c":20,"t":"curated","tag":"C"},
+  {"n":"get_economist_data","d":"Economist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_ecosystem_data","d":"Ecosystem","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_egyptian_pharaoh_detail_data","d":"Egyptian Pharaoh Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_electronic_component_data","d":"Electronic Component","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_emmy_award_data_data","d":"Emmy Award","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_emperor_data","d":"Emperor","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_endangered_species_data","d":"Endangered Species","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_endocrine_system_data","d":"Endocrine System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_energy_source_data","d":"Energy Source","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_espionage_history_data","d":"Espionage History","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_essential_oil_data","d":"Essential Oil","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_exoplanet_discovery_data","d":"Exoplanet Discovery","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_exotic_fruit_data","d":"Exotic Fruit","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_explorer_data","d":"Explorer","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_fairy_tale_data","d":"Fairy Tale","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_aircraft_data_data","d":"Famous Aircraft","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_battle_data","d":"Famous Battle","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_beach_data_data","d":"Famous Beach","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_car_data_data","d":"Famous Car","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_chef_data","d":"Famous Chef","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_company_history_data","d":"Famous Company History","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_equation_data_data","d":"Famous Equation","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_experiment_data_data","d":"Famous Experiment","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_explorer_data","d":"Famous Explorer","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_font_data_data","d":"Famous Font","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_fountain_data","d":"Famous Fountain","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_horse_data_data","d":"Famous Horse","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_hotel_data_data","d":"Famous Hotel","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_insignia_data_data","d":"Famous Insignia","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_logo_data_data","d":"Famous Logo","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_motto_data_data","d":"Famous Motto","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_painting_data_data","d":"Famous Painting","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_photo_data_data","d":"Famous Photo","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_poem_data_data","d":"Famous Poem","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_quote_detail_data","d":"Famous Quote Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_ship_data_data","d":"Famous Ship","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_speech_data","d":"Famous Speech","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_telescope_data_data","d":"Famous Telescope","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_famous_train_data_data","d":"Famous Train","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_fashion_brand_data","d":"Fashion Brand","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_fashion_designer_data","d":"Fashion Designer","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_festival_data","d":"Festival","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_fifa_world_cup_data_data","d":"Fifa World Cup","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_file_format_data","d":"File Format","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_film_director_extended_data","d":"Film Director Extended","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_film_festival_data","d":"Film Festival","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_film_festival_detail_data","d":"Film Festival Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_film_genre_data","d":"Film Genre","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_fish_species_data","d":"Fish Species","c":1000,"t":"bulk","tag":"B"},
+  {"n":"get_flag_detail_data","d":"Flag Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_flower_data","d":"Flower","c":1000,"t":"bulk","tag":"B"},
+  {"n":"get_flower_national_data_data","d":"Flower National","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_food_company_data","d":"Food Company","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_food_national_dish_data","d":"Food National Dish","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_football_star_data","d":"Football Star","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_forest_data","d":"Forest","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_fossil_data","d":"Fossil","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_framework_data","d":"Framework","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_galaxy_data","d":"Galaxy","c":50,"t":"curated","tag":"C"},
+  {"n":"get_garden_landmark_data","d":"Garden Landmark","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_gemstone_data","d":"Gemstone","c":50,"t":"curated","tag":"C"},
+  {"n":"get_gemstone_detail_data","d":"Gemstone Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_genetic_engineering_data","d":"Genetic Engineering","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_genome_sequence_data","d":"Genome Sequence","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_geological_formation_data","d":"Geological Formation","c":30,"t":"curated","tag":"C"},
+  {"n":"get_geologist_data","d":"Geologist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_geyser_hotspring_data","d":"Geyser Hotspring","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_ghost_town_data_data","d":"Ghost Town","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_golf_course_data_data","d":"Golf Course","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_grammy_award_data_data","d":"Grammy Award","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_greek_philosopher_data_data","d":"Greek Philosopher","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_heraldry_coat_of_arms_data","d":"Heraldry Coat Of Arms","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_herb_data","d":"Herb","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_herbal_medicine_data","d":"Herbal Medicine","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_heritage_site_data","d":"Heritage Site","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_highway_data","d":"Highway","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_hiking_trail_data","d":"Hiking Trail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_historical_event_data","d":"Historical Event","c":1000,"t":"bulk","tag":"B"},
+  {"n":"get_historical_figure_data","d":"Historical Figure","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_historical_period_data","d":"Historical Period","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_hormone_data","d":"Hormone","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_horse_breed_data","d":"Horse Breed","c":300,"t":"bulk","tag":"B"},
+  {"n":"get_hospital_data","d":"Hospital","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_hotel_data","d":"Hotel","c":800,"t":"bulk","tag":"B"},
+  {"n":"get_human_anatomy_data","d":"Human Anatomy","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_hurricane_data","d":"Hurricane","c":20,"t":"curated","tag":"C"},
+  {"n":"get_ice_cream_data","d":"Ice Cream","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_instrument_data","d":"Instrument","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_intangible_heritage_data","d":"Intangible Heritage","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_international_treaty_data","d":"International Treaty","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_internet_milestone_data_data","d":"Internet Milestone","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_invention_data","d":"Invention","c":50,"t":"curated","tag":"C"},
+  {"n":"get_island_data","d":"Island","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_island_detail_data","d":"Island Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_lake_data","d":"Lake","c":40,"t":"curated","tag":"C"},
+  {"n":"get_lake_detail_data","d":"Lake Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_language_data","d":"Language","c":50,"t":"curated","tag":"C"},
+  {"n":"get_leader_data","d":"Leader","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_legendary_ruler_data","d":"Legendary Ruler","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_liberal_arts_college_data","d":"Liberal Arts College","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_library_collection_data","d":"Library Collection","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_library_data","d":"Library","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_lighthouse_data","d":"Lighthouse","c":300,"t":"bulk","tag":"B"},
+  {"n":"get_lighthouse_extra_data","d":"Lighthouse Extra","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_linguist_data","d":"Linguist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_magazine_data","d":"Magazine","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_major_war_conflict_data","d":"Major War Conflict","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_marathon_data","d":"Marathon","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_maritime_history_data","d":"Maritime History","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_martial_art_data","d":"Martial Art","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_martial_art_style_data","d":"Martial Art Style","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_material_science_data","d":"Material Science","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_math_theorem_data","d":"Math Theorem","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_mathematical_constant_data_data","d":"Mathematical Constant","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_mathematical_theorem_data","d":"Mathematical Theorem","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_mathematical_theorem_extra_data","d":"Mathematical Theorem Extra","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_medical_advance_data","d":"Medical Advance","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_medical_term_data","d":"Medical Term","c":800,"t":"bulk","tag":"B"},
+  {"n":"get_medicine_data","d":"Medicine","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_medieval_fortress_data","d":"Medieval Fortress","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_meteorite_impact_data","d":"Meteorite Impact","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_meteorologist_data","d":"Meteorologist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_military_strategist_data","d":"Military Strategist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_mineral_data","d":"Mineral","c":80,"t":"curated","tag":"C"},
+  {"n":"get_mineral_detail_data","d":"Mineral Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_modern_artist_data","d":"Modern Artist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_modern_bridge_data","d":"Modern Bridge","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_molecular_compound_data","d":"Molecular Compound","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_mosque_data","d":"Mosque","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_motorsport_track_data_data","d":"Motorsport Track","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_mountain_data","d":"Mountain","c":39,"t":"curated","tag":"C"},
+  {"n":"get_mountain_detail_data","d":"Mountain Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_mountain_range_data_data","d":"Mountain Range","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_movie_data","d":"Movie","c":1000,"t":"bulk","tag":"B"},
+  {"n":"get_muscular_system_data","d":"Muscular System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_museum_data","d":"Museum","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_museum_extra_data","d":"Museum Extra","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_music_festival_data","d":"Music Festival","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_music_festival_detail_data","d":"Music Festival Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_music_genre_data","d":"Music Genre","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_musical_genre_extra_data","d":"Musical Genre Extra","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_musical_instrument_data","d":"Musical Instrument","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_musical_legend_data","d":"Musical Legend","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_musical_term_data","d":"Musical Term","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_mythological_creature_data_data","d":"Mythological Creature","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_mythological_deity_data","d":"Mythological Deity","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_mythology_data","d":"Mythology","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_national_anthem_data","d":"National Anthem","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_national_anthem_detail_data","d":"National Anthem Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_national_flag_detail_data","d":"National Flag Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_national_park_data","d":"National Park","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_national_park_extended_data","d":"National Park Extended","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_national_symbol_data","d":"National Symbol","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_natural_disaster_record_data","d":"Natural Disaster Record","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_natural_wonder_data","d":"Natural Wonder","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_nba_champion_data_data","d":"Nba Champion","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_nervous_system_data","d":"Nervous System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_network_protocol_data","d":"Network Protocol","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_newspaper_data","d":"Newspaper","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_nobel_category_detail_data","d":"Nobel Category Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_nobel_data","d":"Nobel","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_nobel_laureate_extended_data","d":"Nobel Laureate Extended","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_nonprofit_data","d":"Nonprofit","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_nuclear_reactor_data_data","d":"Nuclear Reactor","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_observatory_data","d":"Observatory","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_occupation_data","d":"Occupation","c":102,"t":"bulk","tag":"B"},
+  {"n":"get_ocean_current_data","d":"Ocean Current","c":30,"t":"curated","tag":"C"},
+  {"n":"get_ocean_data","d":"Ocean","c":5,"t":"curated","tag":"C"},
+  {"n":"get_ocean_feature_data","d":"Ocean Feature","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_oceanographer_data","d":"Oceanographer","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_olympic_champion_data","d":"Olympic Champion","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_olympic_data","d":"Olympic","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_olympic_games_data","d":"Olympic Games","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_olympic_games_detail_data","d":"Olympic Games Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_olympic_sport_data","d":"Olympic Sport","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_opera_house_data","d":"Opera House","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_opera_house_detail_data","d":"Opera House Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_opera_repertoire_data","d":"Opera Repertoire","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_operating_system_data","d":"Operating System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_operating_system_history_data","d":"Operating System History","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_organized_crime_data","d":"Organized Crime","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_painter_masterpiece_data","d":"Painter Masterpiece","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_painting_data","d":"Painting","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_park_data","d":"Park","c":800,"t":"bulk","tag":"B"},
+  {"n":"get_particle_accelerator_data_data","d":"Particle Accelerator","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_particle_data","d":"Particle","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_pasta_variety_data","d":"Pasta Variety","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_pharaoh_data","d":"Pharaoh","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_philosopher_data","d":"Philosopher","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_philosopher_school_data","d":"Philosopher School","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_philosophical_concept_data","d":"Philosophical Concept","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_photographer_data","d":"Photographer","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_physical_constant_data_data","d":"Physical Constant","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_physicist_data","d":"Physicist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_physics_breakthrough_data","d":"Physics Breakthrough","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_physics_concept_data","d":"Physics Concept","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_planet_data","d":"Planet","c":50,"t":"curated","tag":"C"},
+  {"n":"get_polar_exploration_data","d":"Polar Exploration","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_port_data","d":"Port","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_power_plant_data","d":"Power Plant","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_president_data","d":"President","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_prime_minister_data","d":"Prime Minister","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_programming_framework_data","d":"Programming Framework","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_programming_lang_history_data","d":"Programming Lang History","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_programming_language_data","d":"Programming Language","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_programming_term_data","d":"Programming Term","c":800,"t":"bulk","tag":"B"},
+  {"n":"get_protein_structure_data","d":"Protein Structure","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_psychological_condition_data","d":"Psychological Condition","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_psychologist_data","d":"Psychologist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_publisher_data","d":"Publisher","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_pulitzer_winner_data_data","d":"Pulitzer Winner","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_radio_station_data","d":"Radio Station","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_railway_heritage_data","d":"Railway Heritage","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_railway_line_data","d":"Railway Line","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_railway_station_data_data","d":"Railway Station","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_rainforest_species_data","d":"Rainforest Species","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_recipe_data","d":"Recipe","c":1000,"t":"bulk","tag":"B"},
+  {"n":"get_record_label_data","d":"Record Label","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_religious_structure_data","d":"Religious Structure","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_renowned_architect_data","d":"Renowned Architect","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_research_center_data","d":"Research Center","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_research_institute_data","d":"Research Institute","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_research_station_data","d":"Research Station","c":300,"t":"bulk","tag":"B"},
+  {"n":"get_respiratory_system_data","d":"Respiratory System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_restaurant_data","d":"Restaurant","c":1000,"t":"bulk","tag":"B"},
+  {"n":"get_retail_chain_data","d":"Retail Chain","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_revolution_data","d":"Revolution","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_revolution_movement_data","d":"Revolution Movement","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_river_data","d":"River","c":40,"t":"curated","tag":"C"},
+  {"n":"get_river_detail_data","d":"River Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_robotics_platform_data","d":"Robotics Platform","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_rock_type_data","d":"Rock Type","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_roman_emperor_data_data","d":"Roman Emperor","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_royal_palace_data","d":"Royal Palace","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_rugby_world_cup_data_data","d":"Rugby World Cup","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_satellite_data","d":"Satellite","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_satellite_mission_data","d":"Satellite Mission","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_school_data","d":"School","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_scientific_journal_data","d":"Scientific Journal","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_scientific_theory_data_data","d":"Scientific Theory","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_scientist_data","d":"Scientist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_sculpture_classic_data","d":"Sculpture Classic","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_sculpture_data","d":"Sculpture","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_security_tool_data","d":"Security Tool","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_shakespeare_play_data_data","d":"Shakespeare Play","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_shark_data","d":"Shark","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_shopping_mall_data","d":"Shopping Mall","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_shopping_mall_detail_data","d":"Shopping Mall Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_skeletal_system_data","d":"Skeletal System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_ski_resort_data_data","d":"Ski Resort","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_skyscraper_detail_data","d":"Skyscraper Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_snake_data","d":"Snake","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_social_media_platform_data","d":"Social Media Platform","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_sociologist_data","d":"Sociologist","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_software_company_data","d":"Software Company","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_soil_type_data","d":"Soil Type","c":20,"t":"curated","tag":"C"},
+  {"n":"get_song_data","d":"Song","c":1000,"t":"bulk","tag":"B"},
+  {"n":"get_space_astronaut_extended_data","d":"Space Astronaut Extended","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_space_mission_data","d":"Space Mission","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_space_probe_data_data","d":"Space Probe","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_spice_data","d":"Spice","c":400,"t":"bulk","tag":"B"},
+  {"n":"get_sport_data","d":"Sport","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_sports_event_data","d":"Sports Event","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_sports_stadium_data_data","d":"Sports Stadium","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_sports_team_data","d":"Sports Team","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_sports_trophy_data","d":"Sports Trophy","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_stadium_data","d":"Stadium","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_stanley_cup_winner_data_data","d":"Stanley Cup Winner","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_star_data","d":"Star","c":1000,"t":"bulk","tag":"B"},
+  {"n":"get_star_detail_data","d":"Star Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_stock_exchange_data_data","d":"Stock Exchange","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_subway_station_data","d":"Subway Station","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_subway_system_data_data","d":"Subway System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_super_bowl_winner_data_data","d":"Super Bowl Winner","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_surgical_procedure_data","d":"Surgical Procedure","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_synagogue_data","d":"Synagogue","c":300,"t":"bulk","tag":"B"},
+  {"n":"get_tarot_card_data","d":"Tarot Card","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tea_variety_data","d":"Tea Variety","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tech_company_data","d":"Tech Company","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tech_pioneer_data","d":"Tech Pioneer","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tech_startup_data","d":"Tech Startup","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_telescope_data","d":"Telescope","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_temple_data","d":"Temple","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_theater_data","d":"Theater","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_theater_play_data","d":"Theater Play","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_theme_park_data_data","d":"Theme Park","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_timezone_data","d":"Timezone","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_timezone_detail_data_data","d":"Timezone Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tony_award_data_data","d":"Tony Award","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tornado_data","d":"Tornado","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tour_de_france_data_data","d":"Tour De France","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_train_station_data","d":"Train Station","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_treaty_data","d":"Treaty","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tree_species_data","d":"Tree Species","c":1200,"t":"bulk","tag":"B"},
+  {"n":"get_tsunami_data","d":"Tsunami","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tunnel_data","d":"Tunnel","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tunnel_engineering_data_data","d":"Tunnel Engineering","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tv_channel_data","d":"Tv Channel","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_tv_series_detail_data","d":"Tv Series Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_uefa_cl_data_data","d":"Uefa Cl","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_underwater_exploration_data","d":"Underwater Exploration","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_university_data","d":"University","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_university_ranking_data","d":"University Ranking","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_us_open_winner_data_data","d":"Us Open Winner","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_us_president_detail_data","d":"Us President Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_vaccine_development_data","d":"Vaccine Development","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_venomous_creature_data","d":"Venomous Creature","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_video_game_data","d":"Video Game","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_video_game_franchise_data","d":"Video Game Franchise","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_virus_strain_data","d":"Virus Strain","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_vitamin_data","d":"Vitamin","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_volcanic_island_data","d":"Volcanic Island","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_volcano_data","d":"Volcano","c":20,"t":"curated","tag":"C"},
+  {"n":"get_war_data","d":"War","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_waterfall_wonder_data","d":"Waterfall Wonder","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_weather_pattern_data","d":"Weather Pattern","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_wetland_ecosystem_data","d":"Wetland Ecosystem","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_whale_data","d":"Whale","c":200,"t":"bulk","tag":"B"},
+  {"n":"get_wimbledon_champion_data_data","d":"Wimbledon Champion","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_wind_pattern_data","d":"Wind Pattern","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_wine_data","d":"Wine","c":600,"t":"bulk","tag":"B"},
+  {"n":"get_wine_varietal_data","d":"Wine Varietal","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_wonder_data","d":"Wonder","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_capital_city_data","d":"World Capital City","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_city_detail_data","d":"World City Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_currency_data_data","d":"World Currency","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_desert_detail_data","d":"World Desert Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_flag_detail_data","d":"World Flag Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_forest_detail_data","d":"World Forest Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_heritage_extra_data","d":"World Heritage Extra","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_island_detail_data","d":"World Island Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_landmark_data_data","d":"World Landmark","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_record_data","d":"World Record","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_river_detail_data","d":"World River Detail","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_world_series_winner_data_data","d":"World Series Winner","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_writer_author_data","d":"Writer Author","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_writer_data","d":"Writer","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_writing_system_data","d":"Writing System","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_yoga_pose_data_data","d":"Yoga Pose","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_zoo_collection_data","d":"Zoo Collection","c":500,"t":"bulk","tag":"B"},
+  {"n":"get_zoo_data","d":"Zoo","c":500,"t":"bulk","tag":"B"},
+];
+var sortDir = [1,1,-1,1];
+var sortCol = 1;
+
+function filterTable() {
+  var q = document.getElementById('search').value.toLowerCase();
+  var f = document.getElementById('filter').value;
+  var s = document.getElementById('sort').value;
+  var filtered = DATA.filter(function(d) {
+    if (f === 'curated' && d.t !== 'curated') return false;
+    if (f === 'bulk' && d.t !== 'bulk') return false;
+    return d.d.toLowerCase().includes(q) || d.n.toLowerCase().includes(q);
+  });
+  var sorted = filtered.slice().sort(function(a, b) {
+    var va, vb;
+    if (s === 'name') { va = a.d.toLowerCase(); vb = b.d.toLowerCase(); }
+    else { va = a.c; vb = b.c; }
+    if (va < vb) return -1;
+    if (va > vb) return 1;
+    return 0;
+  });
+  var tbody = document.getElementById('table');
+  tbody.innerHTML = '<tr><th onclick="sortTable(0)">#</th><th onclick="sortTable(1)">Table Name</th><th onclick="sortTable(2)">Entries</th><th onclick="sortTable(3)">Type</th></tr>';
+  sorted.forEach(function(d, i) {
+    var tr = tbody.insertRow();
+    tr.insertCell().textContent = i + 1;
+    tr.insertCell().innerHTML = d.d;
+    var cCell = tr.insertCell();
+    cCell.textContent = d.c.toLocaleString();
+    cCell.className = 'num';
+    tr.insertCell().innerHTML = d.t === 'curated' ? '<span class="tag-curated">C</span>' : '<span class="tag-bulk">B</span>';
+  });
+  document.getElementById('stats').textContent = sorted.length + ' tables shown';
+}
+
+function sortTable(col) {
+  sortDir[col] *= -1;
+  document.getElementById('sort').value = 'name';
+  var tbody = document.getElementById('table');
+  var rows = Array.from(tbody.rows).slice(1);
+  rows.sort(function(a, b) {
+    var va = a.cells[col].textContent.toLowerCase();
+    var vb = b.cells[col].textContent.toLowerCase();
+    if (col === 2) { va = parseInt(a.cells[col].textContent.replace(/,/g,'')); vb = parseInt(b.cells[col].textContent.replace(/,/g,'')); }
+    if (va < vb) return -1 * sortDir[col];
+    if (va > vb) return 1 * sortDir[col];
+    return 0;
+  });
+  for (var i = tbody.rows.length - 1; i > 0; i--) tbody.deleteRow(i);
+  for (var i = 0; i < rows.length; i++) tbody.appendChild(rows[i]);
+}
+
+filterTable();
+</script>
+</body>
+</html>

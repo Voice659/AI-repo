@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+build/
+dist/
+*.spec
+ai_notes.json
+ai_todos.json
+*.bak
