@@ -232,6 +232,13 @@ def build_docs():
 </style>
 </head>
 <body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;text-align:center;font-size:0.85em;">
+  <a href="index.html" style="color:#58a6ff;text-decoration:none;">&#x2190; Home</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <span style="color:#8b949e;">AI.py v''' + VERSION + r''' Docs</span>
+</div>
 <div class="container">
 
 <h1>AI.py v''' + VERSION + r'''</h1>
@@ -448,6 +455,13 @@ def build_dashboard():
 </style>
 </head>
 <body>
+<div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:8px 20px;text-align:center;font-size:0.85em;display:flex;align-items:center;justify-content:center;gap:12px;">
+  <a href="index.html" style="color:var(--accent);text-decoration:none;">&#x2190; Home</a>
+  <span style="color:var(--border);">|</span>
+  <a href="AI.py-docs.html" style="color:var(--accent);text-decoration:none;">Documentation</a>
+  <span style="color:var(--border);">|</span>
+  <span style="color:var(--fg2);">Dashboard</span>
+</div>
 
 <div class="navbar">
   <span class="title">AI.py v''' + VERSION + r'''</span>
