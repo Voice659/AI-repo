@@ -178,6 +178,7 @@ def build_docs():
         ("4.0.0","Major: 200 new data functions (data_bulk4.py), ~201K lines, 665 total tables, visual installer (AIInstaller.exe), download/features site pages, 800K+ total lines"),
         ("4.1.0","Major: 100 new data functions (data_bulk5.py), ~100K lines, 750+ total tables, dual HBPE (v0.0.1.2.01 + v0.0.2.0.00b1), hbpe_compat.py compat layer, Programm20 support, dev_console detection, 900K+ total lines"),
         ("4.2.0","Major: 100 new data functions (data_bulk6.py), ~100K lines, 850+ total tables, 1M+ total lines, installer/updater rebuilt with version history, AIInstaller v4.2.0, AIUpdater v4.2.0"),
+        ("4.3.0","Major: 100 new data functions (data_bulk7.py), ~100K lines, 950+ total tables, 1.1M+ total lines, 14 external modules total"),
     ]
     curated_sample_map = {}
     for name in curated_names:
@@ -515,7 +516,7 @@ def build_dashboard():
     <div class="stat-card"><div class="num">''' + "{:,}".format(len(data_index)) + r'''</div><div class="lbl">Data Tables</div></div>
     <div class="stat-card"><div class="num">''' + "{:,}".format(total_entries) + r'''</div><div class="lbl">Data Entries</div></div>
     <div class="stat-card"><div class="num">''' + str(len(curated_names)) + r'''</div><div class="lbl">Curated Tables</div></div>
-    <div class="stat-card"><div class="num">4.2.0</div><div class="lbl">Version</div></div>
+    <div class="stat-card"><div class="num">4.3.0</div><div class="lbl">Version</div></div>
   </div>
   <h3>Quick Features</h3>
   <p style="color:var(--fg2);line-height:1.8;">
