@@ -6,3 +6,4 @@ dist/
 ai_notes.json
 ai_todos.json
 *.bak
+.idea/
