@@ -13,7 +13,18 @@ ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
              "data_bulk.py", "data_bulk2.py", "data_bulk3.py", "data_bulk4.py",
              "data_bulk5.py", "data_bulk6.py", "data_bulk7.py", "hbpe_compat.py",
              "gen_code4.py", "installer.py", "updater.py"]
-DEFAULT_URL = "https://raw.githubusercontent.com/Voice659/AI-repo/main/AI.py"
+DEFAULT_URL = "https://raw.githubusercontent.com/Voice659/AI-repo/master/AI.py"
+
+def normalize_url(url):
+    """Convert github.com/blob/ URLs to raw.githubusercontent.com URLs."""
+    url = url.strip()
+    # github.com/user/repo/blob/branch/file → raw.githubusercontent.com/user/repo/branch/file
+    if "github.com" in url and "/blob/" in url:
+        url = url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+    # Also handle /raw/ → already raw
+    if "github.com" in url and "/raw/" in url:
+        url = url.replace("github.com", "raw.githubusercontent.com").replace("/raw/", "/")
+    return url
 
 def app_dir():
     if getattr(sys, "frozen", False):
@@ -205,7 +216,7 @@ class AIInstaller:
     def _do_check(self):
         self.set_status("Checking for updates...")
         self.log("Checking repository for updates...", "info")
-        url = self.url_var.get().strip()
+        url = normalize_url(self.url_var.get())
         if not url:
             self.log("ERROR: No URL provided.", "error")
             self.set_status("Error: No URL")
@@ -262,7 +273,7 @@ class AIInstaller:
         self.install_btn.config(state=tk.DISABLED)
         self.check_btn.config(state=tk.DISABLED)
 
-        url = self.url_var.get().strip()
+        url = normalize_url(self.url_var.get())
         if not url or url == DEFAULT_URL:
             self.log("Please set a valid repository URL.", "error")
             self.set_status("No URL set")

@@ -9,7 +9,15 @@ ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
              "data_bulk.py", "data_bulk2.py", "data_bulk3.py", "data_bulk4.py",
              "data_bulk5.py", "data_bulk6.py", "data_bulk7.py", "hbpe_compat.py",
              "gen_code4.py", "installer.py"]
-DEFAULT_URL = "https://raw.githubusercontent.com/Voice659/AI-repo/main/AI.py"
+DEFAULT_URL = "https://raw.githubusercontent.com/Voice659/AI-repo/master/AI.py"
+
+def normalize_url(url):
+    url = url.strip()
+    if "github.com" in url and "/blob/" in url:
+        url = url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+    if "github.com" in url and "/raw/" in url:
+        url = url.replace("github.com", "raw.githubusercontent.com").replace("/raw/", "/")
+    return url
 
 def app_dir():
     if getattr(sys, "frozen", False):
@@ -135,7 +143,8 @@ def main():
         url = prompt_for_url()
         if input("Save this URL? (y/n): ").strip().lower() == "y":
             save_config(url)
-    elif url == DEFAULT_URL:
+    url = normalize_url(url)
+    if url == DEFAULT_URL:
         print("WARNING: Using placeholder URL.")
         if input("Enter a different URL? (y/n): ").strip().lower() == "y":
             url = prompt_for_url()
