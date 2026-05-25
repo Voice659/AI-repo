@@ -132,10 +132,7 @@ cat_hbpe = [
     ("hbpe_start","Start HBPE"),("hbpe_advance","Advance HBPE"),
     ("hbpe_restart","Restart HBPE"),("hbpe_stop","Stop HBPE"),
     ("hbpe_program1","Run HBPE P1"),("hbpe_program2","Run HBPE P2"),
-    ("hbpe_program3","Run HBPE P3"),("hbpe_dev_console","HBPE dev console"),
-    ("hbpe_socket_server","Start socket server"),("hbpe_socket_connect","Connect to server"),
-    ("hbpe_socket_send","Send message"),("hbpe_socket_recv","Receive message"),
-    ("hbpe_socket_close","Close socket")]
+    ("hbpe_program3","Run HBPE P3"),("hbpe_dev_console","HBPE dev console")]
 cat_new = [
     ("quiz / data_quiz","Interactive quiz on 16 data tables"),
     ("chart / barchart","ASCII bar chart from numbers"),

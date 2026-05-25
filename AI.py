@@ -7947,7 +7947,6 @@ def show_help(role=None):
             print("hbpe_program1-20 - Run programs 1-20")
             print("hbpe_programp1-5 - Run programs P1-P5")
             print("hbpe_dev_console - HubBasePE dev console")
-            print("hbpe_socket      - HBPE socket networking (server/client)")
             print("docs          - Open HTML documentation")
             print("dashboard     - Open HTML dashboard")
         elif role == "Mod":
@@ -7959,7 +7958,6 @@ def show_help(role=None):
             print("hbpe_stop     - Stop HubBasePE")
             print("hbpe_program1-20 - Run programs 1-20")
             print("hbpe_dev_console - HubBasePE dev console")
-            print("hbpe_socket      - HBPE socket networking (server/client)")
             print("docs          - Open HTML documentation")
             print("dashboard     - Open HTML dashboard")
         elif role == "Vip":
@@ -7968,7 +7966,6 @@ def show_help(role=None):
             print("hbpe_start    - Start HubBasePE")
             print("hbpe_program1-20 - Run programs 1-20")
             print("hbpe_dev_console - HubBasePE dev console")
-            print("hbpe_socket      - HBPE socket networking (server/client)")
             print("docs          - Open HTML documentation")
             print("dashboard     - Open HTML dashboard")
         print()
@@ -7991,7 +7988,6 @@ def show_help(role=None):
     print("hbpe_program1-20 - Run HBPE programs 1-20")
     print("hbpe_programp1-5 - Run HBPE programs P1-P5")
     print("hbpe_dev_console - HBPE developer console")
-    print("hbpe_socket      - HBPE socket networking: server, client, send, recv")
     print("quiz          - Interactive data quiz")
     print("chart         - ASCII bar chart generator")
     print("flashcard     - Flashcard learner")
@@ -8862,8 +8858,6 @@ def cmd_suggest(partial):
               "hbpe_programp3", "hbpe_progp3", "hbpe_programp4", "hbpe_progp4",
                "hbpe_programp5", "hbpe_progp5",
                "hbpe_program20", "hbpe_prog20",
-               "hbpe_socket", "hbpe_socket_server", "hbpe_socket_client", "hbpe_socket_connect",
-               "hbpe_socket_send", "hbpe_socket_recv", "hbpe_socket_close", "hbpe_socket_info",
                "gen_html", "regenerate", "html_docs", "html_dash",
               "notes", "todo", "remind", "help_", "explain", "whatis"]
     matches = [n for n in names if partial.lower() in n]
@@ -9078,7 +9072,6 @@ def cmd_help_detail(topic):
         "hbpe_start": "Starts HubBasePE turtle graphics environment.",
         "hbpe_program1": "Runs HBPE Program 1 (turtle graphics demo). Programs 1-20 and P1-P5 available.",
         "hbpe_dev_console": "Opens HBPE developer console (requires 0.0.2.0.00b1+).",
-        "hbpe_socket": "HBPE socket networking. Subcommands: server/port, connect/host/port, send/msg, recv, close, info.",
         "345": "Launches HubBasePE Code system with VIP authentication.",
         "debug_exec": "Interactive debug console. Type Python expressions, HBPE program numbers, or 'stop' to exit.",
         "notes": "Simple note taking. 'notes add <text>', 'notes list', 'notes remove N', 'notes clear'.",
@@ -9102,7 +9095,7 @@ def help_cat():
         ("Data", "67-75, 121-132 (quote, animals, colors, fruits, vegetables, elements, random number, UUID, shuffle, flatten, chunk, unique, intersect)"),
         ("Admin/Mod/VIP", "system_info, list_users, toggle_debug, featured_joke, vip_fact, vip_quote"),
         ("Debug", "debug_functions, debug_vars, debug_cmd_count, debug_exec"),
-        ("HBPE", "345, hbpe_start, hbpe_advance, hbpe_restart, hbpe_stop, hbpe_program1-20, hbpe_programp1-5, hbpe_dev_console, hbpe_socket"),
+        ("HBPE", "345, hbpe_start, hbpe_advance, hbpe_restart, hbpe_stop, hbpe_program1-20, hbpe_programp1-5, hbpe_dev_console"),
         ("New v3.6", "quiz, chart, suggest, ask/ai/query, flashcard/learn, colors, pager_test, cls, version, timer, stopwatch, calc, categories, save/export"),
         ("HTML Docs", "docs (open AI.py-docs.html), dashboard (open dashboard.html), gen_html/regenerate (rebuild HTML files)"),
         ("Notes/Todo", "notes (add/list/remove/clear), todo (add/list/done/remove/clear), remind <sec> <msg>"),
@@ -9255,38 +9248,6 @@ def handle_cmd(cmd, role, name, badge):
             HB.dev_console()
         else:
             print("Dev console requires HubBasePE 0.0.2.0.00b1 or later.")
-    elif cmd == "hbpe_socket":
-        print("=== HBPE Socket Networking ===")
-        print("  hbpe_socket_server <port>   - Start server on port (default 9999)")
-        print("  hbpe_socket_connect <host> <port> - Connect to remote server")
-        print("  hbpe_socket_accept          - Accept incoming connection (server)")
-        print("  hbpe_socket_send <msg>      - Send message over active connection")
-        print("  hbpe_socket_recv            - Receive message")
-        print("  hbpe_socket_close           - Close socket")
-        print("  hbpe_socket_info            - Show socket status")
-        print("HBPE socket v0.0.2 ready.")
-    elif cmd.startswith("hbpe_socket_server"):
-        port = 9999
-        parts = cmd.split()
-        if len(parts) > 1 and parts[1].isdigit():
-            port = int(parts[1])
-        print(HB.socket_start_server(port))
-    elif cmd.startswith("hbpe_socket_connect"):
-        parts = cmd.split()
-        host = parts[1] if len(parts) > 1 else "127.0.0.1"
-        port = int(parts[2]) if len(parts) > 2 and parts[2].isdigit() else 9999
-        print(HB.socket_connect(host, port))
-    elif cmd == "hbpe_socket_accept":
-        print(HB.socket_accept())
-    elif cmd.startswith("hbpe_socket_send"):
-        msg = cmd.split(" ", 1)[1] if " " in cmd else "hello"
-        print(HB.socket_send(msg))
-    elif cmd == "hbpe_socket_recv":
-        print(HB.socket_recv())
-    elif cmd == "hbpe_socket_close":
-        print(HB.socket_close())
-    elif cmd == "hbpe_socket_info":
-        print(HB.socket_info())
     elif cmd in ("docs","html_docs"):
         if os.path.exists("AI.py-docs.html"):
             os.startfile("AI.py-docs.html")
