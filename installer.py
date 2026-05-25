@@ -274,7 +274,7 @@ class AIInstaller:
         self.check_btn.config(state=tk.DISABLED)
 
         url = normalize_url(self.url_var.get())
-        if not url or url == DEFAULT_URL:
+        if not url or not url.startswith("http"):
             self.log("Please set a valid repository URL.", "error")
             self.set_status("No URL set")
             self.install_btn.config(state=tk.NORMAL)

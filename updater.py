@@ -144,10 +144,9 @@ def main():
         if input("Save this URL? (y/n): ").strip().lower() == "y":
             save_config(url)
     url = normalize_url(url)
-    if url == DEFAULT_URL:
-        print("WARNING: Using placeholder URL.")
-        if input("Enter a different URL? (y/n): ").strip().lower() == "y":
-            url = prompt_for_url()
+    if not url or not url.startswith("http"):
+        url = prompt_for_url()
+        if input("Save this URL? (y/n): ").strip().lower() == "y":
             save_config(url)
     urls = file_urls(url)
     updated_count = 0
