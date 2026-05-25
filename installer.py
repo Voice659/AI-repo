@@ -50,7 +50,7 @@ class AIInstaller:
             pass
 
         self.url = DEFAULT_URL
-        self.install_path = app_dir()
+        self.install_path = os.path.join(os.path.expanduser("~"), "AI")
         self.status_text = tk.StringVar(value="Ready")
         self.progress_var = tk.DoubleVar(value=0.0)
         self.file_progress_var = tk.DoubleVar(value=0.0)
