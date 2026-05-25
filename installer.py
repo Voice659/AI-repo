@@ -1,6 +1,6 @@
 """AI.py Visual Installer — tkinter-based GUI installer with progress bars."""
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, filedialog
 import threading, os, sys, json, re, shutil, tempfile
 from urllib.request import urlopen, Request
 from urllib.parse import urlparse
@@ -66,6 +66,12 @@ class AIInstaller:
         y = (sh - h) // 2
         self.root.geometry("+{}+{}".format(x, y))
 
+    def _browse_path(self):
+        selected = filedialog.askdirectory(title="Select Install Folder",
+                                           initialdir=self.path_var.get() or os.path.expanduser("~"))
+        if selected:
+            self.path_var.set(selected)
+
     def _build_ui(self):
         bg = "#0d1117"
         fg = "#c9d1d9"
@@ -93,12 +99,20 @@ class AIInstaller:
         path_frame.pack(fill=tk.X, pady=(0, 10))
         tk.Label(path_frame, text="Install Location:", font=("Segoe UI", 9),
                  fg=fg, bg=bg).pack(anchor=tk.W)
+        path_row = tk.Frame(path_frame, bg=bg)
+        path_row.pack(fill=tk.X, pady=(3, 0))
         self.path_var = tk.StringVar(value=self.install_path)
-        path_entry = tk.Entry(path_frame, textvariable=self.path_var,
+        path_entry = tk.Entry(path_row, textvariable=self.path_var,
                               font=("Segoe UI", 9), bg="#161b22", fg=fg,
                               insertbackground=fg, relief=tk.FLAT, bd=1,
                               highlightthickness=1, highlightcolor=border)
-        path_entry.pack(fill=tk.X, pady=(3, 0))
+        path_entry.pack(side=tk.LEFT, fill=tk.X, expand=True)
+        browse_btn = tk.Button(path_row, text="Browse...",
+                               font=("Segoe UI", 8), bg="#21262d", fg=fg,
+                               relief=tk.FLAT, bd=1, padx=8, cursor="hand2",
+                               command=self._browse_path,
+                               activebackground="#30363d", activeforeground=fg)
+        browse_btn.pack(side=tk.RIGHT, padx=(6, 0))
 
         # URL
         url_frame = tk.Frame(main, bg=bg)
@@ -255,8 +269,11 @@ class AIInstaller:
             self.log("Connection failed: {}".format(e), "error")
             self.set_status("Connection failed")
 
+    def _target_dir(self):
+        return self.path_var.get() or app_dir()
+
     def _local_version(self, filename):
-        path = os.path.join(app_dir(), filename)
+        path = os.path.join(self._target_dir(), filename)
         if os.path.exists(path):
             with open(path, "rb") as f:
                 return self.parse_version(f.read())
@@ -312,7 +329,7 @@ class AIInstaller:
                         fail_count += 1
                         continue
 
-                dest = os.path.join(app_dir(), filename)
+                dest = os.path.join(self._target_dir(), filename)
                 backup = dest + ".bak"
                 if os.path.exists(dest):
                     shutil.copy2(dest, backup)
@@ -358,7 +375,7 @@ class AIInstaller:
         ok = 0
         fail = 0
         for filename in ALL_FILES:
-            path = os.path.join(app_dir(), filename)
+            path = os.path.join(self._target_dir(), filename)
             if not os.path.exists(path):
                 self.log("  MISSING: {}".format(filename), "error")
                 fail += 1
