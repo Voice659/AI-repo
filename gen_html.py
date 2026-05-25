@@ -1,4 +1,4 @@
-import AI, data_bulk, json, html, os
+import AI, json, html, os
 
 # ---- Collect all data tables ----
 funcs = sorted([f for f in dir(AI) if f.startswith('get_') and f.endswith('_data')])
@@ -172,13 +172,13 @@ def build_docs():
         ("3.4.0","CLI colors, badges, pager, chart, quiz"),
         ("3.5.0","Bulk data (424 tables), module split"),
         ("3.6.0","Curated data, flashcard, AI query, timer, calc, docs"),
-        ("3.7.0","133 new data functions (data_bulk2.py), 67K lines"),
-        ("3.8.0","103 new data functions (data_bulk3.py), 50K lines, 465 total data tables, stats/changelog pages"),
+        ("3.7.0","133 new data functions, 67K lines"),
+        ("3.8.0","103 new data functions, 50K lines, 465 total data tables, stats/changelog pages"),
         ("3.9.0","data-index.html page, updated welcome message, rebuilt updater"),
-        ("4.0.0","Major: 200 new data functions (data_bulk4.py), ~201K lines, 665 total tables, visual installer (AIInstaller.exe), download/features site pages, 800K+ total lines"),
-        ("4.1.0","Major: 100 new data functions (data_bulk5.py), ~100K lines, 750+ total tables, dual HBPE (v0.0.1.2.01 + v0.0.2.0.00b1), hbpe_compat.py compat layer, Programm20 support, dev_console detection, 900K+ total lines"),
-        ("4.2.0","Major: 100 new data functions (data_bulk6.py), ~100K lines, 850+ total tables, 1M+ total lines, installer/updater rebuilt with version history, AIInstaller v4.2.0, AIUpdater v4.2.0"),
-        ("4.4.0","Major: 100 new data functions (data_bulk7.py), ~100K lines, 950+ total tables, 1.1M+ total lines, 14 external modules total"),
+        ("4.0.0","Major: 200 new data functions, ~201K lines, 665 total tables, visual installer (AIInstaller.exe), download/features site pages, 800K+ total lines"),
+        ("4.1.0","Major: 100 new data functions, ~100K lines, 750+ total tables, dual HBPE (v0.0.1.2.01 + v0.0.2.0.00b1), hbpe_compat.py compat layer, Programm20 support, dev_console detection, 900K+ total lines"),
+        ("4.2.0","Major: 100 new data functions, ~100K lines, 850+ total tables, 1M+ total lines, installer/updater rebuilt with version history, AIInstaller v4.2.0, AIUpdater v4.2.0"),
+        ("4.4.0","Major: 935 new utility functions via gen_code4.py, 3600+ commands, 1.3M+ total lines"),
     ]
     curated_sample_map = {}
     for name in curated_names:
@@ -261,7 +261,7 @@ def build_docs():
 <div class="container">
 
 <h1>AI.py v''' + VERSION + r'''</h1>
-<p class="subtitle">A massive Python CLI assistant — 2700+ commands, 550K+ lines, 465 data tables</p>
+<p class="subtitle">A massive Python CLI assistant — 3600+ commands, 1.3M+ lines, 950+ data tables</p>
 
 <p>
   <span class="badge badge-admin">ADMIN</span>
@@ -272,7 +272,7 @@ def build_docs():
 
 <h2>Statistics</h2>
 <p>
-  <span class="stat-box"><span class="num">2700+</span><br><span class="label">Commands</span></span>
+  <span class="stat-box"><span class="num">3600+</span><br><span class="label">Commands</span></span>
   <span class="stat-box"><span class="num">''' + "{:,}".format(total_entries) + r'''</span><br><span class="label">Data Entries</span></span>
   <span class="stat-box"><span class="num">''' + str(len(data_index)) + r'''</span><br><span class="label">Data Tables</span></span>
   <span class="stat-box"><span class="num">''' + str(len(curated_names)) + r'''</span><br><span class="label">Curated Tables</span></span>
@@ -370,9 +370,8 @@ python AI.py
 <h2>Built With</h2>
 <ul>
   <li>Python 3.x</li>
-  <li>HubBasePE v0.0.1.2.01 (PyPI)</li>
-  <li>9 external modules: space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data, data_bulk</li>
-  <li>data_bulk2.py (133 functions), data_bulk3.py (103 functions)</li>
+  <li>HubBasePE v0.0.1.2.01 / v0.0.2.0.00b1 (dual)</li>
+  <li>11 external modules: space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data, hbpe_compat, gen_code4, installer, updater</li>
 </ul>
 
 <div class="footer">
