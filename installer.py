@@ -5,7 +5,7 @@ import threading, os, sys, json, re, shutil, tempfile
 from urllib.request import urlopen, Request
 from urllib.parse import urlparse
 
-VERSION = "4.3.0"
+VERSION = "4.4.0"
 APP_NAME = "AI.py"
 CONFIG_FILE = "installer_config.json"
 ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
@@ -148,7 +148,7 @@ class AIInstaller:
         # Footer
         footer = tk.Frame(self.root, bg="#161b22", bd=0, highlightthickness=1, highlightcolor=border)
         footer.pack(fill=tk.X, side=tk.BOTTOM, pady=(15, 0))
-        tk.Label(footer, text="AI.py v{} \u2022 800K+ lines \u2022 665 data tables".format(VERSION),
+        tk.Label(footer, text="AI.py v{} \u2022 1.3M+ lines \u2022 950 data tables".format(VERSION),
                  font=("Courier New", 8), fg="#484f58", bg="#161b22", padx=20, pady=8).pack()
 
     def _make_button(self, parent, text, command, color):
