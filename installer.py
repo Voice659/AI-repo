@@ -11,8 +11,9 @@ CONFIG_FILE = "installer_config.json"
 ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
              "word_play.py", "art_extra.py", "world_data.py", "story_data.py",
              "data_bulk.py", "data_bulk2.py", "data_bulk3.py", "data_bulk4.py",
-             "updater.py"]
-DEFAULT_URL = "https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/AI.py"
+             "data_bulk5.py", "data_bulk6.py", "data_bulk7.py", "hbpe_compat.py",
+             "gen_code4.py", "installer.py", "updater.py"]
+DEFAULT_URL = "https://raw.githubusercontent.com/Voice659/AI-repo/main/AI.py"
 
 def app_dir():
     if getattr(sys, "frozen", False):
@@ -69,8 +70,10 @@ class AIInstaller:
 
         tk.Label(header, text=APP_NAME, font=("Courier New", 22, "bold"),
                  fg=accent, bg="#161b22", padx=20, pady=12).pack()
-        tk.Label(header, text="Visual Installer v{}".format(VERSION),
-                 font=("Courier New", 11), fg=accent2, bg="#161b22", padx=20, pady=(0, 12)).pack()
+        sub = tk.Frame(header, bg="#161b22")
+        sub.pack(fill=tk.X, pady=(0, 12))
+        tk.Label(sub, text="Visual Installer v{}".format(VERSION),
+                 font=("Courier New", 11), fg=accent2, bg="#161b22").pack(padx=20)
 
         # Main content
         main = tk.Frame(self.root, bg=bg, padx=25)
@@ -135,15 +138,19 @@ class AIInstaller:
         log_frame = tk.Frame(main, bg=bg)
         log_frame.pack(fill=tk.BOTH, expand=True)
 
-        self.log_text = tk.Text(log_frame, font=("Courier New", 8), bg="#161b22",
+        text_container = tk.Frame(log_frame, bg=bg)
+        text_container.pack(fill=tk.BOTH, expand=True)
+
+        scrollbar = tk.Scrollbar(text_container, bg="#30363d")
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+        self.log_text = tk.Text(text_container, font=("Courier New", 8), bg="#161b22",
                                 fg="#8b949e", relief=tk.FLAT, bd=1,
                                 highlightthickness=1, highlightcolor=border,
-                                wrap=tk.WORD, state=tk.DISABLED)
+                                wrap=tk.WORD, state=tk.DISABLED,
+                                yscrollcommand=scrollbar.set)
         self.log_text.pack(fill=tk.BOTH, expand=True)
-
-        scrollbar = tk.Scrollbar(self.log_text, command=self.log_text.yview)
-        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        self.log_text.config(yscrollcommand=scrollbar.set)
+        scrollbar.config(command=self.log_text.yview)
 
         # Footer
         footer = tk.Frame(self.root, bg="#161b22", bd=0, highlightthickness=1, highlightcolor=border)
@@ -154,8 +161,7 @@ class AIInstaller:
     def _make_button(self, parent, text, command, color):
         btn = tk.Button(parent, text=text, command=command,
                         font=("Segoe UI", 9, "bold"), bg=color, fg="#ffffff",
-                        relief=tk.FLAT, bd=0, padx=14, pady=6, cursor="hand2",
-                        activebackground="#ffffff22")
+                        relief=tk.FLAT, bd=0, padx=14, pady=6, cursor="hand2")
         btn.bind("<Enter>", lambda e: btn.config(bg=color + "cc"))
         btn.bind("<Leave>", lambda e: btn.config(bg=color))
         return btn
@@ -214,7 +220,14 @@ class AIInstaller:
                 local_ver = self._local_version("AI.py")
                 if local_ver:
                     self.log("Local version: {}".format(local_ver), "info")
-                    if remote_ver > local_ver:
+                    def _cmp(a, b):
+                        pa = [int(x) for x in a.split(".")]
+                        pb = [int(x) for x in b.split(".")]
+                        for va, vb in zip(pa, pb):
+                            if va > vb: return 1
+                            if va < vb: return -1
+                        return len(pa) - len(pb)
+                    if _cmp(remote_ver, local_ver) > 0:
                         self.log("UPDATE AVAILABLE: {} -> {}".format(local_ver, remote_ver), "success")
                         self.set_status("Update available: v{} -> v{}".format(local_ver, remote_ver))
                     elif remote_ver == local_ver:

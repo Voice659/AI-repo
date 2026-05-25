@@ -5,8 +5,11 @@ from urllib.parse import urlparse
 VERSION = "4.4.0"
 CONFIG_FILE = "updater_config.json"
 ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
-             "word_play.py", "art_extra.py", "world_data.py", "story_data.py"]
-DEFAULT_URL = "https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/AI.py"
+             "word_play.py", "art_extra.py", "world_data.py", "story_data.py",
+             "data_bulk.py", "data_bulk2.py", "data_bulk3.py", "data_bulk4.py",
+             "data_bulk5.py", "data_bulk6.py", "data_bulk7.py", "hbpe_compat.py",
+             "gen_code4.py", "installer.py"]
+DEFAULT_URL = "https://raw.githubusercontent.com/Voice659/AI-repo/main/AI.py"
 
 def app_dir():
     if getattr(sys, "frozen", False):
