@@ -2,7 +2,7 @@ import sys, os, shutil, tempfile, json, re
 from urllib.request import urlopen, Request
 from urllib.parse import urlparse
 
-VERSION = "2.0.1"
+VERSION = "4.2.0"
 CONFIG_FILE = "updater_config.json"
 ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
              "word_play.py", "art_extra.py", "world_data.py", "story_data.py"]

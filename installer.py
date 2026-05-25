@@ -5,7 +5,7 @@ import threading, os, sys, json, re, shutil, tempfile
 from urllib.request import urlopen, Request
 from urllib.parse import urlparse
 
-VERSION = "4.0.0"
+VERSION = "4.2.0"
 APP_NAME = "AI.py"
 CONFIG_FILE = "installer_config.json"
 ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",

@@ -1,5 +1,5 @@
 import random, datetime, os, math, string, json, re, hashlib, base64, uuid, time, statistics, sys, textwrap
-__version__ = "4.1.0"
+__version__ = "4.2.0"
 import space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data
 import hbpe_compat as HB
 import data_bulk
@@ -12,6 +12,8 @@ import data_bulk4
 from data_bulk4 import *
 import data_bulk5
 from data_bulk5 import *
+import data_bulk6
+from data_bulk6 import *
 
 if os.name == "nt":
     os.system("color")
@@ -22013,7 +22015,7 @@ def handle_cmd(cmd, role, name, badge):
 
 def main():
     clear()
-    print(C_CYAN + C_BOLD + "Welcome to AI.py v" + __version__ + "! 2700+ commands, 900K+ lines, 750+ data tables, dual HBPE, visual installer." + C_RESET)
+    print(C_CYAN + C_BOLD + "Welcome to AI.py v" + __version__ + "! 2700+ commands, 1M+ lines, 850+ data tables, dual HBPE, visual installer." + C_RESET)
     name = input(C_YELLOW + "What's your name? " + C_RESET).strip() or "Stranger"
 
     pw = input("Role password (or press Enter for none): ").strip()
