@@ -9071,7 +9071,7 @@ def cmd_help_detail(topic):
         "dashboard": "Opens dashboard.html in your web browser (interactive web UI).",
         "hbpe_start": "Starts HubBasePE turtle graphics environment.",
         "hbpe_program1": "Runs HBPE Program 1 (turtle graphics demo). Programs 1-20 and P1-P5 available.",
-        "hbpe_dev_console": "Opens HBPE developer console (requires 0.0.2.0.00b1+).",
+        "hbpe_dev_console": "Opens HBPE developer console (requires HBPE >= 0.0.1.2.0).",
         "345": "Launches HubBasePE Code system with VIP authentication.",
         "debug_exec": "Interactive debug console. Type Python expressions, HBPE program numbers, or 'stop' to exit.",
         "notes": "Simple note taking. 'notes add <text>', 'notes list', 'notes remove N', 'notes clear'.",
@@ -9241,13 +9241,13 @@ def handle_cmd(cmd, role, name, badge):
         if HB.HBPE_HAS_PROGRAM20:
             print("Running HubBasePE Program 20..."); HB.Programm20()
         else:
-            print("Program 20 requires HubBasePE 0.0.2.0.00b1 or later.")
+            print("Program 20 not available in this HBPE version (v{}).".format(HB.HBPE_VERSION))
     elif cmd == "hbpe_dev_console":
         if HB.HBPE_HAS_DEV_CONSOLE:
             print("Opening HubBasePE developer console...")
             HB.dev_console()
         else:
-            print("Dev console requires HubBasePE 0.0.2.0.00b1 or later.")
+            print("Dev console not available in this HBPE version (v{}).".format(HB.HBPE_VERSION))
     elif cmd in ("docs","html_docs"):
         if os.path.exists("AI.py-docs.html"):
             os.startfile("AI.py-docs.html")
@@ -10462,7 +10462,7 @@ def handle_cmd(cmd, role, name, badge):
     elif cmd == "345":
         if role:
             ra_level = {"Admin": 3, "Mod": 2, "Vip": 1}.get(role, 0)
-            print("--- HubBase 0.0.1.2.01 (AI.py integrated) ---")
+            print("--- HubBasePE v{} (AI.py integrated) ---".format(HB.HBPE_VERSION))
             print("Auto-login as {} (RA={})...".format(role, ra_level))
             global RA
             RA = ra_level
