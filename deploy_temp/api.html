@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI.py v5.0.0 — API Reference</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#0d1117;color:#c9d1d9;font-family:Courier New,monospace;line-height:1.6;padding:20px;}
+  .container{max-width:960px;margin:auto;}
+  h1{color:#58a6ff;font-size:2em;margin:20px 0 5px;}
+  h2{color:#79c0ff;font-size:1.4em;margin:30px 0 10px;border-bottom:1px solid #30363d;padding-bottom:5px;}
+  h3{color:#a5d6ff;font-size:1.1em;margin:20px 0 8px;}
+  .subtitle{color:#8b949e;font-size:0.95em;margin-bottom:20px;}
+  table{width:100%;border-collapse:collapse;margin:10px 0;}
+  th{text-align:left;color:#8b949e;border-bottom:1px solid #30363d;padding:8px 12px;font-size:0.85em;}
+  td{padding:6px 12px;border-bottom:1px solid #21262d;font-size:0.9em;}
+  td code{color:#f0883e;background:#1c2128;padding:1px 5px;border-radius:3px;font-size:0.9em;}
+  a{color:#58a6ff;}
+  .footer{margin-top:40px;padding-top:20px;border-top:1px solid #30363d;color:#8b949e;font-size:0.85em;text-align:center;}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:20px 0;}
+  .cat-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;}
+  .cat-card h3{margin:0 0 8px;color:#58a6ff;}
+  .cat-card p{color:#8b949e;font-size:0.85em;}
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+<body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;text-align:center;font-size:0.85em;">
+<a href="index.html" style="color:#58a6ff;text-decoration:none;">Home</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="AI.py-docs.html" style="color:#58a6ff;text-decoration:none;">Docs</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="data-index.html" style="color:#58a6ff;text-decoration:none;">Data Index</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="features.html" style="color:#58a6ff;text-decoration:none;">Features</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="download.html" style="color:#58a6ff;text-decoration:none;">Downloads</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="stats.html" style="color:#58a6ff;text-decoration:none;">Stats</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="changelog.html" style="color:#58a6ff;text-decoration:none;">Changelog</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<span style="color:#8b949e;">API</span>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="roadmap.html" style="color:#58a6ff;text-decoration:none;">Roadmap</a>
+</div>
+<div class="container">
+<h1>AI.py API Reference</h1>
+<p class="subtitle">5000+ commands across 15 categories — v5.0.0</p>
+
+<h2>Command Categories</h2>
+<div class="cat-grid">
+<div class="cat-card"><h3>Text</h3><p>reverse, capitalize, count words, replace, split, join, pad, trim, encode, decode</p></div>
+<div class="cat-card"><h3>Math</h3><p>add, subtract, multiply, divide, power, sqrt, factorial, gcd, lcm, prime check</p></div>
+<div class="cat-card"><h3>Convert</h3><p>binary, hex, octal, decimal, celsius/fahrenheit, km/miles, kg/lb, currency</p></div>
+<div class="cat-card"><h3>Format</h3><p>json format, table, csv, wrap, align, indent, number format, date format</p></div>
+<div class="cat-card"><h3>List</h3><p>sort, reverse, shuffle, unique, chunk, flatten, zip, slice, merge, filter</p></div>
+<div class="cat-card"><h3>Random</h3><p>number, choice, shuffle, password, uuid, color, string, date, sample</p></div>
+<div class="cat-card"><h3>Crypto</h3><p>md5, sha1, sha256, sha512, base64, caesar, aes, xor, hash, hmac</p></div>
+<div class="cat-card"><h3>Geometry</h3><p>area, perimeter, volume, surface area, distance, midpoint, slope, angle</p></div>
+<div class="cat-card"><h3>Physics</h3><p>force, energy, power, velocity, acceleration, density, pressure, momentum</p></div>
+<div class="cat-card"><h3>Stats</h3><p>mean, median, mode, stddev, variance, percentile, correlation, regression</p></div>
+<div class="cat-card"><h3>DateTime</h3><p>now, format, parse, diff, add, weekday, timezone, timer, stopwatch</p></div>
+<div class="cat-card"><h3>File</h3><p>read, write, append, list, delete, rename, copy, move, size, exists</p></div>
+<div class="cat-card"><h3>Color</h3><p>hex, rgb, hsl, cmyk, name, blend, gradient, contrast, palette, convert</p></div>
+<div class="cat-card"><h3>String</h3><p>substring, index, count, contains, startswith, endswith, strip, repeat</p></div>
+<div class="cat-card"><h3>Network</h3><p>ping, dns lookup, ip info, url parse, http get, port scan, whois</p></div>
+</div>
+
+<h2>Sample Commands</h2>
+<table>
+<tr><th>Command</th><th>Category</th><th>Description</th></tr>
+<tr><td><code>reverse</code></td><td>Text</td><td>Reverse a string</td></tr>
+<tr><td><code>prime</code></td><td>Math</td><td>Check if number is prime</td></tr>
+<tr><td><code>binary</code></td><td>Convert</td><td>Convert decimal to binary</td></tr>
+<tr><td><code>jsonfmt</code></td><td>Format</td><td>Pretty-print JSON</td></tr>
+<tr><td><code>shuffle</code></td><td>List</td><td>Shuffle list elements</td></tr>
+<tr><td><code>password</code></td><td>Random</td><td>Generate random password</td></tr>
+<tr><td><code>sha256</code></td><td>Crypto</td><td>SHA-256 hash</td></tr>
+<tr><td><code>distance</code></td><td>Geometry</td><td>Distance between two points</td></tr>
+<tr><td><code>force</code></td><td>Physics</td><td>Calculate F=ma</td></tr>
+<tr><td><code>mean</code></td><td>Stats</td><td>Calculate arithmetic mean</td></tr>
+<tr><td><code>now</code></td><td>DateTime</td><td>Get current date/time</td></tr>
+<tr><td><code>read</code></td><td>File</td><td>Read file contents</td></tr>
+<tr><td><code>hex</code></td><td>Color</td><td>Hex color code lookup</td></tr>
+<tr><td><code>substring</code></td><td>String</td><td>Extract substring</td></tr>
+<tr><td><code>ping</code></td><td>Network</td><td>Ping a host</td></tr>
+</table>
+
+<h2>Data Functions</h2>
+<p>2300+ data functions across 22 modules. Each returns 1000 entries of structured data. Call any <code>get_*_data()</code> to retrieve:</p>
+<table>
+<tr><th>Module</th><th>Functions</th><th>Topics</th></tr>
+<tr><td>data_bulk.py</td><td>424</td><td>Animals, plants, minerals, countries, cities, elements, space</td></tr>
+<tr><td>data_bulk2.py</td><td>133</td><td>History, arts, science, sports, food, culture, technology</td></tr>
+<tr><td>data_bulk3.py</td><td>103</td><td>Battles, flags, capitals, landmarks, awards, philosophy, music</td></tr>
+<tr><td>data_bulk4.py</td><td>200</td><td>Programming, OS, internet, currency, companies, symbols</td></tr>
+<tr><td>data_bulk5.py</td><td>100</td><td>Chemistry, physics, biology, astronomy, geology, mathematics</td></tr>
+<tr><td>data_bulk6.py</td><td>100</td><td>Professions, sports, entertainment, politics, technology</td></tr>
+<tr><td>data_bulk7.py</td><td>100</td><td>Fashion, architecture, gaming, robotics, philosophy</td></tr>
+<tr><td>data_bulk8.py</td><td>100</td><td>Energy, clean tech, robotics, AI, space, biotech</td></tr>
+<tr><td>data_bulk9.py</td><td>100</td><td>Folklore, mythology, religion, trade, food</td></tr>
+<tr><td>data_bulk10.py</td><td>100</td><td>Exploration, science, ethnography, music</td></tr>
+<tr><td>data_bulk11.py</td><td>100</td><td>Crypto, security, DeFi, Web3, privacy</td></tr>
+<tr><td>data_bulk12-22.py</td><td>1100+</td><td>Space, astronomy, EVs, art, music, programming, security, education, philosophy, architecture, sports, linguistics, climate, quantum</td></tr>
+</table>
+
+<div class="footer">
+  AI.py v5.0.0 API Reference &mdash; 15 categories, 5000+ commands, 2300+ data tables
+</div>
+</div>
+</body>
+</html>
