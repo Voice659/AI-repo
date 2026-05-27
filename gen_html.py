@@ -180,6 +180,7 @@ def build_docs():
         ("4.2.0","Major: 100 new data functions (data_bulk6.py), ~100K lines, 850+ total tables, 1M+ total lines, installer/updater rebuilt with version history, AIInstaller v4.2.0, AIUpdater v4.2.0"),
         ("4.4.0","Major: 935 new utility functions via gen_code4.py, 3600+ commands, 1.3M+ total lines"),
         ("4.5.0","Major: 400 new data functions (data_bulk8-11.py), ~401K lines, 1350+ total tables, 500K-inline in AI.py, 1.5M+ total lines"),
+        ("5.0.0","Major: 1000+ new data functions (data_bulk12-22.py), ~1.8M lines, 2300+ total tables, 500K-inline in AI.py, 3.5M+ total lines, Vercel deployment"),
     ]
     curated_sample_map = {}
     for name in curated_names:
