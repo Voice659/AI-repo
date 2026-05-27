@@ -179,6 +179,7 @@ def build_docs():
         ("4.1.0","Major: 100 new data functions (data_bulk5.py), ~100K lines, 750+ total tables, dual HBPE (v0.0.1.2.01 + v0.0.2.0.00b1), hbpe_compat.py compat layer, Programm20 support, dev_console detection, 900K+ total lines"),
         ("4.2.0","Major: 100 new data functions (data_bulk6.py), ~100K lines, 850+ total tables, 1M+ total lines, installer/updater rebuilt with version history, AIInstaller v4.2.0, AIUpdater v4.2.0"),
         ("4.4.0","Major: 935 new utility functions via gen_code4.py, 3600+ commands, 1.3M+ total lines"),
+        ("4.5.0","Major: 400 new data functions (data_bulk8-11.py), ~401K lines, 1350+ total tables, 500K-inline in AI.py, 1.5M+ total lines"),
     ]
     curated_sample_map = {}
     for name in curated_names:

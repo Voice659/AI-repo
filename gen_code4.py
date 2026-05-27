@@ -1,4 +1,4 @@
-"""Generate ~22,000 lines of new utility code for AI.py v4.4.0."""
+"""Generate ~22,000 lines of new utility code for AI.py v4.5.0."""
 import os, random, textwrap, re
 
 random.seed(4444)
@@ -3233,7 +3233,7 @@ if __name__ == "__main__":
     # Now insert new function definitions before the main guard
     before = content[:idx]
     after = content[idx:]
-    new_section = "\n\n# === v4.4.0 NEW UTILITY FUNCTIONS ===\n"
+    new_section = "\n\n# === v4.5.0 NEW UTILITY FUNCTIONS ===\n"
     new_section += "\n".join(code_lines)
     new_section += "\n"
     content = before + new_section + after
