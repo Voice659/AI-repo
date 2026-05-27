@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI.py v4.4.0 Documentation</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Courier New', monospace; line-height: 1.6; padding: 20px; }
+  .container { max-width: 960px; margin: auto; }
+  h1 { color: #58a6ff; font-size: 2em; margin: 20px 0 5px; }
+  h2 { color: #79c0ff; font-size: 1.4em; margin: 30px 0 10px; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+  h3 { color: #a5d6ff; font-size: 1.1em; margin: 20px 0 8px; }
+  .subtitle { color: #8b949e; font-size: 0.95em; margin-bottom: 20px; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8em; margin: 2px; }
+  .badge-admin { background: #d73a49; color: #fff; }
+  .badge-mod { background: #0366d6; color: #fff; }
+  .badge-vip { background: #28a745; color: #fff; }
+  .badge-user { background: #30363d; color: #c9d1d9; }
+  .stat-box { display: inline-block; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 15px 25px; margin: 5px; text-align: center; }
+  .stat-box .num { font-size: 1.8em; font-weight: bold; color: #58a6ff; }
+  .stat-box .label { font-size: 0.8em; color: #8b949e; }
+  .cmd-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  .cmd-table th { text-align: left; color: #8b949e; border-bottom: 1px solid #30363d; padding: 6px 10px; font-size: 0.85em; }
+  .cmd-table td { padding: 4px 10px; border-bottom: 1px solid #21262d; font-size: 0.9em; }
+  .cmd-table .cmd-num { color: #58a6ff; font-weight: bold; width: 60px; }
+  .cmd-table tr:hover { background: #161b22; }
+  .sample-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.85em; overflow-x: auto; display: block; }
+  .sample-table th { text-align: left; background: #161b22; border: 1px solid #30363d; padding: 5px 8px; color: #79c0ff; }
+  .sample-table td { border: 1px solid #21262d; padding: 4px 8px; }
+  .tag-curated { display: inline-block; background: #1f6feb; color: #fff; font-size: 0.7em; padding: 1px 6px; border-radius: 3px; }
+  .tag-bulk { display: inline-block; background: #21262d; color: #8b949e; font-size: 0.7em; padding: 1px 6px; border-radius: 3px; }
+  .data-list { columns: 3; column-gap: 20px; }
+  .data-list li { list-style: none; font-size: 0.85em; padding: 3px 0; color: #8b949e; break-inside: avoid; }
+  .data-list li.curated { color: #79c0ff; }
+  pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 15px; overflow-x: auto; font-size: 0.9em; margin: 10px 0; }
+  code { background: #161b22; padding: 1px 5px; border-radius: 3px; font-size: 0.9em; }
+  a { color: #58a6ff; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #30363d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  @media (max-width: 600px) { .data-list { columns: 2; } }
+</style>
+</head>
+<body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;text-align:center;font-size:0.85em;">
+  <a href="index.html" style="color:#58a6ff;text-decoration:none;">&#x2190; Home</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="data-index.html" style="color:#58a6ff;text-decoration:none;">Data Index</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="features.html" style="color:#58a6ff;text-decoration:none;">Features</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="download.html" style="color:#58a6ff;text-decoration:none;">Downloads</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="stats.html" style="color:#58a6ff;text-decoration:none;">Statistics</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="changelog.html" style="color:#58a6ff;text-decoration:none;">Changelog</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <span style="color:#8b949e;">AI.py v4.4.0 Docs</span>
+</div>
+<div class="container">
+
+<h1>AI.py v4.4.0</h1>
+<p class="subtitle">A massive Python CLI assistant — 3600+ commands, 1.3M+ lines, 950+ data tables</p>
+
+<p>
+  <span class="badge badge-admin">ADMIN</span>
+  <span class="badge badge-mod">MOD</span>
+  <span class="badge badge-vip">VIP</span>
+  <span class="badge badge-user">User</span>
+</p>
+
+<h2>Statistics</h2>
+<p>
+  <span class="stat-box"><span class="num">3600+</span><br><span class="label">Commands</span></span>
+  <span class="stat-box"><span class="num">713,898</span><br><span class="label">Data Entries</span></span>
+  <span class="stat-box"><span class="num">942</span><br><span class="label">Data Tables</span></span>
+  <span class="stat-box"><span class="num">21</span><br><span class="label">Curated Tables</span></span>
+</p>
+
+<h2>Commands by Category</h2>
+
+<h3>Drawing (1–17, 76–113)</h3>
+<table class="cmd-table"><tr><th>#</th><th>Command</th></tr><tr><td class="cmd-num">1</td><td>Diamond</td></tr>
+<tr><td class="cmd-num">2</td><td>Tree</td></tr>
+<tr><td class="cmd-num">3</td><td>Heart</td></tr>
+<tr><td class="cmd-num">4</td><td>Star</td></tr>
+<tr><td class="cmd-num">5</td><td>Cat</td></tr>
+<tr><td class="cmd-num">6</td><td>Dog</td></tr>
+<tr><td class="cmd-num">7</td><td>Fish</td></tr>
+<tr><td class="cmd-num">8</td><td>Butterfly</td></tr>
+<tr><td class="cmd-num">9</td><td>Rabbit</td></tr>
+<tr><td class="cmd-num">10</td><td>Owl</td></tr>
+<tr><td class="cmd-num">11</td><td>Snake</td></tr>
+<tr><td class="cmd-num">12</td><td>House</td></tr>
+<tr><td class="cmd-num">13</td><td>Flower</td></tr>
+<tr><td class="cmd-num">14</td><td>Smiley</td></tr>
+<tr><td class="cmd-num">15</td><td>ASCII House</td></tr>
+<tr><td class="cmd-num">16</td><td>ASCII Flower</td></tr>
+<tr><td class="cmd-num">17</td><td>ASCII Smiley</td></tr>
+<tr><td class="cmd-num">76</td><td>Pyramid</td></tr>
+<tr><td class="cmd-num">77</td><td>Triangle</td></tr>
+<tr><td class="cmd-num">78</td><td>Hourglass</td></tr>
+<tr><td class="cmd-num">79</td><td>Circle</td></tr>
+<tr><td class="cmd-num">80</td><td>Pineapple</td></tr>
+<tr><td class="cmd-num">81</td><td>Ghost</td></tr>
+<tr><td class="cmd-num">82</td><td>Alien</td></tr>
+<tr><td class="cmd-num">83</td><td>Bird</td></tr>
+<tr><td class="cmd-num">84</td><td>Turtle</td></tr>
+<tr><td class="cmd-num">85</td><td>Unicorn</td></tr>
+<tr><td class="cmd-num">86</td><td>Robot</td></tr>
+<tr><td class="cmd-num">87</td><td>Spaceship</td></tr>
+<tr><td class="cmd-num">88</td><td>Dragon</td></tr>
+<tr><td class="cmd-num">89</td><td>Crown</td></tr>
+<tr><td class="cmd-num">90</td><td>Castle</td></tr>
+<tr><td class="cmd-num">91</td><td>Mountain</td></tr>
+<tr><td class="cmd-num">92</td><td>Wave</td></tr>
+<tr><td class="cmd-num">93</td><td>Sun</td></tr>
+<tr><td class="cmd-num">94</td><td>Moon</td></tr>
+<tr><td class="cmd-num">95</td><td>Arrows</td></tr>
+<tr><td class="cmd-num">96</td><td>DNA</td></tr>
+<tr><td class="cmd-num">97</td><td>Pacman</td></tr>
+<tr><td class="cmd-num">98</td><td>Bowtie</td></tr>
+<tr><td class="cmd-num">99</td><td>Flag</td></tr>
+<tr><td class="cmd-num">100</td><td>Stairs</td></tr>
+<tr><td class="cmd-num">101</td><td>Table</td></tr>
+<tr><td class="cmd-num">102</td><td>Candle</td></tr>
+<tr><td class="cmd-num">103</td><td>Lamp</td></tr>
+<tr><td class="cmd-num">104</td><td>Key</td></tr>
+<tr><td class="cmd-num">105</td><td>Lock</td></tr>
+<tr><td class="cmd-num">106</td><td>Phone</td></tr>
+<tr><td class="cmd-num">107</td><td>TV</td></tr>
+<tr><td class="cmd-num">108</td><td>Envelope</td></tr>
+<tr><td class="cmd-num">109</td><td>Coffee</td></tr>
+<tr><td class="cmd-num">110</td><td>Burger</td></tr>
+<tr><td class="cmd-num">111</td><td>Pizza</td></tr>
+<tr><td class="cmd-num">112</td><td>Ice Cream</td></tr>
+<tr><td class="cmd-num">113</td><td>Cake</td></tr></table>
+
+<h3>Math (18–23, 61–67, 133–155)</h3>
+<table class="cmd-table"><tr><th>#</th><th>Command</th></tr><tr><td class="cmd-num">18</td><td>Fibonacci</td></tr>
+<tr><td class="cmd-num">19</td><td>Prime Check</td></tr>
+<tr><td class="cmd-num">20</td><td>Factorial</td></tr>
+<tr><td class="cmd-num">21</td><td>GCD</td></tr>
+<tr><td class="cmd-num">22</td><td>LCM</td></tr>
+<tr><td class="cmd-num">23</td><td>Prime Factors</td></tr>
+<tr><td class="cmd-num">61</td><td>Mean/Avg</td></tr>
+<tr><td class="cmd-num">62</td><td>Median</td></tr>
+<tr><td class="cmd-num">63</td><td>Mode</td></tr>
+<tr><td class="cmd-num">64</td><td>Std Dev</td></tr>
+<tr><td class="cmd-num">65</td><td>Quadratic Solver</td></tr>
+<tr><td class="cmd-num">66</td><td>Sort</td></tr>
+<tr><td class="cmd-num">67</td><td>Search</td></tr>
+<tr><td class="cmd-num">133</td><td>Sum Digits</td></tr>
+<tr><td class="cmd-num">134</td><td>Reverse Number</td></tr>
+<tr><td class="cmd-num">135</td><td>Armstrong</td></tr>
+<tr><td class="cmd-num">136</td><td>Perfect Number</td></tr>
+<tr><td class="cmd-num">137</td><td>Happy Number</td></tr>
+<tr><td class="cmd-num">138</td><td>Collatz</td></tr>
+<tr><td class="cmd-num">139</td><td>Sieve</td></tr>
+<tr><td class="cmd-num">140</td><td>Prime Count</td></tr>
+<tr><td class="cmd-num">141</td><td>Goldbach</td></tr>
+<tr><td class="cmd-num">142</td><td>Euler</td></tr>
+<tr><td class="cmd-num">143</td><td>Matrix Ops</td></tr>
+<tr><td class="cmd-num">144</td><td>Vector Ops</td></tr>
+<tr><td class="cmd-num">145</td><td>Determinant</td></tr>
+<tr><td class="cmd-num">146</td><td>Dot Product</td></tr>
+<tr><td class="cmd-num">147</td><td>Cross Product</td></tr>
+<tr><td class="cmd-num">148</td><td>Matrix Transpose</td></tr>
+<tr><td class="cmd-num">149</td><td>Matrix Multiply</td></tr>
+<tr><td class="cmd-num">150</td><td>Factorial (big)</td></tr>
+<tr><td class="cmd-num">151</td><td>Combination</td></tr>
+<tr><td class="cmd-num">152</td><td>Permutation</td></tr>
+<tr><td class="cmd-num">153</td><td>Catalan</td></tr>
+<tr><td class="cmd-num">154</td><td>Bell</td></tr>
+<tr><td class="cmd-num">155</td><td>Stirling</td></tr></table>
+
+<h3>Utilities (24–34, 41–51, 155–172)</h3>
+<table class="cmd-table"><tr><th>#</th><th>Command</th></tr><tr><td class="cmd-num">24</td><td>Binary</td></tr>
+<tr><td class="cmd-num">25</td><td>Hex</td></tr>
+<tr><td class="cmd-num">26</td><td>Octal</td></tr>
+<tr><td class="cmd-num">27</td><td>Roman Numerals</td></tr>
+<tr><td class="cmd-num">28</td><td>Temp Convert</td></tr>
+<tr><td class="cmd-num">29</td><td>Distance Convert</td></tr>
+<tr><td class="cmd-num">30</td><td>Weight Convert</td></tr>
+<tr><td class="cmd-num">31</td><td>Password Gen</td></tr>
+<tr><td class="cmd-num">32</td><td>Password Strength</td></tr>
+<tr><td class="cmd-num">33</td><td>Pig Latin</td></tr>
+<tr><td class="cmd-num">34</td><td>Caesar Cipher</td></tr>
+<tr><td class="cmd-num">41</td><td>Palindrome</td></tr>
+<tr><td class="cmd-num">42</td><td>Anagram</td></tr>
+<tr><td class="cmd-num">43</td><td>BMI Calc</td></tr>
+<tr><td class="cmd-num">44</td><td>Zodiac Sign</td></tr>
+<tr><td class="cmd-num">45</td><td>Morse Code</td></tr>
+<tr><td class="cmd-num">46</td><td>Day of Week</td></tr>
+<tr><td class="cmd-num">47</td><td>Leap Year</td></tr>
+<tr><td class="cmd-num">48</td><td>Base Convert</td></tr>
+<tr><td class="cmd-num">49</td><td>Hash</td></tr>
+<tr><td class="cmd-num">50</td><td>Encode/Decode</td></tr>
+<tr><td class="cmd-num">51</td><td>ROT13</td></tr>
+<tr><td class="cmd-num">155</td><td>Word Count</td></tr>
+<tr><td class="cmd-num">156</td><td>Text Sort</td></tr>
+<tr><td class="cmd-num">157</td><td>Reverse Words</td></tr>
+<tr><td class="cmd-num">158</td><td>Acronym</td></tr>
+<tr><td class="cmd-num">159</td><td>UUID Gen</td></tr>
+<tr><td class="cmd-num">160</td><td>Shuffle List</td></tr>
+<tr><td class="cmd-num">161</td><td>Flatten List</td></tr>
+<tr><td class="cmd-num">162</td><td>Chunk List</td></tr>
+<tr><td class="cmd-num">163</td><td>Unique List</td></tr>
+<tr><td class="cmd-num">164</td><td>Intersect Lists</td></tr>
+<tr><td class="cmd-num">165</td><td>Union Lists</td></tr>
+<tr><td class="cmd-num">166</td><td>Diff Lists</td></tr>
+<tr><td class="cmd-num">167</td><td>Sym Diff</td></tr>
+<tr><td class="cmd-num">168</td><td>Zip Lists</td></tr>
+<tr><td class="cmd-num">169</td><td>Rotate List</td></tr>
+<tr><td class="cmd-num">170</td><td>Partition List</td></tr>
+<tr><td class="cmd-num">171</td><td>Split List</td></tr>
+<tr><td class="cmd-num">172</td><td>Random Item</td></tr></table>
+
+<h3>Games (35–40, 52–57)</h3>
+<table class="cmd-table"><tr><th>#</th><th>Command</th></tr><tr><td class="cmd-num">35</td><td>Guess Number</td></tr>
+<tr><td class="cmd-num">36</td><td>Hangman</td></tr>
+<tr><td class="cmd-num">37</td><td>Word Scramble</td></tr>
+<tr><td class="cmd-num">38</td><td>Riddle</td></tr>
+<tr><td class="cmd-num">39</td><td>Trivia</td></tr>
+<tr><td class="cmd-num">40</td><td>Magic 8 Ball</td></tr>
+<tr><td class="cmd-num">52</td><td>Coin Flip</td></tr>
+<tr><td class="cmd-num">53</td><td>Dice Roll</td></tr>
+<tr><td class="cmd-num">54</td><td>Card Draw</td></tr>
+<tr><td class="cmd-num">55</td><td>High/Low</td></tr>
+<tr><td class="cmd-num">56</td><td>RPS</td></tr>
+<tr><td class="cmd-num">57</td><td>Wordle</td></tr></table>
+
+<h3>Data / Reference (67–75, 121–132, 173–313)</h3>
+<table class="cmd-table"><tr><th>#</th><th>Command</th></tr><tr><td class="cmd-num">67</td><td>Quote</td></tr>
+<tr><td class="cmd-num">68</td><td>Animals</td></tr>
+<tr><td class="cmd-num">69</td><td>Colors</td></tr>
+<tr><td class="cmd-num">70</td><td>Fruits</td></tr>
+<tr><td class="cmd-num">71</td><td>Vegetables</td></tr>
+<tr><td class="cmd-num">72</td><td>Elements</td></tr>
+<tr><td class="cmd-num">73</td><td>Planets</td></tr>
+<tr><td class="cmd-num">74</td><td>Countries</td></tr>
+<tr><td class="cmd-num">75</td><td>Cities</td></tr>
+<tr><td class="cmd-num">121</td><td>Weather</td></tr>
+<tr><td class="cmd-num">122</td><td>Oceans</td></tr>
+<tr><td class="cmd-num">123</td><td>Volcanoes</td></tr>
+<tr><td class="cmd-num">124</td><td>Earthquakes</td></tr>
+<tr><td class="cmd-num">125</td><td>Tsunamis</td></tr>
+<tr><td class="cmd-num">126</td><td>Hurricanes</td></tr>
+<tr><td class="cmd-num">127</td><td>Tornadoes</td></tr>
+<tr><td class="cmd-num">128</td><td>Climate</td></tr>
+<tr><td class="cmd-num">129</td><td>Geology</td></tr>
+<tr><td class="cmd-num">130</td><td>Fossils</td></tr>
+<tr><td class="cmd-num">131</td><td>Minerals</td></tr>
+<tr><td class="cmd-num">132</td><td>Gemstones</td></tr>
+<tr><td class="cmd-num">173</td><td>Stars</td></tr>
+<tr><td class="cmd-num">174</td><td>Galaxies</td></tr>
+<tr><td class="cmd-num">175</td><td>Space Missions</td></tr>
+<tr><td class="cmd-num">176</td><td>Constellations</td></tr>
+<tr><td class="cmd-num">177</td><td>Observatories</td></tr>
+<tr><td class="cmd-num">178</td><td>Satellites</td></tr>
+<tr><td class="cmd-num">179</td><td>Astronauts</td></tr>
+<tr><td class="cmd-num">180</td><td>Telescopes</td></tr>
+<tr><td class="cmd-num">181</td><td>Animals</td></tr>
+<tr><td class="cmd-num">182</td><td>Birds</td></tr>
+<tr><td class="cmd-num">183</td><td>Fish</td></tr>
+<tr><td class="cmd-num">184</td><td>Insects</td></tr>
+<tr><td class="cmd-num">185</td><td>Reptiles</td></tr>
+<tr><td class="cmd-num">186</td><td>Mammals</td></tr>
+<tr><td class="cmd-num">187</td><td>Dog Breeds</td></tr>
+<tr><td class="cmd-num">188</td><td>Cat Breeds</td></tr>
+<tr><td class="cmd-num">189</td><td>Horse Breeds</td></tr>
+<tr><td class="cmd-num">190</td><td>Sharks</td></tr>
+<tr><td class="cmd-num">191</td><td>Whales</td></tr>
+<tr><td class="cmd-num">192</td><td>Snakes</td></tr>
+<tr><td class="cmd-num">193</td><td>Butterflies</td></tr>
+<tr><td class="cmd-num">194</td><td>Tree Species</td></tr>
+<tr><td class="cmd-num">195</td><td>Flowers</td></tr>
+<tr><td class="cmd-num">196</td><td>Fruits</td></tr>
+<tr><td class="cmd-num">197</td><td>Vegetables</td></tr>
+<tr><td class="cmd-num">198</td><td>Grains</td></tr>
+<tr><td class="cmd-num">199</td><td>Herbs</td></tr>
+<tr><td class="cmd-num">200</td><td>Spices</td></tr>
+<tr><td class="cmd-num">201</td><td>Cuisines</td></tr>
+<tr><td class="cmd-num">202</td><td>Cheeses</td></tr>
+<tr><td class="cmd-num">203</td><td>Wines</td></tr>
+<tr><td class="cmd-num">204</td><td>Cocktails</td></tr>
+<tr><td class="cmd-num">205</td><td>Desserts</td></tr>
+<tr><td class="cmd-num">206</td><td>Breads</td></tr>
+<tr><td class="cmd-num">207</td><td>Pastas</td></tr>
+<tr><td class="cmd-num">208</td><td>Soups</td></tr>
+<tr><td class="cmd-num">209</td><td>Salads</td></tr>
+<tr><td class="cmd-num">210</td><td>Sauces</td></tr>
+<tr><td class="cmd-num">211</td><td>Recipes</td></tr>
+<tr><td class="cmd-num">212</td><td>Languages</td></tr>
+<tr><td class="cmd-num">213</td><td>Currencies</td></tr>
+<tr><td class="cmd-num">214</td><td>Flags</td></tr>
+<tr><td class="cmd-num">215</td><td>Capitals</td></tr>
+<tr><td class="cmd-num">216</td><td>Continents</td></tr>
+<tr><td class="cmd-num">217</td><td>Islands</td></tr>
+<tr><td class="cmd-num">218</td><td>Deserts</td></tr>
+<tr><td class="cmd-num">219</td><td>Forests</td></tr>
+<tr><td class="cmd-num">220</td><td>Mountains</td></tr>
+<tr><td class="cmd-num">221</td><td>Lakes</td></tr>
+<tr><td class="cmd-num">222</td><td>Rivers</td></tr>
+<tr><td class="cmd-num">223</td><td>Heritage Sites</td></tr>
+<tr><td class="cmd-num">224</td><td>National Parks</td></tr>
+<tr><td class="cmd-num">225</td><td>Natural Wonders</td></tr>
+<tr><td class="cmd-num">226</td><td>Volcanoes</td></tr>
+<tr><td class="cmd-num">227</td><td>Earthquakes</td></tr>
+<tr><td class="cmd-num">228</td><td>Oceans</td></tr>
+<tr><td class="cmd-num">229</td><td>Bridges</td></tr>
+<tr><td class="cmd-num">230</td><td>Dams</td></tr>
+<tr><td class="cmd-num">231</td><td>Tunnels</td></tr>
+<tr><td class="cmd-num">232</td><td>Canals</td></tr>
+<tr><td class="cmd-num">233</td><td>Lighthouses</td></tr>
+<tr><td class="cmd-num">234</td><td>Ports</td></tr>
+<tr><td class="cmd-num">235</td><td>Railways</td></tr>
+<tr><td class="cmd-num">236</td><td>Highways</td></tr>
+<tr><td class="cmd-num">237</td><td>Subways</td></tr>
+<tr><td class="cmd-num">238</td><td>Airports</td></tr>
+<tr><td class="cmd-num">239</td><td>Diseases</td></tr>
+<tr><td class="cmd-num">240</td><td>Medicines</td></tr>
+<tr><td class="cmd-num">241</td><td>Human Anatomy</td></tr>
+<tr><td class="cmd-num">242</td><td>Vitamins</td></tr>
+<tr><td class="cmd-num">243</td><td>Hormones</td></tr>
+<tr><td class="cmd-num">244</td><td>Cell Types</td></tr>
+<tr><td class="cmd-num">245</td><td>Medical Terms</td></tr>
+<tr><td class="cmd-num">246</td><td>Artists</td></tr>
+<tr><td class="cmd-num">247</td><td>Paintings</td></tr>
+<tr><td class="cmd-num">248</td><td>Sculptures</td></tr>
+<tr><td class="cmd-num">249</td><td>Museums</td></tr>
+<tr><td class="cmd-num">250</td><td>Theaters</td></tr>
+<tr><td class="cmd-num">251</td><td>Opera Houses</td></tr>
+<tr><td class="cmd-num">252</td><td>Concert Halls</td></tr>
+<tr><td class="cmd-num">253</td><td>Composers</td></tr>
+<tr><td class="cmd-num">254</td><td>Musical Terms</td></tr>
+<tr><td class="cmd-num">255</td><td>Dance Styles</td></tr>
+<tr><td class="cmd-num">256</td><td>Music Genres</td></tr>
+<tr><td class="cmd-num">257</td><td>Instruments</td></tr>
+<tr><td class="cmd-num">258</td><td>Writers</td></tr>
+<tr><td class="cmd-num">259</td><td>Poets</td></tr>
+<tr><td class="cmd-num">260</td><td>Books</td></tr>
+<tr><td class="cmd-num">261</td><td>Magazines</td></tr>
+<tr><td class="cmd-num">262</td><td>Newspapers</td></tr>
+<tr><td class="cmd-num">263</td><td>Publishers</td></tr>
+<tr><td class="cmd-num">264</td><td>Awards</td></tr>
+<tr><td class="cmd-num">265</td><td>Award Shows</td></tr>
+<tr><td class="cmd-num">266</td><td>Film Festivals</td></tr>
+<tr><td class="cmd-num">267</td><td>Film Genres</td></tr>
+<tr><td class="cmd-num">268</td><td>Movies</td></tr>
+<tr><td class="cmd-num">269</td><td>Directors</td></tr>
+<tr><td class="cmd-num">270</td><td>Actors</td></tr>
+<tr><td class="cmd-num">271</td><td>TV Channels</td></tr>
+<tr><td class="cmd-num">272</td><td>TV Shows</td></tr>
+<tr><td class="cmd-num">273</td><td>Radio Stations</td></tr>
+<tr><td class="cmd-num">274</td><td>Record Labels</td></tr>
+<tr><td class="cmd-num">275</td><td>Songs</td></tr>
+<tr><td class="cmd-num">276</td><td>Music Festivals</td></tr>
+<tr><td class="cmd-num">277</td><td>Directors</td></tr>
+<tr><td class="cmd-num">278</td><td>Writers</td></tr>
+<tr><td class="cmd-num">279</td><td>Scientists</td></tr>
+<tr><td class="cmd-num">280</td><td>Mathematicians</td></tr>
+<tr><td class="cmd-num">281</td><td>Physicists</td></tr>
+<tr><td class="cmd-num">282</td><td>Chemists</td></tr>
+<tr><td class="cmd-num">283</td><td>Biologists</td></tr>
+<tr><td class="cmd-num">284</td><td>Astronomers</td></tr>
+<tr><td class="cmd-num">285</td><td>Explorers</td></tr>
+<tr><td class="cmd-num">286</td><td>Philosophers</td></tr>
+<tr><td class="cmd-num">287</td><td>Presidents</td></tr>
+<tr><td class="cmd-num">288</td><td>Prime Ministers</td></tr>
+<tr><td class="cmd-num">289</td><td>Leaders</td></tr>
+<tr><td class="cmd-num">290</td><td>Pharaohs</td></tr>
+<tr><td class="cmd-num">291</td><td>Emperors</td></tr>
+<tr><td class="cmd-num">292</td><td>Sports</td></tr>
+<tr><td class="cmd-num">293</td><td>Olympic Games</td></tr>
+<tr><td class="cmd-num">294</td><td>Olympic Sports</td></tr>
+<tr><td class="cmd-num">295</td><td>Stadiums</td></tr>
+<tr><td class="cmd-num">296</td><td>Sports Teams</td></tr>
+<tr><td class="cmd-num">297</td><td>Marathons</td></tr>
+<tr><td class="cmd-num">298</td><td>Martial Arts</td></tr>
+<tr><td class="cmd-num">299</td><td>Board Games</td></tr>
+<tr><td class="cmd-num">300</td><td>Card Games</td></tr>
+<tr><td class="cmd-num">301</td><td>Video Games</td></tr>
+<tr><td class="cmd-num">302</td><td>Elements</td></tr>
+<tr><td class="cmd-num">303</td><td>Minerals</td></tr>
+<tr><td class="cmd-num">304</td><td>Rocks</td></tr>
+<tr><td class="cmd-num">305</td><td>Fossils</td></tr>
+<tr><td class="cmd-num">306</td><td>Gemstones</td></tr>
+<tr><td class="cmd-num">307</td><td>Particles</td></tr>
+<tr><td class="cmd-num">308</td><td>Cloud Types</td></tr>
+<tr><td class="cmd-num">309</td><td>Wind Patterns</td></tr>
+<tr><td class="cmd-num">310</td><td>Soil Types</td></tr>
+<tr><td class="cmd-num">311</td><td>Biomes</td></tr>
+<tr><td class="cmd-num">312</td><td>Ecosystems</td></tr>
+<tr><td class="cmd-num">313</td><td>Rock Types</td></tr></table>
+
+<h3>Admin / Mod / VIP</h3>
+<table class="cmd-table"><tr><th>#</th><th>Command</th></tr><tr><td class="cmd-num">system_info</td><td>System info (any role)</td></tr>
+<tr><td class="cmd-num">list_users</td><td>List users (any role)</td></tr>
+<tr><td class="cmd-num">toggle_debug</td><td>Toggle debug mode (Admin)</td></tr>
+<tr><td class="cmd-num">featured_joke</td><td>Joke (Mod+)</td></tr>
+<tr><td class="cmd-num">vip_fact</td><td>VIP fact</td></tr>
+<tr><td class="cmd-num">vip_quote</td><td>VIP quote</td></tr>
+<tr><td class="cmd-num">debug_functions</td><td>Debug functions list</td></tr>
+<tr><td class="cmd-num">debug_vars</td><td>Debug vars</td></tr>
+<tr><td class="cmd-num">debug_cmd_count</td><td>Debug cmd count</td></tr>
+<tr><td class="cmd-num">debug_exec</td><td>Debug console</td></tr></table>
+
+<h3>HBPE Integration</h3>
+<table class="cmd-table"><tr><th>#</th><th>Command</th></tr><tr><td class="cmd-num">hbpe_start</td><td>Start HBPE</td></tr>
+<tr><td class="cmd-num">hbpe_advance</td><td>Advance HBPE</td></tr>
+<tr><td class="cmd-num">hbpe_restart</td><td>Restart HBPE</td></tr>
+<tr><td class="cmd-num">hbpe_stop</td><td>Stop HBPE</td></tr>
+<tr><td class="cmd-num">hbpe_program1</td><td>Run HBPE P1</td></tr>
+<tr><td class="cmd-num">hbpe_program2</td><td>Run HBPE P2</td></tr>
+<tr><td class="cmd-num">hbpe_program3</td><td>Run HBPE P3</td></tr>
+<tr><td class="cmd-num">hbpe_dev_console</td><td>HBPE dev console</td></tr></table>
+
+<h3>New in v3.6</h3>
+<table class="cmd-table"><tr><th>#</th><th>Command</th></tr><tr><td class="cmd-num">quiz / data_quiz</td><td>Interactive quiz on 16 data tables</td></tr>
+<tr><td class="cmd-num">chart / barchart</td><td>ASCII bar chart from numbers</td></tr>
+<tr><td class="cmd-num">suggest / find</td><td>Search commands by keyword</td></tr>
+<tr><td class="cmd-num">ask / ai / query</td><td>Query all data tables by keyword</td></tr>
+<tr><td class="cmd-num">flashcard / learn</td><td>Flashcard learner with score</td></tr>
+<tr><td class="cmd-num">help2 / categories</td><td>Categorized command listing</td></tr>
+<tr><td class="cmd-num">save / export</td><td>Export data table to file</td></tr>
+<tr><td class="cmd-num">timer / countdown</td><td>Countdown timer</td></tr>
+<tr><td class="cmd-num">stopwatch</td><td>Stopwatch with laps</td></tr>
+<tr><td class="cmd-num">calc / calculator</td><td>Calculator REPL with history</td></tr>
+<tr><td class="cmd-num">colors / badge</td><td>Color settings, badge display</td></tr>
+<tr><td class="cmd-num">pager_test</td><td>Test pager output</td></tr>
+<tr><td class="cmd-num">cls / clear</td><td>Clear screen</td></tr>
+<tr><td class="cmd-num">version / ver</td><td>Show version</td></tr></table>
+
+<h2>Data Tables Index</h2>
+<p>All 942 data tables. <span class="tag-curated">Curated</span> = real verified data. <span class="tag-bulk">Bulk</span> = generated procedural data.</p>
+<ul class="data-list">
+  <li ><span class="tag-bulk">B</span> Academy Award (500)</li>
+  <li ><span class="tag-bulk">B</span> Actor (500)</li>
+  <li ><span class="tag-bulk">B</span> Ai Model (500)</li>
+  <li ><span class="tag-bulk">B</span> Ai Researcher (500)</li>
+  <li ><span class="tag-bulk">B</span> Airline (500)</li>
+  <li ><span class="tag-bulk">B</span> Airport International (500)</li>
+  <li ><span class="tag-bulk">B</span> Algorithm (500)</li>
+  <li ><span class="tag-bulk">B</span> Amusement Park (500)</li>
+  <li ><span class="tag-bulk">B</span> Amusement Park Extended (500)</li>
+  <li ><span class="tag-bulk">B</span> Ancient Civilization (500)</li>
+  <li ><span class="tag-bulk">B</span> Ancient Script (500)</li>
+  <li ><span class="tag-bulk">B</span> Ancient Scripture (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Ancient Wonder (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Ancient Wonder Extended (500)</li>
+  <li ><span class="tag-bulk">B</span> Animal Extended (1,500)</li>
+  <li ><span class="tag-bulk">B</span> Animal National (500)</li>
+  <li ><span class="tag-bulk">B</span> Animal Species 21 27 48 101 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Animal Species 21 27 48 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Animal Species 21 27 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Animal Species 21 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Animal Species 8 106 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Animal Species 8 19 64 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Animal Species 8 19 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Animal Species 8 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Animal Species (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Animation Studio (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Anime Series Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Anthropologist (500)</li>
+  <li ><span class="tag-bulk">B</span> Antibiotic Drug (500)</li>
+  <li ><span class="tag-bulk">B</span> Anzac Medal (500)</li>
+  <li ><span class="tag-bulk">B</span> Api Protocol (500)</li>
+  <li ><span class="tag-bulk">B</span> Aquarium Collection (500)</li>
+  <li ><span class="tag-bulk">B</span> Aquarium (500)</li>
+  <li ><span class="tag-bulk">B</span> Archaeological Find (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Archaeological Site (500)</li>
+  <li ><span class="tag-bulk">B</span> Archaeological Site Extra (500)</li>
+  <li ><span class="tag-bulk">B</span> Archaeologist (500)</li>
+  <li ><span class="tag-bulk">B</span> Architectural (600)</li>
+  <li ><span class="tag-bulk">B</span> Architectural Style 15 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Architectural Style (500)</li>
+  <li ><span class="tag-bulk">B</span> Artificial Intelligence Model (500)</li>
+  <li ><span class="tag-bulk">B</span> Artist (500)</li>
+  <li ><span class="tag-bulk">B</span> Asteroid Characteristic (500)</li>
+  <li ><span class="tag-bulk">B</span> Astrological Sign (500)</li>
+  <li ><span class="tag-bulk">B</span> Astronaut (500)</li>
+  <li ><span class="tag-bulk">B</span> Astronomical Event (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Astronomical Object 75 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Astronomical Object (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Astronomy Discovery (500)</li>
+  <li ><span class="tag-bulk">B</span> Automaker (500)</li>
+  <li ><span class="tag-bulk">B</span> Aviation History (500)</li>
+  <li ><span class="tag-bulk">B</span> Award Ceremony (500)</li>
+  <li ><span class="tag-bulk">B</span> Award (500)</li>
+  <li ><span class="tag-bulk">B</span> Award Show (500)</li>
+  <li ><span class="tag-bulk">B</span> Bank (500)</li>
+  <li ><span class="tag-bulk">B</span> Basketball Legend (500)</li>
+  <li ><span class="tag-bulk">B</span> Battle (500)</li>
+  <li ><span class="tag-bulk">B</span> Biologist (500)</li>
+  <li ><span class="tag-bulk">B</span> Biology Breakthrough (500)</li>
+  <li ><span class="tag-bulk">B</span> Biome (500)</li>
+  <li ><span class="tag-bulk">B</span> Biosphere Reserve (500)</li>
+  <li ><span class="tag-bulk">B</span> Bird Species (1,500)</li>
+  <li ><span class="tag-bulk">B</span> Blockchain Project (500)</li>
+  <li ><span class="tag-bulk">B</span> Board Game (500)</li>
+  <li ><span class="tag-bulk">B</span> Board Game Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Book (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Botanical Species 108 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Botanical Species 96 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Botanical Species (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Bread Variety (500)</li>
+  <li ><span class="tag-bulk">B</span> Bridge (800)</li>
+  <li ><span class="tag-bulk">B</span> British Monarch (500)</li>
+  <li ><span class="tag-bulk">B</span> Butterfly (400)</li>
+  <li ><span class="tag-bulk">B</span> Calendar (500)</li>
+  <li ><span class="tag-bulk">B</span> Canal (400)</li>
+  <li ><span class="tag-bulk">B</span> Canal Waterway (500)</li>
+  <li ><span class="tag-bulk">B</span> Capital Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Card Game (500)</li>
+  <li ><span class="tag-bulk">B</span> Card Game Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Carnivorous Plant (500)</li>
+  <li ><span class="tag-bulk">B</span> Casino Landmark (500)</li>
+  <li ><span class="tag-bulk">B</span> Castle (600)</li>
+  <li ><span class="tag-bulk">B</span> Cat Breed (400)</li>
+  <li ><span class="tag-bulk">B</span> Cave System (500)</li>
+  <li ><span class="tag-bulk">B</span> Cell Type (500)</li>
+  <li ><span class="tag-bulk">B</span> Cheese (600)</li>
+  <li ><span class="tag-bulk">B</span> Cheese Variety (500)</li>
+  <li ><span class="tag-bulk">B</span> Chemical Element Extra (500)</li>
+  <li ><span class="tag-bulk">B</span> Chemical Element Fact 110 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Chemical Element Fact (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Chemical Process (500)</li>
+  <li ><span class="tag-bulk">B</span> Chemical Reaction 43 121 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Chemical Reaction 43 52 115 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Chemical Reaction 43 52 126 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Chemical Reaction 43 52 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Chemical Reaction 43 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Chemical Reaction (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Chemist (500)</li>
+  <li ><span class="tag-bulk">B</span> Chemistry Discovery (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Chemistry Element (118)</li>
+  <li ><span class="tag-bulk">B</span> Chess Opening (500)</li>
+  <li ><span class="tag-bulk">B</span> Chinese Dynasty (500)</li>
+  <li ><span class="tag-bulk">B</span> Church (600)</li>
+  <li ><span class="tag-bulk">B</span> Circulatory System (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> City (171)</li>
+  <li ><span class="tag-bulk">B</span> Classical Composer (500)</li>
+  <li ><span class="tag-bulk">B</span> Climate (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Climate Record (500)</li>
+  <li ><span class="tag-bulk">B</span> Climate Zone (500)</li>
+  <li ><span class="tag-bulk">B</span> Cloud Platform (500)</li>
+  <li ><span class="tag-bulk">B</span> Cloud Service (500)</li>
+  <li ><span class="tag-bulk">B</span> Cloud Type (500)</li>
+  <li ><span class="tag-bulk">B</span> Cocktail (500)</li>
+  <li ><span class="tag-bulk">B</span> Cocktail Recipe (500)</li>
+  <li ><span class="tag-bulk">B</span> Coffee Variety (500)</li>
+  <li ><span class="tag-bulk">B</span> Comet Observation (500)</li>
+  <li ><span class="tag-bulk">B</span> Composer (500)</li>
+  <li ><span class="tag-bulk">B</span> Concert Hall (500)</li>
+  <li ><span class="tag-bulk">B</span> Concert Hall Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Conference Center (300)</li>
+  <li class="curated"><span class="tag-curated">C</span> Constellation (88)</li>
+  <li ><span class="tag-bulk">B</span> Constellation Fact 39 66 125 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Constellation Fact 39 66 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Constellation Fact 39 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Constellation Fact (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Continent Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Cooking Technique (500)</li>
+  <li ><span class="tag-bulk">B</span> Coral Reef (500)</li>
+  <li ><span class="tag-bulk">B</span> Corporation (800)</li>
+  <li ><span class="tag-bulk">B</span> Country Calling Code (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Country Detail (195)</li>
+  <li ><span class="tag-bulk">B</span> Cricket World Cup (500)</li>
+  <li ><span class="tag-bulk">B</span> Cryptid (500)</li>
+  <li ><span class="tag-bulk">B</span> Crypto (500)</li>
+  <li ><span class="tag-bulk">B</span> Cryptocurrency (500)</li>
+  <li ><span class="tag-bulk">B</span> Cuisine (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Cultural Tradition (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Currency Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Dam (500)</li>
+  <li ><span class="tag-bulk">B</span> Dam Reservoir (500)</li>
+  <li ><span class="tag-bulk">B</span> Dance Form (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Dance Style (500)</li>
+  <li ><span class="tag-bulk">B</span> Data Structure (500)</li>
+  <li ><span class="tag-bulk">B</span> Database (500)</li>
+  <li ><span class="tag-bulk">B</span> Database Technology (500)</li>
+  <li ><span class="tag-bulk">B</span> Deep Sea Creature (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Desert Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Desert Ecosystem (500)</li>
+  <li ><span class="tag-bulk">B</span> Dessert (800)</li>
+  <li ><span class="tag-bulk">B</span> Digestive System (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Dinosaur (30)</li>
+  <li ><span class="tag-bulk">B</span> Director (500)</li>
+  <li ><span class="tag-bulk">B</span> Disease (500)</li>
+  <li ><span class="tag-bulk">B</span> Dog Breed (800)</li>
+  <li ><span class="tag-bulk">B</span> Drink Brand (500)</li>
+  <li ><span class="tag-bulk">B</span> Drink National (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Earthquake (20)</li>
+  <li ><span class="tag-bulk">B</span> Earthquake Event 12 53 70 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Earthquake Event 12 53 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Earthquake Event 12 94 133 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Earthquake Event 12 94 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Earthquake Event 12 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Earthquake Event 5 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Earthquake Event (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Economic 127 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Economic 79 103 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Economic 79 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Economic (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Economist (500)</li>
+  <li ><span class="tag-bulk">B</span> Ecosystem (500)</li>
+  <li ><span class="tag-bulk">B</span> Educational Institution 116 118 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Educational Institution 116 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Educational Institution 56 95 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Educational Institution 56 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Educational Institution (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Egyptian Pharaoh Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Electronic Component (500)</li>
+  <li ><span class="tag-bulk">B</span> Emmy Award (500)</li>
+  <li ><span class="tag-bulk">B</span> Emperor (500)</li>
+  <li ><span class="tag-bulk">B</span> Endangered Species (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Endemic Species (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Endocrine System (500)</li>
+  <li ><span class="tag-bulk">B</span> Energy Source 82 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Energy Source (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Espionage History (500)</li>
+  <li ><span class="tag-bulk">B</span> Essential Oil (500)</li>
+  <li ><span class="tag-bulk">B</span> Exoplanet Discovery (500)</li>
+  <li ><span class="tag-bulk">B</span> Exotic Fruit (500)</li>
+  <li ><span class="tag-bulk">B</span> Explorer (500)</li>
+  <li ><span class="tag-bulk">B</span> Fairy Tale (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Aboriginal Culture (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Ai System (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Aircraft (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Album (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Amber Deposit (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Ancient Road (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Ancient Theater (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Anthropologist (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Aqueduct (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Arboretum (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Archaeologist (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Architect (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Art Gallery (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Artist (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Asteroid Belt Object (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Astronaut (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Astronomer (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Ballet (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Bamboo Forest (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Battle (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Battlefield (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Bay (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Beach (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Bestseller (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Binary Star (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Bird Sanctuary (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Blowhole (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Bridge (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Building 102 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Building 14 90 99 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Building 14 90 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Building 14 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Building (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Burial Mound (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Car (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Castle Detail (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Cave Painting (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Cave System (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Cheese Variety (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Chef (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Cipher 77 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Cipher (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Climate Pledge (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Climate Zone (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Cloud Type (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Coal Forest (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Coffee Region (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Community Garden (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Company History (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Composer (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Constitution (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Coral Species (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Cosmic Filament (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Cosmic Ray Source (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous County Park (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Delta (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Diary 107 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Diary 10 24 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Diary 10 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Diary 32 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Diary (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Dwarf Planet (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Earthquake Zone (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Eco Building (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Ecoregion (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Educational Reform (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Environmental Campaign (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Equation 136 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Equation 37 59 117 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Equation 37 59 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Equation 37 68 123 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Equation 37 68 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Equation 37 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Equation 4 134 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Equation 4 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Equation (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Equation (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Estuary (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Exoplanet (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Experiment (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Experiment (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Exploration (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Explorer (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Fairy Tale (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Fashion Designer (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Font (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Fountain (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Galaxy Cluster (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Galaxy Supercluster (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Garden (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Geyser (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Grassland (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Gravitational Wave (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Hacker (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Historic District (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Historic Trail (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Horse (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Hotel (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Impact Crater (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Insignia (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Inventor (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Isthmus (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Kelp Forest (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Labor Movement (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Lagerstatte (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Landmark (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Lava Tube (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Library (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Lighthouse Detail (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Logo (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Lunar Sea (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Magazine (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Mangrove Forest (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Manuscript (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Marine Mammal (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Marketplace (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Mausoleum (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Megalith (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Mesa (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Meteorite Find (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Mission Control (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Molecular Cloud (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Monolith (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Motto (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Mountain Pass (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Movie Studio (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Mud Volcano (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Myth Collection (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Nature Reserve (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Ngo (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Oasis (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Observatory (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Observatory Museum (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Open Cluster (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Opera House (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Painting (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Painting (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Paleo Lake (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Peace Accord (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Peninsula (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Petrified Forest (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Philosopher (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Photo (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Photographer (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Plant Collection (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Playwright (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Poem (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Political Theorist (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Protected Area (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Psychologist (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Pulsar (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Quote Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Reef (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Renewable Project (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Research Station (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Revolution (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Ritual (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Rock Formation (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Rocket (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Rogue Planet (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Salt Flat (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Satellite (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Saturnian Moon (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Scenic Byway (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Scholarship (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Science Journal (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Science Museum (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Sculptor (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Sculpture Garden (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Ship (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Shipwreck (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Sinkhole (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Software (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Speech 35 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Speech (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Spice Route (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Statue (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Strait (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Supernova Remnant (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Superstition (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Sustainable City (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 34 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 40 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 7 78 124 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 7 78 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 7 98 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 7 9 122 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 7 9 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 7 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 81 83 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 81 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope 1 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Telescope (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Temple Complex (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Trade Route (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Train (500)</li>
+  <li ><span class="tag-bulk">B</span> Famous Urban Legend (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Volcano Eruption (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Waterfall Detail (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous White Dwarf (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Famous Zoo (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Fashion Brand (500)</li>
+  <li ><span class="tag-bulk">B</span> Fashion Designer (500)</li>
+  <li ><span class="tag-bulk">B</span> Fashion History 13 114 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Fashion History 13 31 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Fashion History 13 46 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Fashion History 13 93 128 131 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Fashion History 13 93 128 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Fashion History 13 93 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Fashion History 13 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Fashion History 25 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Fashion History (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Festival Celebration (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Festival (500)</li>
+  <li ><span class="tag-bulk">B</span> Fifa World Cup (500)</li>
+  <li ><span class="tag-bulk">B</span> File Format (500)</li>
+  <li ><span class="tag-bulk">B</span> Film Director (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Film Director Extended (500)</li>
+  <li ><span class="tag-bulk">B</span> Film Fact 11 58 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Film Fact 11 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Film Fact (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Film Festival (500)</li>
+  <li ><span class="tag-bulk">B</span> Film Festival Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Film Genre (500)</li>
+  <li ><span class="tag-bulk">B</span> Fish Species (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Flag Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Flower (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Flower National (500)</li>
+  <li ><span class="tag-bulk">B</span> Food Company (500)</li>
+  <li ><span class="tag-bulk">B</span> Food History 137 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Food History (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Food National Dish (500)</li>
+  <li ><span class="tag-bulk">B</span> Football Star (500)</li>
+  <li ><span class="tag-bulk">B</span> Forest (500)</li>
+  <li ><span class="tag-bulk">B</span> Fossil (500)</li>
+  <li ><span class="tag-bulk">B</span> Framework (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Galaxy (50)</li>
+  <li ><span class="tag-bulk">B</span> Garden Landmark (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Gemstone (50)</li>
+  <li ><span class="tag-bulk">B</span> Gemstone Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Genetic Engineering (500)</li>
+  <li ><span class="tag-bulk">B</span> Genome Sequence (500)</li>
+  <li ><span class="tag-bulk">B</span> Geological Formation 80 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Geological Formation 85 113 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Geological Formation 85 (1,000)</li>
+  <li class="curated"><span class="tag-curated">C</span> Geological Formation (30)</li>
+  <li ><span class="tag-bulk">B</span> Geologist (500)</li>
+  <li ><span class="tag-bulk">B</span> Geyser Hotspring (500)</li>
+  <li ><span class="tag-bulk">B</span> Ghost Town (500)</li>
+  <li ><span class="tag-bulk">B</span> Golf Course (500)</li>
+  <li ><span class="tag-bulk">B</span> Grammy Award (500)</li>
+  <li ><span class="tag-bulk">B</span> Greek Philosopher (500)</li>
+  <li ><span class="tag-bulk">B</span> Heraldry Coat Of Arms (500)</li>
+  <li ><span class="tag-bulk">B</span> Herb (500)</li>
+  <li ><span class="tag-bulk">B</span> Herbal Medicine (500)</li>
+  <li ><span class="tag-bulk">B</span> Heritage Site (600)</li>
+  <li ><span class="tag-bulk">B</span> Highway (400)</li>
+  <li ><span class="tag-bulk">B</span> Hiking Trail (500)</li>
+  <li ><span class="tag-bulk">B</span> Historical Event (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Historical Figure (500)</li>
+  <li ><span class="tag-bulk">B</span> Historical Period (500)</li>
+  <li ><span class="tag-bulk">B</span> Historical Treaty 65 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Historical Treaty (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Hormone (500)</li>
+  <li ><span class="tag-bulk">B</span> Horse Breed (300)</li>
+  <li ><span class="tag-bulk">B</span> Hospital (600)</li>
+  <li ><span class="tag-bulk">B</span> Hotel (800)</li>
+  <li ><span class="tag-bulk">B</span> Human Anatomy (500)</li>
+  <li ><span class="tag-bulk">B</span> Hurricane Cyclone 129 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Hurricane Cyclone 55 69 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Hurricane Cyclone 55 88 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Hurricane Cyclone 55 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Hurricane Cyclone (1,000)</li>
+  <li class="curated"><span class="tag-curated">C</span> Hurricane (20)</li>
+  <li ><span class="tag-bulk">B</span> Ice Cream (500)</li>
+  <li ><span class="tag-bulk">B</span> Instrument (500)</li>
+  <li ><span class="tag-bulk">B</span> Intangible Heritage (500)</li>
+  <li ><span class="tag-bulk">B</span> International Treaty (500)</li>
+  <li ><span class="tag-bulk">B</span> Internet Milestone (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Invention (50)</li>
+  <li ><span class="tag-bulk">B</span> Invention Timeline 86 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Invention Timeline (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Island (500)</li>
+  <li ><span class="tag-bulk">B</span> Island Detail (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Lake (40)</li>
+  <li ><span class="tag-bulk">B</span> Lake Detail (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Language (50)</li>
+  <li ><span class="tag-bulk">B</span> Language Fact 33 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Language Fact 3 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Language Fact (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Leader (500)</li>
+  <li ><span class="tag-bulk">B</span> Legal Case 16 62 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Legal Case 16 71 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Legal Case 16 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Legal Case (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Legendary Ruler (500)</li>
+  <li ><span class="tag-bulk">B</span> Liberal Arts College (500)</li>
+  <li ><span class="tag-bulk">B</span> Library Collection (500)</li>
+  <li ><span class="tag-bulk">B</span> Library (500)</li>
+  <li ><span class="tag-bulk">B</span> Lighthouse (300)</li>
+  <li ><span class="tag-bulk">B</span> Lighthouse Extra (500)</li>
+  <li ><span class="tag-bulk">B</span> Linguist (500)</li>
+  <li ><span class="tag-bulk">B</span> Literary Award (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Literary Genre (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Literary Work 6 67 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Literary Work 6 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Literary Work (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Magazine (500)</li>
+  <li ><span class="tag-bulk">B</span> Major War Conflict (500)</li>
+  <li ><span class="tag-bulk">B</span> Marathon (500)</li>
+  <li ><span class="tag-bulk">B</span> Maritime History (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Martial Art (500)</li>
+  <li ><span class="tag-bulk">B</span> Martial Art Style (500)</li>
+  <li ><span class="tag-bulk">B</span> Material Science (500)</li>
+  <li ><span class="tag-bulk">B</span> Math Theorem (500)</li>
+  <li ><span class="tag-bulk">B</span> Mathematical Constant (500)</li>
+  <li ><span class="tag-bulk">B</span> Mathematical Theorem 22 132 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Mathematical Theorem 22 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Mathematical Theorem (500)</li>
+  <li ><span class="tag-bulk">B</span> Mathematical Theorem Extra (500)</li>
+  <li ><span class="tag-bulk">B</span> Medical Advance (500)</li>
+  <li ><span class="tag-bulk">B</span> Medical Advancement (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Medical Condition 42 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Medical Condition 91 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Medical Condition (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Medical Term (800)</li>
+  <li ><span class="tag-bulk">B</span> Medicine (500)</li>
+  <li ><span class="tag-bulk">B</span> Medieval Codex (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Medieval Fortress (500)</li>
+  <li ><span class="tag-bulk">B</span> Meteorite Impact (500)</li>
+  <li ><span class="tag-bulk">B</span> Meteorologist (500)</li>
+  <li ><span class="tag-bulk">B</span> Military History (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Military Strategist (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Mineral (80)</li>
+  <li ><span class="tag-bulk">B</span> Mineral Deposit 29 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Mineral Deposit (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Mineral Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Modern Artist (500)</li>
+  <li ><span class="tag-bulk">B</span> Modern Bridge (500)</li>
+  <li ><span class="tag-bulk">B</span> Molecular Compound (500)</li>
+  <li ><span class="tag-bulk">B</span> Mosque (400)</li>
+  <li ><span class="tag-bulk">B</span> Motorsport Track (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Mountain (39)</li>
+  <li ><span class="tag-bulk">B</span> Mountain Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Mountain Range (500)</li>
+  <li ><span class="tag-bulk">B</span> Movie (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Muscular System (500)</li>
+  <li ><span class="tag-bulk">B</span> Museum (500)</li>
+  <li ><span class="tag-bulk">B</span> Museum Extra (500)</li>
+  <li ><span class="tag-bulk">B</span> Music Album (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Music Festival (500)</li>
+  <li ><span class="tag-bulk">B</span> Music Festival Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Music Genre (500)</li>
+  <li ><span class="tag-bulk">B</span> Musical Genre Extra (500)</li>
+  <li ><span class="tag-bulk">B</span> Musical Instrument (500)</li>
+  <li ><span class="tag-bulk">B</span> Musical Legend (500)</li>
+  <li ><span class="tag-bulk">B</span> Musical Term (600)</li>
+  <li ><span class="tag-bulk">B</span> Mythological Being 104 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Mythological Being (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Mythological Creature (500)</li>
+  <li ><span class="tag-bulk">B</span> Mythological Deity (500)</li>
+  <li ><span class="tag-bulk">B</span> Mythology (500)</li>
+  <li ><span class="tag-bulk">B</span> National Anthem (500)</li>
+  <li ><span class="tag-bulk">B</span> National Anthem Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> National Flag Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> National Park (500)</li>
+  <li ><span class="tag-bulk">B</span> National Park Extended (500)</li>
+  <li ><span class="tag-bulk">B</span> National Symbol (500)</li>
+  <li ><span class="tag-bulk">B</span> Natural Disaster (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Natural Disaster Record (500)</li>
+  <li ><span class="tag-bulk">B</span> Natural Phenomenon 105 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Natural Phenomenon 17 119 120 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Natural Phenomenon 17 119 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Natural Phenomenon 17 61 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Natural Phenomenon 17 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Natural Phenomenon 54 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Natural Phenomenon (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Natural Wonder (500)</li>
+  <li ><span class="tag-bulk">B</span> Nba Champion (500)</li>
+  <li ><span class="tag-bulk">B</span> Nervous System (500)</li>
+  <li ><span class="tag-bulk">B</span> Network Protocol (500)</li>
+  <li ><span class="tag-bulk">B</span> Newspaper (500)</li>
+  <li ><span class="tag-bulk">B</span> Nobel Category Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Nobel (500)</li>
+  <li ><span class="tag-bulk">B</span> Nobel Laureate Extended (500)</li>
+  <li ><span class="tag-bulk">B</span> Nonprofit (500)</li>
+  <li ><span class="tag-bulk">B</span> Nuclear Reactor (500)</li>
+  <li ><span class="tag-bulk">B</span> Observatory (400)</li>
+  <li ><span class="tag-bulk">B</span> Occupation (102)</li>
+  <li class="curated"><span class="tag-curated">C</span> Ocean Current (30)</li>
+  <li class="curated"><span class="tag-curated">C</span> Ocean (5)</li>
+  <li ><span class="tag-bulk">B</span> Ocean Feature (400)</li>
+  <li ><span class="tag-bulk">B</span> Ocean Trench (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Oceanographer (500)</li>
+  <li ><span class="tag-bulk">B</span> Oceanography Fact 45 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Oceanography Fact (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Olympic Champion (500)</li>
+  <li ><span class="tag-bulk">B</span> Olympic (500)</li>
+  <li ><span class="tag-bulk">B</span> Olympic Games (500)</li>
+  <li ><span class="tag-bulk">B</span> Olympic Games Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Olympic Sport (500)</li>
+  <li ><span class="tag-bulk">B</span> Opera House (500)</li>
+  <li ><span class="tag-bulk">B</span> Opera House Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Opera Repertoire (500)</li>
+  <li ><span class="tag-bulk">B</span> Operating System (500)</li>
+  <li ><span class="tag-bulk">B</span> Operating System History (500)</li>
+  <li ><span class="tag-bulk">B</span> Organized Crime (500)</li>
+  <li ><span class="tag-bulk">B</span> Painter Masterpiece (500)</li>
+  <li ><span class="tag-bulk">B</span> Painting (500)</li>
+  <li ><span class="tag-bulk">B</span> Park (800)</li>
+  <li ><span class="tag-bulk">B</span> Particle Accelerator (500)</li>
+  <li ><span class="tag-bulk">B</span> Particle (500)</li>
+  <li ><span class="tag-bulk">B</span> Pasta Variety (500)</li>
+  <li ><span class="tag-bulk">B</span> Pharaoh (500)</li>
+  <li ><span class="tag-bulk">B</span> Philosopher (500)</li>
+  <li ><span class="tag-bulk">B</span> Philosopher School (500)</li>
+  <li ><span class="tag-bulk">B</span> Philosophical Concept 2 28 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Philosophical Concept 2 44 87 139 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Philosophical Concept 2 44 87 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Philosophical Concept 2 44 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Philosophical Concept 2 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Philosophical Concept (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Photographer (500)</li>
+  <li ><span class="tag-bulk">B</span> Physical Constant (500)</li>
+  <li ><span class="tag-bulk">B</span> Physicist (500)</li>
+  <li ><span class="tag-bulk">B</span> Physics Breakthrough (500)</li>
+  <li ><span class="tag-bulk">B</span> Physics Concept (600)</li>
+  <li class="curated"><span class="tag-curated">C</span> Planet (50)</li>
+  <li ><span class="tag-bulk">B</span> Plant Species 50 130 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Plant Species 50 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Plant Species 51 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Plant Species 84 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Plant Species (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Polar Exploration (500)</li>
+  <li ><span class="tag-bulk">B</span> Political Event 109 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Political Event 57 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Political Event 74 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Political Event (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Port (400)</li>
+  <li ><span class="tag-bulk">B</span> Power Plant (600)</li>
+  <li ><span class="tag-bulk">B</span> President (500)</li>
+  <li ><span class="tag-bulk">B</span> Prime Minister (500)</li>
+  <li ><span class="tag-bulk">B</span> Programming Framework (500)</li>
+  <li ><span class="tag-bulk">B</span> Programming Lang History (500)</li>
+  <li ><span class="tag-bulk">B</span> Programming Language (500)</li>
+  <li ><span class="tag-bulk">B</span> Programming Term (800)</li>
+  <li ><span class="tag-bulk">B</span> Protein Structure (500)</li>
+  <li ><span class="tag-bulk">B</span> Psychological Condition (500)</li>
+  <li ><span class="tag-bulk">B</span> Psychological Phenomenon (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Psychologist (500)</li>
+  <li ><span class="tag-bulk">B</span> Publisher (500)</li>
+  <li ><span class="tag-bulk">B</span> Pulitzer Winner (500)</li>
+  <li ><span class="tag-bulk">B</span> Radio Station (500)</li>
+  <li ><span class="tag-bulk">B</span> Railway Heritage (500)</li>
+  <li ><span class="tag-bulk">B</span> Railway Line (400)</li>
+  <li ><span class="tag-bulk">B</span> Railway Station (500)</li>
+  <li ><span class="tag-bulk">B</span> Rainforest Species (500)</li>
+  <li ><span class="tag-bulk">B</span> Recipe (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Record Label (500)</li>
+  <li ><span class="tag-bulk">B</span> Religious Site 60 89 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Religious Site 60 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Religious Site 76 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Religious Site (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Religious Structure (500)</li>
+  <li ><span class="tag-bulk">B</span> Renowned Architect (500)</li>
+  <li ><span class="tag-bulk">B</span> Research Center (500)</li>
+  <li ><span class="tag-bulk">B</span> Research Institute (500)</li>
+  <li ><span class="tag-bulk">B</span> Research Station (300)</li>
+  <li ><span class="tag-bulk">B</span> Respiratory System (500)</li>
+  <li ><span class="tag-bulk">B</span> Restaurant (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Retail Chain (500)</li>
+  <li ><span class="tag-bulk">B</span> Revolution (500)</li>
+  <li ><span class="tag-bulk">B</span> Revolution Movement (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> River (40)</li>
+  <li ><span class="tag-bulk">B</span> River Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Robotics Platform (500)</li>
+  <li ><span class="tag-bulk">B</span> Rock Type (500)</li>
+  <li ><span class="tag-bulk">B</span> Roman Emperor (500)</li>
+  <li ><span class="tag-bulk">B</span> Royal Dynasty (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Royal Palace (500)</li>
+  <li ><span class="tag-bulk">B</span> Rugby World Cup (500)</li>
+  <li ><span class="tag-bulk">B</span> Satellite (500)</li>
+  <li ><span class="tag-bulk">B</span> Satellite Mission (500)</li>
+  <li ><span class="tag-bulk">B</span> School (600)</li>
+  <li ><span class="tag-bulk">B</span> Scientific Discovery (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Scientific Instrument 92 112 138 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Scientific Instrument 92 112 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Scientific Instrument 92 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Scientific Instrument 97 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Scientific Instrument (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Scientific Journal (400)</li>
+  <li ><span class="tag-bulk">B</span> Scientific Theory (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Scientific Theory (500)</li>
+  <li ><span class="tag-bulk">B</span> Scientist (500)</li>
+  <li ><span class="tag-bulk">B</span> Sculpture Classic (500)</li>
+  <li ><span class="tag-bulk">B</span> Sculpture (500)</li>
+  <li ><span class="tag-bulk">B</span> Security Tool (500)</li>
+  <li ><span class="tag-bulk">B</span> Shakespeare Play (500)</li>
+  <li ><span class="tag-bulk">B</span> Shark (400)</li>
+  <li ><span class="tag-bulk">B</span> Shopping Mall (400)</li>
+  <li ><span class="tag-bulk">B</span> Shopping Mall Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Skeletal System (500)</li>
+  <li ><span class="tag-bulk">B</span> Ski Resort (500)</li>
+  <li ><span class="tag-bulk">B</span> Skyscraper Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Snake (500)</li>
+  <li ><span class="tag-bulk">B</span> Social Media Platform (500)</li>
+  <li ><span class="tag-bulk">B</span> Sociologist (500)</li>
+  <li ><span class="tag-bulk">B</span> Software Company (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Soil Type (20)</li>
+  <li ><span class="tag-bulk">B</span> Song (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Space Astronaut Extended (500)</li>
+  <li ><span class="tag-bulk">B</span> Space Mission 100 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Space Mission (500)</li>
+  <li ><span class="tag-bulk">B</span> Space Probe 18 111 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Space Probe 18 73 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Space Probe 18 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Space Probe 30 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Space Probe (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Space Probe (500)</li>
+  <li ><span class="tag-bulk">B</span> Spice (400)</li>
+  <li ><span class="tag-bulk">B</span> Sport (500)</li>
+  <li ><span class="tag-bulk">B</span> Sports Event (500)</li>
+  <li ><span class="tag-bulk">B</span> Sports Record 41 63 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Sports Record 41 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Sports Record (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Sports Stadium (500)</li>
+  <li ><span class="tag-bulk">B</span> Sports Team (500)</li>
+  <li ><span class="tag-bulk">B</span> Sports Trophy (500)</li>
+  <li ><span class="tag-bulk">B</span> Stadium (500)</li>
+  <li ><span class="tag-bulk">B</span> Stanley Cup Winner (500)</li>
+  <li ><span class="tag-bulk">B</span> Star (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Star Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Stock Exchange (500)</li>
+  <li ><span class="tag-bulk">B</span> Subway Station (500)</li>
+  <li ><span class="tag-bulk">B</span> Subway System (500)</li>
+  <li ><span class="tag-bulk">B</span> Super Bowl Winner (500)</li>
+  <li ><span class="tag-bulk">B</span> Surgical Procedure (500)</li>
+  <li ><span class="tag-bulk">B</span> Synagogue (300)</li>
+  <li ><span class="tag-bulk">B</span> Tarot Card (500)</li>
+  <li ><span class="tag-bulk">B</span> Tea Variety (500)</li>
+  <li ><span class="tag-bulk">B</span> Tech Company (500)</li>
+  <li ><span class="tag-bulk">B</span> Tech Pioneer (500)</li>
+  <li ><span class="tag-bulk">B</span> Tech Startup (500)</li>
+  <li ><span class="tag-bulk">B</span> Technological Innovation 135 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Technological Innovation 23 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Technological Innovation 38 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Technological Innovation 49 72 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Technological Innovation 49 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Technological Innovation (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Telecom History 36 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Telecom History (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Telescope (500)</li>
+  <li ><span class="tag-bulk">B</span> Temple (500)</li>
+  <li ><span class="tag-bulk">B</span> Theater (500)</li>
+  <li ><span class="tag-bulk">B</span> Theater Play (500)</li>
+  <li ><span class="tag-bulk">B</span> Theme Park (500)</li>
+  <li ><span class="tag-bulk">B</span> Tidal Wave Event (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Timezone (500)</li>
+  <li ><span class="tag-bulk">B</span> Timezone Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Tony Award (500)</li>
+  <li ><span class="tag-bulk">B</span> Tornado (500)</li>
+  <li ><span class="tag-bulk">B</span> Tour De France (500)</li>
+  <li ><span class="tag-bulk">B</span> Train Station (500)</li>
+  <li ><span class="tag-bulk">B</span> Transport Milestone (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Treaty (500)</li>
+  <li ><span class="tag-bulk">B</span> Tree Species (1,200)</li>
+  <li ><span class="tag-bulk">B</span> Tsunami (500)</li>
+  <li ><span class="tag-bulk">B</span> Tunnel (500)</li>
+  <li ><span class="tag-bulk">B</span> Tunnel Engineering (500)</li>
+  <li ><span class="tag-bulk">B</span> Tv Channel (500)</li>
+  <li ><span class="tag-bulk">B</span> Tv Series Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Uefa Cl (500)</li>
+  <li ><span class="tag-bulk">B</span> Underwater Exploration (500)</li>
+  <li ><span class="tag-bulk">B</span> Underwater Volcano (1,000)</li>
+  <li ><span class="tag-bulk">B</span> University (500)</li>
+  <li ><span class="tag-bulk">B</span> University Ranking (500)</li>
+  <li ><span class="tag-bulk">B</span> Us Open Winner (500)</li>
+  <li ><span class="tag-bulk">B</span> Us President Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> Vaccine Development (500)</li>
+  <li ><span class="tag-bulk">B</span> Venomous Creature (500)</li>
+  <li ><span class="tag-bulk">B</span> Video Game (500)</li>
+  <li ><span class="tag-bulk">B</span> Video Game Franchise (500)</li>
+  <li ><span class="tag-bulk">B</span> Virus Strain (500)</li>
+  <li ><span class="tag-bulk">B</span> Vitamin (500)</li>
+  <li ><span class="tag-bulk">B</span> Volcanic Eruption 20 47 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Volcanic Eruption 20 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Volcanic Eruption 26 (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Volcanic Eruption (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Volcanic Island (500)</li>
+  <li class="curated"><span class="tag-curated">C</span> Volcano (20)</li>
+  <li ><span class="tag-bulk">B</span> War (500)</li>
+  <li ><span class="tag-bulk">B</span> Waterfall Wonder (500)</li>
+  <li ><span class="tag-bulk">B</span> Weather Pattern (500)</li>
+  <li ><span class="tag-bulk">B</span> Wetland Ecosystem (500)</li>
+  <li ><span class="tag-bulk">B</span> Whale (200)</li>
+  <li ><span class="tag-bulk">B</span> Wimbledon Champion (500)</li>
+  <li ><span class="tag-bulk">B</span> Wind Pattern (500)</li>
+  <li ><span class="tag-bulk">B</span> Wine (600)</li>
+  <li ><span class="tag-bulk">B</span> Wine Varietal (500)</li>
+  <li ><span class="tag-bulk">B</span> Wonder (500)</li>
+  <li ><span class="tag-bulk">B</span> World Alliance (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Amphitheater (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Ancient Reef (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Ancient Temple (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Aquarium (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Archaeological Site (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Archipelago (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Art Movement (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Badland (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Band (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Biome (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Biosphere Reserve (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Black Hole (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Botanical Garden (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Brown Dwarf (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Butte (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Butterfly (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Cape (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Capital City (500)</li>
+  <li ><span class="tag-bulk">B</span> World Carbon Neutral Company (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Channel (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Chocolate Origin (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World City Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> World Civil Rights Movement (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Colossus (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Comet (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Constellation Star (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Coral Reef System (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Cuisine (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Currency (500)</li>
+  <li ><span class="tag-bulk">B</span> World Cyber Attack (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Dance Style (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Dark Matter Halo (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Desert Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> World Desert Dune (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Dinosaur Trackway (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Eco Village (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Economist (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Encryption Standard (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Epic Poem (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Festival (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Film Festival (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Flag Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> World Folklore Tradition (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Forest Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> World Fossil Reef (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Fossil Site (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Gamma Ray Burst (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Geothermal Field (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Ghost Story (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Glacier (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Globular Cluster (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Green Roof (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Habitable Zone Planet (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Hanging Garden Site (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Harbor (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Heritage Extra (500)</li>
+  <li ><span class="tag-bulk">B</span> World Heritage Site Country (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Hii Region (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Historic Canal (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Historic Fort (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Historic Square (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Historical Archive (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Hot Spring Pool (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Humanitarian Award (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Ice Cave (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Impact Crater Lake (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Island Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> World Jovian Moon (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Lagoon (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Landmark (500)</li>
+  <li ><span class="tag-bulk">B</span> World Launch Site (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Legal System (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Legendary Creature (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Lighthouse (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Linguist (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Mangrove Species (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Marine Park (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Market (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Martian Feature (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Mathematical Problem (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Migration Route (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Migratory Bird (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Moon Feature (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Mountain System (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Museum (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Music Genre (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World National Monument (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Natural Arch (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Natural Landmark Usa (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Nebula Detail (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Net Zero Building (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Neutrino Source (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Newspaper (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Observatory Detail (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Open Air Museum (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Orchestra (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Palace (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Photo Award (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Pilgrimage Route (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Planetarium (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Plateau (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Poetry Form (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Protest (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Quasar (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Record (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Religion (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Research Institute (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World River Detail (500)</li>
+  <li ><span class="tag-bulk">B</span> World Robot (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Rock Art Site (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Sea Stack (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Seagrass Meadow (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Series Winner (500)</li>
+  <li ><span class="tag-bulk">B</span> World Silk Road Site (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Sociologist (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Space Mission (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Space Probe (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Space Station (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Stadium (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World State Park (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Stellar Association (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Symphony (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Taboo (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Tea Region (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Technology Patent (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Tektite Field (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Textile Pattern (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Thermal Spring (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Think Tank (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Trace Fossil Site (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Treaty (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Tundra (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Underground River (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World University (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World University Program (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Urban Park (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Void (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Volcano Range (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Weather Phenomenon (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Wetland (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Wilderness Area (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Wildlife Corridor (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Wine Region (1,000)</li>
+  <li ><span class="tag-bulk">B</span> World Womens Movement (1,000)</li>
+  <li ><span class="tag-bulk">B</span> Writer Author (500)</li>
+  <li ><span class="tag-bulk">B</span> Writer (500)</li>
+  <li ><span class="tag-bulk">B</span> Writing System (500)</li>
+  <li ><span class="tag-bulk">B</span> Yoga Pose (500)</li>
+  <li ><span class="tag-bulk">B</span> Zoo Collection (500)</li>
+  <li ><span class="tag-bulk">B</span> Zoo (500)</li>
+</ul>
+
+<h2>Curated Data Samples</h2>
+<p>Displaying first 5 entries from each curated table.</p>
+<h3>Chemistry Element</h3>
+<table class="sample-table"><tr><th>Hydrogen</th><th>H</th><th>1</th><th>1.008</th><th>Nonmetal</th></tr><tr><td>Hydrogen</td><td>H</td><td>1</td><td>1.008</td><td>Nonmetal</td></tr><tr><td>Helium</td><td>He</td><td>2</td><td>4.0026</td><td>Noble gas</td></tr><tr><td>Lithium</td><td>Li</td><td>3</td><td>6.94</td><td>Alkali metal</td></tr><tr><td>Beryllium</td><td>Be</td><td>4</td><td>9.0122</td><td>Alkaline earth</td></tr><tr><td>Boron</td><td>B</td><td>5</td><td>10.81</td><td>Metalloid</td></tr></table>
+<h3>City</h3>
+<table class="sample-table"><tr><th>Tokyo</th><th>Japan</th><th>37400000</th></tr><tr><td>Tokyo</td><td>Japan</td><td>37400000</td></tr><tr><td>Delhi</td><td>India</td><td>32200000</td></tr><tr><td>Shanghai</td><td>China</td><td>29200000</td></tr><tr><td>Sao Paulo</td><td>Brazil</td><td>22200000</td></tr><tr><td>Mexico City</td><td>Mexico</td><td>21900000</td></tr></table>
+<h3>Constellation</h3>
+<table class="sample-table"><tr><th>Andromeda</th><th>And</th><th>Princess</th><th>722</th><th>100</th></tr><tr><td>Andromeda</td><td>And</td><td>Princess</td><td>722</td><td>100</td></tr><tr><td>Antlia</td><td>Ant</td><td>Air Pump</td><td>239</td><td>1</td></tr><tr><td>Apus</td><td>Aps</td><td>Bird of Paradise</td><td>206</td><td>0</td></tr><tr><td>Aquarius</td><td>Aqr</td><td>Water Bearer</td><td>980</td><td>4</td></tr><tr><td>Aquila</td><td>Aql</td><td>Eagle</td><td>652</td><td>3</td></tr></table>
+<h3>Country Detail</h3>
+<table class="sample-table"><tr><th>Afghanistan</th><th>Asia</th><th>Republic</th><th>41128771</th><th>652230</th></tr><tr><td>Afghanistan</td><td>Asia</td><td>Republic</td><td>41128771</td><td>652230</td></tr><tr><td>Albania</td><td>Europe</td><td>Republic</td><td>2845955</td><td>28748</td></tr><tr><td>Algeria</td><td>Africa</td><td>Republic</td><td>44903225</td><td>2381741</td></tr><tr><td>Andorra</td><td>Europe</td><td>Diarchy</td><td>79824</td><td>468</td></tr><tr><td>Angola</td><td>Africa</td><td>Republic</td><td>35588987</td><td>1246700</td></tr></table>
+<h3>Dinosaur</h3>
+<table class="sample-table"><tr><th>Tyrannosaurus Rex</th><th>Cretaceous</th><th>Carnivore</th><th>12.3</th><th>North America</th></tr><tr><td>Tyrannosaurus Rex</td><td>Cretaceous</td><td>Carnivore</td><td>12.3</td><td>North America</td></tr><tr><td>Triceratops</td><td>Cretaceous</td><td>Herbivore</td><td>9.0</td><td>North America</td></tr><tr><td>Velociraptor</td><td>Cretaceous</td><td>Carnivore</td><td>2.0</td><td>Asia</td></tr><tr><td>Stegosaurus</td><td>Jurassic</td><td>Herbivore</td><td>9.0</td><td>North America</td></tr><tr><td>Brachiosaurus</td><td>Jurassic</td><td>Herbivore</td><td>25.0</td><td>North America</td></tr></table>
+<h3>Earthquake</h3>
+<table class="sample-table"><tr><th>Valdivia</th><th>1960</th><th>9.5</th><th>Chile</th><th>1655</th><th>Great Chilean Earthquake</th></tr><tr><td>Valdivia</td><td>1960</td><td>9.5</td><td>Chile</td><td>1655</td><td>Great Chilean Earthquake</td></tr><tr><td>Prince William Sound</td><td>1964</td><td>9.2</td><td>Alaska</td><td>131</td><td>Good Friday Earthquake</td></tr><tr><td>Sumatra</td><td>2004</td><td>9.1</td><td>Indonesia</td><td>227898</td><td>Indian Ocean Tsunami</td></tr><tr><td>Tohoku</td><td>2011</td><td>9.1</td><td>Japan</td><td>15894</td><td>Great East Japan Earthquake</td></tr><tr><td>Kamchatka</td><td>1952</td><td>9.0</td><td>Russia</td><td>2300</td><td>Kamchatka Earthquake</td></tr></table>
+<h3>Galaxy</h3>
+<table class="sample-table"><tr><th>Milky Way</th><th>SBbc</th><th>100000</th><th>6</th><th>Sagittarius</th><th>0</th></tr><tr><td>Milky Way</td><td>SBbc</td><td>100000</td><td>6</td><td>Sagittarius</td><td>0</td></tr><tr><td>Andromeda</td><td>Sb</td><td>220000</td><td>8</td><td>Andromeda</td><td>2537000</td></tr><tr><td>Triangulum</td><td>Sc</td><td>60000</td><td>5</td><td>Triangulum</td><td>3000000</td></tr><tr><td>Centaurus A</td><td>S0</td><td>60000</td><td>8</td><td>Centaurus</td><td>13000000</td></tr><tr><td>Pinwheel</td><td>SABc</td><td>170000</td><td>8</td><td>Ursa Major</td><td>21000000</td></tr></table>
+<h3>Gemstone</h3>
+<table class="sample-table"><tr><th>Diamond</th><th>C</th><th>10</th><th>3.52</th><th>Colorless</th><th>Brilliant</th></tr><tr><td>Diamond</td><td>C</td><td>10</td><td>3.52</td><td>Colorless</td><td>Brilliant</td></tr><tr><td>Ruby</td><td>Al2O3:Cr</td><td>9</td><td>4.0</td><td>Red</td><td>Corundum</td></tr><tr><td>Sapphire</td><td>Al2O3</td><td>9</td><td>4.0</td><td>Blue</td><td>Corundum</td></tr><tr><td>Emerald</td><td>Be3Al2SiO6</td><td>7.5</td><td>2.76</td><td>Green</td><td>Beryl</td></tr><tr><td>Aquamarine</td><td>Be3Al2SiO6</td><td>7.5</td><td>2.76</td><td>Blue-green</td><td>Beryl</td></tr></table>
+<h3>Geological Formation</h3>
+<table class="sample-table"><tr><th>Grand Canyon</th><th>Colorado Plateau</th><th>Canyon</th><th>Arizona, USA</th><th>6000000</th></tr><tr><td>Grand Canyon</td><td>Colorado Plateau</td><td>Canyon</td><td>Arizona, USA</td><td>6000000</td></tr><tr><td>Mount Everest</td><td>Himalayas</td><td>Mountain</td><td>Nepal/Tibet</td><td>60000000</td></tr><tr><td>Great Barrier Reef</td><td>Coral Sea</td><td>Reef</td><td>Australia</td><td>20000000</td></tr><tr><td>Mariana Trench</td><td>Pacific Ocean</td><td>Trench</td><td>Pacific Ocean</td><td>180000000</td></tr><tr><td>Mid-Atlantic Ridge</td><td>Atlantic Ocean</td><td>Ridge</td><td>Atlantic Ocean</td><td>200000000</td></tr></table>
+<h3>Hurricane</h3>
+<table class="sample-table"><tr><th>Great Galveston</th><th>1900</th><th>4</th><th>USA</th><th>8000</th><th>Galveston, Texas</th></tr><tr><td>Great Galveston</td><td>1900</td><td>4</td><td>USA</td><td>8000</td><td>Galveston, Texas</td></tr><tr><td>Labor Day</td><td>1935</td><td>5</td><td>USA</td><td>408</td><td>Florida Keys</td></tr><tr><td>Camille</td><td>1969</td><td>5</td><td>USA</td><td>259</td><td>Mississippi</td></tr><tr><td>Andrew</td><td>1992</td><td>5</td><td>USA</td><td>65</td><td>Florida/Bahamas</td></tr><tr><td>Katrina</td><td>2005</td><td>5</td><td>USA</td><td>1836</td><td>New Orleans</td></tr></table>
+<h3>Invention</h3>
+<table class="sample-table"><tr><th>Wheel</th><th>Transport</th><th>-3500</th><th>Mesopotamia</th></tr><tr><td>Wheel</td><td>Transport</td><td>-3500</td><td>Mesopotamia</td></tr><tr><td>Writing</td><td>Communication</td><td>-3400</td><td>Sumer</td></tr><tr><td>Agriculture</td><td>Food</td><td>-10000</td><td>Fertile Crescent</td></tr><tr><td>Metallurgy</td><td>Tools</td><td>-5000</td><td>Multiple</td></tr><tr><td>Paper</td><td>Communication</td><td>105</td><td>China</td></tr></table>
+<h3>Lake</h3>
+<table class="sample-table"><tr><th>Caspian Sea</th><th>Salt lake</th><th>371000</th><th>1025</th></tr><tr><td>Caspian Sea</td><td>Salt lake</td><td>371000</td><td>1025</td></tr><tr><td>Lake Superior</td><td>Freshwater</td><td>82100</td><td>406</td></tr><tr><td>Lake Victoria</td><td>Freshwater</td><td>68870</td><td>84</td></tr><tr><td>Lake Huron</td><td>Freshwater</td><td>59600</td><td>229</td></tr><tr><td>Lake Michigan</td><td>Freshwater</td><td>58000</td><td>281</td></tr></table>
+<h3>Language</h3>
+<table class="sample-table"><tr><th>English</th><th>Germanic</th><th>1500000000</th></tr><tr><td>English</td><td>Germanic</td><td>1500000000</td></tr><tr><td>Mandarin Chinese</td><td>Sino-Tibetan</td><td>1120000000</td></tr><tr><td>Hindi</td><td>Indo-Iranian</td><td>600000000</td></tr><tr><td>Spanish</td><td>Romance</td><td>559000000</td></tr><tr><td>French</td><td>Romance</td><td>310000000</td></tr></table>
+<h3>Mineral</h3>
+<table class="sample-table"><tr><th>Quartz</th><th>SiO2</th><th>7</th><th>2.65</th><th>Hexagonal</th><th>Colorless</th></tr><tr><td>Quartz</td><td>SiO2</td><td>7</td><td>2.65</td><td>Hexagonal</td><td>Colorless</td></tr><tr><td>Feldspar</td><td>KAlSi3O8</td><td>6</td><td>2.56</td><td>Monoclinic</td><td>White</td></tr><tr><td>Calcite</td><td>CaCO3</td><td>3</td><td>2.71</td><td>Trigonal</td><td>White</td></tr><tr><td>Halite</td><td>NaCl</td><td>2.5</td><td>2.17</td><td>Cubic</td><td>Colorless</td></tr><tr><td>Galena</td><td>PbS</td><td>2.5</td><td>7.4</td><td>Cubic</td><td>Gray</td></tr></table>
+<h3>Mountain</h3>
+<table class="sample-table"><tr><th>Mount Everest</th><th>Nepal/China</th><th>8848.86</th></tr><tr><td>Mount Everest</td><td>Nepal/China</td><td>8848.86</td></tr><tr><td>K2</td><td>Pakistan/China</td><td>8611</td></tr><tr><td>Kangchenjunga</td><td>Nepal/India</td><td>8586</td></tr><tr><td>Lhotse</td><td>Nepal/China</td><td>8516</td></tr><tr><td>Makalu</td><td>Nepal/China</td><td>8485</td></tr></table>
+<h3>Ocean Current</h3>
+<table class="sample-table"><tr><th>Gulf Stream</th><th>Warm</th><th>30</th><th>30</th><th>North Atlantic</th></tr><tr><td>Gulf Stream</td><td>Warm</td><td>30</td><td>30</td><td>North Atlantic</td></tr><tr><td>Kuroshio Current</td><td>Warm</td><td>100</td><td>25</td><td>North Pacific</td></tr><tr><td>Antarctic Circumpolar</td><td>Cold</td><td>2100</td><td>135</td><td>Southern Ocean</td></tr><tr><td>North Atlantic Drift</td><td>Warm</td><td>40</td><td>20</td><td>North Atlantic</td></tr><tr><td>Canary Current</td><td>Cold</td><td>10</td><td>5</td><td>North Atlantic</td></tr></table>
+<h3>Ocean</h3>
+<table class="sample-table"><tr><th>Pacific Ocean</th><th>165250000</th><th>10911</th><th>135663</th></tr><tr><td>Pacific Ocean</td><td>165250000</td><td>10911</td><td>135663</td></tr><tr><td>Atlantic Ocean</td><td>106460000</td><td>8376</td><td>111866</td></tr><tr><td>Indian Ocean</td><td>70560000</td><td>7258</td><td>66526</td></tr><tr><td>Arctic Ocean</td><td>14090000</td><td>5625</td><td>45389</td></tr><tr><td>Southern Ocean</td><td>20327000</td><td>7236</td><td>17968</td></tr></table>
+<h3>Planet</h3>
+<table class="sample-table"><tr><th>Mercury</th><th>Terrestrial</th><th>0.055</th><th>0.383</th><th>0</th></tr><tr><td>Mercury</td><td>Terrestrial</td><td>0.055</td><td>0.383</td><td>0</td></tr><tr><td>Venus</td><td>Terrestrial</td><td>0.815</td><td>0.949</td><td>0</td></tr><tr><td>Earth</td><td>Terrestrial</td><td>1.0</td><td>1.0</td><td>1</td></tr><tr><td>Mars</td><td>Terrestrial</td><td>0.107</td><td>0.532</td><td>2</td></tr><tr><td>Jupiter</td><td>Gas Giant</td><td>317.8</td><td>11.21</td><td>95</td></tr></table>
+<h3>River</h3>
+<table class="sample-table"><tr><th>Nile</th><th>Africa</th><th>6650</th><th>Mediterranean</th></tr><tr><td>Nile</td><td>Africa</td><td>6650</td><td>Mediterranean</td></tr><tr><td>Amazon</td><td>South America</td><td>6400</td><td>Atlantic</td></tr><tr><td>Yangtze</td><td>Asia</td><td>6300</td><td>East China Sea</td></tr><tr><td>Mississippi</td><td>North America</td><td>6275</td><td>Gulf of Mexico</td></tr><tr><td>Yenisei</td><td>Asia</td><td>5539</td><td>Arctic</td></tr></table>
+<h3>Soil Type</h3>
+<table class="sample-table"><tr><th>Alfisol</th><th>Moderately weathered</th><th>Forest</th><th>Humid</th><th>North America, Europe</th></tr><tr><td>Alfisol</td><td>Moderately weathered</td><td>Forest</td><td>Humid</td><td>North America, Europe</td></tr><tr><td>Andisol</td><td>Volcanic ash</td><td>Volcanic</td><td>Humid</td><td>Pacific Rim</td></tr><tr><td>Aridisol</td><td>Dry, low organic</td><td>Desert</td><td>Arid</td><td>Global dry regions</td></tr><tr><td>Entisol</td><td>Newly formed</td><td>Young</td><td>Various</td><td>Global</td></tr><tr><td>Gelisol</td><td>Permafrost</td><td>Tundra</td><td>Cold</td><td>Arctic, Antarctica</td></tr></table>
+<h3>Volcano</h3>
+<table class="sample-table"><tr><th>Mauna Loa</th><th>4169</th><th>Hawaii, USA</th><th>Active</th><th>1984</th></tr><tr><td>Mauna Loa</td><td>4169</td><td>Hawaii, USA</td><td>Active</td><td>1984</td></tr><tr><td>Mount Vesuvius</td><td>1281</td><td>Naples, Italy</td><td>Active</td><td>1944</td></tr><tr><td>Mount Fuji</td><td>3776</td><td>Honshu, Japan</td><td>Dormant</td><td>1707</td></tr><tr><td>Krakatoa</td><td>813</td><td>Sunda Strait, Indonesia</td><td>Active</td><td>2018</td></tr><tr><td>Mount St. Helens</td><td>2549</td><td>Washington, USA</td><td>Active</td><td>2008</td></tr></table>
+
+
+<h2>Version History</h2>
+<table class="cmd-table">
+<tr><th>Version</th><th>Changes</th></tr>
+<tr><td class="cmd-num">3.0.2</td><td>Initial large expansion, external modules</td></tr>
+<tr><td class="cmd-num">3.0.3</td><td>HBPE integration, role system</td></tr>
+<tr><td class="cmd-num">3.1.0</td><td>debug_exec merged console</td></tr>
+<tr><td class="cmd-num">3.2.0</td><td>Utility functions, handle_cmd refactor</td></tr>
+<tr><td class="cmd-num">3.3.0</td><td>Data functions, 239K lines</td></tr>
+<tr><td class="cmd-num">3.4.0</td><td>CLI colors, badges, pager, chart, quiz</td></tr>
+<tr><td class="cmd-num">3.5.0</td><td>Bulk data (424 tables), module split</td></tr>
+<tr><td class="cmd-num">3.6.0</td><td>Curated data, flashcard, AI query, timer, calc, docs</td></tr>
+<tr><td class="cmd-num">3.7.0</td><td>133 new data functions (data_bulk2.py), 67K lines</td></tr>
+<tr><td class="cmd-num">3.8.0</td><td>103 new data functions (data_bulk3.py), 50K lines, 465 total data tables, stats/changelog pages</td></tr>
+<tr><td class="cmd-num">3.9.0</td><td>data-index.html page, updated welcome message, rebuilt updater</td></tr>
+<tr><td class="cmd-num">4.0.0</td><td>Major: 200 new data functions (data_bulk4.py), ~201K lines, 665 total tables, visual installer (AIInstaller.exe), download/features site pages, 800K+ total lines</td></tr>
+<tr><td class="cmd-num">4.1.0</td><td>Major: 100 new data functions (data_bulk5.py), ~100K lines, 750+ total tables, dual HBPE (v0.0.1.2.01 + v0.0.2.0.00b1), hbpe_compat.py compat layer, Programm20 support, dev_console detection, 900K+ total lines</td></tr>
+<tr><td class="cmd-num">4.2.0</td><td>Major: 100 new data functions (data_bulk6.py), ~100K lines, 850+ total tables, 1M+ total lines, installer/updater rebuilt with version history, AIInstaller v4.2.0, AIUpdater v4.2.0</td></tr>
+<tr><td class="cmd-num">4.4.0</td><td>Major: 935 new utility functions via gen_code4.py, 3600+ commands, 1.3M+ total lines</td></tr>
+
+</table>
+
+<h2>Role System</h2>
+<table class="sample-table">
+<tr><th>Role</th><th>Password</th><th>Badge Color</th><th>Access</th></tr>
+<tr><td>User</td><td>—</td><td>Gray</td><td>Basic commands</td></tr>
+<tr><td>VIP</td><td>5280</td><td>Green</td><td>VIP commands + basic</td></tr>
+<tr><td>Mod</td><td>M-5280-M</td><td>Blue</td><td>Mod commands + VIP + basic</td></tr>
+<tr><td>Admin</td><td>A-52-80-A</td><td>Red</td><td>All commands</td></tr>
+</table>
+
+<h2>Quick Start</h2>
+<pre>
+python AI.py
+# Enter role password at prompt, or just press Enter for User
+# Type 'h' for help, 'q' to quit
+# Type 'categories' for categorized help
+# Type 'quiz' for interactive quiz
+# Type 'timer' for countdown timer
+# Type 'calc' for calculator REPL
+</pre>
+
+<h2>Built With</h2>
+<ul>
+  <li>Python 3.x</li>
+  <li>HubBasePE v0.0.1.2.01 / v0.0.2.0.00b1 (dual)</li>
+  <li>15 external modules: space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data, data_bulk, data_bulk2, data_bulk3, data_bulk4, data_bulk5, data_bulk6, data_bulk7, hbpe_compat</li>
+  <li>gen_code4.py, installer.py, updater.py</li>
+</ul>
+
+<div class="footer">
+  <p>AI.py v4.4.0 &mdash; 2025</p>
+</div>
+
+</div>
+</body>
+</html>
