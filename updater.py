@@ -7,7 +7,7 @@ CONFIG_FILE = "updater_config.json"
 ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
              "word_play.py", "art_extra.py", "world_data.py", "story_data.py",
              "data_bulk.py", "data_bulk2.py", "data_bulk3.py", "data_bulk4.py",
-             "data_bulk5.py", "data_bulk6.py", "data_bulk7.py", "data_bulk8.py", "data_bulk9.py", "data_bulk10.py", "data_bulk11.py", "data_bulk12.py", "data_bulk13.py", "data_bulk14.py", "data_bulk15.py", "data_bulk16.py", "data_bulk17.py", "data_bulk18.py", "data_bulk19.py", "data_bulk20.py", "data_bulk21.py", "data_bulk22.py", "data_bulk23.py", "data_bulk24.py", "data_bulk25.py", "data_bulk26.py", "data_bulk27.py", "data_bulk28.py", "hbpe_compat.py",
+             "data_bulk5.py", "data_bulk6.py", "data_bulk7.py", "data_bulk8.py", "data_bulk9.py", "data_bulk10.py", "data_bulk11.py", "data_bulk12.py", "data_bulk13.py", "data_bulk14.py", "data_bulk15.py", "data_bulk16.py", "data_bulk17.py", "data_bulk18.py", "data_bulk19.py", "data_bulk20.py", "data_bulk21.py", "data_bulk22.py", "data_bulk23.py", "data_bulk24.py", "data_bulk25.py", "data_bulk26.py", "data_bulk27.py", "data_bulk28.py", "data_bulk29.py", "data_bulk30.py", "hbpe_compat.py",
              "gen_code4.py", "installer.py", "updater.py"]
 DEFAULT_URL = "https://raw.githubusercontent.com/Voice659/AI-repo/master/AI.py"
 
