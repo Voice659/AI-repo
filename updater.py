@@ -2,7 +2,7 @@ import sys, os, shutil, tempfile, json, re
 from urllib.request import urlopen, Request
 from urllib.parse import urlparse
 
-VERSION = "4.4.0"
+VERSION = "5.4.0"
 CONFIG_FILE = "updater_config.json"
 ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
              "word_play.py", "art_extra.py", "world_data.py", "story_data.py",
@@ -115,14 +115,9 @@ def write_file(data, filename):
     backup = path + ".bak"
     if os.path.exists(path):
         shutil.copy2(path, backup)
-    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".py")
-    try:
-        tmp.write(data)
-        tmp.close()
-        shutil.copy2(tmp.name, path)
-        print("  Written: {} (backup: {}.bak)".format(filename, filename))
-    finally:
-        os.unlink(tmp.name)
+    with open(path, "wb") as f:
+        f.write(data)
+    print("  Written: {} (backup: {}.bak)".format(filename, filename))
 
 def verify(data, filename):
     try:
