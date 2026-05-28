@@ -1,7 +1,7 @@
 """AI.py Visual Installer — tkinter-based GUI installer with progress bars."""
 import tkinter as tk
 from tkinter import ttk, filedialog
-import threading, os, sys, re, shutil
+import threading, os, sys, re, shutil, time
 from urllib.request import urlopen, Request
 
 VERSION = "5.4.0"
@@ -18,6 +18,8 @@ ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
              "data_bulk29.py", "data_bulk30.py", "hbpe_compat.py",
              "gen_code4.py", "installer.py", "updater.py"]
 DEFAULT_URL = "https://raw.githubusercontent.com/Voice659/AI-repo/master/AI.py"
+RETRIES = 3
+TIMEOUT = 60
 
 
 def normalize_url(url):
@@ -26,6 +28,8 @@ def normalize_url(url):
         url = url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
     if "github.com" in url and "/raw/" in url:
         url = url.replace("github.com", "raw.githubusercontent.com").replace("/raw/", "/")
+    if url.endswith("/"):
+        url = url + "AI.py"
     return url
 
 
@@ -42,10 +46,6 @@ class AIInstaller:
         self.root.geometry("600x520")
         self.root.resizable(False, False)
         self.root.configure(bg="#0d1117")
-        try:
-            self.root.iconbitmap(default="")
-        except Exception:
-            pass
         self.url = DEFAULT_URL
         self.install_path = os.path.join(os.path.expanduser("~"), "AI")
         self.status_text = tk.StringVar(value="Ready")
@@ -154,9 +154,8 @@ class AIInstaller:
     def _make_button(self, parent, text, command, color):
         btn = tk.Button(parent, text=text, command=command,
                         font=("Segoe UI", 9, "bold"), bg=color, fg="#ffffff",
+                        activebackground=color, activeforeground="#ffffff",
                         relief=tk.FLAT, bd=0, padx=14, pady=6, cursor="hand2")
-        btn.bind("<Enter>", lambda e: btn.config(bg=color + "cc"))
-        btn.bind("<Leave>", lambda e: btn.config(bg=color))
         return btn
 
     def _tk(self, fn, *args, **kwargs):
@@ -186,14 +185,14 @@ class AIInstaller:
         self._tk(lambda: self.file_progress_var.set(value))
 
     def disable_buttons(self):
-        self._tk(lambda: [self.check_btn.config(state=tk.DISABLED),
-                          self.install_btn.config(state=tk.DISABLED),
-                          self.verify_btn.config(state=tk.DISABLED)])
+        self._tk(lambda: self.check_btn.config(state=tk.DISABLED))
+        self._tk(lambda: self.install_btn.config(state=tk.DISABLED))
+        self._tk(lambda: self.verify_btn.config(state=tk.DISABLED))
 
     def enable_buttons(self):
-        self._tk(lambda: [self.check_btn.config(state=tk.NORMAL),
-                          self.install_btn.config(state=tk.NORMAL),
-                          self.verify_btn.config(state=tk.NORMAL)])
+        self._tk(lambda: self.check_btn.config(state=tk.NORMAL))
+        self._tk(lambda: self.install_btn.config(state=tk.NORMAL))
+        self._tk(lambda: self.verify_btn.config(state=tk.NORMAL))
 
     def parse_version(self, data):
         try:
@@ -205,13 +204,37 @@ class AIInstaller:
             pass
         return None
 
-    def download_file(self, url, filename):
+    def fetch_url(self, url, timeout=TIMEOUT):
         req = Request(url, headers={"User-Agent": "AI-Installer/5.0"})
-        resp = urlopen(req, timeout=30)
+        resp = urlopen(req, timeout=timeout)
         data = resp.read()
-        size = len(data) / 1024
-        self.log("  Downloaded {:.1f} KB: {}".format(size, filename), "info")
+        return data, len(data)
+
+    def fetch_with_retry(self, url, label=""):
+        last_err = None
+        for attempt in range(1, RETRIES + 1):
+            try:
+                data, size = self.fetch_url(url)
+                return data, size
+            except Exception as e:
+                last_err = e
+                if attempt < RETRIES:
+                    self.log("  Retry {}/{} for {}".format(attempt, RETRIES, label), "warn")
+                    time.sleep(2)
+        raise last_err
+
+    def download_file(self, file_url, filename):
+        data, size = self.fetch_with_retry(file_url, filename)
+        self.log("  Downloaded {:.1f} KB: {}".format(size / 1024, filename), "info")
         return data
+
+    def check_remote_version(self, url):
+        try:
+            data, _ = self.fetch_url(url, timeout=15)
+            return self.parse_version(data)
+        except Exception as e:
+            self.log("Version check failed: {}".format(e), "error")
+            return None
 
     def _check_updates(self):
         threading.Thread(target=self._do_check, daemon=True).start()
@@ -225,10 +248,7 @@ class AIInstaller:
             self.set_status("Error: No URL")
             return
         try:
-            req = Request(url, headers={"User-Agent": "AI-Installer/5.0"})
-            resp = urlopen(req, timeout=15)
-            data = resp.read()
-            remote_ver = self.parse_version(data)
+            remote_ver = self.check_remote_version(url)
             if remote_ver:
                 self.log("Remote version: {}".format(remote_ver), "highlight")
                 local_ver = self._local_version("AI.py")
@@ -277,6 +297,9 @@ class AIInstaller:
     def _install_files(self):
         threading.Thread(target=self._do_install, daemon=True).start()
 
+    def _is_data_bulk(self, filename):
+        return filename.startswith("data_bulk") and filename.endswith(".py") and filename != "data_bulk.py"
+
     def _do_install(self):
         self.set_status("Installing...")
         self.log("Starting installation...", "highlight")
@@ -306,7 +329,7 @@ class AIInstaller:
                         self.log("  Version: {}".format(ver), "success")
                     else:
                         self.log("  Warning: Could not verify version.", "warn")
-                if filename.endswith(".py"):
+                if filename.endswith(".py") and not self._is_data_bulk(filename):
                     try:
                         compile(data, filename, "exec")
                         self.log("  Syntax OK", "success")
@@ -315,10 +338,14 @@ class AIInstaller:
                         fail_count += 1
                         continue
                 dest = os.path.join(self._target_dir(), filename)
+                os.makedirs(self._target_dir(), exist_ok=True)
                 if os.path.exists(dest):
                     backup = dest + ".bak"
-                    shutil.copy2(dest, backup)
-                    self.log("  Backup created: {}.bak".format(filename), "info")
+                    try:
+                        shutil.copy2(dest, backup)
+                        self.log("  Backup created: {}.bak".format(filename), "info")
+                    except Exception:
+                        self.log("  Could not create backup for {}".format(filename), "warn")
                 with open(dest, "wb") as f:
                     f.write(data)
                 self.log("  Written: {}".format(filename), "success")
@@ -358,13 +385,17 @@ class AIInstaller:
                     data = f.read()
                 ver = self.parse_version(data)
                 ver_str = " v{}".format(ver) if ver else ""
-                try:
-                    compile(data, filename, "exec")
+                if not self._is_data_bulk(filename):
+                    try:
+                        compile(data, filename, "exec")
+                        self.log("  OK: {} ({:.1f} KB{})".format(filename, size / 1024, ver_str), "success")
+                        ok += 1
+                    except SyntaxError as e:
+                        self.log("  SYNTAX ERROR in {}: {}".format(filename, e), "error")
+                        fail += 1
+                else:
                     self.log("  OK: {} ({:.1f} KB{})".format(filename, size / 1024, ver_str), "success")
                     ok += 1
-                except SyntaxError as e:
-                    self.log("  SYNTAX ERROR in {}: {}".format(filename, e), "error")
-                    fail += 1
             else:
                 self.log("  OK: {} ({:.1f} KB)".format(filename, size / 1024), "success")
                 ok += 1

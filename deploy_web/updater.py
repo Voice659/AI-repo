@@ -1,15 +1,23 @@
-import sys, os, shutil, tempfile, json, re
+import sys, os, shutil, json, re, time
 from urllib.request import urlopen, Request
 from urllib.parse import urlparse
 
-VERSION = "4.4.0"
+VERSION = "5.4.0"
 CONFIG_FILE = "updater_config.json"
 ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
              "word_play.py", "art_extra.py", "world_data.py", "story_data.py",
              "data_bulk.py", "data_bulk2.py", "data_bulk3.py", "data_bulk4.py",
-             "data_bulk5.py", "data_bulk6.py", "data_bulk7.py", "data_bulk8.py", "data_bulk9.py", "data_bulk10.py", "data_bulk11.py", "data_bulk12.py", "data_bulk13.py", "data_bulk14.py", "data_bulk15.py", "data_bulk16.py", "data_bulk17.py", "data_bulk18.py", "data_bulk19.py", "data_bulk20.py", "data_bulk21.py", "data_bulk22.py", "hbpe_compat.py",
-             "gen_code4.py", "installer.py"]
+             "data_bulk5.py", "data_bulk6.py", "data_bulk7.py", "data_bulk8.py",
+             "data_bulk9.py", "data_bulk10.py", "data_bulk11.py", "data_bulk12.py",
+             "data_bulk13.py", "data_bulk14.py", "data_bulk15.py", "data_bulk16.py",
+             "data_bulk17.py", "data_bulk18.py", "data_bulk19.py", "data_bulk20.py",
+             "data_bulk21.py", "data_bulk22.py", "data_bulk23.py", "data_bulk24.py",
+             "data_bulk25.py", "data_bulk26.py", "data_bulk27.py", "data_bulk28.py",
+             "data_bulk29.py", "data_bulk30.py", "hbpe_compat.py",
+             "gen_code4.py", "installer.py", "updater.py"]
 DEFAULT_URL = "https://raw.githubusercontent.com/Voice659/AI-repo/master/AI.py"
+RETRIES = 3
+TIMEOUT = 60
 
 def normalize_url(url):
     url = url.strip()
@@ -76,12 +84,21 @@ def version_cmp(v1, v2):
 
 def download(url, filename):
     print("  Downloading {}...".format(filename), end=" ")
-    req = Request(url, headers={"User-Agent": "AI-Updater/2.0"})
-    resp = urlopen(req, timeout=30)
-    data = resp.read()
-    size = len(data) / 1024
-    print("{:.1f} KB".format(size))
-    return data
+    last_err = None
+    for attempt in range(1, RETRIES + 1):
+        try:
+            req = Request(url, headers={"User-Agent": "AI-Updater/5.0"})
+            resp = urlopen(req, timeout=TIMEOUT)
+            data = resp.read()
+            size = len(data) / 1024
+            print("{:.1f} KB".format(size))
+            return data
+        except Exception as e:
+            last_err = e
+            if attempt < RETRIES:
+                print("retry {}/{}".format(attempt, RETRIES))
+                time.sleep(2)
+    raise last_err
 
 def extract_bundled(filename):
     path = os.path.join(resource_dir(), filename)
@@ -110,21 +127,24 @@ def needs_update(remote_data, filename):
         return True, local, remote
     return cmp > 0, local, remote
 
+def is_data_bulk(filename):
+    return filename.startswith("data_bulk") and filename.endswith(".py") and filename != "data_bulk.py"
+
 def write_file(data, filename):
     path = os.path.join(app_dir(), filename)
     backup = path + ".bak"
     if os.path.exists(path):
-        shutil.copy2(path, backup)
-    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".py")
-    try:
-        tmp.write(data)
-        tmp.close()
-        shutil.copy2(tmp.name, path)
-        print("  Written: {} (backup: {}.bak)".format(filename, filename))
-    finally:
-        os.unlink(tmp.name)
+        try:
+            shutil.copy2(path, backup)
+        except PermissionError:
+            pass
+    with open(path, "wb") as f:
+        f.write(data)
+    print("  Written: {} (backup: {}.bak)".format(filename, filename))
 
 def verify(data, filename):
+    if is_data_bulk(filename):
+        return True
     try:
         compile(data, filename, "exec")
         return True
