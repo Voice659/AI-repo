@@ -2,7 +2,7 @@ import sys, os, shutil, json, re, time
 from urllib.request import urlopen, Request
 from urllib.parse import urlparse
 
-VERSION = "5.4.0"
+VERSION = "5.5.0"
 CONFIG_FILE = "updater_config.json"
 ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
              "word_play.py", "art_extra.py", "world_data.py", "story_data.py",
@@ -13,7 +13,7 @@ ALL_FILES = ["AI.py", "space_data.py", "mini_games.py", "trivia_pack.py",
              "data_bulk17.py", "data_bulk18.py", "data_bulk19.py", "data_bulk20.py",
              "data_bulk21.py", "data_bulk22.py", "data_bulk23.py", "data_bulk24.py",
              "data_bulk25.py", "data_bulk26.py", "data_bulk27.py", "data_bulk28.py",
-             "data_bulk29.py", "data_bulk30.py", "hbpe_compat.py",
+             "data_bulk29.py", "data_bulk30.py", "data_bulk31.py", "hbpe_compat.py",
              "gen_code4.py", "installer.py", "updater.py"]
 DEFAULT_URL = "https://raw.githubusercontent.com/Voice659/AI-repo/master/AI.py"
 RETRIES = 3

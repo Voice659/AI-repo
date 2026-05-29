@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>AI.py v5.5.0 — Roadmap</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#0d1117;color:#c9d1d9;font-family:Courier New,monospace;line-height:1.6;padding:20px;}
+  .container{max-width:960px;margin:auto;}
+  h1{color:#58a6ff;font-size:2em;margin:20px 0 5px;}
+  h2{color:#79c0ff;font-size:1.4em;margin:30px 0 10px;border-bottom:1px solid #30363d;padding-bottom:5px;}
+  h3{color:#a5d6ff;font-size:1.1em;margin:20px 0 8px;}
+  .subtitle{color:#8b949e;font-size:0.95em;margin-bottom:20px;}
+  a{color:#58a6ff;}
+  .footer{margin-top:40px;padding-top:20px;border-bottom:1px solid #30363d;color:#8b949e;font-size:0.85em;text-align:center;}
+  .milestone{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px 20px;margin:16px 0;}
+  .milestone .tag{display:inline-block;background:#1f6feb;color:#fff;font-size:0.75em;padding:2px 10px;border-radius:12px;margin-bottom:8px;}
+  .milestone .tag.done{background:#238636;}
+  .milestone .tag.future{background:#8b949e;}
+  .milestone .date{color:#8b949e;font-size:0.85em;}
+  ul{list-style:none;padding:0;}
+  ul li{color:#c9d1d9;padding:4px 0 4px 20px;position:relative;}
+  ul li::before{content:"\2022";color:#58a6ff;position:absolute;left:0;}
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="app.js"></script></head>
+<body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;text-align:center;font-size:0.85em;">
+<a href="index.html" style="color:#58a6ff;text-decoration:none;">Home</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="AI.py-docs.html" style="color:#58a6ff;text-decoration:none;">Docs</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="data-index.html" style="color:#58a6ff;text-decoration:none;">Data Index</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="features.html" style="color:#58a6ff;text-decoration:none;">Features</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="download.html" style="color:#58a6ff;text-decoration:none;">Downloads</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="stats.html" style="color:#58a6ff;text-decoration:none;">Stats</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="changelog.html" style="color:#58a6ff;text-decoration:none;">Changelog</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="api.html" style="color:#58a6ff;text-decoration:none;">API</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="guide.html" style="color:#58a6ff;text-decoration:none;">Guide</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="reference.html" style="color:#58a6ff;text-decoration:none;">Reference</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="tutorial.html" style="color:#58a6ff;text-decoration:none;">Tutorials</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="faq.html" style="color:#58a6ff;text-decoration:none;">FAQ</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="community.html" style="color:#58a6ff;text-decoration:none;">Community</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="about.html" style="color:#58a6ff;text-decoration:none;">About</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<span style="color:#8b949e;">Roadmap</span>
+</div>
+<div class="container">
+<h1>AI.py Roadmap</h1>
+<p class="subtitle">Past, present, and future of the project</p>
+
+<h2>Completed Milestones</h2>
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v5.5.0 &mdash; 5.9M Lines</h3>
+<ul>
+<li>AI.py expanded to 500K+ lines with v5.5.0 bump</li>
+<li>2 new data_bulk files (29&ndash;30): Cybersecurity &amp; Networking, Agriculture &amp; Food Science</li>
+<li>data_bulk29.py added: 205 functions, 308K lines, 1500 entries each</li>
+<li>data_bulk30.py added: 220 functions, 331K lines, 1500 entries each</li>
+<li>Project total: 5.9M+ lines (30 data_bulk files, 5,062 data functions)</li>
+<li>Installer/Updater ALL_FILES updated for 31 bulk modules</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v5.3.0 &mdash; 5.1M Lines</h3>
+<ul>
+<li>AI.py expanded to 500K+ lines with v5.3.0 bump</li>
+<li>2 new data_bulk files (27&ndash;28): Transportation &amp; Logistics, Education &amp; Entertainment</li>
+<li>data_bulk27.py added: 190 functions, 305K lines, 1500 entries each</li>
+<li>data_bulk28.py added: 200 functions, 300K lines, 1500 entries each</li>
+<li>Project total: 5.1M+ lines (28 data_bulk files, 4,603 data functions)</li>
+<li>2 new site pages: community.html &amp; about.html</li>
+<li>Nav bars updated across all 16 pages with Community/About links</li>
+<li>Installer/Updater ALL_FILES updated for 28 bulk modules</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v5.2.0 &mdash; 4.5M Lines</h3>
+<ul>
+<li>AI.py expanded to 500K+ lines with v5.2.0 bump</li>
+<li>2 new data_bulk files (25&ndash;26): Energy &amp; Environment, Finance &amp; Economics</li>
+<li>data_bulk25.py added: 210 functions, 315K lines, 1500 entries each</li>
+<li>data_bulk26.py added: 210 functions, 315K lines, 1500 entries each</li>
+<li>Project total: 4.5M+ lines (26 data_bulk files, 4,213 data functions)</li>
+<li>2 new site pages: tutorial.html &amp; faq.html</li>
+<li>Nav bars updated across all 14 pages with Tutorials/FAQ links</li>
+<li>Installer/Updater ALL_FILES updated for 26 bulk modules</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v5.1.0 &mdash; 4.0M Lines</h3>
+<ul>
+<li>AI.py expanded to 500,030 lines with v5.1.0 bump</li>
+<li>2 new data_bulk files (23&ndash;24): Robotics &amp; Automation, Medicine &amp; Healthcare</li>
+<li>data_bulk23.py added: 256 functions, 257K lines, 1000 entries each</li>
+<li>data_bulk24.py added: 188 functions, 189K lines, 1000 entries each</li>
+<li>Project total: 3,982,534 lines (24 data_bulk files, 3,793 data functions)</li>
+<li>2 new site pages: guide.html (User Guide) &amp; reference.html (Command Reference)</li>
+<li>Nav bars updated across all 12 pages with Guide/Reference links</li>
+<li>Installer/Updater ALL_FILES updated for 24 bulk modules</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v5.0.0 &mdash; 3.5M Lines</h3>
+<ul>
+<li>AI.py expanded to 494,832 lines with 198K inline astronaut entries</li>
+<li>11 new data_bulk files (12&ndash;22) added: 1,889,258 lines across 1,889 functions</li>
+<li>Project total: 3,532,437 lines (22 data_bulk files, 3,349 data functions)</li>
+<li>Vercel auto-deploy from master branch</li>
+<li>Analytics &amp; Speed Insights on all pages</li>
+<li>Deploy-ready static HTML (8 pages: index, docs, dashboard, data-index, features, downloads, stats, changelog)</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v4.5.0 &mdash; Data Bulk 8&ndash;11</h3>
+<div class="date">Previous</div>
+<ul>
+<li>data_bulk8&ndash;11.py added (400 functions, ~401K lines, 1000 entries each)</li>
+<li>1,350+ total data tables across 11 data_bulk modules</li>
+<li>Topics: clean energy, robotics, AI, biotech, folklore, mythology, crypto, security, DeFi, Web3</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v4.4.0 &mdash; Utility Explosion</h3>
+<div class="date">Previous</div>
+<ul>
+<li>935 new utility functions (commands 3073&ndash;3607) in AI.py via gen_code4.py</li>
+<li>3,600+ commands, 1.3M+ total lines</li>
+<li>15 command categories: Text, Math, Convert, Format, List, Random, Crypto, Geometry, Physics, Stats, DateTime, File, Color, String, Network</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v4.3.0 &mdash; Data Bulk 7</h3>
+<div class="date">Previous</div>
+<ul>
+<li>data_bulk7.py added (100 functions, 100K lines, 1000 entries each)</li>
+<li>2,300+ total data tables across 8 modules, 15 external modules total</li>
+<li>Download page with real installer links</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v4.2.0 &mdash; Data Bulk 6</h3>
+<div class="date">Previous</div>
+<ul>
+<li>data_bulk6.py added (100 functions, 100K lines, 1000 entries each)</li>
+<li>850+ total data tables across 7 modules, 1M+ total lines</li>
+<li>Installer version history on download page</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v4.1.0 &mdash; Data Bulk 5</h3>
+<div class="date">Previous</div>
+<ul>
+<li>data_bulk5.py added (100 functions, 100K lines, 1000 entries each)</li>
+<li>750+ total data tables across 6 modules, 900K+ total lines</li>
+<li>HBPE dual-version support via hbpe_compat.py</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v4.0.0 &mdash; Visual Installer</h3>
+<div class="date">Previous</div>
+<ul>
+<li>data_bulk4.py added (200 functions, 201K lines, 1000 entries each)</li>
+<li>665 total data tables across 5 modules, 800K+ total lines</li>
+<li>Visual installer AIInstaller.exe (tkinter GUI)</li>
+<li>2 new site pages: features.html &amp; download.html</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v3.9.0 &mdash; Data Index Page</h3>
+<div class="date">Previous</div>
+<ul>
+<li>data-index.html &mdash; searchable, filterable, sortable index of all 465 data tables</li>
+<li>6-site-page ecosystem: index, docs, dashboard, data-index, stats, changelog</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v3.8.0 &mdash; Data Bulk 3</h3>
+<div class="date">Previous</div>
+<ul>
+<li>data_bulk3.py added (103 functions, 50K lines)</li>
+<li>465 total data functions across 4 modules</li>
+<li>30 curated tables, stats.html &amp; changelog.html pages</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v3.7.0 &mdash; Data Bulk 2</h3>
+<div class="date">Previous</div>
+<ul>
+<li>data_bulk2.py added (133 functions, 67K lines)</li>
+<li>362 total data functions across 3 modules</li>
+<li>index.html landing page with nav bars on all HTML files</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v3.6.0 &mdash; Curated Data &amp; Quiz</h3>
+<div class="date">Previous</div>
+<ul>
+<li>14 curated data tables: elements, planets, cities, countries, mountains, rivers, more</li>
+<li>New commands: quiz, chart, suggest, flashcard, timer, stopwatch, calc, notes, todo, remind</li>
+<li>AI.py-docs.html &amp; dashboard.html generated</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v3.5.0 &mdash; First Bulk Module</h3>
+<div class="date">Previous</div>
+<ul>
+<li>424 bulk data functions (214K lines) extracted into data_bulk.py</li>
+<li>524 total data functions with 500 entries each = 302K+ data entries</li>
+<li>updater.py compiled to AIUpdater.exe</li>
+</ul>
+</div>
+
+<div class="milestone">
+<div class="tag done">Done</div>
+<h3>v3.0.2&ndash;v3.4.0 &mdash; Early Foundation</h3>
+<div class="date">Earlier</div>
+<ul>
+<li>Core role system (User, VIP, Mod, Admin) with password gating</li>
+<li>7 external modules: space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data</li>
+<li>HBPE integration, debug_exec merged console</li>
+<li>ASCII art, utility functions, colored role badges, CLI improvements</li>
+</ul>
+</div>
+
+<h2>Planned Milestones</h2>
+<div class="milestone">
+<div class="tag future">Planned</div>
+<h3>v5.5.0 &mdash; 2 New Data Bulk Modules</h3>
+<ul>
+<li>2 additional data_bulk files (31&ndash;32) with 200+ functions each</li>
+<li>Topics: Psychology &amp; Neuroscience, Fashion &amp; Design</li>
+<li>Project total target: 6.3M+ lines, 32 bulk modules</li>
+</ul>
+</div>
+<div class="milestone">
+<div class="tag future">Planned</div>
+<h3>v5.6.0 &mdash; 2 New Data Bulk Modules</h3>
+<ul>
+<li>2 additional data_bulk files (33&ndash;34) with 200+ functions each</li>
+<li>Topics: Sociology &amp; Anthropology, Architecture &amp; Urban Planning</li>
+<li>Project total target: 6.9M+ lines, 34 bulk modules</li>
+</ul>
+</div>
+<div class="milestone">
+<div class="tag future">Planned</div>
+<h3>v5.7.0 &mdash; 2 New Data Bulk Modules</h3>
+<ul>
+<li>2 additional data_bulk files (35&ndash;36) with 200+ functions each</li>
+<li>Topics: Political Science &amp; Governance, Sports Science &amp; Athletics</li>
+<li>Project total target: 7.5M+ lines, 36 bulk modules</li>
+</ul>
+</div>
+
+<div class="footer">
+  AI.py v5.5.0 Roadmap &mdash; 5.9M+ lines, 30 data modules, 8,577 commands
+</div>
+</div>
+</body>
+</html>

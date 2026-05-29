@@ -18,7 +18,7 @@ for name in funcs:
         data = getattr(AI, name)()
         cnt = len(data) if isinstance(data, (list, tuple)) else 0
         disp = name.replace('get_','').replace('_data','').replace('_',' ').title()
-        is_cur = name in curated_names
+        is_cur = name in curated_names or 'curated_' in name
         data_index.append((name, disp, cnt, is_cur))
         if is_cur and cnt > 0:
             curated_data[name] = list(data[:30]) if cnt > 30 else list(data)
@@ -181,6 +181,11 @@ def build_docs():
         ("4.4.0","Major: 935 new utility functions via gen_code4.py, 3600+ commands, 1.3M+ total lines"),
         ("4.5.0","Major: 400 new data functions (data_bulk8-11.py), ~401K lines, 1350+ total tables, 500K-inline in AI.py, 1.5M+ total lines"),
         ("5.0.0","Major: 1000+ new data functions (data_bulk12-22.py), ~1.8M lines, 2300+ total tables, 500K-inline in AI.py, 3.5M+ total lines, Vercel deployment"),
+        ("5.1.0","2 new data_bulk modules (23-24), 444 new functions, 4.0M+ lines, 24 bulk modules"),
+        ("5.2.0","2 new data_bulk modules (25-26), 420 new functions, 4.5M+ lines, 26 bulk modules"),
+        ("5.3.0","2 new data_bulk modules (27-28), 390 new functions, 5.1M+ lines, 28 bulk modules"),
+        ("5.4.0","2 new data_bulk modules (29-30), 425 new functions, 5.8M+ lines, 30 bulk modules, app.js integration"),
+        ("5.5.0","Major: 34 curated data functions (data_bulk31.py), ~51K lines, 5.9M+ lines, 31 bulk modules"),
     ]
     curated_sample_map = {}
     for name in curated_names:
@@ -263,7 +268,7 @@ def build_docs():
 <div class="container">
 
 <h1>AI.py v''' + VERSION + r'''</h1>
-<p class="subtitle">A massive Python CLI assistant — 3600+ commands, 1.3M+ lines, 950+ data tables</p>
+<p class="subtitle">A massive Python CLI assistant — 8,577 commands, 5.9M+ lines, 5,300+ data tables</p>
 
 <p>
   <span class="badge badge-admin">ADMIN</span>
@@ -274,7 +279,7 @@ def build_docs():
 
 <h2>Statistics</h2>
 <p>
-  <span class="stat-box"><span class="num">3600+</span><br><span class="label">Commands</span></span>
+  <span class="stat-box"><span class="num">8577</span><br><span class="label">Commands</span></span>
   <span class="stat-box"><span class="num">''' + "{:,}".format(total_entries) + r'''</span><br><span class="label">Data Entries</span></span>
   <span class="stat-box"><span class="num">''' + str(len(data_index)) + r'''</span><br><span class="label">Data Tables</span></span>
   <span class="stat-box"><span class="num">''' + str(len(curated_names)) + r'''</span><br><span class="label">Curated Tables</span></span>
@@ -373,7 +378,7 @@ python AI.py
 <ul>
   <li>Python 3.x</li>
   <li>HubBasePE v0.0.1.2.01 / v0.0.2.0.00b1 (dual)</li>
-  <li>15 external modules: space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data, data_bulk, data_bulk2, data_bulk3, data_bulk4, data_bulk5, data_bulk6, data_bulk7, hbpe_compat</li>
+   <li>40 external modules: space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data, data_bulk-data_bulk31, hbpe_compat</li>
   <li>gen_code4.py, installer.py, updater.py</li>
 </ul>
 
@@ -514,11 +519,11 @@ def build_dashboard():
   <h2>AI.py Dashboard</h2>
   <p style="color:var(--fg2);margin-bottom:20px;">A massive Python CLI assistant — interactive web companion.</p>
   <div class="stats">
-    <div class="stat-card"><div class="num">2,700+</div><div class="lbl">Commands</div></div>
+    <div class="stat-card"><div class="num">8,577</div><div class="lbl">Commands</div></div>
     <div class="stat-card"><div class="num">''' + "{:,}".format(len(data_index)) + r'''</div><div class="lbl">Data Tables</div></div>
     <div class="stat-card"><div class="num">''' + "{:,}".format(total_entries) + r'''</div><div class="lbl">Data Entries</div></div>
     <div class="stat-card"><div class="num">''' + str(len(curated_names)) + r'''</div><div class="lbl">Curated Tables</div></div>
-    <div class="stat-card"><div class="num">4.3.0</div><div class="lbl">Version</div></div>
+    <div class="stat-card"><div class="num">5.5.0</div><div class="lbl">Version</div></div>
   </div>
   <h3>Quick Features</h3>
   <p style="color:var(--fg2);line-height:1.8;">
