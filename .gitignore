@@ -7,4 +7,6 @@ ai_notes.json
 ai_todos.json
 *.bak
 .idea/
+node_modules/
+package-lock.json
 
