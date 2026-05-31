@@ -132,7 +132,7 @@ cat_hbpe = [
     ("hbpe_start","Start HBPE"),("hbpe_advance","Advance HBPE"),
     ("hbpe_restart","Restart HBPE"),("hbpe_stop","Stop HBPE"),
     ("hbpe_program1","Run HBPE P1"),("hbpe_program2","Run HBPE P2"),
-    ("hbpe_program3","Run HBPE P3"),("hbpe_dev_console","HBPE dev console")]
+    ("hbpe_program3","Run HBPE P3"),("hbpe_dev_console","HBPE dev console"),("hbpe_compat","Show HBPE version info")]
 cat_new = [
     ("quiz / data_quiz","Interactive quiz on 16 data tables"),
     ("chart / barchart","ASCII bar chart from numbers"),
