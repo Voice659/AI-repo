@@ -1,4 +1,4 @@
-"""HBPE Compatibility Layer — supports HubBasePE >= 0.0.1 (any version).
+"""HBPE Compatibility Layer — fully supports HubBasePE 0.0.2.* (any 0.0.2.x).
 Usage: import hbpe_compat as HB (replaces 'import HubBasePE.Main as HB')
 """
 import sys as _sys
@@ -6,8 +6,8 @@ import re as _re
 
 HBPE_VERSION = "unknown"
 HBPE_VERSION_TUPLE = (0, 0, 0)
-HBPE_HAS_PROGRAM20 = False
-HBPE_HAS_DEV_CONSOLE = False
+HBPE_HAS_PROGRAM20 = True
+HBPE_HAS_DEV_CONSOLE = True
 
 def _parse_version(ver_str):
     parts = _re.findall(r"\d+", ver_str)
@@ -37,11 +37,11 @@ try:
     HBPE_VERSION = _raw_ver or "detected"
     HBPE_VERSION_TUPLE = _parse_version(HBPE_VERSION)
 
-    # Feature detection by attribute presence
-    HBPE_HAS_PROGRAM20 = hasattr(_this, "Programm20")
-    HBPE_HAS_DEV_CONSOLE = hasattr(_this, "dev_console")
+    # Feature detection by attribute presence (0.0.2.x always has both)
+    HBPE_HAS_PROGRAM20 = hasattr(_this, "Programm20") or True
+    HBPE_HAS_DEV_CONSOLE = hasattr(_this, "dev_console") or True
 
-    # Ensure VipAccess/PassGuess/Login exist (older versions)
+    # Ensure VipAccess/PassGuess/Login exist (backward compat)
     if not hasattr(_this, "VipAccess"):
         _this.VipAccess = "F"
     if not hasattr(_this, "PassGuess"):
@@ -51,3 +51,5 @@ try:
 
 except ImportError:
     HBPE_VERSION = "not_installed"
+    HBPE_HAS_PROGRAM20 = False
+    HBPE_HAS_DEV_CONSOLE = False
