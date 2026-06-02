@@ -1,0 +1,42 @@
+print("=== enumerate ===")
+enum_result = enumerate(["a", "b", "c"])
+for i in range(len(enum_result)):
+    print(enum_result[i][0], enum_result[i][1])
+
+print("=== isinstance ===")
+print(isinstance(42, "int"))
+print(isinstance("hi", "str"))
+print(isinstance([1,2], "list"))
+
+print("=== dict_get ===")
+d = {"x": 10, "y": 20}
+print(dict_get(d, "x"))
+print(dict_get(d, "z", "default"))
+
+print("=== items ===")
+kv_pairs = items(d)
+for i in range(len(kv_pairs)):
+    print(kv_pairs[i][0], kv_pairs[i][1])
+
+print("=== insert/remove/sort/reverse ===")
+lst = [3, 1, 2]
+insert(lst, 0, 0)
+print(lst)
+remove(lst, 1)
+print(lst)
+sort(lst)
+print(lst)
+reverse(lst)
+print(lst)
+
+print("=== clear ===")
+clear(lst)
+print(len(lst))
+
+print("=== lower/find/startswith/endswith ===")
+print(lower("HELLO"))
+print(find("hello world", "world"))
+print(startswith("hello", "he"))
+print(endswith("hello", "lo"))
+
+print("=== All extra tests passed ===")

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>AI.py v5.5.0 — Reference</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', Arial, sans-serif; }
+  .container { max-width: 960px; margin: auto; padding: 20px; }
+  h1 { color: #58a6ff; font-size: 2em; margin: 20px 0 5px; }
+  h2 { color: #79c0ff; font-size: 1.4em; margin: 35px 0 10px; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+  h3 { color: #a5d6ff; font-size: 1.1em; margin: 20px 0 8px; }
+  .subtitle { color: #8b949e; font-size: 0.95em; margin-bottom: 25px; }
+  .nav { background: #161b22; border-bottom: 1px solid #30363d; padding: 8px 20px; text-align: center; font-size: 0.85em; }
+  .nav a { color: #58a6ff; text-decoration: none; margin: 0 8px; }
+  .nav span { color: #30363d; margin: 0 4px; }
+  .nav .current { color: #8b949e; }
+  .cmd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin: 15px 0; }
+  .cmd-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 15px; }
+  .cmd-card:hover { border-color: #58a6ff; }
+  .cmd-card .cmd { color: #a5d6ff; font-family: monospace; font-size: 0.95em; }
+  .cmd-card .desc { color: #8b949e; font-size: 0.82em; margin-top: 4px; }
+  .cmd-card .tag { display: inline-block; background: #21262d; color: #8b949e; font-size: 0.7em; padding: 2px 6px; border-radius: 3px; margin: 1px; }
+  .cmd-card .new { background: #238636; color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  th { text-align: left; color: #8b949e; border-bottom: 1px solid #30363d; padding: 8px 12px; font-size: 0.85em; }
+  td { padding: 6px 12px; border-bottom: 1px solid #21262d; font-size: 0.9em; }
+  tr:hover { background: #161b22; }
+  code { background: #21262d; padding: 1px 5px; border-radius: 3px; font-size: 0.9em; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #30363d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  a { color: #58a6ff; }
+  @media (max-width: 600px) { .cmd-grid { grid-template-columns: 1fr; } }
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="app.js"></script></head>
+<body>
+<div class="nav">
+  <a href="index.html">Home</a><span>|</span>
+  <a href="AI.py-docs.html">Docs</a><span>|</span>
+  <a href="dashboard.html">Dashboard</a><span>|</span>
+  <a href="data-index.html">Data Index</a><span>|</span>
+  <a href="download.html">Downloads</a><span>|</span>
+  <a href="features.html">Features</a><span>|</span>
+  <a href="stats.html">Stats</a><span>|</span>
+  <a href="changelog.html">Changelog</a><span>|</span>
+  <a href="api.html">API</a><span>|</span>
+  <a href="roadmap.html">Roadmap</a><span>|</span>
+  <a href="guide.html">Guide</a><span>|</span>
+  <a href="tutorial.html">Tutorials</a><span>|</span>
+  <a href="faq.html">FAQ</a><span>|</span>
+  <a href="aiscript.html">AiScript</a><span>|</span>
+  <a href="community.html">Community</a><span>|</span>
+  <a href="about.html">About</a><span>|</span>
+  <span class="current">Reference</span>
+</div>
+<div class="container">
+
+<h1>AI.py Command Reference</h1>
+<p class="subtitle">Complete command listing for AI.py v5.5.0 &mdash; 8,577 commands across 15 categories</p>
+
+<h2>Text &amp; String Operations</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">word_count</div><div class="desc">Count words, characters, lines, and sentences in a given text block</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">reverse_string</div><div class="desc">Reverse a string character-by-character or word-by-word</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">palindrome_check</div><div class="desc">Check if a given string is a palindrome (ignores spaces and case)</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">vowel_count</div><div class="desc">Count vowels in a string with optional locale support</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">caesar_cipher</div><div class="desc">Encrypt or decrypt text using Caesar cipher with custom shift</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">pig_latin</div><div class="desc">Convert English text to Pig Latin</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">morse_encode</div><div class="desc">Convert text to Morse code with configurable spacing</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">morse_decode</div><div class="desc">Decode Morse code back to readable text</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">atbash_cipher</div><div class="desc">Apply the Atbash cipher (reverse alphabet substitution)</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">rot13</div><div class="desc">Apply ROT13 rotation cipher to text</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">base64_encode</div><div class="desc">Encode text or binary data to Base64</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">base64_decode</div><div class="desc">Decode Base64 encoded data back to original</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">hex_encode</div><div class="desc">Convert text to hexadecimal representation</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">hex_decode</div><div class="desc">Convert hexadecimal back to text</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">binary_encode</div><div class="desc">Convert text to binary (8-bit character representation)</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">binary_decode</div><div class="desc">Convert binary back to text</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">anagram_find</div><div class="desc">Find anagrams of a given word from a built-in word list</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">text_analyze</div><div class="desc">Comprehensive text analysis: reading level, sentiment, frequency</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">regex_search</div><div class="desc">Search text using a regular expression pattern</div><span class="tag">text</span></div>
+  <div class="cmd-card"><div class="cmd">regex_replace</div><div class="desc">Replace text matching a regex pattern</div><span class="tag">text</span></div>
+</div>
+
+<h2>Math &amp; Number Theory</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">prime_factors</div><div class="desc">Compute prime factorization of a number</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">fibonacci_seq</div><div class="desc">Generate the Fibonacci sequence up to n terms</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">collatz_seq</div><div class="desc">Generate the Collatz sequence from a starting number</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">is_prime</div><div class="desc">Check if a number is prime (Miller-Rabin for large numbers)</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">gcd_lcm</div><div class="desc">Compute GCD and LCM of two numbers</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">binary_search</div><div class="desc">Perform binary search on a sorted list</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">bubble_sort</div><div class="desc">Sort a list using the bubble sort algorithm</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">quick_sort</div><div class="desc">Sort a list using the quicksort algorithm</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">factorial_calc</div><div class="desc">Compute factorial of a number (iterative, supports large n)</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">sieve_eratosthenes</div><div class="desc">Generate all primes up to a limit using Sieve of Eratosthenes</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">nth_prime</div><div class="desc">Find the nth prime number</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">roman_numeral_convert</div><div class="desc">Convert between integers and Roman numerals</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">binomial_coefficient</div><div class="desc">Compute C(n,k) using efficient algorithm</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">euler_totient</div><div class="desc">Compute Euler&#x2019;s totient function for a given integer</div><span class="tag">math</span></div>
+  <div class="cmd-card"><div class="cmd">matrix_multiply</div><div class="desc">Multiply two matrices with dimension validation</div><span class="tag">math</span></div>
+</div>
+
+<h2>Unit Conversion</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">length_convert</div><div class="desc">Convert between metric and imperial length units</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">weight_convert</div><div class="desc">Convert between kilograms, pounds, ounces, stones, etc.</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">temperature_convert</div><div class="desc">Convert between Celsius, Fahrenheit, Kelvin</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">speed_convert</div><div class="desc">Convert between km/h, mph, knots, mach</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">volume_convert</div><div class="desc">Convert between liters, gallons, cups, cubic meters</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">area_convert</div><div class="desc">Convert between square meters, acres, hectares, sq feet</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">digital_storage_convert</div><div class="desc">Convert between bytes, KB, MB, GB, TB, PB</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">time_convert</div><div class="desc">Convert between seconds, minutes, hours, days, years</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">currency_convert</div><div class="desc">Live currency conversion between major world currencies</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">fuel_efficiency_convert</div><div class="desc">Convert between MPG, L/100km, km/L</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">pressure_convert</div><div class="desc">Convert between PSI, bar, atm, pascal, mmHg</div><span class="tag">convert</span></div>
+  <div class="cmd-card"><div class="cmd">angle_convert</div><div class="desc">Convert between degrees, radians, gradians</div><span class="tag">convert</span></div>
+</div>
+
+<h2>Data &amp; Statistics</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">mean_calc</div><div class="desc">Compute arithmetic mean of a number list</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">median_calc</div><div class="desc">Compute median of a number list</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">mode_calc</div><div class="desc">Find the mode(s) of a data set</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">std_dev_calc</div><div class="desc">Compute standard deviation (population or sample)</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">correlation_coefficient</div><div class="desc">Compute Pearson correlation between two data sets</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">linear_regression</div><div class="desc">Compute best-fit line: slope, intercept, R-squared</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">random_number_gen</div><div class="desc">Generate cryptographically secure random numbers</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">dice_roll</div><div class="desc">Roll virtual dice with configurable sides and count</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">coin_flip</div><div class="desc">Simulate a coin flip with configurable bias</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">shuffle_list</div><div class="desc">Shuffle a list using Fisher-Yates algorithm</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">percentile_calc</div><div class="desc">Compute percentile rank of a value in a data set</div><span class="tag">stats</span></div>
+  <div class="cmd-card"><div class="cmd">combinations_permutations</div><div class="desc">Compute nCr and nPr values</div><span class="tag">stats</span></div>
+</div>
+
+<h2>Games &amp; Entertainment</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">guess_number</div><div class="desc">Classic number guessing game with configurable range</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">hangman</div><div class="desc">Play hangman with built-in word lists</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">word_scramble</div><div class="desc">Unscramble letters to form a word</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">trivia_quiz</div><div class="desc">Answer trivia questions from 10+ categories</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">tic_tac_toe</div><div class="desc">Play tic-tac-toe vs AI or 2-player</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">rps_game</div><div class="desc">Rock Paper Scissors with score tracking</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">random_joke</div><div class="desc">Tell a random joke from the joke database</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">random_fact</div><div class="desc">Display a random interesting fact</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">random_quote</div><div class="desc">Display a random inspirational quote</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">riddle_me</div><div class="desc">Present a riddle with answer reveal</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">mad_libs</div><div class="desc">Generate a mad lib story from user input</div><span class="tag">game</span></div>
+  <div class="cmd-card"><div class="cmd">eight_ball</div><div class="desc">Magic 8-ball with random responses</div><span class="tag">game</span></div>
+</div>
+
+<h2>Drawing &amp; ASCII Art</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">draw_diamond</div><div class="desc">Draw an ASCII diamond with configurable size</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">draw_tree</div><div class="desc">Draw an ASCII Christmas tree</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">draw_heart</div><div class="desc">Draw an ASCII heart shape</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">draw_star</div><div class="desc">Draw an ASCII star with configurable size</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">draw_cat</div><div class="desc">Display an ASCII cat face</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">draw_dragon</div><div class="desc">Display an ASCII dragon</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">draw_spaceship</div><div class="desc">Display an ASCII spaceship</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">draw_dna</div><div class="desc">Display an ASCII DNA helix</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">draw_maze</div><div class="desc">Generate and display an ASCII maze</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">barchart_ascii</div><div class="desc">Draw an ASCII bar chart from data</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">mandala_gen</div><div class="desc">Generate an ASCII mandala pattern</div><span class="tag">draw</span></div>
+  <div class="cmd-card"><div class="cmd">sierpinski_triangle</div><div class="desc">Generate Sierpinski triangle ASCII art</div><span class="tag">draw</span></div>
+</div>
+
+<h2>Network &amp; Web</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">ip_info</div><div class="desc">Get public IP address and geolocation info</div><span class="tag">network</span></div>
+  <div class="cmd-card"><div class="cmd">web_fetch</div><div class="desc">Fetch and display content of a URL</div><span class="tag">network</span></div>
+  <div class="cmd-card"><div class="cmd">ping_host</div><div class="desc">Ping a host to check connectivity</div><span class="tag">network</span></div>
+  <div class="cmd-card"><div class="cmd">port_scan</div><div class="desc">Scan ports on a target host</div><span class="tag">network</span></div>
+  <div class="cmd-card"><div class="cmd">dns_lookup</div><div class="desc">Look up DNS records (A, AAAA, MX, TXT) for a domain</div><span class="tag">network</span></div>
+  <div class="cmd-card"><div class="cmd">url_shorten</div><div class="desc">Shorten a URL using a public service</div><span class="tag">network</span></div>
+  <div class="cmd-card"><div class="cmd">http_headers</div><div class="desc">Fetch and display HTTP headers of a URL</div><span class="tag">network</span></div>
+  <div class="cmd-card"><div class="cmd">ssl_check</div><div class="desc">Check SSL certificate validity for a domain</div><span class="tag">network</span></div>
+  <div class="cmd-card"><div class="cmd">whois_lookup</div><div class="desc">Perform WHOIS lookup for a domain</div><span class="tag">network</span></div>
+</div>
+
+<h2>Security &amp; Cryptography</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">sha256_hash</div><div class="desc">Compute SHA-256 hash of a string</div><span class="tag">crypto</span></div>
+  <div class="cmd-card"><div class="cmd">md5_hash</div><div class="desc">Compute MD5 hash of a string</div><span class="tag">crypto</span></div>
+  <div class="cmd-card"><div class="cmd">sha1_hash</div><div class="desc">Compute SHA-1 hash of a string</div><span class="tag">crypto</span></div>
+  <div class="cmd-card"><div class="cmd">sha512_hash</div><div class="desc">Compute SHA-512 hash of a string</div><span class="tag">crypto</span></div>
+  <div class="cmd-card"><div class="cmd">aes_encrypt</div><div class="desc">Encrypt data using AES-256-CBC</div><span class="tag">crypto</span></div>
+  <div class="cmd-card"><div class="cmd">aes_decrypt</div><div class="desc">Decrypt AES-256-CBC encrypted data</div><span class="tag">crypto</span></div>
+  <div class="cmd-card"><div class="cmd">password_gen</div><div class="desc">Generate a strong random password with configurable length</div><span class="tag">crypto</span></div>
+  <div class="cmd-card"><div class="cmd">hash_compare</div><div class="desc">Compare a string against a known hash</div><span class="tag">crypto</span></div>
+  <div class="cmd-card"><div class="cmd">uuid_gen</div><div class="desc">Generate a UUID v4 string</div><span class="tag">crypto</span></div>
+  <div class="cmd-card"><div class="cmd">rsa_keygen</div><div class="desc">Generate RSA public/private key pair</div><span class="tag">crypto</span></div>
+</div>
+
+<h2>Date &amp; Time</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">current_time</div><div class="desc">Display current date and time in multiple formats</div><span class="tag">datetime</span></div>
+  <div class="cmd-card"><div class="cmd">countdown_timer</div><div class="desc">Set a countdown timer with optional alarm</div><span class="tag">datetime</span></div>
+  <div class="cmd-card"><div class="cmd">stopwatch</div><div class="desc">Precision stopwatch with lap tracking</div><span class="tag">datetime</span></div>
+  <div class="cmd-card"><div class="cmd">days_until</div><div class="desc">Calculate days until a future date</div><span class="tag">datetime</span></div>
+  <div class="cmd-card"><div class="cmd">age_calc</div><div class="desc">Calculate exact age from a birth date</div><span class="tag">datetime</span></div>
+  <div class="cmd-card"><div class="cmd">timezone_convert</div><div class="desc">Convert time between timezones</div><span class="tag">datetime</span></div>
+  <div class="cmd-card"><div class="cmd">leap_year_check</div><div class="desc">Check if a given year is a leap year</div><span class="tag">datetime</span></div>
+  <div class="cmd-card"><div class="cmd">unix_timestamp</div><div class="desc">Get current Unix timestamp or convert to human-readable</div><span class="tag">datetime</span></div>
+  <div class="cmd-card"><div class="cmd">date_diff</div><div class="desc">Difference between two dates in days, months, years</div><span class="tag">datetime</span></div>
+  <div class="cmd-card"><div class="cmd">world_clock</div><div class="desc">Display current time for multiple major cities</div><span class="tag">datetime</span></div>
+</div>
+
+<h2>System &amp; Admin</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">sys_info</div><div class="desc">Display system information: OS, CPU, RAM, disk</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">list_dir</div><div class="desc">List files in a directory with details</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">file_read</div><div class="desc">Read and display contents of a file</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">file_write</div><div class="desc">Write text to a file</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">file_delete</div><div class="desc">Delete a file from the filesystem</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">process_list</div><div class="desc">List running processes</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">env_var</div><div class="desc">Display or set environment variables</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">command_history</div><div class="desc">View session command history</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">help_system</div><div class="desc">Comprehensive help system with command categories</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">clear_screen</div><div class="desc">Clear the console screen</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">role_info</div><div class="desc">Display current user role and permissions</div><span class="tag">admin</span></div>
+  <div class="cmd-card"><div class="cmd">debug_console</div><div class="desc">Access the debug console for advanced operations</div><span class="tag">admin</span></div>
+</div>
+
+<h2>Learning &amp; Education</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">quiz_mode</div><div class="desc">Start interactive quiz on data tables</div><span class="tag">learn</span></div>
+  <div class="cmd-card"><div class="cmd">flashcard_study</div><div class="desc">Study flashcards from curated data sets</div><span class="tag">learn</span></div>
+  <div class="cmd-card"><div class="cmd">data_query</div><div class="desc">Natural-language search across all data tables</div><span class="tag">learn</span></div>
+  <div class="cmd-card"><div class="cmd">learn_language</div><div class="desc">Display language data and speaker statistics</div><span class="tag">learn</span></div>
+  <div class="cmd-card"><div class="cmd">explain_command</div><div class="desc">Detailed explanation of any command</div><span class="tag">learn</span></div>
+  <div class="cmd-card"><div class="cmd">random_lesson</div><div class="desc">Display a random educational data set entry</div><span class="tag">learn</span></div>
+  <div class="cmd-card"><div class="cmd">study_session</div><div class="desc">Structured study session with timer and statistics</div><span class="tag">learn</span></div>
+</div>
+
+<h2>Utilities</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">calculator</div><div class="desc">Full calculator REPL with history and variables</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">notes_manager</div><div class="desc">Persistent notes with add, list, remove, search</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">todo_list</div><div class="desc">Persistent todo list with priorities and due dates</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">set_reminder</div><div class="desc">Set a timed reminder with custom message</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">color_picker</div><div class="desc">Interactive color picker and theme manager</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">unit_converter</div><div class="desc">Universal unit converter (length, weight, volume, temp)</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">base_convert</div><div class="desc">Convert numbers between bases (2-36)</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">json_format</div><div class="desc">Pretty-print or validate JSON strings</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">qr_generate</div><div class="desc">Generate a QR code from text or URL</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">text_to_speech</div><div class="desc">Read text aloud using system TTS</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">screenshot</div><div class="desc">Capture a screenshot of the screen</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">clipboard_get</div><div class="desc">Get text from system clipboard</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">clipboard_set</div><div class="desc">Set text to system clipboard</div><span class="tag">util</span></div>
+  <div class="cmd-card"><div class="cmd">encode_decode</div><div class="desc">Universal encoder/decoder (base64, hex, binary, rot13)</div><span class="tag">util</span></div>
+</div>
+
+<h2>Data Export</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">export_csv</div><div class="desc">Export a data table to CSV file</div><span class="tag">data</span></div>
+  <div class="cmd-card"><div class="cmd">export_json</div><div class="desc">Export a data table to JSON file</div><span class="tag">data</span></div>
+  <div class="cmd-card"><div class="cmd">export_markdown</div><div class="desc">Export a data table to Markdown table</div><span class="tag">data</span></div>
+  <div class="cmd-card"><div class="cmd">data_summary</div><div class="desc">Show summary statistics for a data table</div><span class="tag">data</span></div>
+  <div class="cmd-card"><div class="cmd">data_compare</div><div class="desc">Compare two data tables side by side</div><span class="tag">data</span></div>
+  <div class="cmd-card"><div class="cmd">data_random_row</div><div class="desc">Get a random entry from any data table</div><span class="tag">data</span></div>
+</div>
+
+<h2>HBPE Programming</h2>
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="cmd">hbpe_start</div><div class="desc">Start the HBPE programming environment</div><span class="tag">hbpe</span></div>
+  <div class="cmd-card"><div class="cmd">hbpe_run</div><div class="desc">Run an HBPE program by number (1-20, P1-P5)</div><span class="tag">hbpe</span></div>
+  <div class="cmd-card"><div class="cmd">hbpe_list</div><div class="desc">List available HBPE programs</div><span class="tag">hbpe</span></div>
+  <div class="cmd-card"><div class="cmd">hbpe_dev</div><div class="desc">Open the HBPE development console</div><span class="tag">hbpe</span></div>
+  <div class="cmd-card"><div class="cmd">hbpe_compat</div><div class="desc">HBPE v0.0.2.0.02 (0.0.2.* compatible)</div><span class="tag">hbpe</span></div>
+</div>
+
+<h2>Command Categories Summary</h2>
+<table>
+<tr><th>Category</th><th>Commands</th><th>Prefix</th></tr>
+<tr><td>Text &amp; Strings</td><td>220+</td><td><code>word_, reverse_, encode/decode</code></td></tr>
+<tr><td>Math &amp; Number Theory</td><td>120+</td><td><code>prime_, fibonacci_, collatz_, sort_</code></td></tr>
+<tr><td>Unit Conversion</td><td>140+</td><td><code>*_convert</code></td></tr>
+<tr><td>Data &amp; Statistics</td><td>90+</td><td><code>mean_, median_, std_, random_</code></td></tr>
+<tr><td>Games</td><td>80+</td><td><code>guess_, hangman, trivia, rps</code></td></tr>
+<tr><td>Drawing &amp; ASCII Art</td><td>150+</td><td><code>draw_*</code></td></tr>
+<tr><td>Network &amp; Web</td><td>60+</td><td><code>ip_, url_, dns_, ping_</code></td></tr>
+<tr><td>Security &amp; Crypto</td><td>70+</td><td><code>sha*, aes_, password_</code></td></tr>
+<tr><td>Date &amp; Time</td><td>60+</td><td><code>time_, date_, timer, stopwatch</code></td></tr>
+<tr><td>System &amp; Admin</td><td>100+</td><td><code>sys_, file_, help, clear</code></td></tr>
+<tr><td>Learning</td><td>40+</td><td><code>quiz_, flashcard, study_</code></td></tr>
+<tr><td>Utilities</td><td>180+</td><td><code>calc, notes, todo, color_</code></td></tr>
+<tr><td>Data Export</td><td>30+</td><td><code>export_*, data_*</code></td></tr>
+<tr><td>HBPE</td><td>20+</td><td><code>hbpe_*</code></td></tr>
+</table>
+
+<div class="footer">
+  AI.py v5.5.0 Command Reference &mdash; 5.9M+ lines, 8,577 commands, 5,300+ data tables
+</div>
+
+</div>
+</body>
+</html>

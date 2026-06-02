@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>AI.py v5.5.0 — API Reference</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#0d1117;color:#c9d1d9;font-family:Courier New,monospace;line-height:1.6;padding:20px;}
+  .container{max-width:960px;margin:auto;}
+  h1{color:#58a6ff;font-size:2em;margin:20px 0 5px;}
+  h2{color:#79c0ff;font-size:1.4em;margin:30px 0 10px;border-bottom:1px solid #30363d;padding-bottom:5px;}
+  h3{color:#a5d6ff;font-size:1.1em;margin:20px 0 8px;}
+  .subtitle{color:#8b949e;font-size:0.95em;margin-bottom:20px;}
+  table{width:100%;border-collapse:collapse;margin:10px 0;}
+  th{text-align:left;color:#8b949e;border-bottom:1px solid #30363d;padding:8px 12px;font-size:0.85em;}
+  td{padding:6px 12px;border-bottom:1px solid #21262d;font-size:0.9em;}
+  td code{color:#f0883e;background:#1c2128;padding:1px 5px;border-radius:3px;font-size:0.9em;}
+  a{color:#58a6ff;}
+  .footer{margin-top:40px;padding-top:20px;border-top:1px solid #30363d;color:#8b949e;font-size:0.85em;text-align:center;}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:20px 0;}
+  .cat-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;}
+  .cat-card h3{margin:0 0 8px;color:#58a6ff;}
+  .cat-card p{color:#8b949e;font-size:0.85em;}
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="app.js"></script></head>
+<body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;text-align:center;font-size:0.85em;">
+<a href="index.html" style="color:#58a6ff;text-decoration:none;">Home</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="AI.py-docs.html" style="color:#58a6ff;text-decoration:none;">Docs</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="data-index.html" style="color:#58a6ff;text-decoration:none;">Data Index</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="features.html" style="color:#58a6ff;text-decoration:none;">Features</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="download.html" style="color:#58a6ff;text-decoration:none;">Downloads</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="stats.html" style="color:#58a6ff;text-decoration:none;">Stats</a>
+<span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="changelog.html" style="color:#58a6ff;text-decoration:none;">Changelog</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="guide.html" style="color:#58a6ff;text-decoration:none;">Guide</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="reference.html" style="color:#58a6ff;text-decoration:none;">Reference</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="tutorial.html" style="color:#58a6ff;text-decoration:none;">Tutorials</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="faq.html" style="color:#58a6ff;text-decoration:none;">FAQ</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="aiscript.html" style="color:#58a6ff;text-decoration:none;">AiScript</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="community.html" style="color:#58a6ff;text-decoration:none;">Community</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="about.html" style="color:#58a6ff;text-decoration:none;">About</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <span style="color:#8b949e;">API</span>
+<span style="color:#30363d;margin:0 12px;">|</span>
+<a href="roadmap.html" style="color:#58a6ff;text-decoration:none;">Roadmap</a>
+</div>
+<div class="container">
+<h1>AI.py API Reference</h1>
+<p class="subtitle">8,577 commands across 15 categories — v5.5.0</p>
+
+<h2>Command Categories</h2>
+<div class="cat-grid">
+<div class="cat-card"><h3>Text</h3><p>word_count, char_frequency, reverse_words, count_vowels, unique_words, lev_distance, ngrams, sentiment_score, is_pangram, extract_emails, slugify</p></div>
+<div class="cat-card"><h3>Math</h3><p>gcd_list, lcm_list, digit_sum, prime_factors, fibonacci_n, collatz_steps, nth_prime, binomial, is_automorphic, goldbach_pairs, bell_number</p></div>
+<div class="cat-card"><h3>Convert</h3><p>bytes_to_human, celsius_to_kelvin, lightyears_to_km, radians_to_degrees, ev_to_joules, hp_to_watts, bar_to_psi, inches_to_cm, gallons_to_liters, years_to_days, mach_to_kph</p></div>
+<div class="cat-card"><h3>Format</h3><p>format_ordinal, format_commas, format_percentage, format_currency, format_phone, format_bar_chart, format_roman_numeral, format_progress_bar, format_spell_number, format_gps_coord</p></div>
+<div class="cat-card"><h3>List</h3><p>flatten_deep, chunk_even, windowed, pairwise, rotate_left, shuffle_deterministic, running_total, moving_average, normalize_zscore, compress_rle, cartesian_product</p></div>
+<div class="cat-card"><h3>Random</h3><p>rand_bool, rand_date, rand_color_hex, rand_ipv4, rand_coin_toss, rand_dice, rand_card, rand_password_pin, rand_lorem_ipsum, rand_haiku, rand_iban</p></div>
+<div class="cat-card"><h3>Crypto</h3><p>caesar_encrypt, vigenere_decrypt, atbash_cipher, rot47_text, xor_cipher, base64_encode, sha256_hash, md5_hash, hmac_sha256_str, baconian_cipher, enigma_rotor</p></div>
+<div class="cat-card"><h3>Geometry</h3><p>point_distance, manhattan_distance, cosine_similarity, triangle_area, circle_area, sphere_volume, polygon_area_shoelace, convex_hull, bezier_cubic, haversine_distance</p></div>
+<div class="cat-card"><h3>Physics</h3><p>kinetic_energy, momentum, force_gravity, ohms_law, wavelength, photon_energy, ideal_gas_law, reynolds_number, escape_velocity, time_dilation, half_life_decay</p></div>
+<div class="cat-card"><h3>Stats</h3><p>geometric_mean, harmonic_mean, weighted_mean, covariance, zscore, linear_regression, r_squared, entropy_discrete, bayes_theorem, binomial_prob, kl_divergence</p></div>
+<div class="cat-card"><h3>DateTime</h3><p>days_between, week_number, is_leap_year, easter_date, time_ago, countdown_str, moon_phase_approx, business_days_add, unix_timestamp, julian_day, is_weekend</p></div>
+<div class="cat-card"><h3>File</h3><p>file_size_str, file_extension, count_lines_in_file, read_file_text, write_file_text, sanitize_filename, list_files, file_mime_type, file_hash_sha256, copy_file</p></div>
+<div class="cat-card"><h3>Color</h3><p>hex_to_rgb, rgb_to_hsl, rgb_to_cmyk, brightness_perceived, contrast_ratio, complimentary_color, analogous_colors, triadic_colors, mix_colors, color_temperature, gradient_between</p></div>
+<div class="cat-card"><h3>String</h3><p>reverse_string, is_palindrome, count_occurrences, remove_whitespace, strip_non_alphanumeric, random_char, shuffle_string, password_strength, entropy_bits, censor_text, leet_speak</p></div>
+<div class="cat-card"><h3>Network</h3><p>is_valid_ipv4, is_valid_email, is_valid_url, extract_domain, url_parse_parts, mask_ip, port_for_protocol, domain_tld, is_private_ip, ip_to_int, subnet_host_count</p></div>
+</div>
+
+<h2>Sample Commands</h2>
+<table>
+<tr><th>Command</th><th>Category</th><th>Description</th></tr>
+<tr><td><code>word_count</code></td><td>Text</td><td>Count words, chars, sentences in text</td></tr>
+<tr><td><code>prime_factors</code></td><td>Math</td><td>Prime factorization of a number</td></tr>
+<tr><td><code>bytes_to_human</code></td><td>Convert</td><td>Bytes to human readable string</td></tr>
+<tr><td><code>format_ordinal</code></td><td>Format</td><td>Ordinal suffix for number</td></tr>
+<tr><td><code>flatten_deep</code></td><td>List</td><td>Deep flatten nested lists</td></tr>
+<tr><td><code>rand_bool</code></td><td>Random</td><td>Random boolean with optional weight</td></tr>
+<tr><td><code>sha256_hash</code></td><td>Crypto</td><td>SHA-256 hash of a string</td></tr>
+<tr><td><code>point_distance</code></td><td>Geometry</td><td>Distance between 2D points</td></tr>
+<tr><td><code>kinetic_energy</code></td><td>Physics</td><td>KE = 0.5 * m * v^2</td></tr>
+<tr><td><code>geometric_mean</code></td><td>Stats</td><td>Geometric mean of list</td></tr>
+<tr><td><code>days_between</code></td><td>DateTime</td><td>Days between two dates</td></tr>
+<tr><td><code>file_size_str</code></td><td>File</td><td>Human readable file size</td></tr>
+<tr><td><code>hex_to_rgb</code></td><td>Color</td><td>Hex color to RGB tuple</td></tr>
+<tr><td><code>reverse_string</code></td><td>String</td><td>Reverse a string</td></tr>
+<tr><td><code>is_valid_ipv4</code></td><td>Network</td><td>Check if string is valid IPv4</td></tr>
+</table>
+
+<h2>Data Functions</h2>
+<p>5,062 data functions across 31 bulk modules. Each returns 500-1500 entries of structured data. Call any <code>get_*_data()</code> to retrieve:</p>
+<table>
+<tr><th>Module</th><th>Functions</th><th>Topics</th></tr>
+<tr><td>data_bulk.py</td><td>424</td><td>Animal, plant, mineral, country, city, element, space, history, science, culture tables</td></tr>
+<tr><td>data_bulk2.py</td><td>133</td><td>Historical figures, modern artists, composers, philosophers, explorers, chefs, military strategists</td></tr>
+<tr><td>data_bulk3.py</td><td>103</td><td>Famous battles, wars, flags, capitals, islands, landmarks, awards, sports championships</td></tr>
+<tr><td>data_bulk4.py</td><td>200</td><td>Telescopes, botanical species, telecom history, constellations, scientific instruments</td></tr>
+<tr><td>data_bulk5.py</td><td>100</td><td>Castles, isthmuses, urban legends, stadiums, wine regions, desert features</td></tr>
+<tr><td>data_bulk6.py</td><td>100</td><td>Galaxy superclusters, buttes, earthquake zones, geothermal fields, moon features</td></tr>
+<tr><td>data_bulk7.py</td><td>100</td><td>Urban parks, scholarships, sustainable cities, eco buildings, world alliances</td></tr>
+<tr><td>data_bulk8.py</td><td>100</td><td>Metamaterials, self-healing materials, electric aircraft, delivery robots, water treatment</td></tr>
+<tr><td>data_bulk9.py</td><td>100</td><td>Fire-making methods, sacred dances, workshops, war cemeteries, tea traditions</td></tr>
+<tr><td>data_bulk10.py</td><td>100</td><td>Ice core drill sites, traditional dances, puppetry, opera styles, mountain ascents</td></tr>
+<tr><td>data_bulk11.py</td><td>100</td><td>Pen testing tools, vulnerability scanners, password crackers, stablecoins, certificate authorities</td></tr>
+<tr><td>data_bulk12.py</td><td>200</td><td>Space microbiology, superconducting energy, organ chips, quantum volume, electron microscopy</td></tr>
+<tr><td>data_bulk13.py</td><td>170</td><td>Living buildings, beach erosion, plankton blooms, vertical gardens, hydrogen fueling</td></tr>
+<tr><td>data_bulk14.py</td><td>128</td><td>Folk songs, epic cycles, mythology, folk costumes, speech recognition</td></tr>
+<tr><td>data_bulk15.py</td><td>120</td><td>Shooting sports, number games, surfing maneuvers, horror games, youth leagues</td></tr>
+<tr><td>data_bulk16.py</td><td>144</td><td>Exhibition centers, prefabricated houses, dry docks, funiculars, zoning ordinances</td></tr>
+<tr><td>data_bulk17.py</td><td>162</td><td>Phenomenology, demarcation problem, ethical frameworks, ancient philosophers, philosophy of psychology</td></tr>
+<tr><td>data_bulk18.py</td><td>153</td><td>Spirit traditions, brunch dishes, traditional dishes, cooking competitions, tableware</td></tr>
+<tr><td>data_bulk19.py</td><td>150</td><td>Wars, transport aircraft, chaff/flare systems, decoy systems, radar arrays</td></tr>
+<tr><td>data_bulk20.py</td><td>162</td><td>Continuing education, multiple intelligences, educational games, character education, evening schools</td></tr>
+<tr><td>data_bulk21.py</td><td>200</td><td>Cargo ships, Rhodos system, opera, Tyche system, tunnel records</td></tr>
+<tr><td>data_bulk22.py</td><td>200</td><td>Geomechanics, neuroscopic data, neuroacoustic data, macroacoustic data, metamorpha</td></tr>
+</table>
+
+<div class="footer">
+  AI.py v5.5.0 API Reference &mdash; 15 categories, 8,577 commands, 5,300+ data functions
+</div>
+</div>
+</body>
+</html>

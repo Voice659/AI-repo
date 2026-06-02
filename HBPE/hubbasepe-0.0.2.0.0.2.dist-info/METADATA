@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: HubBasePE
+Version: 0.0.2.0.0.2
+Summary: HubBasePE – 5 new programs + all the original!!
+Project-URL: Homepage, https://github.com/HubBase-Authority/HubBasePE
+Project-URL: Issues, https://github.com/HubBase-Authority/HubBasePE/issues
+Project-URL: Documentation, https://github.com/HubBase-Authority/HubBasePE/wiki/Releases
+Project-URL: Webpage, https://voice659.github.io/index-pr-hbpe.html
+Author-email: Voice659 <E.R.Fahretdinov@yandex.ru>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+
+# HubBasePE
+## This is HubBasePE.
+# You can use Main.Code() to activate the PE.
+

@@ -1,0 +1,37 @@
+name = "World"
+print("Hello, " + name)
+x = 42
+if x > 0:
+    print("positive")
+elif x == 0:
+    print("zero")
+else:
+    print("negative")
+result = x * 2
+print(result)
+
+print("-- for loop --")
+for i in range(5):
+    print(i)
+
+print("-- while loop --")
+n = 3
+while n > 0:
+    print(n)
+    n = n - 1
+
+print("-- list --")
+items = [10, 20, 30]
+print(len(items))
+print(items[0])
+append(items, 40)
+print(len(items))
+
+print("-- dict --")
+d = {"a": 1, "b": 2}
+print(d["a"])
+
+print("-- function --")
+def add(a, b):
+    return a + b
+print(add(3, 4))

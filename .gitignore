@@ -3,10 +3,10 @@ __pycache__/
 build/
 dist/
 *.spec
-ai_notes.json
-ai_todos.json
+Json/
 *.bak
 .idea/
+.venv/
 node_modules/
 package-lock.json
 package.json

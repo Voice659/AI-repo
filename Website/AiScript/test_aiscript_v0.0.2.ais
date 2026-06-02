@@ -1,0 +1,74 @@
+print("=== Basic tests ===")
+name = "World"
+print("Hello, " + name)
+x = 42
+if x > 0:
+    print("positive")
+elif x == 0:
+    print("zero")
+else:
+    print("negative")
+result = x * 2
+print(result)
+
+print("=== For loop ===")
+for i in range(5):
+    print(i)
+
+print("=== While loop ===")
+n = 3
+while n > 0:
+    print(n)
+    n = n - 1
+
+print("=== List ===")
+items = [10, 20, 30]
+print(len(items))
+print(items[0])
+append(items, 40)
+print(len(items))
+
+print("=== Dict ===")
+d = {"a": 1, "b": 2}
+print(d["a"])
+
+print("=== Function ===")
+def add(a, b):
+    return a + b
+print(add(3, 4))
+
+print("=== In operator ===")
+print(3 in [1, 2, 3])
+print(5 in [1, 2, 3])
+
+print("=== New builtins ===")
+print(sum([1, 2, 3]))
+print(any([False, True, False]))
+print(all([True, True, True]))
+print(sorted([3, 1, 2]))
+print(upper("hello"))
+print(replace("hello world", "world", "there"))
+
+print("=== Del ===")
+z = 42
+print(z)
+del z
+
+print("=== Import modules ===")
+import math
+print(math.sqrt(9))
+
+import json
+d2 = json.loads('{"x": 1, "y": 2}')
+print(d2["x"])
+
+import time
+print("time exists:", time != None)
+
+print("=== String methods via dot ===")
+s = "hello"
+print(s.upper())
+print(s.capitalize())
+print("  spaced  ".strip())
+
+print("=== All tests passed ===")

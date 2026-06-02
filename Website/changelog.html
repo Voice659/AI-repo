@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>AI.py Changelog — v2.0.0 to v5.5.0</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Courier New', monospace; line-height: 1.6; padding: 20px; }
+  .container { max-width: 900px; margin: auto; }
+  h1 { color: #58a6ff; font-size: 2em; margin: 20px 0 5px; }
+  .subtitle { color: #8b949e; font-size: 0.95em; margin-bottom: 25px; }
+  h2 { color: #79c0ff; font-size: 1.3em; margin: 30px 0 10px; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+  h3 { color: #a5d6ff; font-size: 1.1em; margin: 20px 0 8px; }
+  .version-entry { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin: 15px 0; }
+  .version-entry .ver { color: #58a6ff; font-size: 1.4em; font-weight: bold; }
+  .version-entry .date { color: #8b949e; font-size: 0.85em; margin-left: 10px; }
+  .version-entry ul { margin: 10px 0 0 20px; }
+  .version-entry li { color: #8b949e; font-size: 0.9em; margin: 4px 0; }
+  .version-entry li strong { color: #c9d1d9; }
+  a { color: #58a6ff; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #30363d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  @media (max-width: 600px) { body { padding: 10px; } }
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="app.js"></script></head>
+<body>
+<div style="background:#161b22;border-bottom:1px solid #30363d;padding:8px 20px;text-align:center;font-size:0.85em;">
+  <a href="index.html" style="color:#58a6ff;text-decoration:none;">&#x2190; Home</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="AI.py-docs.html" style="color:#58a6ff;text-decoration:none;">Documentation</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="dashboard.html" style="color:#58a6ff;text-decoration:none;">Dashboard</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="data-index.html" style="color:#58a6ff;text-decoration:none;">Data Index</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="features.html" style="color:#58a6ff;text-decoration:none;">Features</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="download.html" style="color:#58a6ff;text-decoration:none;">Downloads</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="stats.html" style="color:#58a6ff;text-decoration:none;">Statistics</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="api.html" style="color:#58a6ff;text-decoration:none;">API</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="roadmap.html" style="color:#58a6ff;text-decoration:none;">Roadmap</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="guide.html" style="color:#58a6ff;text-decoration:none;">Guide</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="reference.html" style="color:#58a6ff;text-decoration:none;">Reference</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="tutorial.html" style="color:#58a6ff;text-decoration:none;">Tutorials</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="faq.html" style="color:#58a6ff;text-decoration:none;">FAQ</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="aiscript.html" style="color:#58a6ff;text-decoration:none;">AiScript</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="community.html" style="color:#58a6ff;text-decoration:none;">Community</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <a href="about.html" style="color:#58a6ff;text-decoration:none;">About</a>
+  <span style="color:#30363d;margin:0 12px;">|</span>
+  <span style="color:#8b949e;">Changelog</span>
+</div>
+<div class="container">
+
+<h1>AI.py Changelog</h1>
+<p class="subtitle">Complete version history from v2.0.0 through v5.5.0</p>
+
+<div class="version-entry">
+  <span class="ver">v5.5.0</span><span class="date">Current</span>
+  <ul>
+    <li><strong>1 new curated data module</strong> (data_bulk31.py): 34 curated functions, ~51K lines, 1500 entries each</li>
+    <li><strong>34 new curated data functions</strong> added (5,062 total bulk functions), 51K+ new lines</li>
+    <li><strong>5.9M+ total lines</strong>, 31 bulk modules, 16 site pages, 5,300+ data tables</li>
+    <li>Curated data covers: history, medicine, philosophy, science, arts, geography, biology, olympics, space</li>
+    <li>Updated installer/updater ALL_FILES for data_bulk31.py</li>
+    <li>app.js auto-detects curated functions via 'curated_' prefix in function names</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v5.4.0</span><span class="date"></span>
+  <ul>
+    <li><strong>2 new data_bulk modules</strong> (29&ndash;30): Cybersecurity (205 fn), Agriculture (220 fn)</li>
+    <li><strong>425 new data functions</strong> added (5,028 total), 639K+ new lines</li>
+    <li><strong>5.8M+ total lines</strong>, 30 bulk modules, 16 site pages</li>
+    <li><strong>app.js integrated</strong> — theme toggle, copy-to-clipboard, mobile nav, scroll-top, data index filter/sort, data preview modal, command browser, TOC sidebar, keyboard shortcuts, stat counter animation</li>
+    <li><strong>Installer/Updater rewritten</strong> — thread-safe tkinter via root.after(0, fn), direct-write without tempfile, retry logic (3x, 2s backoff), 60s timeout, skip compile for data_bulk, activebackground fix</li>
+    <li>Updated installer/updater ALL_FILES for data_bulk29 and data_bulk30</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v5.3.0</span>
+  <ul>
+    <li><strong>2 new data_bulk modules</strong> (27&ndash;28): Transportation &amp; Logistics, Education &amp; Entertainment</li>
+    <li><strong>390 new data functions</strong> added (4,603 total), 586K+ new lines</li>
+    <li><strong>5.1M+ total lines</strong>, 28 bulk modules, 16 site pages</li>
+    <li><strong>2 new pages</strong>: community.html (Community &amp; Support), about.html (About the Project)</li>
+    <li>Updated nav bars, version refs, and stats across all 16 HTML pages</li>
+    <li>Updated installer/updater ALL_FILES for data_bulk27 and data_bulk28</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v5.2.0</span>
+  <ul>
+    <li><strong>2 new data_bulk modules</strong> (25&ndash;26): Energy &amp; Environment, Finance &amp; Economics</li>
+    <li><strong>420 new data functions</strong> added (4,213 total), 630K+ new lines</li>
+    <li><strong>4.5M+ total lines</strong>, 26 bulk modules, 14 site pages</li>
+    <li><strong>2 new pages</strong>: tutorial.html (step-by-step tutorials), faq.html (frequently asked questions)</li>
+    <li>Updated nav bars, version refs, and stats across all 14 HTML pages</li>
+    <li>Updated installer/updater ALL_FILES for data_bulk25 and data_bulk26</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v5.1.0</span>
+  <ul>
+    <li><strong>2 new data_bulk modules</strong> (23&ndash;24): Robotics &amp; Automation, Medicine &amp; Healthcare</li>
+    <li><strong>444 new data functions</strong> added (3,793 total), 446K+ new lines</li>
+    <li><strong>4.0M+ total lines</strong>, 24 bulk modules, 12 site pages</li>
+    <li><strong>2 new pages</strong>: guide.html (User Guide), reference.html (Command Reference)</li>
+    <li>Updated nav bars, version refs, and stats across all 12 HTML pages</li>
+    <li>Updated installer/updater ALL_FILES for data_bulk23 and data_bulk24</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v5.0.0</span>
+  <ul>
+    <li><strong>Major release: 1100+ new data functions</strong> in <code>data_bulk12-22.py</code> (1.8M lines, 1000 entries each)</li>
+    <li><strong>5300+ commands</strong>, <strong>3.5M+ total lines</strong> across all modules (up from 1.7M)</li>
+    <li><strong>2300+ total data tables</strong> across 22 data_bulk modules (up from 1350)</li>
+    <li><strong>AI.py</strong> v5.0.0 at 500K lines with 198K inline astronaut entries</li>
+    <li><strong>Vercel deployment</strong> with auto-deploy from GitHub, Analytics & Speed Insights</li>
+    <li>Topics: space exploration, EVs, astronomy, art, music, programming, security, education, philosophy, architecture, sports, linguistics, climate science, quantum physics, nanotechnology, and more</li>
+    <li>Updated all HTML pages, stats, and changelog for v5.0.0</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v4.5.0</span>
+  <ul>
+    <li><strong>400 new data functions</strong> in <code>data_bulk8-11.py</code> (~401K lines, 1000 entries each)</li>
+    <li><strong>AI.py expanded to 500K lines</strong> with inline get_astronaut_data() entries (batched to avoid compiler stack overflow)</li>
+    <li><strong>1350+ total data tables</strong> across 11 data_bulk modules</li>
+    <li><strong>1.5M+ total lines</strong> across all modules</li>
+    <li>Topics: clean energy, robotics, AI, biotech, folklore, mythology, trade, craft, food, exploration, science, ethnography, music, crypto, security, DeFi, Web3</li>
+    <li>Vercel deployment, Analytics & Speed Insights integration</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v4.4.0</span>
+  <ul>
+    <li><strong>Major release: 935 new utility functions</strong> (commands 2673-3607) in AI.py via <code>gen_code4.py</code></li>
+    <li><strong>3600+ commands</strong>, <strong>1.3M+ total lines</strong> across all modules</li>
+    <li>15 categories: Text, Math, Convert, Format, List, Random, Crypto, Geometry, Physics, Stats, DateTime, File, Color, String, Network</li>
+    <li>All functions take no arguments — user input via <code>input()</code> inside body</li>
+    <li>Template-based code generation with 9 implementation patterns</li>
+    <li>24,224 lines added to AI.py (23,309 code + 935 dispatch)</li>
+    <li><strong>Fixed installer:</strong> URL validation accepts pre-filled URL, custom install path with Browse button, default path ~/AI</li>
+    <li><strong>Fixed website:</strong> all stats and references updated to v4.4.0</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v4.3.0</span>
+  <ul>
+    <li><strong>Major release: 100 new data functions</strong> in <code>data_bulk7.py</code> (100K lines, 1000 entries each)</li>
+    <li><strong>2300+ total data tables</strong> across 8 modules (up from 850)</li>
+    <li><strong>1.1M+ total lines</strong> across all modules</li>
+    <li><strong>15 external modules</strong> total (7 base + 7 bulk + 1 compat)</li>
+    <li><strong>Download page fixed:</strong> real download links for AIInstaller.exe and AIUpdater.exe, installer version history with download column</li>
+    <li>AIInstaller.exe and AIUpdater.exe rebuilt to v4.3.0</li>
+    <li>Updated all HTML pages, stats, changelog, and nav bars for v4.3.0</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v4.2.0</span>
+  <ul>
+    <li><strong>Major release: 100 new data functions</strong> in <code>data_bulk6.py</code> (100K lines, 1000 entries each)</li>
+    <li><strong>850+ total data tables</strong> across 7 modules (up from 750)</li>
+    <li><strong>1M+ total lines</strong> across all modules (AI.py: 277K, data_bulk: 214K, data_bulk2: 67K, data_bulk3: 52K, data_bulk4: 201K, data_bulk5: 100K, data_bulk6: 100K)</li>
+    <li><strong>Installer version history</strong> added to <code>download.html</code> — documents all AIInstaller and AIUpdater versions</li>
+    <li><strong>AIInstaller.exe rebuilt</strong> to v4.2.0 (was v4.0.0)</li>
+    <li><strong>AIUpdater.exe rebuilt</strong> to v4.2.0 (was v2.0.1)</li>
+    <li>Updated all HTML pages, stats, changelog, and nav bars for v4.2.0</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v4.1.0</span>
+  <ul>
+    <li><strong>Major release: 100 new data functions</strong> in <code>data_bulk5.py</code> (100K lines, 1000 entries each)</li>
+    <li><strong>750+ total data tables</strong> across 6 modules (up from 665)</li>
+    <li><strong>900K+ total lines</strong> across all modules (AI.py: 277K, data_bulk: 214K, data_bulk2: 67K, data_bulk3: 52K, data_bulk4: 201K, data_bulk5: 100K)</li>
+    <li><strong>522K+ total data entries</strong></li>
+    <li><strong>HBPE v0.0.2.* support</strong>: works with v0.0.2.0.02 and later via <code>hbpe_compat.py</code></li>
+    <li><strong>Programm20</strong> support (<code>hbpe_program20</code> command) always available in 0.0.2.*</li>
+    <li><strong>dev_console</strong> detection — only available when HBPE provides it</li>
+    <li><code>hbpe_compat.py</code> re-exports all HubBasePE.Main names for transparent replacement</li>
+    <li>Updated <code>gen_html.py</code>, all HTML pages, stats, and nav bars for v4.1.0</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v4.0.0</span>
+  <ul>
+    <li><strong>Major release: 200 new data functions</strong> in <code>data_bulk4.py</code> (201K lines, 1000 entries each)</li>
+    <li><strong>665 total data tables</strong> across 5 modules (up from 465)</li>
+    <li><strong>800K+ total lines</strong> across all modules (AI.py: 277K, data_bulk: 214K, data_bulk2: 67K, data_bulk3: 52K, data_bulk4: 201K)</li>
+    <li><strong>422K+ total data entries</strong></li>
+    <li><strong>Visual installer</strong> (<code>AIInstaller.exe</code>) — tkinter GUI with progress bars, update checking, file verification, and one-click install</li>
+    <li><strong>2 new site pages:</strong> <code>features.html</code> (complete feature showcase) and <code>download.html</code> (file listing with sizes)</li>
+    <li><strong>8-site-page ecosystem:</strong> index, docs, dashboard, data-index, features, downloads, stats, changelog</li>
+    <li>All nav bars updated with links to all 8 pages across every HTML file</li>
+    <li>AIUpdater.exe rebuilt, .gitignore created, project tidied</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.9.0</span>
+  <ul>
+    <li><strong>New site page:</strong> <code>data-index.html</code> — searchable, filterable, sortable index of all 465 data tables</li>
+    <li><strong>6-site-page ecosystem:</strong> index, docs, dashboard, data-index, stats, changelog</li>
+    <li>Updated welcome message with accurate 610K+ lines and 465 data tables</li>
+    <li>Rebuilt <code>AIUpdater.exe</code> and all HTML files for v3.9.0</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.8.0</span>
+  <ul>
+    <li><strong>103 new data functions</strong> in <code>data_bulk3.py</code> (50K lines)</li>
+    <li>New tables: battles, flags, capitals, landmarks, awards, sports championships, philosophy, mathematics, programming, OS, internet, companies, currencies, fonts, logos, quotes, heraldry, national symbols</li>
+    <li><strong>465 total data functions</strong> across 4 modules</li>
+    <li><strong>30 curated tables</strong> (added constellations, galaxies, gemstones, minerals, ocean currents, geological formations, soil types)</li>
+    <li>Created <code>stats.html</code> and <code>changelog.html</code> site pages</li>
+    <li>Updated all HTML for v3.8.0 stats and navbar links</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.7.0</span>
+  <ul>
+    <li><strong>133 new data functions</strong> in <code>data_bulk2.py</code> (67K lines)</li>
+    <li>New tables: historical figures, arts, sciences, sports, food, culture, technology, body systems, nature</li>
+    <li><strong>362 total data functions</strong> across 3 modules</li>
+    <li>Created <code>index.html</code> landing page with navigation to docs and dashboard</li>
+    <li>Added navigation bars to all HTML files for cohesive site experience</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.6.0</span>
+  <ul>
+    <li><strong>14 curated data tables</strong>: elements (118), planets (50), cities (171), mountains (39), countries (195), rivers (40), lakes (40), languages (50), inventions (50), dinosaurs (30), oceans (5), volcanoes (20), earthquakes (20), hurricanes (20)</li>
+    <li>New commands: <strong>quiz</strong> (interactive data quiz), <strong>chart</strong> (ASCII bar chart), <strong>suggest/find</strong> (search commands), <strong>ask/ai/query</strong> (data table search), <strong>flashcard/learn</strong> (flashcard learner with scoring)</li>
+    <li><strong>Categorized help</strong> (cmd 2667 / help2 / categories)</li>
+    <li><strong>Data export</strong> (cmd 2668 / save / export)</li>
+    <li><strong>Timer</strong> (cmd 2669), <strong>Stopwatch</strong> (cmd 2670), <strong>Calc</strong> (cmd 2671 calculator REPL)</li>
+    <li><strong>Notes</strong> (add/list/remove/clear), <strong>Todo</strong> (add/list/done/remove/clear), <strong>Remind</strong> &lt;sec&gt; &lt;msg&gt;</li>
+    <li><strong>Explain</strong> / whatis / help_&lt;cmd&gt; command</li>
+    <li>HBPE no longer role-gated; all users can run programs 1-19, P1-P5, dev_console</li>
+    <li>Generated <code>AI.py-docs.html</code> (57KB docs) and <code>dashboard.html</code> (90KB interactive web UI)</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.5.0</span>
+  <ul>
+    <li><strong>424 bulk data functions</strong> (214K lines) extracted into <code>data_bulk.py</code></li>
+    <li>Module split for maintainability, backward compatible via <code>from data_bulk import *</code></li>
+    <li>524 total data functions with 500 entries each = 262K+ data entries</li>
+    <li>Fixed 49,401 missing commas in generated data</li>
+    <li>Applied 1.05x multiplier 5 times for 103 additional functions</li>
+    <li>Created <code>updater.py</code> compiled to <code>AIUpdater.exe</code> (10.2 MB)</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.4.0</span>
+  <ul>
+    <li><strong>CLI improvements</strong>: colored role badges, colored prompt, <code>pager()</code> function</li>
+    <li>New commands: <code>colors</code>, <code>colorbadge</code>, <code>cls</code>, <code>pager_test</code></li>
+    <li><strong>ASCII chart</strong> (cmd 2658): <code>ascii_chart()</code> bar chart generator</li>
+    <li><strong>Quiz</strong> (cmd 2657): <code>data_quiz()</code> knowledge test on live data</li>
+    <li><strong>Suggest</strong> (cmd 2659): <code>cmd_suggest()</code> search commands by partial match</li>
+    <li><strong>AI query</strong> (cmd 2665): <code>ask_ai()</code> searches all data tables by keyword</li>
+    <li><strong>Flashcard</strong> (cmd 2666): interactive learner from 16 data tables with score</li>
+    <li>Fixed 29 stat, 16 finance, 5 color stub functions with real computations</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.3.0</span>
+  <ul>
+    <li><strong>Major expansion</strong>: AI.py from 1,307 to 239K lines</li>
+    <li><strong>1,200+ utility functions</strong> and commands (1457-2656): statistics, conversions, geometry, physics, string, list, financial, color, validation, misc</li>
+    <li>Extracted <code>handle_cmd(cmd, role, name, badge)</code> from 6,700-line elif chain</li>
+    <li><code>debug_exec</code> routes AI.py commands through <code>handle_cmd()</code></li>
+    <li>Role system: <code>check_role</code>, <code>role_badge</code>, <code>get_role_commands</code> with VIP/Mod/Admin passwords</li>
+    <li><code>toggle_debug()</code> with <code>debug_mode</code> global flag</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.2.0</span>
+  <ul>
+    <li><strong>Utility functions</strong> and <code>handle_cmd</code> refactor</li>
+    <li>Conversion, geometry, physics, string, list, finance, color, validation commands</li>
+    <li>Improved command dispatch architecture</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.1.0</span>
+  <ul>
+    <li><strong>debug_exec</strong> merged console: Python eval/exec, HBPE programs, all AI.py commands via <code>handle_cmd()</code></li>
+    <li>HBPE integration with <code>HB.VipAccess</code> and role-based login bypass</li>
+    <li>Created 7 external modules: space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.0.3</span>
+  <ul>
+    <li><strong>HBPE integration</strong>: HubBasePE imported from PyPI as <code>HB</code></li>
+    <li><strong>Role system</strong> with password-gated VIP/Mod/Admin</li>
+    <li>HBPE login integrated with AI.py roles</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.0.2</span>
+  <ul>
+    <li><strong>Initial large expansion</strong> from very small codebase</li>
+    <li>External module architecture established</li>
+    <li>Basic drawing, math, game, and utility commands</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.0.1</span>
+  <ul>
+    <li><strong>5,383 new lines</strong> added to AI.py (utility functions, commands)</li>
+    <li>Continued expansion of the command set</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v3.0.0</span>
+  <ul>
+    <li><strong>Major expansion</strong>: AI.py grew by 60K+ new lines</li>
+    <li><strong>updater.py</strong> introduced (191 lines, compiled to AIUpdater.exe)</li>
+    <li>AIUpdater.exe updated to v3.0.0</li>
+  </ul>
+</div>
+
+<div class="version-entry">
+  <span class="ver">v2.0.0</span>
+  <ul>
+    <li><strong>Major expansion</strong>: AI.py grew to 40K+ new lines</li>
+    <li><strong>AIUpdater.exe</strong> introduced with <code>updater_config.json</code></li>
+    <li>Foundation for automated updates and version tracking</li>
+  </ul>
+</div>
+
+<div class="footer">
+  AI.py Changelog &mdash; v2.0.0 through v5.5.0
+</div>
+
+</div>
+</body>
+</html>

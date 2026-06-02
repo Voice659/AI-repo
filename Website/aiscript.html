@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>AiScript v0.2.1 — Python-like Scripting Language</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', Arial, sans-serif; }
+  .container { max-width: 960px; margin: auto; padding: 20px; }
+  h1 { color: #58a6ff; font-size: 2em; margin: 20px 0 5px; }
+  h2 { color: #79c0ff; font-size: 1.4em; margin: 35px 0 10px; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+  h3 { color: #a5d6ff; font-size: 1.1em; margin: 20px 0 8px; }
+  .subtitle { color: #8b949e; font-size: 0.95em; margin-bottom: 25px; }
+  .nav { background: #161b22; border-bottom: 1px solid #30363d; padding: 8px 20px; text-align: center; font-size: 0.85em; }
+  .nav a { color: #58a6ff; text-decoration: none; margin: 0 8px; }
+  .nav span { color: #30363d; margin: 0 4px; }
+  .nav .current { color: #8b949e; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin: 15px 0; }
+  .card h3 { color: #a5d6ff; font-size: 1.1em; margin-bottom: 8px; }
+  .card p, .card li { color: #8b949e; font-size: 0.9em; line-height: 1.6; }
+  a { color: #58a6ff; }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin: 20px 0; }
+  .feature-grid .tag { background: #21262d; color: #8b949e; font-size: 0.8em; padding: 6px 12px; border-radius: 4px; text-align: center; }
+  .feature-grid .tag.feature { background: #30a74522; color: #7ee787; border: 1px solid #30a74544; }
+  .feature-grid .tag.curated { background: #1f6feb22; color: #79c0ff; border: 1px solid #1f6feb44; }
+  pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 15px; overflow-x: auto; font-size: 0.9em; margin: 10px 0; }
+  code { background: #161b22; padding: 1px 5px; border-radius: 3px; font-size: 0.9em; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #30363d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  ol, ul { color: #8b949e; font-size: 0.9em; line-height: 1.7; margin: 8px 0; padding-left: 22px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.85em; }
+  th { text-align: left; color: #8b949e; border-bottom: 1px solid #30363d; padding: 6px 10px; }
+  td { padding: 4px 10px; border-bottom: 1px solid #21262d; font-size: 0.9em; }
+  tr:hover { background: #161b22; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8em; margin: 2px; }
+  .badge-lang { background: #1f6feb; color: #fff; }
+  .badge-ide { background: #30a745; color: #fff; }
+  .btn { display: inline-block; background: #1f6feb; color: #fff; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-size: 0.95em; margin: 5px; }
+  .btn:hover { background: #388bfd; }
+  .btn-secondary { background: #21262d; border: 1px solid #30363d; color: #c9d1d9; }
+  .btn-secondary:hover { background: #30363d; }
+  .cmd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; margin: 15px 0; }
+  .cmd-card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 14px; }
+  .cmd-card .name { color: #58a6ff; font-weight: bold; font-family: monospace; font-size: 0.9em; }
+  .cmd-card .desc { color: #8b949e; font-size: 0.8em; margin-top: 2px; }
+  @media (max-width: 600px) { pre { font-size: 0.8em; } .cmd-grid { grid-template-columns: 1fr; } }
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="app.js"></script></head>
+<body>
+<div class="nav">
+  <a href="index.html">Home</a><span>|</span>
+  <a href="AI.py-docs.html">Docs</a><span>|</span>
+  <a href="dashboard.html">Dashboard</a><span>|</span>
+  <a href="data-index.html">Data Index</a><span>|</span>
+  <a href="download.html">Downloads</a><span>|</span>
+  <a href="features.html">Features</a><span>|</span>
+  <a href="stats.html">Stats</a><span>|</span>
+  <a href="changelog.html">Changelog</a><span>|</span>
+  <a href="api.html">API</a><span>|</span>
+  <a href="roadmap.html">Roadmap</a><span>|</span>
+  <a href="guide.html">Guide</a><span>|</span>
+  <a href="reference.html">Reference</a><span>|</span>
+  <a href="tutorial.html">Tutorials</a><span>|</span>
+  <a href="faq.html">FAQ</a><span>|</span>
+  <span class="current">AiScript</span><span>|</span>
+  <a href="community.html">Community</a><span>|</span>
+  <a href="about.html">About</a>
+</div>
+<div class="container">
+<h1>AiScript v0.2.1</h1>
+<p class="subtitle">A lightweight, Python-like scripting language — embeddable, single-file, no dependencies</p>
+
+<div class="feature-grid" style="margin-bottom:25px;">
+  <span class="tag feature">Interpreter + REPL</span>
+  <span class="tag feature">Python-like Syntax</span>
+  <span class="tag feature">49 Builtins</span>
+  <span class="tag feature">Dynamic Typing</span>
+  <span class="tag feature">OOP Support</span>
+  <span class="tag feature">String Methods</span>
+  <span class="tag feature">Modules</span>
+  <span class="tag feature">Kite IDE</span>
+</div>
+
+<h2>Overview</h2>
+<div class="card">
+  <p>AiScript is a Python-inspired scripting language implemented as a single <code>aiscript.py</code> file — no external dependencies, no compiler, no pip install. It features a full lexer, parser, AST, and tree-walking evaluator, plus an interactive REPL and CLI script runner.</p>
+  <p>Designed for quick scripting, education, and embedding into larger Python applications via <code>import aiscript</code>. AiScript runs anywhere Python 3 does.</p>
+  <p style="margin-top:12px;">
+    <a href="download.html" class="btn">Download Installer</a>
+    <a href="#code" class="btn btn-secondary">View Examples</a>
+    <a href="#kite" class="btn btn-secondary">Kite IDE</a>
+  </p>
+</div>
+
+<h2>Features</h2>
+<div class="card">
+  <ul>
+    <li><strong>Python-like syntax</strong> — familiar <code>def</code>, <code>class</code>, <code>if/elif/else</code>, <code>while</code>, <code>for</code>, <code>import</code></li>
+    <li><strong>Dynamic typing</strong> — variables hold any type; no declarations needed</li>
+    <li><strong>First-class functions</strong> — functions are values, support nested scope and closures</li>
+    <li><strong>Classes &amp; objects</strong> — full OOP with dot access, method calls, self parameter</li>
+    <li><strong>Lists &amp; dicts</strong> — built-in collection types with <code>in</code>/<code>del</code> operators</li>
+    <li><strong>String methods</strong> — dot-accessible <code>.upper()</code>, <code>.lower()</code>, <code>.strip()</code>, <code>.replace()</code>, <code>.split()</code>, <code>.join()</code> and more</li>
+    <li><strong>26+ built-in functions</strong> — <code>print</code>, <code>input</code>, <code>len</code>, <code>int</code>, <code>str</code>, <code>range</code>, <code>type</code>, <code>exit</code>, <code>open</code>/<code>read</code>/<code>write</code>, <code>split</code>/<code>join</code>, <code>reverse</code>, <code>sort</code>, <code>min</code>/<code>max</code>/<code>sum</code>, <code>abs</code>, <code>randint</code>, <code>sleep</code>, and more</li>
+    <li><strong>Built-in modules</strong> — <code>json</code> (load/dumps), <code>time</code> (sleep/strftime), <code>sys</code> (argv/exit)</li>
+    <li><strong>REPL &amp; CLI</strong> — run interactively or pass a file: <code>python aiscript.py script.ais</code></li>
+    <li><strong>Embeddable</strong> — <code>import aiscript; aiscript.run_script("print 1+1")</code></li>
+  </ul>
+</div>
+
+<h2 id="code">Code Examples</h2>
+
+<h3>Hello World</h3>
+<pre>print "Hello, World!"
+name = input("What is your name? ")
+print "Nice to meet you, " + name</pre>
+
+<h3>Functions &amp; Recursion</h3>
+<pre>def factorial(n) {
+    if n <= 1 {
+        return 1
+    }
+    return n * factorial(n - 1)
+}
+
+print factorial(5)  # 120</pre>
+
+<h3>Classes</h3>
+<pre>class Animal {
+    def init(self, name) {
+        self.name = name
+    }
+    def speak(self) {
+        return self.name + " makes a sound"
+    }
+}
+
+class Dog : Animal {
+    def speak(self) {
+        return self.name + " says woof!"
+    }
+}
+
+d = Dog("Rex")
+print d.speak()</pre>
+
+<h3>Lists &amp; Loops</h3>
+<pre>fruits = ["apple", "banana", "cherry"]
+for fruit in fruits {
+    print fruit
+}
+
+nums = range(1, 6)
+squared = []
+for n in nums {
+    squared.append(n * n)
+}
+print squared</pre>
+
+<h3>File I/O</h3>
+<pre>data = read("input.txt")
+lines = split(data, "\n")
+print "File has " + len(lines) + " lines"
+
+out = join(lines, "\n")
+write("output.txt", out)</pre>
+
+<h2>Built-in Functions</h2>
+<p class="subtitle">Complete reference of AiScript's standard library</p>
+
+<div class="cmd-grid">
+  <div class="cmd-card"><div class="name">print(...)</div><div class="desc">Print values to stdout</div></div>
+  <div class="cmd-card"><div class="name">input(prompt)</div><div class="desc">Read a line from stdin</div></div>
+  <div class="cmd-card"><div class="name">len(obj)</div><div class="desc">Length of string or list</div></div>
+  <div class="cmd-card"><div class="name">int(x)</div><div class="desc">Convert to integer</div></div>
+  <div class="cmd-card"><div class="name">str(x)</div><div class="desc">Convert to string</div></div>
+  <div class="cmd-card"><div class="name">range(start, end)</div><div class="desc">Generate number list</div></div>
+  <div class="cmd-card"><div class="name">type(x)</div><div class="desc">Return type name</div></div>
+  <div class="cmd-card"><div class="name">exit()</div><div class="desc">Exit the interpreter</div></div>
+  <div class="cmd-card"><div class="name">open(path)</div><div class="desc">Open file for reading</div></div>
+  <div class="cmd-card"><div class="name">read(path)</div><div class="desc">Read entire file as string</div></div>
+  <div class="cmd-card"><div class="name">write(path, s)</div><div class="desc">Write string to file</div></div>
+  <div class="cmd-card"><div class="name">split(s, sep)</div><div class="desc">Split string into list</div></div>
+  <div class="cmd-card"><div class="name">join(list, sep)</div><div class="desc">Join list into string</div></div>
+  <div class="cmd-card"><div class="name">reverse(list)</div><div class="desc">Reverse a list in-place</div></div>
+  <div class="cmd-card"><div class="name">sort(list)</div><div class="desc">Sort a list in-place</div></div>
+  <div class="cmd-card"><div class="name">min(list)</div><div class="desc">Minimum value in list</div></div>
+  <div class="cmd-card"><div class="name">max(list)</div><div class="desc">Maximum value in list</div></div>
+  <div class="cmd-card"><div class="name">sum(list)</div><div class="desc">Sum of numeric list</div></div>
+  <div class="cmd-card"><div class="name">abs(x)</div><div class="desc">Absolute value</div></div>
+  <div class="cmd-card"><div class="name">randint(a, b)</div><div class="desc">Random integer in range</div></div>
+  <div class="cmd-card"><div class="name">sleep(sec)</div><div class="desc">Sleep for seconds</div></div>
+  <div class="cmd-card"><div class="name">time()</div><div class="desc">Current Unix timestamp</div></div>
+  <div class="cmd-card"><div class="name">strftime(fmt)</div><div class="desc">Format date/time string</div></div>
+  <div class="cmd-card"><div class="name">json.load(s)</div><div class="desc">Parse JSON string</div></div>
+  <div class="cmd-card"><div class="name">json.dumps(obj)</div><div class="desc">Serialize to JSON</div></div>
+  <div class="cmd-card"><div class="name">sys.argv</div><div class="desc">Command-line arguments</div></div>
+</div>
+
+<h2 id="kite">Kite IDE</h2>
+<div class="card">
+  <h3>Kite v0.2.1 — AiScript Editor &amp; Runner</h3>
+  <p>Kite is an IDLE-inspired code editor for AiScript, built with Python's tkinter. It provides a familiar editing environment with syntax highlighting, line numbers, and integrated script execution.</p>
+  <ul>
+    <li><strong>Syntax highlighting</strong> — keywords, strings, numbers, comments, builtins in distinct colors</li>
+    <li><strong>Line numbers</strong> — left-hand gutter with line count</li>
+    <li><strong>Run (F5)</strong> — execute the current script in the built-in output console</li>
+    <li><strong>Run External (Ctrl+F5)</strong> — execute in a separate terminal window</li>
+    <li><strong>File menu</strong> — New, Open, Save, Save As</li>
+    <li><strong>Dark theme</strong> — GitHub-dark color scheme</li>
+    <li><strong>Undo support</strong> — full undo/redo history</li>
+    <li><strong>Status bar</strong> — cursor position, file name, version info</li>
+  </ul>
+  <p style="margin-top:12px;">
+    <span class="badge badge-lang">AiScript v0.2.1</span>
+    <span class="badge badge-ide">Kite v0.2.1</span>
+  </p>
+</div>
+
+<h2>Download</h2>
+<div class="card">
+  <p><strong>AiScript Standalone Installer</strong> — includes the interpreter, REPL, examples, and optional Kite IDE:</p>
+  <p style="margin:12px 0;">
+    <a href="Installers/AiScript_Setup_v0.2.1.exe" class="btn">Download AiScript_Setup_v0.2.1.exe</a>
+  </p>
+  <p>Or download the raw interpreter and IDE manually:</p>
+  <ul>
+    <li><a href="AiScript/aiscript.py">aiscript.py</a> — AiScript v0.2.1 interpreter</li>
+    <li><a href="AiScript/aiscript_ide.py">aiscript_ide.py</a> — Kite IDE source</li>
+    <li><a href="AiScript/kite.cmd">kite.cmd</a> — Windows launcher for Kite</li>
+    <li><a href="AiScript/test_aiscript.ais">test_aiscript.ais</a> — example script</li>
+  </ul>
+  <p style="margin-top:10px;">For the full AI.py bundle (AI.py + AiScript + Kite + HBPE + data), see <a href="download.html">Downloads</a>.</p>
+</div>
+
+<h2>Quick Start</h2>
+<div class="card">
+  <h3>Run a script</h3>
+  <pre>python aiscript.py myscript.ais</pre>
+
+  <h3>Interactive REPL</h3>
+  <pre>python aiscript.py
+AiScript v0.2.1 REPL
+Type 'exit()' to quit
+&gt;&gt; print "hello"
+hello
+&gt;&gt; 2 + 3 * 4
+14</pre>
+
+  <h3>From Python</h3>
+  <pre>import aiscript
+aiscript.run_script('print "hello from AiScript"')
+aiscript.run_file('script.ais')</pre>
+
+  <h3>Using Kite IDE</h3>
+  <p>Double-click <code>kite.cmd</code> or an <code>.ais</code> file to open in Kite. Press <strong>F5</strong> to run.</p>
+</div>
+
+<div class="footer">
+  AiScript v0.2.1 &mdash; Kite IDE v0.2.1 &mdash; Lightweight scripting for Python
+</div>
+</div>
+</body>
+</html>

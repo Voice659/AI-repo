@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>AI.py v5.5.0 — About</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', Arial, sans-serif; }
+  .container { max-width: 960px; margin: auto; padding: 20px; }
+  h1 { color: #58a6ff; font-size: 2em; margin: 20px 0 5px; }
+  h2 { color: #79c0ff; font-size: 1.4em; margin: 35px 0 10px; border-bottom: 1px solid #30363d; padding-bottom: 5px; }
+  h3 { color: #a5d6ff; font-size: 1.1em; margin: 20px 0 8px; }
+  .subtitle { color: #8b949e; font-size: 0.95em; margin-bottom: 25px; }
+  .nav { background: #161b22; border-bottom: 1px solid #30363d; padding: 8px 20px; text-align: center; font-size: 0.85em; }
+  .nav a { color: #58a6ff; text-decoration: none; margin: 0 8px; }
+  .nav span { color: #30363d; margin: 0 4px; }
+  .nav .current { color: #8b949e; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 20px; margin: 15px 0; }
+  .card h3 { color: #a5d6ff; font-size: 1.1em; margin-bottom: 8px; }
+  .card p, .card li { color: #8b949e; font-size: 0.9em; line-height: 1.6; }
+  a { color: #58a6ff; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin: 20px 0; }
+  .stat-box { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 18px; text-align: center; }
+  .stat-box .num { font-size: 1.6em; font-weight: bold; color: #58a6ff; }
+  .stat-box .lbl { font-size: 0.8em; color: #8b949e; margin-top: 3px; }
+  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #30363d; color: #8b949e; font-size: 0.85em; text-align: center; }
+  ol, ul { color: #8b949e; font-size: 0.9em; line-height: 1.7; margin: 8px 0; padding-left: 22px; }
+  li { margin: 4px 0; }
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="app.js"></script></head>
+<body>
+<div class="nav">
+  <a href="index.html">Home</a><span>|</span>
+  <a href="AI.py-docs.html">Docs</a><span>|</span>
+  <a href="dashboard.html">Dashboard</a><span>|</span>
+  <a href="data-index.html">Data Index</a><span>|</span>
+  <a href="download.html">Downloads</a><span>|</span>
+  <a href="features.html">Features</a><span>|</span>
+  <a href="stats.html">Stats</a><span>|</span>
+  <a href="changelog.html">Changelog</a><span>|</span>
+  <a href="api.html">API</a><span>|</span>
+  <a href="roadmap.html">Roadmap</a><span>|</span>
+  <a href="guide.html">Guide</a><span>|</span>
+  <a href="reference.html">Reference</a><span>|</span>
+  <a href="tutorial.html">Tutorials</a><span>|</span>
+  <a href="faq.html">FAQ</a><span>|</span>
+  <a href="aiscript.html">AiScript</a><span>|</span>
+  <a href="community.html">Community</a><span>|</span>
+  <span class="current">About</span>
+</div>
+<div class="container">
+<h1>About AI.py</h1>
+<p class="subtitle">The story behind the massive Python CLI assistant</p>
+
+<div class="stat-grid">
+  <div class="stat-box"><div class="num">5.9M+</div><div class="lbl">Lines of Code</div></div>
+  <div class="stat-box"><div class="num">5,300+</div><div class="lbl">Data Functions</div></div>
+  <div class="stat-box"><div class="num">30</div><div class="lbl">Bulk Modules</div></div>
+  <div class="stat-box"><div class="num">8,577</div><div class="lbl">CLI Commands</div></div>
+  <div class="stat-box"><div class="num">16</div><div class="lbl">Site Pages</div></div>
+  <div class="stat-box"><div class="num">19</div><div class="lbl">Versions Released</div></div>
+</div>
+
+<h2>Project History</h2>
+<div class="card">
+  <p>AI.py started as a small educational Python CLI project and grew into a massive codebase with over 5 million lines of code. What began with basic text processing and math utilities expanded into a comprehensive assistant with thousands of data tables, games, ASCII art, network tools, cryptography, and the HBPE educational programming language.</p>
+  <p>The project evolved through 19 version releases from v3.0.2 to v5.5.0, adding thousands of functions, dozens of data modules, and a full static website hosted on Vercel.</p>
+</div>
+
+<h2>Architecture</h2>
+<div class="card">
+  <ul>
+    <li><strong>AI.py</strong> — Main CLI entry point (500K+ lines, 8,577 commands)</li>
+    <li><strong>data_bulk*.py</strong> — 30 procedurally generated data modules (5,300+ functions)</li>
+    <li><strong>data*.py</strong> — 21 curated real-world data tables</li>
+    <li><strong>gen_*.py</strong> — Code generators for utility functions and bulk data</li>
+    <li><strong>hbpe*.py</strong> — HubBasePE educational programming language engine</li>
+    <li><strong>deploy_temp/</strong> — Vercel-deployed static website (16 HTML pages)</li>
+  </ul>
+</div>
+
+<h2>Technology Stack</h2>
+<div class="card">
+  <ul>
+    <li><strong>Language:</strong> Python 3.14+</li>
+    <li><strong>Website:</strong> Vanilla HTML/CSS, Vercel hosting</li>
+    <li><strong>Version Control:</strong> Git, GitHub</li>
+    <li><strong>CI/CD:</strong> Vercel auto-deploy from master branch</li>
+    <li><strong>Analytics:</strong> Vercel Analytics &amp; Speed Insights</li>
+  </ul>
+</div>
+
+<h2>Author</h2>
+<div class="card">
+  <p>Created and maintained by <strong>Voice659</strong>. Built with Python, powered by curiosity.</p>
+  <p>GitHub: <a href="https://github.com/Voice659" target="_blank">github.com/Voice659</a></p>
+  <p>Repository: <a href="https://github.com/Voice659/AI-repo" target="_blank">github.com/Voice659/AI-repo</a></p>
+</div>
+
+<div class="footer">
+  AI.py v5.5.0 About &mdash; 5.9M+ lines, 5,300+ data functions, 31 bulk modules
+</div>
+</div>
+</body>
+</html>
