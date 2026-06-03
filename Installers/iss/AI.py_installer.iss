@@ -1,9 +1,9 @@
-﻿; AI.py v5.5.1 Installer with AiScript components
+﻿; AI.py v6.0.0 Installer with AiScript components
 ; Inno Setup 6 Script
 
-#define MyAppName "AI.py v5.5.1"
-#define MyAppVersion "5.5.1"
-#define MyAIScriptVersion "0.2.1"
+#define MyAppName "AI.py v6.0.0"
+#define MyAppVersion "6.0.0"
+#define MyAIScriptVersion "0.3.0.post1"
 
 [Setup]
 AppName={#MyAppName}
@@ -12,22 +12,22 @@ DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir=output
-OutputBaseFilename=AI.py_Setup_v5.5.1
+OutputBaseFilename=AI.py_Setup_v6.0.0
 Compression=lzma2
 SolidCompression=yes
 PrivilegesRequired=admin
 DisableDirPage=no
 DisableProgramGroupPage=yes
 ArchitecturesInstallIn64BitMode=x64compatible
-UninstallDisplayName=AI.py v5.5.1
+UninstallDisplayName=AI.py v6.0.0
 ChangesAssociations=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Components]
-Name: "core"; Description: "AI.py v5.5.1 (core interpreter)"; Types: full compact custom; Flags: fixed
-Name: "aiscript"; Description: "AiScript {#MyAIScriptVersion} interpreter + REPL + Kite IDE"; Types: full custom
+Name: "core"; Description: "AI.py v6.0.0 (core interpreter)"; Types: full compact custom; Flags: fixed
+Name: "aiscript"; Description: "AiScript {#MyAIScriptVersion} interpreter + REPL + Kite IDE"; Types: full compact custom; Flags: fixed
 Name: "hbpe_stable"; Description: "HubBasePE (stable, pip install hbpe)"; Types: full custom
 Name: "hbpe_dev"; Description: "HubBasePE (development version, pip install hbpe==dev)"; Types: custom
 Name: "data_bulk_1_3"; Description: "Data Bulk files 1-3"; Types: full custom
@@ -58,11 +58,11 @@ Source: "..\..\Json\*"; DestDir: "{app}\Json"; Components: core; Flags: ignoreve
 Source: "..\..\HBPE\**"; DestDir: "{app}\HBPE"; Components: core; Flags: ignoreversion recursesubdirs
 
 [Icons]
-Name: "{group}\AI.py v5.5.1"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}; Components: core; Comment: "AI.py v5.5.1 CLI"
+Name: "{group}\AI.py v6.0.0"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}; Components: core; Comment: "AI.py v6.0.0 CLI"
 Name: "{group}\AiScript {#MyAIScriptVersion} REPL"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AiScript {#MyAIScriptVersion}\aiscript.py"""; WorkingDir: {app}\AiScript {#MyAIScriptVersion}; Components: aiscript; Comment: "AiScript interactive REPL"
 Name: "{group}\Kite IDE ({#MyAIScriptVersion})"; Filename: "{app}\AiScript {#MyAIScriptVersion}\kite.cmd"; Parameters: ""; Components: aiscript; WorkingDir: {app}\AiScript {#MyAIScriptVersion}
 Name: "{group}\Uninstall AI.py"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\AI.py v5.5.1"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; Tasks: desktopicon; WorkingDir: {app}
+Name: "{commondesktop}\AI.py v6.0.0"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}
 
 [Registry]
 ; File association for .ais

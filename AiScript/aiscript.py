@@ -2,7 +2,7 @@
 # AiScript v0.2.1 - Python-like scripting language
 # Single-file interpreter: lexer, parser, AST, evaluator, REPL
 # ============================================================
-__version__ = "0.2.1.post1"
+__version__ = "0.3.0.post1"
 import sys as _sys, os as _os, random as _random, math as _math, json as _json, time as _time
 
 # ---- TOKEN TYPES ----
@@ -12,7 +12,7 @@ _KW = "KEYWORD"; _OP = "OPERATOR"; _ASSIGN = "ASSIGN"
 
 _KEYWORDS = {"if","elif","else","while","for","in","def","class","return",
              "import","from","as","pass","break","continue","and","or","not",
-             "True","False","None","del"}
+             "True","False","None","del","try","except","finally"}
 
 _OP2TOK = {"+":"PLUS","-":"MINUS","*":"MUL","/":"DIV","%":"MOD","**":"POW",
            "==":"EQ","!=":"NE","<":"LT",">":"GT","<=":"LE",">=":"GE",
@@ -182,6 +182,9 @@ class _Call(_AST):
 class _ClassDef(_AST):
     __slots__=("name","body")
     def __init__(self,n,b): self.name=n; self.body=b
+class _Try(_AST):
+    __slots__=("body","except_var","except_body","finally_body")
+    def __init__(self,b,ev=None,eb=None,fb=None): self.body=b; self.except_var=ev; self.except_body=eb; self.finally_body=fb
 class _List(_AST):
     __slots__=("items",)
     def __init__(self,i): self.items=i
@@ -191,6 +194,9 @@ class _Dict(_AST):
 class _Subscript(_AST):
     __slots__=("obj","key")
     def __init__(self,o,k): self.obj=o; self.key=k
+class _Slice(_AST):
+    __slots__=("obj","start","stop","step")
+    def __init__(self,o,s,t,st=None): self.obj=o; self.start=s; self.stop=t; self.step=st
 class _Pass(_AST):
     __slots__=()
 class _Delete(_AST):
@@ -252,9 +258,12 @@ class _Parser:
             if kw=="import": return self._import_stmt()
             if kw=="from": return self._from_import()
             if kw=="del": return self._del_stmt()
-        if t==_ID or t==_NUMBER or t==_STRING or t=="LPAREN" or t=="LBRACKET" or t=="LBRACE" or t=="MINUS" or t=="NOT":
+            if kw=="try": return self._try_stmt()
+        if t==_ID or t==_NUMBER or t==_STRING or t=="LPAREN" or t=="LBRACKET" or t=="LBRACE":
             return self._expr_stmt()
-        if t==_OP and self._peek_val()=="NOT":
+        if t==_OP:
+            if self._peek_val() in ("MINUS","NOT"): return self._expr_stmt()
+        if t==_KW and self._peek_val() in ("not","True","False","None"):
             return self._expr_stmt()
         raise _ParseError("AiScript: unexpected token '{}' line {}".format(self._peek_val(),self._at().line))
     def _if_stmt(self):
@@ -321,6 +330,19 @@ class _Parser:
     def _del_stmt(self):
         self._expect(_KW); expr=self._expr()
         return _Delete(expr)
+    def _try_stmt(self):
+        self._expect(_KW); self._expect("COLON"); self._expect(_NEWLINE); self._expect(_INDENT)
+        body=self._block(); self._expect(_DEDENT)
+        ev=None; eb=None; fb=None
+        if self._peek()==_KW and self._peek_val()=="except":
+            self.idx+=1
+            ev=self._expect(_ID).value if self._peek()!="COLON" else None
+            self._expect("COLON"); self._expect(_NEWLINE); self._expect(_INDENT)
+            eb=self._block(); self._expect(_DEDENT)
+        if self._peek()==_KW and self._peek_val()=="finally":
+            self.idx+=1; self._expect("COLON"); self._expect(_NEWLINE); self._expect(_INDENT)
+            fb=self._block(); self._expect(_DEDENT)
+        return _Try(body,ev,eb,fb)
     def _expr_stmt(self):
         expr=self._expr()
         if self._peek()==_ASSIGN:
@@ -336,16 +358,16 @@ class _Parser:
         return self._or_expr()
     def _or_expr(self):
         left=self._and_expr()
-        while self._peek()==_OP and self._peek_val()=="OR":
+        while self._peek()==_KW and self._peek_val()=="or":
             self.idx+=1; right=self._and_expr(); left=_BinOp(left,"||",right)
         return left
     def _and_expr(self):
         left=self._not_expr()
-        while self._peek()==_OP and self._peek_val()=="AND":
+        while self._peek()==_KW and self._peek_val()=="and":
             self.idx+=1; right=self._not_expr(); left=_BinOp(left,"&&",right)
         return left
     def _not_expr(self):
-        if self._peek()==_OP and self._peek_val()=="NOT":
+        if self._peek()==_KW and self._peek_val()=="not":
             self.idx+=1; return _UnaryOp("not",self._not_expr())
         return self._in_expr()
     def _in_expr(self):
@@ -398,8 +420,20 @@ class _Parser:
                 self._expect("RPAREN")
                 expr=_Call(expr,args)
             elif self._peek()=="LBRACKET":
-                self.idx+=1; key=self._expr(); self._expect("RBRACKET")
-                expr=_Subscript(expr,key)
+                self.idx+=1
+                if self._peek()=="COLON":
+                    start=None
+                else:
+                    start=self._expr()
+                    if self._peek()!="COLON":
+                        self._expect("RBRACKET"); expr=_Subscript(expr,start); continue
+                self._expect("COLON")
+                stop=self._expr() if self._peek() not in ("COLON","RBRACKET") else None
+                if self._peek()=="COLON":
+                    self.idx+=1; step=self._expr() if self._peek()!="RBRACKET" else None
+                else:
+                    step=None
+                self._expect("RBRACKET"); expr=_Slice(expr,start,stop,step)
             elif self._peek()=="DOT":
                 self.idx+=1; attr=self._expect(_ID).value
                 expr=_Subscript(expr,_String(attr))
@@ -677,6 +711,23 @@ class _Eval:
                 if callable(attr): return attr
                 return attr
             return obj[key]
+        if t is _Slice:
+            obj=self.eval(node.obj,env)
+            s=self.eval(node.start,env) if node.start is not None else None
+            e=self.eval(node.stop,env) if node.stop is not None else None
+            st=self.eval(node.step,env) if node.step is not None else None
+            return obj[s:e:st]
+        if t is _Try:
+            try:
+                try: self._exec_block(node.body,env)
+                except Exception as e:
+                    if node.except_body is not None:
+                        if node.except_var: env.set(node.except_var,str(e))
+                        self._exec_block(node.except_body,env)
+                    else: raise
+            finally:
+                if node.finally_body is not None: self._exec_block(node.finally_body,env)
+            return None
         if t is _Delete:
             obj=self.eval(node.expr,env)
             if isinstance(node.expr,_Ident):
@@ -721,6 +772,13 @@ class _Eval:
         if op=="/=":
             if isinstance(target,int) and isinstance(val,int): return target//val
             return target/val
+    def register_module(self, name, funcs, env=None):
+        if env is None: env=self.globals
+        mod=type("_AiMod",(),{"__getitem__":lambda s,k: getattr(s,k)})()
+        for k,v in funcs.items():
+            if callable(v): setattr(mod,k,_AiScriptBuiltin(k,v))
+            else: setattr(mod,k,v)
+        env.let(name,mod)
     def _import_module(self, name, env, names=None):
         mod=_AiScriptModule(name,self)
         env.let(name,mod)
