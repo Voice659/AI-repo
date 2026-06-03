@@ -1,8 +1,8 @@
 # ============================================================
-# AiScript v0.2.1 - Python-like scripting language
+# AiScript v0.0.2 — Python-like scripting language
 # Single-file interpreter: lexer, parser, AST, evaluator, REPL
 # ============================================================
-__version__ = "0.2.1.post1"
+__version__ = "0.0.2"
 import sys as _sys, os as _os, random as _random, math as _math, json as _json, time as _time
 
 # ---- TOKEN TYPES ----
@@ -70,10 +70,7 @@ class _Lexer:
         return _Tok(_KW if w in _KEYWORDS else _ID, w, self.line, self.col)
     def _handle_indent(self):
         spaces=0
-        while self.ch in (" ","\t"):
-            if self.ch==" ": spaces+=1
-            else: spaces+=4
-            self._adv()
+        while self.ch==" ": spaces+=1; self._adv()
         if self.ch in ("\n","#",""): return
         top=self._indents[-1]
         if spaces>top: self._indents.append(spaces); self._tokens.append(_Tok(_INDENT,line=self.line))
@@ -456,7 +453,6 @@ class _ReturnSignal(Exception):
 
 class _BreakSignal(Exception): pass
 class _ContinueSignal(Exception): pass
-class _StopSignal(Exception): pass
 
 # ---- ENVIRONMENT ----
 class _Env:
@@ -578,18 +574,18 @@ class _Eval:
                     obj[key]=val
             return val
         if t is _AugAssign:
+            target=self.eval(node.target,env)
             val=self.eval(node.value,env)
             op=node.op
-            if isinstance(node.target,_Ident):
-                target=env.get(node.target.name)
-                nv=self._apply_aug_op(target,val,op)
-                env.set(node.target.name,nv)
+            if op=="+=": nv=target+val
+            elif op=="-=": nv=target-val
+            elif op=="*=": nv=target*val
+            elif op=="/=":
+                if isinstance(target,int) and isinstance(val,int): nv=target//val
+                else: nv=target/val
+            if isinstance(node.target,_Ident): env.set(node.target.name,nv)
             elif isinstance(node.target,_Subscript):
-                obj=self.eval(node.target.obj,env)
-                key=self.eval(node.target.key,env)
-                target=obj[key]
-                nv=self._apply_aug_op(target,val,op)
-                obj[key]=nv
+                obj=self.eval(node.target.obj,env); key=self.eval(node.target.key,env); obj[key]=nv
             return nv
         if t is _If:
             if self.eval(node.cond,env): return self._exec_block(node.body,env)
@@ -681,10 +677,10 @@ class _Eval:
             obj=self.eval(node.expr,env)
             if isinstance(node.expr,_Ident):
                 n=node.expr.name
-                e = env
-                while e:
-                    if n in e.bindings: del e.bindings[n]; return None
-                    e = e.parent
+                if n in env.bindings: del env.bindings[n]; return None
+                if env.parent:
+                    try: env.parent.set(n,None); return None
+                    except: pass
                 raise NameError("AiScript: name '{}' not defined".format(n))
             if isinstance(node.expr,_Subscript):
                 o=self.eval(node.expr.obj,env); k=self.eval(node.expr.key,env)
@@ -709,18 +705,8 @@ class _Eval:
                 except _ReturnSignal as e: return e.value
     def _exec_block(self, stmts, env):
         r=None
-        for s in stmts:
-            if getattr(self, '_stop_flag', None) and self._stop_flag.is_set():
-                raise _StopSignal()
-            r=self.eval(s,env)
+        for s in stmts: r=self.eval(s,env)
         return r
-    def _apply_aug_op(self, target, val, op):
-        if op=="+=": return target+val
-        if op=="-=": return target-val
-        if op=="*=": return target*val
-        if op=="/=":
-            if isinstance(target,int) and isinstance(val,int): return target//val
-            return target/val
     def _import_module(self, name, env, names=None):
         mod=_AiScriptModule(name,self)
         env.let(name,mod)
@@ -751,12 +737,8 @@ class _AiScriptModule:
         elif self.name=="json":
             self.dumps=_AiScriptBuiltin("dumps",lambda o: _json.dumps(o))
             self.loads=_AiScriptBuiltin("loads",lambda s: _json.loads(s))
-            def _ai_json_dump(o, f):
-                with open(f, "w") as fp: _json.dump(o, fp)
-            def _ai_json_load(f):
-                with open(f) as fp: return _json.load(fp)
-            self.dump=_AiScriptBuiltin("dump", _ai_json_dump)
-            self.load=_AiScriptBuiltin("load", _ai_json_load)
+            self.dump=_AiScriptBuiltin("dump",lambda o,f: _json.dump(o,open(f,"w")))
+            self.load=_AiScriptBuiltin("load",lambda f: _json.load(open(f)))
         elif self.name=="time":
             self.time=_AiScriptBuiltin("time",lambda: _time.time())
             self.sleep=_AiScriptBuiltin("sleep",lambda s: _time.sleep(s))
@@ -775,7 +757,7 @@ def _builtin_print(*a): print(*a)
 def _builtin_input(p=""): return input(p)
 def _builtin_len(x): return len(x)
 def _builtin_range(*a): return list(range(*a))
-def _builtin_int(x): return int(x)
+def _builtin_int(x): return int(x) if not isinstance(x,str) else int(x)
 def _builtin_str(x): return str(x)
 def _builtin_float(x): return float(x)
 def _builtin_list(x=None): return list(x) if x is not None else []
@@ -804,8 +786,7 @@ def _builtin_values(d): return list(d.values())
 def _builtin_split(s,sep=None): return s.split(sep) if sep else s.split()
 def _builtin_join(sep,l): return sep.join(str(x) for x in l)
 def _builtin_open(path,mode="r"):
-    try:
-        with open(path,mode) as f: return f.read()
+    try: return open(path,mode).read()
     except Exception as e: raise IOError("AiScript: cannot open '{}': {}".format(path,e))
 def _builtin_exit(c=0): _sys.exit(c)
 def _builtin_sum(x): return sum(x)
@@ -842,11 +823,12 @@ def _builtin_capitalize(s): return s.capitalize()
 
 # ---- REPL ----
 def repl():
-    e=_Eval(); print("AiScript v{} - type 'exit()' to quit".format(__version__))
+    e=_Eval(); print("AiScript v{} — type 'exit()' to quit".format(__version__))
     src=""
     while True:
         try:
             line=input(">>> " if not src else "... ")
+            if not line and src: line=" "
             src+=line+"\n"
             if line and (line.rstrip().endswith(":") or line.startswith(" ") or line.startswith("\t") or src.count("\n")>1 and not line.strip()): continue
             if not src.strip(): continue
@@ -857,28 +839,21 @@ def repl():
             src=""
         except _ParseError as ex: print("SyntaxError:",ex); src=""
         except SyntaxError as ex: print("SyntaxError:",ex); src=""
-        except EOFError: break
-        except KeyboardInterrupt: print("\nInterrupted"); src=""
         except Exception as ex: print("Error:",ex); src=""
 
 # ---- CLI ----
 def run_file(path):
-    try:
-        with open(path,encoding="utf-8") as f: src=f.read()
-        tokens=_Lexer(src).tokenize()
-        ast=_Parser(tokens).parse()
-        e=_Eval()
-        e.eval(ast)
-    except _ParseError as ex: _sys.stderr.write("SyntaxError: {}\n".format(ex)); _sys.exit(1)
-    except SyntaxError as ex: _sys.stderr.write("SyntaxError: {}\n".format(ex)); _sys.exit(1)
-    except Exception as ex: _sys.stderr.write("Error: {}\n".format(ex)); _sys.exit(1)
+    with open(path,encoding="utf-8") as f: src=f.read()
+    tokens=_Lexer(src).tokenize()
+    ast=_Parser(tokens).parse()
+    e=_Eval()
+    e.eval(ast)
 
 def main():
     if len(_sys.argv)>1 and _sys.argv[1] in ("-h","--help"):
-        print("Usage: python aiscript.py [file.ais] [args...]")
+        print("Usage: python aiscript.py [file.ais]")
         print("       python aiscript.py          (REPL)")
     elif len(_sys.argv)>1:
-        _sys.ais_argv = _sys.argv[2:]
         run_file(_sys.argv[1])
     else:
         repl()

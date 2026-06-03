@@ -1,14 +1,14 @@
-# Project State — AiScript v0.2.1 / AI.py v5.5.1
+# Project State — AiScript v0.2.1.post1 / AI.py v5.5.1
 
 ## Project Structure
 ```
 root/
   AI.py              — main application (v5.5.1, Introducing AiScript)
   AiScript/          — AiScript interpreter, Kite IDE, archives
-    aiscript.py      — AiScript v0.2.1 interpreter (main)
-    aiscript_ide.py  — Kite IDE v0.2.1
+    aiscript.py      — AiScript v0.2.1.post1 interpreter (main)
+    aiscript_ide.py  — Kite IDE v0.2.1.post1
     kite.cmd         — Launcher for Kite
-    aiscript_v*.py   — Version archives (0.0.1 through 0.2.1)
+    aiscript_v*.py   — Version archives (0.0.1 through 0.2.1.post1)
     test_aiscript.ais / test_aiscript_v0.0.2.ais / test_aiscript_extra.ais
   hbpe_compat.py     — HubBasePE compatibility layer
   bin/               — datae/ (extras), datagen/ (generators), datab/ (data_bulk*.py)
@@ -21,13 +21,14 @@ root/
 ```
 
 ## Version Status
-- **AiScript**: **v0.2.1** (current, 18 critical fixes applied)
-- **Kite IDE**: **v0.2.1** (same version, bundled with AiScript)
+- **AiScript**: **v0.2.1.post1** (current, 19 fixes — 18 from v0.2.1 + tab-indent fix)
+- **Kite IDE**: **v0.2.1.post1** (same version, bundled with AiScript)
 - **AI.py**: **v5.5.1** (Introducing AiScript)
 - **HubBasePE**: v0.0.2.0.0.2 (vendored in HBPE/)
 
-## AiScript v0.2.1 — All Fixes Applied
-### aiscript.py (10 fixes)
+## AiScript v0.2.1.post1 — Fixes
+### aiscript.py (11 fixes — 10 from v0.2.1 + 1 new)
+**v0.2.1 fixes:**
 1. `del` operator walks scope chain to find variable
 2. `json.dump`/`json.load`/`_builtin_open` — proper context-manager close (no fd leak)
 3. `int()` no-op branch collapsed to avoid unexpected behavior
@@ -39,7 +40,10 @@ root/
 9. REPL banner uses ASCII hyphen `--` instead of em dash `—` (cp866 fix)
 10. **Augmented assignment double-evaluation** — subscript keys evaluated once via `_apply_aug_op`
 
-### aiscript_ide.py (8 fixes)
+**v0.2.1.post1 fix:**
+11. **Tab indentation** — `_handle_indent` counts both spaces and tabs (tab=4 spaces). Fixes `SyntaxError: expected INDENT got 'print'` when pressing Tab in REPL.
+
+### aiscript_ide.py (8 fixes — unchanged from v0.2.1)
 1. Debounced syntax highlight on keystroke (200ms timer)
 2. Unsaved-changes confirmation dialog on Open
 3. Word-count caching in `_on_key` (avoids full re-highlight)
@@ -50,10 +54,10 @@ root/
 8. Console output trimmed at 500 lines
 
 ## Installers
-- **AiScript_Setup_v0.2.1.exe** — standalone (AiScript + optional Kite IDE, .ais file assoc., "Edit in Kite")
-- **AI.py_Setup_v5.5.0.exe** — full bundle (Core + optional AiScript/Kite/HBPE vended/Data Bulk 1-31/Data Files)
+- **AiScript_Setup_v0.2.1.post1.exe** — standalone (AiScript + optional Kite IDE, .ais file assoc., "Edit in Kite")
+- **AI.py_Setup_v5.5.1.exe** — full bundle (Core + optional AiScript/Kite/HBPE vended/Data Bulk 1-31/Data Files)
 - Built via Inno Setup 6.7.3 (`ISCC.exe` at `C:\Users\Trest\AppData\Local\Temp\opencode\InnoSetup\`)
-- Side-by-side: standalone uses `{autopf}\AiScript v0.2.1\`; AI.py bundle uses `{app}\AiScript 0.2.1\`
+- Side-by-side: standalone uses `{autopf}\AiScript v0.2.1.post1\`; AI.py bundle uses `{app}\AiScript 0.2.1\`
 - Registry: 32-bit `Root: HKCR` writes to WOW6432Node — use `Root: HKLM64; Subkey: Software\Classes\...` for 64-bit Explorer
 
 ## Verified Features (test_aiscript.ais + test_aiscript_extra.ais — all pass)

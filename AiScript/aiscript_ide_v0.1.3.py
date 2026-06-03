@@ -1,7 +1,6 @@
 """Kite — AiScript IDE. Lightweight code editor + runner for .ais files.
    Inspired by Python's IDLE, built with tkinter."""
 import tkinter as tk
-import tkinter.font as tkfont
 from tkinter import filedialog, messagebox, scrolledtext
 import sys, os, threading, queue
 
@@ -11,7 +10,7 @@ if _SCRIPT_DIR not in sys.path: sys.path.insert(0, _SCRIPT_DIR)
 
 import aiscript
 
-__version__ = "0.2.1.post1"
+__version__ = "0.1.3"
 
 BG = "#1e1e1e"          # editor background
 FG = "#d4d4d4"          # default text
@@ -35,8 +34,6 @@ class AiScriptIDE:
         self.root.minsize(600, 400)
         self.current_file = None
         self.modified = False
-        self._word_count = 0
-        self.stop_flag = threading.Event()
         self.output_queue = queue.Queue()
         self._build_ui()
         self._setup_menu()
@@ -58,7 +55,7 @@ class AiScriptIDE:
         self.paned.add(editor_frame, height=400)
 
         # Line number canvas
-        self.line_numbers = tk.Canvas(editor_frame, bg=LINE_BG,
+        self.line_numbers = tk.Canvas(editor_frame, width=50, bg=LINE_BG,
                                       highlightthickness=0)
         self.line_numbers.pack(side=tk.LEFT, fill=tk.Y)
 
@@ -97,11 +94,6 @@ class AiScriptIDE:
         tk.Button(console_header, text="Clear", font=("Segoe UI", 8),
                   bg="#21262d", fg="#c9d1d9", relief=tk.FLAT, padx=8,
                   cursor="hand2", command=self._clear_console).pack(side=tk.RIGHT, padx=4, pady=2)
-        self.stop_btn = tk.Button(console_header, text="Stop", font=("Segoe UI", 8, "bold"),
-                                  bg="#da3633", fg="white", relief=tk.FLAT,
-                                  padx=10, cursor="hand2", state=tk.DISABLED,
-                                  command=self._stop_code)
-        self.stop_btn.pack(side=tk.RIGHT, padx=4, pady=2)
 
         self.console = tk.Text(console_frame, font=("Consolas", 10),
                                bg=CONSOLE_BG, fg=CONSOLE_FG,
@@ -166,16 +158,13 @@ class AiScriptIDE:
         line_count = int(self.text.index("end-1c").split(".")[0])
         top_line = int(first.split(".")[0])
         height = self.line_numbers.winfo_height()
-        line_height = tkfont.Font(font=FONT).metrics("linespace") + 2
+        line_height = 22
         visible = height // line_height + 2
-        digit_w = max(3, len(str(line_count)))
-        cw = digit_w * 8 + 10
-        self.line_numbers.config(width=cw)
         for i in range(top_line, min(top_line + visible, line_count + 1)):
             y = (i - top_line) * line_height + 4
-            self.line_numbers.create_text(cw - 5, y, anchor=tk.NE, text=str(i),
+            self.line_numbers.create_text(40, y, anchor=tk.NE, text=str(i),
                                           fill=LINE_FG, font=("Consolas", 9))
-        self.line_numbers.config(scrollregion=(0, 0, cw, line_count * line_height))
+        self.line_numbers.config(scrollregion=(0, 0, 50, line_count * line_height))
 
     # ── Syntax highlighting ─────────────────────────────
     def _highlight(self, event=None):
@@ -288,10 +277,6 @@ class AiScriptIDE:
         self._highlight()
 
     def _open_file(self):
-        if self.modified:
-            if not messagebox.askyesno("Unsaved Changes",
-                                        "Discard current changes?"):
-                return
         path = filedialog.askopenfilename(
             title="Open .ais file",
             filetypes=[("AiScript files", "*.ais"),
@@ -331,8 +316,6 @@ class AiScriptIDE:
     def _run_code(self):
         src = self.text.get("1.0", tk.END)
         self._console_write(">>> Running AiScript...\n")
-        self.stop_flag.clear()
-        self.stop_btn.config(state=tk.NORMAL)
         threading.Thread(target=self._execute, args=(src,), daemon=True).start()
 
     def _execute(self, src):
@@ -340,7 +323,7 @@ class AiScriptIDE:
             tokens = aiscript._Lexer(src).tokenize()
             ast = aiscript._Parser(tokens).parse()
             evaluator = aiscript._Eval()
-            evaluator._stop_flag = self.stop_flag
+            # Redirect print to console (override in evaluator's globals)
             console_write = self._console_write
             evaluator.globals.let("print", aiscript._AiScriptBuiltin("print",
                 lambda *a: console_write(" ".join(str(x) for x in a) + "\n")))
@@ -348,19 +331,14 @@ class AiScriptIDE:
                 result = evaluator.eval(ast)
                 if result is not None:
                     self._console_write(repr(result) + "\n")
-            except aiscript._StopSignal:
-                self._console_write(">>> Stopped.\n")
             finally:
                 evaluator.globals.let("print", aiscript._AiScriptBuiltin("print",
                     aiscript._builtin_print))
             self._console_write(">>> Done.\n")
         except SyntaxError as e:
             self._console_write("SyntaxError: {}\n".format(e))
-        except SystemExit:
-            self._console_write(">>> Program exited.\n")
         except Exception as e:
             self._console_write("Error: {}\n".format(e))
-        self.root.after(0, lambda: self.stop_btn.config(state=tk.DISABLED))
         self.output_queue.put(("__update_status__",))
 
     def _run_external(self):
@@ -388,8 +366,6 @@ class AiScriptIDE:
                 continue
             self.console.config(state=tk.NORMAL)
             self.console.insert(tk.END, item)
-            if int(self.console.index("end-1c").split(".")[0]) > 500:
-                self.console.delete("1.0", "501.0")
             self.console.see(tk.END)
             self.console.config(state=tk.DISABLED)
         self.root.after(50, self._poll_output)
@@ -399,10 +375,6 @@ class AiScriptIDE:
         self.console.delete("1.0", tk.END)
         self.console.config(state=tk.DISABLED)
 
-    def _stop_code(self):
-        self.stop_flag.set()
-        self.stop_btn.config(state=tk.DISABLED)
-
     # ── Event handlers ──────────────────────────────────
     def _on_key(self, event):
         if event.keysym not in ("Control_L", "Control_R", "Shift_L", "Shift_R",
@@ -410,14 +382,10 @@ class AiScriptIDE:
             self.modified = True
             self.root.title("{} *".format(self.root.title().rstrip(" *")))
         self._draw_line_numbers()
-        self._word_count = len(self.text.get("1.0", tk.END).split())
-        if hasattr(self, '_highlight_timer'):
-            self.root.after_cancel(self._highlight_timer)
-        self._highlight_timer = self.root.after(200, self._highlight)
 
     def _update_status(self, event=None):
         line, col = self.text.index(tk.INSERT).split(".")
-        words = getattr(self, '_word_count', 0)
+        words = len(self.text.get("1.0", tk.END).split())
         fn = os.path.basename(self.current_file) if self.current_file else "Untitled"
         self.status.config(text=" {}  |  Line: {}  Col: {}  |  Words: {}".format(
             fn, line, col, words))
