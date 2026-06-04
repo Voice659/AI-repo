@@ -64,6 +64,21 @@ Name: "{group}\Kite IDE ({#MyAIScriptVersion})"; Filename: "{app}\AiScript {#MyA
 Name: "{group}\Uninstall AI.py"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\AI.py v6.0.0"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}
 
+[Code]
+procedure DeleteOldCommandKeys;
+var
+  ResultCode: Integer;
+begin
+  Exec('reg.exe', 'delete "HKLM\Software\Classes\.ais\shell\Edit in Kite\command" /reg:64 /f', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+  Exec('reg.exe', 'delete "HKLM\Software\Classes\AiScriptFile\shell\Edit in Kite\command" /reg:64 /f', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+begin
+  if CurStep = ssInstall then
+    DeleteOldCommandKeys;
+end;
+
 [Registry]
 ; File association for .ais
 Root: HKLM64; Subkey: "Software\Classes\.ais"; ValueType: string; ValueName: ""; ValueData: "AiScriptFile"; Tasks: associateais; Flags: uninsdeletevalue
@@ -71,11 +86,8 @@ Root: HKLM64; Subkey: "Software\Classes\AiScriptFile"; ValueType: string; ValueN
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Tasks: associateais
 
 ; Right-click "Edit in Kite" — cascading menu with versioned sub-items
-; Remove old flat command key (from v0.3.0.post1 and earlier) that interferes with cascade
-Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\command"; ValueType: none; Flags: deletekey; Components: aiscript
-Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\command"; ValueType: none; Flags: deletekey; Components: aiscript
+; Old flat command key deleted via [Code] at ssInstall, before [Registry] runs
 ; Parent cascade (no uninsdeletekey — other versions may also use it)
-Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: ""; ValueData: "Edit in Kite"; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: aiscript
 ; Version-specific sub-item (uninsdeletekey — clean on uninstall)
@@ -83,7 +95,6 @@ Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: str
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\shell\02-Kite v0.3.0.post2 (AI.py)"; ValueType: string; ValueName: ""; ValueData: "Kite v0.3.0.post2 (AI.py)"; Components: aiscript; Flags: uninsdeletekey
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\shell\02-Kite v0.3.0.post2 (AI.py)\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Components: aiscript
 ; Same for AiScriptFile ProgID
-Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: ""; ValueData: "Edit in Kite"; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\shell\02-Kite v0.3.0.post2 (AI.py)"; ValueType: string; ValueName: ""; ValueData: "Kite v0.3.0.post2 (AI.py)"; Components: aiscript; Flags: uninsdeletekey
