@@ -83,19 +83,18 @@ Root: HKLM64; Subkey: "Software\Classes\AiScriptFile"; ValueType: string; ValueN
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Tasks: associateais
 
 ; Right-click "Edit in Kite" — cascading menu with versioned sub-items
-; Old flat command key deleted via [Code] at ssInstall, before [Registry] runs
-; Parent cascade (no uninsdeletekey — other versions may also use it)
+; Old flat key deleted via [Code] at ssInstall, before [Registry] runs
+; ExtendedSubCommandsKey is the Microsoft-documented approach (Win7+)
+; MUIVerb is the display text; parent (Default) must remain unset
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: aiscript
-Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: aiscript
-; Version-specific sub-item (uninsdeletekey — clean on uninstall)
+; Version-specific verb under ExtendedSubCommandsKey (uninsdeletekey — clean on uninstall)
 ; 02- prefix sorts after standalone installer's 01-
-Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\shell\02-Kite v0.3.0.post2 (AI.py)"; ValueType: string; ValueName: ""; ValueData: "Kite v0.3.0.post2 (AI.py)"; Components: aiscript; Flags: uninsdeletekey
-Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\shell\02-Kite v0.3.0.post2 (AI.py)\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Components: aiscript
+Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\ExtendedSubCommandsKey\Shell\02-Kite v0.3.0.post2 (AI.py)"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Kite v0.3.0.post2 (AI.py)"; Components: aiscript; Flags: uninsdeletekey
+Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\ExtendedSubCommandsKey\Shell\02-Kite v0.3.0.post2 (AI.py)\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Components: aiscript
 ; Same for AiScriptFile ProgID
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: aiscript
-Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: aiscript
-Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\shell\02-Kite v0.3.0.post2 (AI.py)"; ValueType: string; ValueName: ""; ValueData: "Kite v0.3.0.post2 (AI.py)"; Components: aiscript; Flags: uninsdeletekey
-Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\shell\02-Kite v0.3.0.post2 (AI.py)\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Components: aiscript
+Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\ExtendedSubCommandsKey\Shell\02-Kite v0.3.0.post2 (AI.py)"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Kite v0.3.0.post2 (AI.py)"; Components: aiscript; Flags: uninsdeletekey
+Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\ExtendedSubCommandsKey\Shell\02-Kite v0.3.0.post2 (AI.py)\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Components: aiscript
 
 [Run]
 ; HBPE is now vendored via HBPE\** in [Files] — no pip install needed
