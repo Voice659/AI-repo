@@ -39,7 +39,7 @@ root/
 ## Key Changes in v0.3.0.post2 (aiscript.py)
 1. **Versioned "Edit in Kite" cascading submenu** — right-click `.ais` file → "Edit in Kite" → versioned sub-items for each installed Kite. Parents use `MUIVerb` + `subcommands` (no `uninsdeletekey`), children use numeric prefix sort order with `uninsdeletekey`. Both `.ais` extension and `AiScriptFile` ProgID get the cascade.
 ## Fixes in v0.3.0.post2 (installer)
-1. **Cascading menu fix** — stale `command` subkey from post1 overrides cascade. ISS files now use `[Code]` with `CurStepChanged(ssInstall)` calling `reg.exe delete /reg:64 /f` before `[Registry]` runs, ensuring old flat key is removed before cascade is created. Replaced `deletekey` + `ValueType: none` (unreliable) with explicit Pascal scripting.
+1. **Cascading menu fix** — stale `command` subkey from post1 overrides cascade. ISS files now use `[Code]` with `CurStepChanged(ssInstall)` calling `reg.exe delete ... /reg:64 /f` on the ENTIRE `Edit in Kite` parent key before `[Registry]` runs, ensuring old flat key AND stale `(Default)` value are removed before cascade is created. Replaced `deletekey` + `ValueType: none` (unreliable) with explicit Pascal scripting.
 2. **Removed `(Default)` from parent cascade key** — only `MUIVerb` + `subcommands` needed.
 
 ## Key Changes in v6.0.0 (AI.py)

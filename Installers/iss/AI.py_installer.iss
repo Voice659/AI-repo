@@ -65,18 +65,15 @@ Name: "{group}\Uninstall AI.py"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\AI.py v6.0.0"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}
 
 [Code]
-procedure DeleteOldCommandKeys;
+procedure CurStepChanged(CurStep: TSetupStep);
 var
   ResultCode: Integer;
 begin
-  Exec('reg.exe', 'delete "HKLM\Software\Classes\.ais\shell\Edit in Kite\command" /reg:64 /f', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
-  Exec('reg.exe', 'delete "HKLM\Software\Classes\AiScriptFile\shell\Edit in Kite\command" /reg:64 /f', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
-end;
-
-procedure CurStepChanged(CurStep: TSetupStep);
-begin
   if CurStep = ssInstall then
-    DeleteOldCommandKeys;
+  begin
+    Exec('reg.exe', 'delete "HKLM\Software\Classes\.ais\shell\Edit in Kite" /reg:64 /f', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    Exec('reg.exe', 'delete "HKLM\Software\Classes\AiScriptFile\shell\Edit in Kite" /reg:64 /f', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+  end;
 end;
 
 [Registry]
