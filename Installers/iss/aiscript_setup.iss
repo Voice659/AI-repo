@@ -79,12 +79,14 @@ Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\open\command"; ValueT
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\command"; ValueType: none; Flags: deletekey; Components: ide
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\command"; ValueType: none; Flags: deletekey; Components: ide
 ; Parent cascade (no uninsdeletekey — other versions may also use it)
+Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: ""; ValueData: "Edit in Kite"; Components: ide
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: ide
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: ide
 ; Version-specific sub-item (uninsdeletekey — clean on uninstall)
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\shell\01-Kite v0.3.0.post2"; ValueType: string; ValueName: ""; ValueData: "Kite v0.3.0.post2"; Components: ide; Flags: uninsdeletekey
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\shell\01-Kite v0.3.0.post2\command"; ValueType: string; ValueName: ""; ValueData: """{app}\kite.cmd"" ""%1"""; Components: ide
 ; Same for AiScriptFile ProgID
+Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: ""; ValueData: "Edit in Kite"; Components: ide
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: ide
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: ide
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\shell\01-Kite v0.3.0.post2"; ValueType: string; ValueName: ""; ValueData: "Kite v0.3.0.post2"; Components: ide; Flags: uninsdeletekey

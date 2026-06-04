@@ -75,6 +75,7 @@ Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\open\command"; ValueT
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\command"; ValueType: none; Flags: deletekey; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\command"; ValueType: none; Flags: deletekey; Components: aiscript
 ; Parent cascade (no uninsdeletekey — other versions may also use it)
+Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: ""; ValueData: "Edit in Kite"; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: aiscript
 ; Version-specific sub-item (uninsdeletekey — clean on uninstall)
@@ -82,6 +83,7 @@ Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: str
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\shell\02-Kite v0.3.0.post2 (AI.py)"; ValueType: string; ValueName: ""; ValueData: "Kite v0.3.0.post2 (AI.py)"; Components: aiscript; Flags: uninsdeletekey
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\shell\02-Kite v0.3.0.post2 (AI.py)\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Components: aiscript
 ; Same for AiScriptFile ProgID
+Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: ""; ValueData: "Edit in Kite"; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\shell\02-Kite v0.3.0.post2 (AI.py)"; ValueType: string; ValueName: ""; ValueData: "Kite v0.3.0.post2 (AI.py)"; Components: aiscript; Flags: uninsdeletekey

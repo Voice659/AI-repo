@@ -37,7 +37,7 @@ root/
 2. **`ai.*` module subscript access** — `_AiMod` object now supports `__getitem__` (falls back to `getattr`), fixing `ai.__version__` and similar attribute access
 
 ## Key Changes in v0.3.0.post2 (aiscript.py)
-1. **Versioned "Edit in Kite" cascading submenu** — right-click `.ais` file → "Edit in Kite" → versioned sub-items for each installed Kite. Parents use `MUIVerb` + `subcommands` (no `uninsdeletekey`), children use numeric prefix sort order with `uninsdeletekey`. Both `.ais` extension and `AiScriptFile` ProgID get the cascade.
+1. **Versioned "Edit in Kite" cascading submenu** — right-click `.ais` file → "Edit in Kite" → versioned sub-items for each installed Kite. Parents use `MUIVerb` + `subcommands` (no `uninsdeletekey`), children use numeric prefix sort order with `uninsdeletekey`. Both `.ais` extension and `AiScriptFile` ProgID get the cascade. Old flat `command` key is deleted first to avoid conflicts.
 
 ## Key Changes in v6.0.0 (AI.py)
 0. (AI.py v6.0.0 shipped alongside AiScript v0.3.0; post1 is aiscript-only)
