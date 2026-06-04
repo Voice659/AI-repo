@@ -71,6 +71,9 @@ Root: HKLM64; Subkey: "Software\Classes\AiScriptFile"; ValueType: string; ValueN
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Tasks: associateais
 
 ; Right-click "Edit in Kite" — cascading menu with versioned sub-items
+; Remove old flat command key (from v0.3.0.post1 and earlier) that interferes with cascade
+Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\command"; ValueType: none; Flags: deletekey; Components: aiscript
+Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\command"; ValueType: none; Flags: deletekey; Components: aiscript
 ; Parent cascade (no uninsdeletekey — other versions may also use it)
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: aiscript
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: aiscript
