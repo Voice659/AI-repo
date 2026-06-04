@@ -1,8 +1,8 @@
-; AiScript v0.3.0.post1 Standalone Installer for Windows
+; AiScript v0.3.0.post2 Standalone Installer for Windows
 ; Inno Setup 6 Script
 
-#define MyAppName "AiScript v0.3.0.post1"
-#define MyAppVersion "0.3.0.post1"
+#define MyAppName "AiScript v0.3.0.post2"
+#define MyAppVersion "0.3.0.post2"
 #define MyAppPublisher "AI.py Project"
 #define MyAppURL "https://github.com/Voice659/AI-repo"
 
@@ -15,14 +15,14 @@ DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir=output
-OutputBaseFilename=AiScript_Setup_v0.3.0.post1
+OutputBaseFilename=AiScript_Setup_v0.3.0.post2
 Compression=lzma2
 SolidCompression=yes
 PrivilegesRequired=admin
 DisableDirPage=no
 DisableProgramGroupPage=yes
 ArchitecturesInstallIn64BitMode=x64compatible
-UninstallDisplayName=AiScript v0.3.0.post1
+UninstallDisplayName=AiScript v0.3.0.post2
 ChangesAssociations=yes
 
 [Languages]
@@ -52,6 +52,8 @@ Source: "..\..\AiScript\backups\aiscript_ide_v0.2.1.post1.py"; DestDir: "{app}\v
 Source: "..\..\AiScript\backups\aiscript_ide_v0.3.0.py"; DestDir: "{app}\versions"; Components: core; Flags: ignoreversion
 Source: "..\..\AiScript\backups\aiscript_ide_v0.3.0.post1.py"; DestDir: "{app}\versions"; Components: core; Flags: ignoreversion
 Source: "..\..\AiScript\backups\aiscript_v0.3.0.post1.py"; DestDir: "{app}\versions"; Components: core; Flags: ignoreversion
+Source: "..\..\AiScript\backups\aiscript_v0.3.0.post2.py"; DestDir: "{app}\versions"; Components: core; Flags: ignoreversion
+Source: "..\..\AiScript\backups\aiscript_ide_v0.3.0.post2.py"; DestDir: "{app}\versions"; Components: core; Flags: ignoreversion
 Source: "..\..\hbpe_compat.py"; DestDir: "{app}"; Components: core; Flags: ignoreversion
 Source: "..\..\AiScript\test_aiscript.ais"; DestDir: "{app}\examples"; Components: core; Flags: ignoreversion
 Source: "..\..\AiScript\test_aiscript_v0.0.2.ais"; DestDir: "{app}\examples"; Components: core; Flags: ignoreversion
@@ -61,10 +63,10 @@ Source: "..\..\AiScript\backups\aiscript_ide_v0.1.3.py"; DestDir: "{app}\version
 Source: "..\..\AiScript\kite.cmd"; DestDir: "{app}"; Components: ide; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\AiScript 0.3.0.post1 REPL"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\aiscript.py"""; WorkingDir: {app}; Components: core; Comment: "AiScript interactive REPL"
-Name: "{group}\Kite IDE (0.3.0.post1)"; Filename: "{app}\kite.cmd"; Parameters: ""; Components: ide; WorkingDir: {app}
+Name: "{group}\AiScript 0.3.0.post2 REPL"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\aiscript.py"""; WorkingDir: {app}; Components: core; Comment: "AiScript interactive REPL"
+Name: "{group}\Kite IDE (0.3.0.post2)"; Filename: "{app}\kite.cmd"; Parameters: ""; Components: ide; WorkingDir: {app}
 Name: "{group}\Uninstall AiScript"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\AiScript 0.3.0.post1 REPL"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\aiscript.py"""; WorkingDir: {app}
+Name: "{commondesktop}\AiScript 0.3.0.post2 REPL"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\aiscript.py"""; WorkingDir: {app}
 
 [Registry]
 ; Default association (double-click) — only with task
@@ -72,9 +74,15 @@ Name: "{commondesktop}\AiScript 0.3.0.post1 REPL"; Filename: "{sys}\cmd.exe"; Pa
 Root: HKLM64; Subkey: "Software\Classes\.ais"; ValueType: string; ValueName: ""; ValueData: "AiScriptFile"; Tasks: associateais; Flags: uninsdeletevalue
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile"; ValueType: string; ValueName: ""; ValueData: "AiScript Source File"; Tasks: associateais; Flags: uninsdeletekey
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\kite.cmd"" ""%1"""; Tasks: associateais
-; Right-click "Edit in Kite" — always if IDE component selected
-; Register under BOTH extension and ProgID for maximum reliability
-Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: ""; ValueData: "Edit in Kite"; Components: ide; Flags: uninsdeletekey
-Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\command"; ValueType: string; ValueName: ""; ValueData: """{app}\kite.cmd"" ""%1"""; Components: ide
-Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: ""; ValueData: "Edit in Kite"; Components: ide; Flags: uninsdeletekey
-Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\command"; ValueType: string; ValueName: ""; ValueData: """{app}\kite.cmd"" ""%1"""; Components: ide
+; Right-click "Edit in Kite" — cascading menu with versioned sub-items
+; Parent cascade (no uninsdeletekey — other versions may also use it)
+Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: ide
+Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: ide
+; Version-specific sub-item (uninsdeletekey — clean on uninstall)
+Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\shell\01-Kite v0.3.0.post2"; ValueType: string; ValueName: ""; ValueData: "Kite v0.3.0.post2"; Components: ide; Flags: uninsdeletekey
+Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite\shell\01-Kite v0.3.0.post2\command"; ValueType: string; ValueName: ""; ValueData: """{app}\kite.cmd"" ""%1"""; Components: ide
+; Same for AiScriptFile ProgID
+Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: ide
+Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "subcommands"; ValueData: ""; Components: ide
+Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\shell\01-Kite v0.3.0.post2"; ValueType: string; ValueName: ""; ValueData: "Kite v0.3.0.post2"; Components: ide; Flags: uninsdeletekey
+Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite\shell\01-Kite v0.3.0.post2\command"; ValueType: string; ValueName: ""; ValueData: """{app}\kite.cmd"" ""%1"""; Components: ide
