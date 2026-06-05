@@ -42,6 +42,7 @@ root/
 1. **Cascading menu fix** — stale `command` subkey from post1 overrides cascade. ISS files now use `[Code]` with `CurStepChanged(ssInstall)` calling `reg.exe delete ... /reg:64 /f` on the ENTIRE `Edit in Kite` parent key before `[Registry]` runs, ensuring old flat key AND stale `(Default)` value are removed before cascade is created. Replaced `deletekey` + `ValueType: none` (unreliable) with explicit Pascal scripting.
 2. **Switched to `ExtendedSubCommandsKey`** — replaced `subcommands = ""` + local `Shell\` subkey (which Windows doesn't recognize for static cascades) with the Microsoft-documented `ExtendedSubCommandsKey` subkey approach (Win7+). Verb display uses `MUIVerb` per Microsoft convention.
 3. **Switched to `SubCommands` + `CommandStore`** — `ExtendedSubCommandsKey` doesn't produce cascade under file extensions. Final approach uses `SubCommands` (semicolon-delimited verb list) + `CommandStore\Shell\` for verb implementations. Windows 10/11 flattens cascades with only 1 verb, so added `Windows.properties` as a guaranteed 2nd item.
+4. **Both installers list ALL verbs** — the standalone installer's SubCommands now also includes the AI.py verb (`02_Kite_v0.3.0.post2_AIpy`), and AI.py's includes the standalone verb. This ensures reinstalling either installer (in any order) preserves all verbs in the cascade menu. Windows silently skips missing CommandStore entries.
 
 ## Key Changes in v6.0.0 (AI.py)
 0. (AI.py v6.0.0 shipped alongside AiScript v0.3.0; post1 is aiscript-only)
