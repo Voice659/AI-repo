@@ -37,10 +37,11 @@ root/
 2. **`ai.*` module subscript access** — `_AiMod` object now supports `__getitem__` (falls back to `getattr`), fixing `ai.__version__` and similar attribute access
 
 ## Key Changes in v0.3.0.post2 (aiscript.py)
-1. **Versioned "Edit in Kite" cascading submenu** — right-click `.ais` file → "Edit in Kite" → versioned sub-items for each installed Kite. Parents use `MUIVerb` + `subcommands` (no `uninsdeletekey`), children use numeric prefix sort order with `uninsdeletekey`. Both `.ais` extension and `AiScriptFile` ProgID get the cascade.
+1. **Versioned "Edit in Kite" cascading submenu** — right-click `.ais` file → "Edit in Kite" → versioned sub-items for each installed Kite. Uses `ExtendedSubCommandsKey` (the Microsoft-documented Win7+ approach) with per-version verbs under `ExtendedSubCommandsKey\Shell\`. Parents use `MUIVerb` + `ExtendedSubCommandsKey` (no `uninsdeletekey`), children use numeric prefix sort order with `uninsdeletekey`. Both `.ais` extension and `AiScriptFile` ProgID get the cascade.
 ## Fixes in v0.3.0.post2 (installer)
 1. **Cascading menu fix** — stale `command` subkey from post1 overrides cascade. ISS files now use `[Code]` with `CurStepChanged(ssInstall)` calling `reg.exe delete ... /reg:64 /f` on the ENTIRE `Edit in Kite` parent key before `[Registry]` runs, ensuring old flat key AND stale `(Default)` value are removed before cascade is created. Replaced `deletekey` + `ValueType: none` (unreliable) with explicit Pascal scripting.
-2. **Removed `(Default)` from parent cascade key** — only `MUIVerb` + `subcommands` needed.
+2. **Switched to `ExtendedSubCommandsKey`** — replaced `subcommands = ""` + local `Shell\` subkey (which Windows doesn't recognize for static cascades) with the Microsoft-documented `ExtendedSubCommandsKey` subkey approach (Win7+). Verb display uses `MUIVerb` per Microsoft convention.
+3. **Switched to `SubCommands` + `CommandStore`** — `ExtendedSubCommandsKey` doesn't produce cascade under file extensions. Final approach uses `SubCommands` (semicolon-delimited verb list) + `CommandStore\Shell\` for verb implementations. Windows 10/11 flattens cascades with only 1 verb, so added `Windows.properties` as a guaranteed 2nd item.
 
 ## Key Changes in v6.0.0 (AI.py)
 0. (AI.py v6.0.0 shipped alongside AiScript v0.3.0; post1 is aiscript-only)
