@@ -1,8 +1,8 @@
-﻿; AI.py v6.0.0 Installer with AiScript components
+﻿; AI.py v6.0.1 Installer with AiScript components
 ; Inno Setup 6 Script
 
-#define MyAppName "AI.py v6.0.0"
-#define MyAppVersion "6.0.0"
+#define MyAppName "AI.py v6.0.1"
+#define MyAppVersion "6.0.1"
 #define MyAIScriptVersion "0.3.0.post2"
 
 [Setup]
@@ -12,21 +12,21 @@ DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir=output
-OutputBaseFilename=AI.py_Setup_v6.0.0
+OutputBaseFilename=AI.py_Setup_v6.0.1
 Compression=lzma2
 SolidCompression=yes
 PrivilegesRequired=admin
 DisableDirPage=no
 DisableProgramGroupPage=yes
 ArchitecturesInstallIn64BitMode=x64compatible
-UninstallDisplayName=AI.py v6.0.0
+UninstallDisplayName=AI.py v6.0.1
 ChangesAssociations=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Components]
-Name: "core"; Description: "AI.py v6.0.0 (core interpreter)"; Types: full compact custom; Flags: fixed
+Name: "core"; Description: "AI.py v6.0.1 (core interpreter)"; Types: full compact custom; Flags: fixed
 Name: "aiscript"; Description: "AiScript {#MyAIScriptVersion} interpreter + REPL + Kite IDE"; Types: full compact custom; Flags: fixed
 Name: "hbpe_stable"; Description: "HubBasePE (stable, pip install hbpe)"; Types: full custom
 Name: "hbpe_dev"; Description: "HubBasePE (development version, pip install hbpe==dev)"; Types: custom
@@ -34,6 +34,7 @@ Name: "data_bulk_1_3"; Description: "Data Bulk files 1-3"; Types: full custom
 Name: "data_bulk_4_10"; Description: "Data Bulk files 4-10"; Types: full custom
 Name: "data_bulk_11_20"; Description: "Data Bulk files 11-20"; Types: full custom
 Name: "data_bulk_21_31"; Description: "Data Bulk files 21-31"; Types: full custom
+Name: "data_bulk_32_38"; Description: "Data Bulk files 32-38"; Types: full custom
 Name: "data_files"; Description: "Data files (post-install note)"; Types: custom; Flags: checkablealone
 
 [Tasks]
@@ -57,12 +58,21 @@ Source: "..\..\hbpe_compat.py"; DestDir: "{app}"; Components: core; Flags: ignor
 Source: "..\..\Json\*"; DestDir: "{app}\Json"; Components: core; Flags: ignoreversion recursesubdirs
 Source: "..\..\HBPE\**"; DestDir: "{app}\HBPE"; Components: core; Flags: ignoreversion recursesubdirs
 
+; Data Bulk files 32-38
+Source: "..\..\bin\datab\data_bulk32.py"; DestDir: "{app}\bin\datab"; Components: data_bulk_32_38; Flags: ignoreversion
+Source: "..\..\bin\datab\data_bulk33.py"; DestDir: "{app}\bin\datab"; Components: data_bulk_32_38; Flags: ignoreversion
+Source: "..\..\bin\datab\data_bulk34.py"; DestDir: "{app}\bin\datab"; Components: data_bulk_32_38; Flags: ignoreversion
+Source: "..\..\bin\datab\data_bulk35.py"; DestDir: "{app}\bin\datab"; Components: data_bulk_32_38; Flags: ignoreversion
+Source: "..\..\bin\datab\data_bulk36.py"; DestDir: "{app}\bin\datab"; Components: data_bulk_32_38; Flags: ignoreversion
+Source: "..\..\bin\datab\data_bulk37.py"; DestDir: "{app}\bin\datab"; Components: data_bulk_32_38; Flags: ignoreversion
+Source: "..\..\bin\datab\data_bulk38.py"; DestDir: "{app}\bin\datab"; Components: data_bulk_32_38; Flags: ignoreversion
+
 [Icons]
-Name: "{group}\AI.py v6.0.0"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}; Components: core; Comment: "AI.py v6.0.0 CLI"
+Name: "{group}\AI.py v6.0.1"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}; Components: core; Comment: "AI.py v6.0.1 CLI"
 Name: "{group}\AiScript {#MyAIScriptVersion} REPL"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AiScript {#MyAIScriptVersion}\aiscript.py"""; WorkingDir: {app}\AiScript {#MyAIScriptVersion}; Components: aiscript; Comment: "AiScript interactive REPL"
 Name: "{group}\Kite IDE ({#MyAIScriptVersion})"; Filename: "{app}\AiScript {#MyAIScriptVersion}\kite.cmd"; Parameters: ""; Components: aiscript; WorkingDir: {app}\AiScript {#MyAIScriptVersion}
 Name: "{group}\Uninstall AI.py"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\AI.py v6.0.0"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}
+Name: "{commondesktop}\AI.py v6.0.1"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}
 
 [Code]
 procedure CurStepChanged(CurStep: TSetupStep);
