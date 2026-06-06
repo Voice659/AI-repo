@@ -19,4 +19,4 @@ Thank you for your interest! Here's how to contribute.
 
 ## Project Structure
 
-See [`docs/README.md`](docs/README.md) for the full project state, version history, and build instructions.
+See [`README.md`](README.md) for the full project state, version history, and build instructions.
