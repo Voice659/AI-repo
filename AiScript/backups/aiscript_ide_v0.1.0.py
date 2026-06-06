@@ -10,14 +10,7 @@ if _SCRIPT_DIR not in sys.path: sys.path.insert(0, _SCRIPT_DIR)
 
 import aiscript
 
-__version__ = "0.1.2"
-
-# ── Hide console ─────────────────────────
-try:
-    import ctypes
-    ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
-except Exception:
-    pass
+__version__ = "0.1.0"
 
 BG = "#1e1e1e"          # editor background
 FG = "#d4d4d4"          # default text
@@ -73,9 +66,9 @@ class AiScriptIDE:
         self.text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
         # Scrollbars
-        self.v_scroll = tk.Scrollbar(editor_frame, orient=tk.VERTICAL,
-                                     command=self._scroll_v)
-        self.v_scroll.pack(side=tk.RIGHT, fill=tk.Y)
+        v_scroll = tk.Scrollbar(editor_frame, orient=tk.VERTICAL,
+                                command=self._scroll_v)
+        v_scroll.pack(side=tk.RIGHT, fill=tk.Y)
         self.text.config(yscrollcommand=self._sync_vscroll)
 
         h_scroll = tk.Scrollbar(self.root, orient=tk.HORIZONTAL,
@@ -149,7 +142,8 @@ class AiScriptIDE:
 
     # ── Line numbers & scroll sync ──────────────────────
     def _sync_vscroll(self, *args):
-        self.v_scroll.set(*args)
+        self.text.yview(*args)
+        self.line_numbers.yview(*args)
         self._draw_line_numbers()
 
     def _scroll_v(self, *args):
@@ -339,7 +333,7 @@ class AiScriptIDE:
             self._console_write("SyntaxError: {}\n".format(e))
         except Exception as e:
             self._console_write("Error: {}\n".format(e))
-        self.output_queue.put(("__update_status__",))
+        self._update_status()
 
     def _run_external(self):
         if not self.current_file:
@@ -358,14 +352,11 @@ class AiScriptIDE:
     def _poll_output(self):
         while True:
             try:
-                item = self.output_queue.get_nowait()
+                text = self.output_queue.get_nowait()
             except queue.Empty:
                 break
-            if isinstance(item, tuple) and item[0] == "__update_status__":
-                self._update_status()
-                continue
             self.console.config(state=tk.NORMAL)
-            self.console.insert(tk.END, item)
+            self.console.insert(tk.END, text)
             self.console.see(tk.END)
             self.console.config(state=tk.DISABLED)
         self.root.after(50, self._poll_output)

@@ -82,12 +82,13 @@ Hello World, if/elif/else, for loops, while loops, lists (index/append/pop/len),
 Recreate and compile historical standalone AiScript installer EXEs for all versions between v0.1.0 and v0.1.3, creating matching IDE archives and ensuring the website version history is complete.
 
 ### What was done
-1. **Created `aiscript_ide_v0.1.1.py`** — v0.1.1 Kite IDE with 3 fixes over v0.1.0:
+1. **Created `aiscript_ide_v0.1.1.py`** — v0.1.1 Kite IDE with these fixes over v0.1.0:
    - `_sync_vscroll` crash: changed `self.text.yview(*args)` to `self.v_scroll.set(*args)`
-   - Thread-safe Tkinter: `_execute` sends `("__update_status__",)` sentinel via queue
-   - `_poll_output` handles the sentinel tuple from main thread
+   - `v_scroll` → `self.v_scroll` (instance variable for scroll sync)
+   - Thread-safe Tkinter: `_execute` sends `("__update_status__",)` sentinel via queue instead of `self._update_status()` (which became `self.root.after(0, self._update_status)` then final queue approach)
+   - `_poll_output` reads `item` (not `text`) and checks for sentinel tuple
 
-2. **Created `aiscript_ide_v0.1.2.py`** — v0.1.2 = v0.1.1 with version bumped to 0.1.2 (kite.cmd launcher introduction)
+2. **Created `aiscript_ide_v0.1.2.py`** — v0.1.2 = v0.1.1 + ctypes console-hide block + version bumped to 0.1.2. Still titled "AiScript IDE v{}", no `main()` function, no `filepath` param yet.
 
 3. **Created `kite_v0.1.2.cmd`** — launcher: `@echo off` `start "" pythonw.exe "%~dp0aiscript_ide.py"`
 
