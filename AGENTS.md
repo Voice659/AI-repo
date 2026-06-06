@@ -75,3 +75,30 @@ Hello World, if/elif/else, for loops, while loops, lists (index/append/pop/len),
 - Vercel deploys from `Website/` directory
 - Git branch `test` is active dev branch; `master` auto-deploys to Vercel
 - Do NOT commit/push unless asked
+
+## Session Summary — Historical Installer Archives (v0.1.0–v0.1.3)
+
+### Goal
+Recreate and compile historical standalone AiScript installer EXEs for all versions between v0.1.0 and v0.1.3, creating matching IDE archives and ensuring the website version history is complete.
+
+### What was done
+1. **Created `aiscript_ide_v0.1.1.py`** — v0.1.1 Kite IDE with 3 fixes over v0.1.0:
+   - `_sync_vscroll` crash: changed `self.text.yview(*args)` to `self.v_scroll.set(*args)`
+   - Thread-safe Tkinter: `_execute` sends `("__update_status__",)` sentinel via queue
+   - `_poll_output` handles the sentinel tuple from main thread
+
+2. **Created `aiscript_ide_v0.1.2.py`** — v0.1.2 = v0.1.1 with version bumped to 0.1.2 (kite.cmd launcher introduction)
+
+3. **Created `kite_v0.1.2.cmd`** — launcher: `@echo off` `start "" pythonw.exe "%~dp0aiscript_ide.py"`
+
+4. **Created 4 ISS files** in `Installers/iss/archives/` for v0.1.0–v0.1.3:
+   - Each bundles interpreter (aiscript_v0.0.2.py as aiscript.py) + matching IDE + optional kite.cmd
+   - Flat `Edit in Kite` registry command (no cascading, which came in v0.3.0)
+   - `.ais` file association to REPL (python.exe) on double-click
+   - REPL uses `/K` flag; IDE uses kite.cmd or direct pythonw.exe
+
+5. **Compiled all 4 installers** with Inno Setup 6.7.3 ISCC.exe
+
+6. **Copied EXEs** to `Website/Installers/` and `AiScript/backups/`
+
+7. **Updated `download.html`** — added 4 rows to the Inno Setup Installer Version History table (v0.1.0–v0.1.3) with descriptions
