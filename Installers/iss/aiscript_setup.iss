@@ -70,13 +70,11 @@ Name: "{commondesktop}\AiScript 0.3.0.post2 REPL"; Filename: "{sys}\cmd.exe"; Pa
 
 [Code]
 procedure CurStepChanged(CurStep: TSetupStep);
-var
-  ResultCode: Integer;
 begin
   if CurStep = ssInstall then
   begin
-    Exec('reg.exe', 'delete "HKLM\Software\Classes\.ais\shell\Edit in Kite" /reg:64 /f', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
-    Exec('reg.exe', 'delete "HKLM\Software\Classes\AiScriptFile\shell\Edit in Kite" /reg:64 /f', '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+    RegDeleteKeyIncludingSubkeys(HKEY_LOCAL_MACHINE, 'Software\Classes\.ais\shell\Edit in Kite');
+    RegDeleteKeyIncludingSubkeys(HKEY_LOCAL_MACHINE, 'Software\Classes\AiScriptFile\shell\Edit in Kite');
   end;
 end;
 
@@ -94,10 +92,10 @@ Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\open\command"; ValueT
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: ide
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "SubCommands"; ValueData: "01_Kite_v0.3.0.post2;02_Kite_v0.3.0.post2_AIpy;Windows.properties"; Components: ide
 ; Standalone verb implementation in CommandStore (uninsdeletekey — clean on uninstall)
-Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\01_Kite_v0.3.0.post2"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Kite v0.3.0.post2"; Components: ide; Flags: uninsdeletekey
+Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\01_Kite_v0.3.0.post2"; ValueType: string; ValueName: "MUIVerb"; ValueData: "AiScript v0.3.0.post2"; Components: ide; Flags: uninsdeletekey
 Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\01_Kite_v0.3.0.post2\command"; ValueType: string; ValueName: ""; ValueData: """{app}\kite.cmd"" ""%1"""; Components: ide
 ; Same for AiScriptFile ProgID
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: ide
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "SubCommands"; ValueData: "01_Kite_v0.3.0.post2;02_Kite_v0.3.0.post2_AIpy;Windows.properties"; Components: ide
-Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\01_Kite_v0.3.0.post2"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Kite v0.3.0.post2"; Components: ide; Flags: uninsdeletekey
+Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\01_Kite_v0.3.0.post2"; ValueType: string; ValueName: "MUIVerb"; ValueData: "AiScript v0.3.0.post2"; Components: ide; Flags: uninsdeletekey
 Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\01_Kite_v0.3.0.post2\command"; ValueType: string; ValueName: ""; ValueData: """{app}\kite.cmd"" ""%1"""; Components: ide
