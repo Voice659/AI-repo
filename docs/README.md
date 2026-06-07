@@ -1,14 +1,14 @@
-# Project State — AiScript v0.3.0.post2 / AI.py v6.0.0
+# Project State — AiScript v0.3.0.post3 / AI.py v6.0.1
 
 ## Project Structure
 ```
 root/
-  AI.py              — main application (v6.0.0, AiScript v0.3.0.post2 integrated)
+  AI.py              — main application (v6.0.1, AiScript v0.3.0.post3 integrated)
   AiScript/          — AiScript interpreter, Kite IDE, archives
-    aiscript.py      — AiScript v0.3.0.post2 interpreter (main)
-    aiscript_ide.py  — Kite IDE v0.2.1.post1
+    aiscript.py      — AiScript v0.3.0.post3 interpreter (main)
+    aiscript_ide.py  — Kite IDE v0.3.0.post3
     kite.cmd         — Launcher for Kite
-    aiscript_v*.py   — Version archives (0.0.1 through 0.3.0.post2)
+    aiscript_v*.py   — Version archives (0.0.1 through 0.3.0.post3)
     test_aiscript.ais / test_aiscript_v0.0.2.ais / test_aiscript_extra.ais
   hbpe_compat.py     — HubBasePE compatibility layer
   bin/               — datae/ (extras), datagen/ (generators), datab/ (data_bulk*.py)
@@ -21,9 +21,9 @@ root/
 ```
 
 ## Version Status
-- **AiScript**: **v0.3.0.post2** (current, versioned "Edit in Kite" cascading submenu)
-- **Kite IDE**: **v0.2.1.post1** (unchanged)
-- **AI.py**: **v6.0.0** (AiScript integrated, `ais`/`run` commands, `ai.*` module)
+- **AiScript**: **v0.3.0.post3** (current, 3 bug fixes: floor-div, import alias, module __getitem__)
+- **Kite IDE**: **v0.3.0.post3** (synced to interpreter)
+- **AI.py**: **v6.0.1** (inline data extraction data_bulk32-38, import order fix)
 - **HubBasePE**: v0.0.2.0.0.2 (vendored in HBPE/)
 
 ## Key Changes in v0.3.0 (aiscript.py)
@@ -44,7 +44,12 @@ root/
 3. **Switched to `SubCommands` + `CommandStore`** — `ExtendedSubCommandsKey` doesn't produce cascade under file extensions. Final approach uses `SubCommands` (semicolon-delimited verb list) + `CommandStore\Shell\` for verb implementations. Windows 10/11 flattens cascades with only 1 verb, so added `Windows.properties` as a guaranteed 2nd item.
 4. **Both installers list ALL verbs** — the standalone installer's SubCommands now also includes the AI.py verb (`02_Kite_v0.3.0.post2_AIpy`), and AI.py's includes the standalone verb. This ensures reinstalling either installer (in any order) preserves all verbs in the cascade menu. Windows silently skips missing CommandStore entries.
 
-## Key Changes in v6.0.0 (AI.py)
+## Fixes in v0.3.0.post3 (aiscript.py)
+1. **Floor division bug** — `25-7/8` now returns `24.125` (was `25`; the `/` operator checked `isinstance(l,int) and isinstance(r,int)` and returned `l//r`). Fix: removed the `isinstance` check, always return `l/r` in both `visit_BinOp` and `_eval_assign_augmented`.
+2. **Import alias bug** — `import _math` didn't expose a usable module name. Fix: `_import_module` now strips leading underscores via `name.lstrip('_')` before registering the module (`import _math` → `math`).
+3. **Module subscript bug** — `_math.add(1,2)` raised `not subscriptable` error. Fix: added `__getitem__` to `_AiScriptModule` class that delegates to `getattr`.
+
+## Key Changes in v6.0.1 (AI.py)
 0. (AI.py v6.0.0 shipped alongside AiScript v0.3.0; post1 is aiscript-only)
 1. **`ais <code>`** — run AiScript one-liner (alias for old `aiscript_run`)
 2. **`run <path>`** — run AiScript file (alias for old `aiscript_file`)
@@ -52,10 +57,10 @@ root/
 4. **AiScript is now a fixed installer component** (always installed with AI.py, not optional)
 
 ## Installers
-- **AiScript_Setup_v0.3.0.post2.exe** — standalone (AiScript + optional Kite IDE, .ais file assoc., versioned "Edit in Kite")
-- **AI.py_Setup_v6.0.0.exe** — full bundle (Core + AiScript/Kite fixed, HBPE vended/Data Bulk/Data Files optional)
+- **AiScript_Setup_v0.3.0.post3.exe** — standalone (AiScript + optional Kite IDE, .ais file assoc., versioned "Edit in Kite")
+- **AI.py_Setup_v6.0.1.exe** — full bundle v6.0.1 (Core + AiScript v0.3.0.post3 fixed, HBPE vended/Data Bulk/Data Files optional)
 - Built via Inno Setup 6.7.3 (`ISCC.exe` at `C:\Users\Trest\AppData\Local\Temp\opencode\InnoSetup\`)
-- Side-by-side: standalone uses `{autopf}\AiScript v0.3.0.post2\`; AI.py bundle uses `{app}\AiScript 0.3.0.post2\`
+- Side-by-side: standalone uses `{autopf}\AiScript v0.3.0.post3\`; AI.py bundle uses `{app}\AiScript 0.3.0.post3\`
 - Registry: 32-bit `Root: HKCR` writes to WOW6432Node — use `Root: HKLM64; Subkey: Software\Classes\...` for 64-bit Explorer
 
 ## Verified Features
