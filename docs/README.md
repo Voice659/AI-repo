@@ -16,7 +16,14 @@ root/
   Json/              — runtime config (ai_notes.json, ai_todos.json, updater_config.json)
   Installers/        — iss/ (Inno Setup scripts + output EXEs), AIpy/ (builder sources)
   Website/           — Vercel-deployed site (all .html, Installers/, AiScript/ symlinks)
-  docs/
+  docs/              — contributing, security, code of conduct, project state
+  .venv/             — Python 3.14 virtual environment
+  node_modules/      — npm dependencies for Website
+  .idea/             — PyCharm/IntelliJ config
+  .wrangler/         — Cloudflare Wrangler config
+  package.json       — npm scripts
+  README.md          — project overview
+  LICENSE            — MIT license
   AGENTS.md          — this file
 ```
 
