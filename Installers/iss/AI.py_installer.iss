@@ -3,7 +3,7 @@
 
 #define MyAppName "AI.py v6.0.1"
 #define MyAppVersion "6.0.1"
-#define MyAIScriptVersion "0.3.0.post2"
+#define MyAIScriptVersion "0.3.0.post3"
 
 [Setup]
 AppName={#MyAppName}
@@ -96,15 +96,15 @@ Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\open\command"; ValueT
 ; SubCommands lists all known verbs; Windows skips any not in CommandStore
 ; MUIVerb is the display text; parent (Default) must remain unset
 Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: aiscript
-Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "SubCommands"; ValueData: "01_Kite_v0.3.0.post2;02_Kite_v0.3.0.post2_AIpy;Windows.properties"; Components: aiscript
+Root: HKLM64; Subkey: "Software\Classes\.ais\shell\Edit in Kite"; ValueType: string; ValueName: "SubCommands"; ValueData: "01_Kite_v0.3.0.post3;02_Kite_v0.3.0.post3_AIpy;Windows.properties"; Components: aiscript
 ; AI.py verb implementation in CommandStore (uninsdeletekey — clean on uninstall)
-Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\02_Kite_v0.3.0.post2_AIpy"; ValueType: string; ValueName: "MUIVerb"; ValueData: "AiScript v0.3.0.post2"; Components: aiscript; Flags: uninsdeletekey
-Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\02_Kite_v0.3.0.post2_AIpy\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Components: aiscript
+Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\02_Kite_v0.3.0.post3_AIpy"; ValueType: string; ValueName: "MUIVerb"; ValueData: "AiScript v0.3.0.post3"; Components: aiscript; Flags: uninsdeletekey
+Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\02_Kite_v0.3.0.post3_AIpy\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Components: aiscript
 ; Same for AiScriptFile ProgID
 Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "MUIVerb"; ValueData: "Edit in Kite"; Components: aiscript
-Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "SubCommands"; ValueData: "01_Kite_v0.3.0.post2;02_Kite_v0.3.0.post2_AIpy;Windows.properties"; Components: aiscript
-Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\02_Kite_v0.3.0.post2_AIpy"; ValueType: string; ValueName: "MUIVerb"; ValueData: "AiScript v0.3.0.post2"; Components: aiscript; Flags: uninsdeletekey
-Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\02_Kite_v0.3.0.post2_AIpy\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Components: aiscript
+Root: HKLM64; Subkey: "Software\Classes\AiScriptFile\shell\Edit in Kite"; ValueType: string; ValueName: "SubCommands"; ValueData: "01_Kite_v0.3.0.post3;02_Kite_v0.3.0.post3_AIpy;Windows.properties"; Components: aiscript
+Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\02_Kite_v0.3.0.post3_AIpy"; ValueType: string; ValueName: "MUIVerb"; ValueData: "AiScript v0.3.0.post3"; Components: aiscript; Flags: uninsdeletekey
+Root: HKLM64; Subkey: "Software\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\Shell\02_Kite_v0.3.0.post3_AIpy\command"; ValueType: string; ValueName: ""; ValueData: """{app}\AiScript {#MyAIScriptVersion}\kite.cmd"" ""%1"""; Components: aiscript
 
 [Run]
 ; HBPE is now vendored via HBPE\** in [Files] — no pip install needed
