@@ -9,6 +9,8 @@ os.makedirs(os.path.join(_SCRIPT_DIR, 'Json'), exist_ok=True)
 import space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data
 import hbpe_compat as HB
 import aiscript
+import lvl_test
+from lvl_test import *
 import data_bulk
 from data_bulk import *
 import data_bulk2
@@ -8001,6 +8003,7 @@ def show_help(role=None):
     print("538 - Corporation data     539 - Nonprofit data")
     print("540 - Journal data         541 - Award data")
     print("542 - Festival data        543 - Battle data")
+    print("801 - PyLevel test")
     print()
     if role:
         print("=== {} COMMANDS ===".format(role))
@@ -8077,6 +8080,7 @@ def show_help(role=None):
     print("calc          - Calculator REPL")
     print("categories    - Categorized command listing")
     print("save/export   - Export data table to file")
+    print("pylevel       - PyLevel interactive test module")
     print("345           - Launch HubBasePE Code system")
     print()
     print("h  - Show this help")
@@ -9362,6 +9366,9 @@ def handle_cmd(cmd, role, name, badge):
         print("HBPE version: v{}".format(HB.HBPE_VERSION))
         print("Programm20: {}".format(HB.HBPE_HAS_PROGRAMM20))
         print("Dev console: {}".format(HB.HBPE_HAS_DEV_CONSOLE))
+    elif cmd in ("801", "pylevel", "lvl"):
+        print("--- PyLevel Module ---")
+        pylevel_main()
     elif cmd.startswith("ais ") or cmd.startswith("aiscript_run "):
         code = cmd[cmd.index(" ")+1:] if " " in cmd else ""
         if not code:
