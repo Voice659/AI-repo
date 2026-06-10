@@ -11,8 +11,6 @@ import hbpe_compat as HB
 import aiscript
 import lvl_test
 from lvl_test import *
-try: import HubBaseUtility.Main as HBU
-except: HBU = None
 import data_bulk
 from data_bulk import *
 import data_bulk2
@@ -217,11 +215,14 @@ def handle_cmd(cmd, role, name, badge):
         print("--- PyLevel Module ---")
         pylevel_main()
     elif cmd in ("hb_util", "hb_utility", "hbu"):
-        if HBU is None:
+        try:
+            import HubBaseUtility.Main as _HBU
+            print("--- HubBase Utility v{} ---".format(getattr(_HBU, '__version__', '?')))
+            _HBU.Showcase()
+        except ImportError:
             print("HubBaseUtility not installed. Run: pip install HubBaseUtility")
-        else:
-            print("--- HubBase Utility ---")
-            HBU.Showcase()
+        except EOFError:
+            print("HubBaseUtility requires interactive input. Run in console.")
     elif cmd.startswith("ais ") or cmd.startswith("aiscript_run "):
         code = cmd[cmd.index(" ")+1:] if " " in cmd else ""
         if not code:
