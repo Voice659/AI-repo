@@ -1,5 +1,5 @@
 import random, datetime, os, math, string, json, re, hashlib, base64, uuid, time, statistics, sys, textwrap
-__version__ = "6.0.1"  # AiScript v0.3.0 integrated
+__version__ = "6.0.2"  # AiScript v0.3.1 integrated
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'AiScript'))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'bin', 'datae'))

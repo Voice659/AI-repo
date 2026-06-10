@@ -39,7 +39,7 @@ from data_bulk37 import *
 from data_bulk38 import *
 import aiscript
 import random, os, json, textwrap
-__version__ = "6.0.1"
+__version__ = "6.0.2"
 
 def show_help(role=None):
     print("15 - ASCII house            16 - ASCII flower")
@@ -375,6 +375,8 @@ def show_help(role=None):
     print("hbpe_program1-20 - Run HBPE programs 1-20")
     print("hbpe_programp1-5 - Run HBPE programs P1-P5")
     print("hbpe_dev_console - HBPE developer console")
+    print("hb_util/hbu   - HubBase Utility showcase")
+    print("pylevel/lvl   - PyLevel interactive learning module")
     print("aiscript_run  - Run AiScript code inline")
     print("aiscript_file - Run an AiScript .ais file")
     print("quiz          - Interactive data quiz")
@@ -386,7 +388,6 @@ def show_help(role=None):
     print("calc          - Calculator REPL")
     print("categories    - Categorized command listing")
     print("save/export   - Export data table to file")
-    print("pylevel       - PyLevel interactive test module")
     print("345           - Launch HubBasePE Code system")
     print()
     print("h  - Show this help")
@@ -1473,7 +1474,12 @@ def cmd_help_detail(topic):
         "notes": "Simple note taking. 'notes add <text>', 'notes list', 'notes remove N', 'notes clear'.",
         "todo": "Todo list manager. 'todo add <task>', 'todo list', 'todo done N', 'todo remove N', 'todo clear'.",
         "remind": "Set a timed reminder. Usage: 'remind <seconds> <message>'.",
-        "hb_util / hb_utility / hbu": "Launch HubBaseUtility — type/format checker and showcase.",
+        "hb_util": "Launch HubBaseUtility — built-in type/format checker with showcase demo. Aliases: hb_utility, hbu.",
+        "hb_utility": "Launch HubBaseUtility — built-in type/format checker with showcase demo. Aliases: hb_util, hbu.",
+        "hbu": "Launch HubBaseUtility — built-in type/format checker with showcase demo. Aliases: hb_util, hb_utility.",
+        "pylevel": "PyLevel interactive learning module — 45 ops: file ops, crypto, regex, calculator, and more. Aliases: lvl, 3608.",
+        "lvl": "PyLevel interactive learning module — 45 ops: file ops, crypto, regex, calculator, and more. Aliases: pylevel, 3608.",
+        "3608": "PyLevel interactive learning module — 45 ops: file ops, crypto, regex, calculator, and more. Aliases: pylevel, lvl.",
         "pylevel / lvl / 3608": "PyLevel interactive learning module — file ops, crypto, regex, and more.",
     }
     if topic in help_map:

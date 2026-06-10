@@ -1,10 +1,10 @@
 import time
 
 
-_AUTO_RUN = False  # Set True for standalone execution
-
 def Programm0():
     print("Hello world")
+
+
 def Programm1():
     Value = input("Enter a word or Number -- ")
     try:
@@ -18,7 +18,7 @@ def Programm1():
         print("That is a string")
 
 
-__version__ = "0.0.0.0.10"
+__version__ = "0.0.0.0.11"
 ProgrammNumber = 1
 programmList = {1: Programm1}
 
@@ -33,7 +33,3 @@ def Showcase():
         except KeyError:
             print(f"KeyError: Key {programm} is out of reach")
             break
-
-
-if _AUTO_RUN:
-    Showcase()
