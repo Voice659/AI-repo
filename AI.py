@@ -24066,13 +24066,6 @@ def main():
 
 
 from aipy_utils import *
-
-if __name__ == "__main__":
-    main()
-    if not isinstance(text, str):
-        text = str(text)
-    if not text:
-        return {"words": 0, "chars": 0, "sentences": 0}
     # Split into words
     words = text.split()
     word_count_val = len(words)
