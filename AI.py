@@ -11,6 +11,8 @@ import hbpe_compat as HB
 import aiscript
 import lvl_test
 from lvl_test import *
+try: import HubBaseUtility.Main as HBU
+except: HBU = None
 import data_bulk
 from data_bulk import *
 import data_bulk2
@@ -117,7 +119,6 @@ def handle_cmd(cmd, role, name, badge):
     handler = _cmd_registry.get((cmd, role))
     if handler:
         return handler(name, role, badge)
-    """Dispatch a command to the appropriate handler."""
     if cmd == "h":
         show_help(role)
     elif cmd == "Voice659" or cmd == "Voice659()":
@@ -210,7 +211,7 @@ def handle_cmd(cmd, role, name, badge):
             print("Dev console not available in this HBPE version (v{}).".format(HB.HBPE_VERSION))
     elif cmd == "hbpe_compat":
         print("HBPE version: v{}".format(HB.HBPE_VERSION))
-        print("Programm20: {}".format(HB.HBPE_HAS_PROGRAMM20))
+        print("Programm20: {}".format(HB.HBPE_HAS_PROGRAM20))
         print("Dev console: {}".format(HB.HBPE_HAS_DEV_CONSOLE))
     elif cmd in ("3608", "pylevel", "lvl"):
         print("--- PyLevel Module ---")
@@ -2402,62 +2403,74 @@ def handle_cmd(cmd, role, name, badge):
             print("Error:", _ex)
     elif cmd == "544":
         try:
-            print(calculate_circle_area())
+            _val = input("Circle radius: ") or "0"
+            print(calculate_circle_area(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "545":
         try:
-            print(calculate_circle_volume())
+            _val = input("Circle radius: ") or "0"
+            print(calculate_circle_volume(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "546":
         try:
-            print(calculate_circle_perimeter())
+            _val = input("Circle radius: ") or "0"
+            print(calculate_circle_perimeter(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "547":
         try:
-            print(calculate_circle_surface_area())
+            _val = input("Circle radius: ") or "0"
+            print(calculate_circle_surface_area(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "548":
         try:
-            print(calculate_square_area())
+            _val = input("Square side: ") or "0"
+            print(calculate_square_area(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "549":
         try:
-            print(calculate_square_volume())
+            _val = input("Square side: ") or "0"
+            print(calculate_square_volume(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "550":
         try:
-            print(calculate_square_perimeter())
+            _val = input("Square side: ") or "0"
+            print(calculate_square_perimeter(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "551":
         try:
-            print(calculate_square_surface_area())
+            _val = input("Square side: ") or "0"
+            print(calculate_square_surface_area(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "552":
         try:
-            print(calculate_rectangle_area())
+            _val = input("Rectangle value: ") or "0"
+            print(calculate_rectangle_area(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "553":
         try:
-            print(calculate_rectangle_volume())
+            _val = input("Rectangle value: ") or "0"
+            print(calculate_rectangle_volume(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "554":
         try:
-            print(calculate_rectangle_perimeter())
+            _val = input("Rectangle value: ") or "0"
+            print(calculate_rectangle_perimeter(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "555":
         try:
-            print(calculate_rectangle_surface_area())
+            _val = input("Rectangle value: ") or "0"
+            print(calculate_rectangle_surface_area(float(_val)))
         except Exception as _e:
             print(_e)
     elif cmd == "556":
@@ -14928,7 +14941,8 @@ def main():
         lower = cmd.lower()
         if lower == "q":
             badge = role_badge(role)
-            print(C_YELLOW + "Goodbye {} {}!".format(badge, name).strip() + C_RESET)
+            msg = "Goodbye {} {}!".format(badge, name) if badge else "Goodbye {}!".format(name)
+            print(C_YELLOW + msg + C_RESET)
             break
         if not cmd: continue
         if lower == "history":
