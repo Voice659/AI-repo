@@ -35,4 +35,5 @@ def Showcase():
             break
 
 
-Showcase()
+if _AUTO_RUN:
+    Showcase()

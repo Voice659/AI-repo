@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'AiScript'))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'bin', 'datae'))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'bin', 'datab'))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'HBPE'))
+sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'HBUtil'))
 os.makedirs(os.path.join(_SCRIPT_DIR, 'Json'), exist_ok=True)
 import space_data, mini_games, trivia_pack, word_play, art_extra, world_data, story_data
 import hbpe_compat as HB
@@ -216,13 +217,15 @@ def handle_cmd(cmd, role, name, badge):
         pylevel_main()
     elif cmd in ("hb_util", "hb_utility", "hbu"):
         try:
-            import HubBaseUtility.Main as _HBU
+            import Main as _HBU
+            _HBU._AUTO_RUN = False
+            import importlib; importlib.reload(_HBU)
             print("--- HubBase Utility v{} ---".format(getattr(_HBU, '__version__', '?')))
             _HBU.Showcase()
         except ImportError:
-            print("HubBaseUtility not installed. Run: pip install HubBaseUtility")
-        except EOFError:
-            print("HubBaseUtility requires interactive input. Run in console.")
+            print("HubBaseUtility not installed locally.")
+        except Exception as _hbu_e:
+            print("HubBaseUtility error:", _hbu_e)
     elif cmd.startswith("ais ") or cmd.startswith("aiscript_run "):
         code = cmd[cmd.index(" ")+1:] if " " in cmd else ""
         if not code:
