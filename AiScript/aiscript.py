@@ -2,7 +2,7 @@
 # AiScript v0.3.0 - Python-like scripting language
 # Single-file interpreter: lexer, parser, AST, evaluator, REPL
 # ============================================================
-__version__ = "0.3.0.post3"
+__version__ = "0.3.1"
 import sys as _sys, os as _os, random as _random, math as _math, json as _json, time as _time
 
 # ---- TOKEN TYPES ----
@@ -16,7 +16,8 @@ _KEYWORDS = {"if","elif","else","while","for","in","def","class","return",
 
 _OP2TOK = {"+":"PLUS","-":"MINUS","*":"MUL","/":"DIV","%":"MOD","**":"POW",
            "==":"EQ","!=":"NE","<":"LT",">":"GT","<=":"LE",">=":"GE",
-           "=":"ASSIGN","+=":"PLUSEQ","-=":"MINUSEQ","*=":"MULEQ","/=":"DIVEQ"}
+           "=":"ASSIGN","+=":"PLUSEQ","-=":"MINUSEQ","*=":"MULEQ","/=":"DIVEQ",
+           "//":"DOUBLESLASH"}
 
 class _Tok:
     __slots__ = ("type","value","line","col")
@@ -210,25 +211,38 @@ class _FromImport(_AST):
     def __init__(self,m,n): self.module=m; self.names=n
 
 # ---- PARSER ----
-class _ParseError(Exception): pass
+class _ParseError(Exception):
+    def __init__(self, msg, line_num=0, col=0, source=""):
+        self.msg = msg
+        self.line_num = line_num
+        self.col = col
+        self.source = source
+    def __str__(self):
+        if self.source and self.line_num:
+            src_lines = self.source.split("\n")
+            if 0 < self.line_num <= len(src_lines):
+                src_line = src_lines[self.line_num - 1]
+                caret = " " * max(0, self.col - 1) + "^"
+                return "AiScript line {}: {}\n{}\n{}".format(self.line_num, self.msg, src_line, caret)
+        return self.msg
 
 class _Parser:
-    def __init__(self, tokens):
-        self.toks=tokens; self.idx=0
+    def __init__(self, tokens, source=""):
+        self.toks=tokens; self.idx=0; self.source=source
         self._at=lambda: self.toks[self.idx] if self.idx<len(self.toks) else _Tok(_EOF)
     def _peek(self): return self._at().type
     def _peek_val(self): return self._at().value
     def _eat(self, t=None):
         tok=self._at()
         if t and tok.type!=t:
-            raise _ParseError("AiScript: expected {} got '{}' line {}".format(t,tok.value,tok.line))
+            raise _ParseError("expected {} got '{}'".format(t,tok.value), tok.line, tok.col, self.source)
         self.idx+=1
         return tok
     def _skip_newlines(self):
         while self._peek()==_NEWLINE: self.idx+=1
     def _expect(self, t):
         tok=self._at()
-        if tok.type!=t: raise _ParseError("AiScript: expected {} got '{}' line {}".format(t,tok.value,tok.line))
+        if tok.type!=t: raise _ParseError("expected {} got '{}'".format(t,tok.value), tok.line, tok.col, self.source)
         self.idx+=1
         return tok
     def parse(self):
@@ -265,7 +279,7 @@ class _Parser:
             if self._peek_val() in ("MINUS","NOT"): return self._expr_stmt()
         if t==_KW and self._peek_val() in ("not","True","False","None"):
             return self._expr_stmt()
-        raise _ParseError("AiScript: unexpected token '{}' line {}".format(self._peek_val(),self._at().line))
+        tok=self._at(); raise _ParseError("unexpected token '{}'".format(tok.value), tok.line, tok.col, self.source)
     def _if_stmt(self):
         self._expect(_KW)
         cond=self._expr()
@@ -396,7 +410,7 @@ class _Parser:
         left=self._power()
         while self._peek()==_OP:
             op=self._peek_val()
-            if op in ("MUL","DIV","MOD"):
+            if op in ("MUL","DIV","MOD","DOUBLESLASH"):
                 self.idx+=1; right=self._power(); left=_BinOp(left,op,right)
             else: break
         return left
@@ -463,7 +477,7 @@ class _Parser:
                 k=self._expr(); self._expect("COLON"); v=self._expr(); pairs.append((k,v))
                 while self._peek()=="COMMA": self.idx+=1; k=self._expr(); self._expect("COLON"); v=self._expr(); pairs.append((k,v))
             self._expect("RBRACE"); return _Dict(pairs)
-        raise _ParseError("AiScript: unexpected token '{}' line {}".format(self._peek_val(),self._at().line))
+        tok=self._at(); raise _ParseError("unexpected token '{}'".format(tok.value), tok.line, tok.col, self.source)
 
 # ---- RUNTIME VALUES ----
 class _AiScriptFunc:
@@ -583,8 +597,8 @@ class _Eval:
             if op=="PLUS": return l+r
             if op=="MINUS": return l-r
             if op=="MUL": return l*r
-            if op=="DIV":
-                return l/r
+            if op=="DIV": return l/r
+            if op=="DOUBLESLASH": return int(l/r)
             if op=="MOD": return l%r
             if op=="POW": return l**r
             if op=="EQ": return l==r
@@ -909,7 +923,7 @@ def repl():
             if line and (line.rstrip().endswith(":") or line.startswith(" ") or line.startswith("\t") or src.count("\n")>1 and not line.strip()): continue
             if not src.strip(): continue
             tokens=_Lexer(src).tokenize()
-            ast=_Parser(tokens).parse()
+            ast=_Parser(tokens, src).parse()
             r=e.eval(ast)
             if r is not None: print(r)
             src=""
@@ -924,7 +938,7 @@ def run_file(path):
     try:
         with open(path,encoding="utf-8") as f: src=f.read()
         tokens=_Lexer(src).tokenize()
-        ast=_Parser(tokens).parse()
+        ast=_Parser(tokens, src).parse()
         e=_Eval()
         e.eval(ast)
     except _ParseError as ex: _sys.stderr.write("SyntaxError: {}\n".format(ex)); _sys.exit(1)
