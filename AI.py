@@ -24066,11 +24066,9 @@ def main():
 
 
 from aipy_utils import *
-    """Text utility. (cmd 2673)"""
-    try:
-        text = input("Enter text: ")
-    except (ValueError, EOFError):
-        return "No input provided"
+
+if __name__ == "__main__":
+    main()
     if not isinstance(text, str):
         text = str(text)
     if not text:
