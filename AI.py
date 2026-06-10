@@ -24065,9 +24065,7 @@ def main():
 
 
 
-# === v4.4.0 NEW UTILITY FUNCTIONS ===
-
-def text_analysis_word_count():
+from aipy_utils import *
     """Text utility. (cmd 2673)"""
     try:
         text = input("Enter text: ")
