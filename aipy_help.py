@@ -1473,6 +1473,8 @@ def cmd_help_detail(topic):
         "notes": "Simple note taking. 'notes add <text>', 'notes list', 'notes remove N', 'notes clear'.",
         "todo": "Todo list manager. 'todo add <task>', 'todo list', 'todo done N', 'todo remove N', 'todo clear'.",
         "remind": "Set a timed reminder. Usage: 'remind <seconds> <message>'.",
+        "hb_util / hb_utility / hbu": "Launch HubBaseUtility (install with: pip install HubBaseUtility).",
+        "pylevel / lvl / 3608": "PyLevel interactive learning module — file ops, crypto, regex, and more.",
     }
     if topic in help_map:
         return C_BOLD + topic + C_RESET + ": " + help_map[topic]
@@ -1491,8 +1493,9 @@ def help_cat():
         ("Data", "67-75, 121-132 (quote, animals, colors, fruits, vegetables, elements, random number, UUID, shuffle, flatten, chunk, unique, intersect)"),
         ("Admin/Mod/VIP", "system_info, list_users, toggle_debug, featured_joke, vip_fact, vip_quote"),
         ("Debug", "debug_functions, debug_vars, debug_cmd_count, debug_exec"),
-        ("HBPE", "345, hbpe_start, hbpe_advance, hbpe_restart, hbpe_stop, hbpe_program1-20, hbpe_programp1-5, hbpe_dev_console, hbpe_compat"),
+        ("HBPE / HB Util", "345, hbpe_start, hbpe_advance, hbpe_restart, hbpe_stop, hbpe_program1-20, hbpe_programp1-5, hbpe_dev_console, hbpe_compat, hb_util/hbu"),
         ("AiScript", "aiscript_run <code> (run inline code), aiscript_file <path> (run .ais file)"),
+        ("PyLevel", "3608, pylevel, lvl — interactive file/string/crypto learning module"),
         ("New v3.6", "quiz, chart, suggest, ask/ai/query, flashcard/learn, colors, pager_test, cls, version, timer, stopwatch, calc, categories, save/export"),
         ("HTML Docs", "docs (open AI.py-docs.html), dashboard (open dashboard.html), gen_html/regenerate (rebuild HTML files)"),
         ("Notes/Todo", "notes (add/list/remove/clear), todo (add/list/done/remove/clear), remind <sec> <msg>"),
