@@ -9366,7 +9366,7 @@ def handle_cmd(cmd, role, name, badge):
         print("HBPE version: v{}".format(HB.HBPE_VERSION))
         print("Programm20: {}".format(HB.HBPE_HAS_PROGRAMM20))
         print("Dev console: {}".format(HB.HBPE_HAS_DEV_CONSOLE))
-    elif cmd in ("801", "pylevel", "lvl"):
+    elif cmd in ("3608", "pylevel", "lvl"):
         print("--- PyLevel Module ---")
         pylevel_main()
     elif cmd.startswith("ais ") or cmd.startswith("aiscript_run "):
@@ -12839,7 +12839,7 @@ def handle_cmd(cmd, role, name, badge):
             print(calculate_inclined_plane_area())
         except Exception as _e:
             print(_e)
-    elif cmd == "805":
+    elif cmd == "801":
         try:
             print(calculate_inclined_plane_volume())
         except Exception as _e:

@@ -3,6 +3,14 @@ import random
 from turtle import *
 import tkinter as tkr
 
+# Module-level globals (initialized here so Code() works without calling Enter() first)
+VipAccess = "F"
+PassGuess = 0
+Login = "usr"
+Stop = 0
+RA = 0
+VN = "0.0.2.0.03"
+
 
 def Enter():  # (13.03.2026)
     global VipAccess, PassGuess, Login, VN
