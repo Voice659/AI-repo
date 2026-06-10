@@ -218,8 +218,6 @@ def handle_cmd(cmd, role, name, badge):
     elif cmd in ("hb_util", "hb_utility", "hbu"):
         try:
             import Main as _HBU
-            _HBU._AUTO_RUN = False
-            import importlib; importlib.reload(_HBU)
             print("--- HubBase Utility v{} ---".format(getattr(_HBU, '__version__', '?')))
             _HBU.Showcase()
         except ImportError:

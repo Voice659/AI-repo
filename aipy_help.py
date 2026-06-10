@@ -1473,7 +1473,7 @@ def cmd_help_detail(topic):
         "notes": "Simple note taking. 'notes add <text>', 'notes list', 'notes remove N', 'notes clear'.",
         "todo": "Todo list manager. 'todo add <task>', 'todo list', 'todo done N', 'todo remove N', 'todo clear'.",
         "remind": "Set a timed reminder. Usage: 'remind <seconds> <message>'.",
-        "hb_util / hb_utility / hbu": "Launch HubBaseUtility (install with: pip install HubBaseUtility).",
+        "hb_util / hb_utility / hbu": "Launch HubBaseUtility — type/format checker and showcase.",
         "pylevel / lvl / 3608": "PyLevel interactive learning module — file ops, crypto, regex, and more.",
     }
     if topic in help_map:
