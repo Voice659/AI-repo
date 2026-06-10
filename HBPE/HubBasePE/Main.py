@@ -9,16 +9,16 @@ PassGuess = 0
 Login = "usr"
 Stop = 0
 RA = 0
-VN = "0.0.2.0.03"
+
+__version__ = "0.0.2.0.04"
 
 
 def Enter():  # (13.03.2026)
-    global VipAccess, PassGuess, Login, VN
+    global VipAccess, PassGuess, Login
     Vips = ["voice659", "vhba", "vipuser", 'hbaofficial', "vvoice", "voice", "v", "vip1"]
-    VN = "0.0.2.0.03"
     VipAccess = "F"
     PassGuess = 0
-    print("--- HubBase " + VN + " (plus, June 09 2026, 17:22:17) ---")
+    print("--- HubBase " + __version__ + " (plus, June 10 2026, 17:05:45) ---")
     Login = input("Login (If <vip level then press enter): ").lower()
     if Login in Vips:
         Password = str(5280)
@@ -1101,7 +1101,7 @@ def Code():
         print("You shall not pass")
         global RA
         RestartAttempt = RestAtt = RA = int(RA) + 1
-        print("Restart \u2116" + str(RA), "initialaizing")
+        print("Restart №" + str(RA), "initialaizing")
         Restart()
 
 
@@ -1192,11 +1192,11 @@ def Restart():  # (16.03.2026)
 
 
 def dev_console():
-    global RA, VipAccess, Login, VN
-    SpCm = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+    global RA, VipAccess, Login
+    SpCm = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
             "P1", "P2", "P3", "P4", "P5"]
     if VipAccess == "T":
-        print("Developer console for " + VN)
+        print("Developer console for " + __version__)
         line = ""
         while line != "stop":
             line = input(Login + " >>> ").lower()

@@ -12,7 +12,7 @@ root/
     test_aiscript.ais / test_aiscript_v0.0.2.ais / test_aiscript_extra.ais
   hbpe_compat.py     — HubBasePE compatibility layer
   bin/               — datae/ (extras), datagen/ (generators), datab/ (data_bulk*.py)
-  HBPE/              — vendored HubBasePE v0.0.2.0.0.3
+  HBPE/              — vendored HubBasePE v0.0.2.0.0.4
   Json/              — runtime config (ai_notes.json, ai_todos.json, updater_config.json)
   Installers/        — iss/ (Inno Setup scripts + output EXEs), AIpy/ (builder sources)
   Website/           — Vercel-deployed site (all .html, Installers/, AiScript/ symlinks)
@@ -31,7 +31,7 @@ root/
 - **AiScript**: **v0.3.0.post3** (current, 3 bug fixes: floor-div, import alias, module __getitem__)
 - **Kite IDE**: **v0.3.0.post3** (synced to interpreter)
 - **AI.py**: **v6.0.1** (inline data extraction data_bulk32-38, import order fix)
-- **HubBasePE**: v0.0.2.0.0.3 (vendored in HBPE/)
+- **HubBasePE**: v0.0.2.0.0.4 (vendored in HBPE/)
 
 ## Key Changes in v0.3.0 (aiscript.py)
 1. **`not` at statement level** — `not`, `True`, `False`, `None` now startable as expression statements

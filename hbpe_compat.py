@@ -11,7 +11,7 @@ HBPE_HAS_PROGRAM20 = True
 HBPE_HAS_DEV_CONSOLE = True
 _raw_hb = None
 
-_FORWARD_ATTRS = frozenset(["VipAccess", "PassGuess", "Login", "Stop", "RA", "VN"])
+_FORWARD_ATTRS = frozenset(["VipAccess", "PassGuess", "Login", "Stop", "RA"])
 
 class _CompatModule(_types.ModuleType):
     """Module subclass that forwards key attribute writes to the raw Main module."""
