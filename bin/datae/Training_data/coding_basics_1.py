@@ -2128,9 +2128,9 @@ def divide_body_701(case, body):
 def alpha_scenario_702(text):
     """Checks if text contains only letters"""
     return text.isalpha()
-def modulo_setting_703(holder, holder):
+def modulo_setting_703(holder, holder2):
     """Returns the remainder of holder divided by holder"""
-    return holder % holder
+    return holder % holder2
 def modulo_result_704(category, count):
     """Returns the remainder of category divided by count"""
     return category % count
@@ -4391,9 +4391,9 @@ def reverse_setting_1447(text):
 def alpha_collection_1448(text):
     """Checks if text contains only letters"""
     return text.isalpha()
-def divide_key_1449(flag, flag):
+def divide_key_1449(flag, flag2):
     """Divides flag by flag and returns the quotient"""
-    return flag / flag
+    return flag / flag2
 def average_coefficient_1450(items):
     """Returns the average value of items in a list"""
     return sum(items) / len(items) if items else 0
@@ -6938,9 +6938,9 @@ def dict_edge_2285(data):
 def modulo_quotient_2286(product, remainder):
     """Returns the remainder of product divided by remainder"""
     return product % remainder
-def multiply_sum_2287(term, term):
+def multiply_sum_2287(term, term2):
     """Multiplies term by term and returns the product"""
-    return term * term
+    return term * term2
 def power_operand_2288(sequence, kind):
     """Raises sequence to the power of kind"""
     return sequence ** kind
@@ -8652,9 +8652,9 @@ def word_name_2849(text):
 def even_output_by_2850(n):
     """Returns True if n is an even number"""
     return n % 2 == 0
-def modulo_value_2851(power, power):
+def modulo_value_2851(power, power2):
     """Returns the remainder of power divided by power"""
-    return power % power
+    return power % power2
 def replace_field_2852(text):
     """Replaces spaces with underscores in a string"""
     return text.replace(' ', '_')
@@ -12142,9 +12142,9 @@ def word_power_3999(text):
 def count_option_4000(text, ch):
     """Counts occurrences of ch in text"""
     return text.count(ch)
-def modulo_index_4001(boundary, boundary):
+def modulo_index_4001(boundary, boundary2):
     """Returns the remainder of boundary divided by boundary"""
-    return boundary % boundary
+    return boundary % boundary2
 def convert_scope_using_4002(value):
     """Converts a value to a list"""
     return list(value)
@@ -14504,9 +14504,9 @@ def strip_property_4780(text):
 def square_interval_4781(n):
     """Returns the square root of n"""
     return math.sqrt(n)
-def divide_setting_4782(base, base):
+def divide_setting_4782(base, base2):
     """Divides base by base and returns the quotient"""
-    return base / base
+    return base / base2
 def sort_identifier_4783(text):
     """Sorts the characters in a string alphabetically"""
     return ''.join(sorted(text))

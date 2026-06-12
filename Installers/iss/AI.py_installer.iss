@@ -1,8 +1,8 @@
-﻿; AI.py v6.0.2 Installer with AiScript components
+﻿; AI.py v6.1.0 Installer with AiScript components
 ; Inno Setup 6 Script
 
-#define MyAppName "AI.py v6.0.2"
-#define MyAppVersion "6.0.2"
+#define MyAppName "AI.py v6.1.0"
+#define MyAppVersion "6.1.0"
 #define MyAIScriptVersion "0.3.1"
 
 [Setup]
@@ -12,21 +12,21 @@ DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir=output
-OutputBaseFilename=AI.py_Setup_v6.0.2
+OutputBaseFilename=AI.py_Setup_v6.1.0
 Compression=lzma2
 SolidCompression=yes
 PrivilegesRequired=admin
 DisableDirPage=no
 DisableProgramGroupPage=yes
 ArchitecturesInstallIn64BitMode=x64compatible
-UninstallDisplayName=AI.py v6.0.2
+UninstallDisplayName=AI.py v6.1.0
 ChangesAssociations=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Components]
-Name: "core"; Description: "AI.py v6.0.2 (core interpreter)"; Types: full compact custom; Flags: fixed
+Name: "core"; Description: "{#MyAppName} (core interpreter)"; Types: full compact custom; Flags: fixed
 Name: "aiscript"; Description: "AiScript {#MyAIScriptVersion} interpreter + REPL + Kite IDE"; Types: full compact custom; Flags: fixed
 Name: "hbpe_stable"; Description: "HubBasePE (stable, pip install hbpe)"; Types: full custom
 Name: "hbpe_dev"; Description: "HubBasePE (development version, pip install hbpe==dev)"; Types: custom
@@ -54,12 +54,13 @@ Source: "..\..\AiScript\kite.cmd"; DestDir: "{app}\AiScript {#MyAIScriptVersion}
 Source: "..\..\AiScript\test_aiscript.ais"; DestDir: "{app}\AiScript {#MyAIScriptVersion}\examples"; Components: aiscript; Flags: ignoreversion
 Source: "..\..\AiScript\test_aiscript_v0.0.2.ais"; DestDir: "{app}\AiScript {#MyAIScriptVersion}\examples"; Components: aiscript; Flags: ignoreversion
 Source: "..\..\AiScript\test_aiscript_extra.ais"; DestDir: "{app}\AiScript {#MyAIScriptVersion}\examples"; Components: aiscript; Flags: ignoreversion
-Source: "..\..\hbpe_compat.py"; DestDir: "{app}"; Components: core; Flags: ignoreversion
 Source: "..\..\Json\*"; DestDir: "{app}\Json"; Components: core; Flags: ignoreversion recursesubdirs
 Source: "..\..\HBPE\**"; DestDir: "{app}\HBPE"; Components: core; Flags: ignoreversion recursesubdirs
 
-; bin/datae modules (aipy_*, data files, AI system, Training_data)
+; bin/datae modules (aipy_* except AI, data files, Training_data)
 Source: "..\..\bin\datae\aipy_*.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+; AiModel module (AI training system)
+Source: "..\..\AiModel\aipy_ai.py"; DestDir: "{app}\AiModel"; Components: core; Flags: ignoreversion
 Source: "..\..\bin\datae\hbpe_compat.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
 Source: "..\..\bin\datae\hbu_compat.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
 Source: "..\..\bin\datae\lvl_test.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
@@ -82,11 +83,11 @@ Source: "..\..\bin\datab\data_bulk37.py"; DestDir: "{app}\bin\datab"; Components
 Source: "..\..\bin\datab\data_bulk38.py"; DestDir: "{app}\bin\datab"; Components: data_bulk_32_38; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\AI.py v6.0.2"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}; Components: core; Comment: "AI.py v6.0.2 CLI"
+Name: "{group}\{#MyAppName}"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}; Components: core; Comment: "{#MyAppName} CLI"
 Name: "{group}\AiScript {#MyAIScriptVersion} REPL"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AiScript {#MyAIScriptVersion}\aiscript.py"""; WorkingDir: {app}\AiScript {#MyAIScriptVersion}; Components: aiscript; Comment: "AiScript interactive REPL"
 Name: "{group}\Kite IDE ({#MyAIScriptVersion})"; Filename: "{app}\AiScript {#MyAIScriptVersion}\kite.cmd"; Parameters: ""; Components: aiscript; WorkingDir: {app}\AiScript {#MyAIScriptVersion}
 Name: "{group}\Uninstall AI.py"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\AI.py v6.0.2"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}
+Name: "{commondesktop}\{#MyAppName}"; Filename: "{sys}\cmd.exe"; Parameters: "/C python ""{app}\AI.py"""; WorkingDir: {app}
 
 [Code]
 procedure CurStepChanged(CurStep: TSetupStep);

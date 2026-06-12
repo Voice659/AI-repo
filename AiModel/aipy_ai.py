@@ -1,6 +1,6 @@
 import os, json, re
 
-_TRAINING_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Training_data')
+_TRAINING_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'bin', 'datae', 'Training_data')
 
 _STOP_WORDS = {
     'a','an','the','in','on','at','to','of','by','with','from','is','are',

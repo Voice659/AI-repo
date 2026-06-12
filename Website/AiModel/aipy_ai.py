@@ -1,6 +1,35 @@
 import os, json, re
 
-_TRAINING_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Training_data')
+_TRAINING_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'bin', 'datae', 'Training_data')
+
+_STOP_WORDS = {
+    'a','an','the','in','on','at','to','of','by','with','from','is','are',
+    'was','were','be','been','being','have','has','had','does','did','will',
+    'would','can','could','may','might','shall','should','it','its','this','that',
+    'these','those','i','you','he','she','they','we','what','how','when','where',
+    'why','which','who','and','or','but','not','no','yes','then','else','so',
+    'about','just','also','very','too','get','got','like','make','made','code',
+    'way','much','many','some','any','all','each','every','both','few','more',
+    'most','other','such','only','own','same','than','too','very','just','because',
+    'as','into','over','again','further','once','here','there','up','down','out',
+    'off','above','below'
+}
+
+_RARE_WORDS = frozenset([
+    'reverse','sort','filter','validate','convert','parse','encode','decode',
+    'encrypt','decrypt','hash','regex','recursion','recursive','iterate',
+    'iteration','compile','optimize','debug','serialize','deserialize',
+    'concatenate','truncate','normalize','sanitize','authenticate','authorize',
+    'aggregate','cache','buffer','stream','async','concurrent','parallel',
+    'callback','promise','await','generator','coroutine','decorator','context',
+    'comprehension','lambda','closure','mixin','singleton','factory','observer',
+    'strategy','template','adapter','facade','proxy','delegate',
+    'even','odd','prime','palindrome','anagram','factorial','fibonacci',
+    'bubble','binary','linear','recursive','iterative','greedy','dynamic',
+    'celsius','fahrenheit','kelvin','centimeter','kilometer','milligram',
+    'alphanumeric','parentheses','bracket','delimiter','whitespace',
+    'deduplicate','concatenation','interpolation','enumeration',
+])
 
 class _AIModel:
     def __init__(self):
@@ -30,6 +59,12 @@ class _AIModel:
         self._ready = bool(self._qa_pairs or self._code_examples)
         return self._ready
 
+    def _keyword_set(self, *texts):
+        words = set()
+        for t in texts:
+            words.update(re.findall(r'\w+', t.lower().replace('_', ' ')))
+        return words
+
     def _load_ais(self, path):
         with open(path, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -46,8 +81,7 @@ class _AIModel:
                     break
                 body.append(line)
             code = '\n'.join(body)
-            kw = set(re.findall(r'\w+', doc.lower()))
-            kw.add(name.lower())
+            kw = self._keyword_set(doc, name)
             self._code_examples.append({'name': name, 'doc': doc, 'code': code, 'keywords': kw})
 
     def _load_json(self, path):
@@ -56,8 +90,7 @@ class _AIModel:
         for item in data:
             q = item.get('question', '')
             a = item.get('answer', '')
-            kw = set(w.lower() for w in item.get('keywords', []))
-            kw.update(re.findall(r'\w+', q.lower()))
+            kw = self._keyword_set(q, *item.get('keywords', []))
             self._qa_pairs.append({'question': q, 'answer': a, 'keywords': kw})
 
     def _load_py(self, path):
@@ -71,27 +104,25 @@ class _AIModel:
             name = name_m.group(1)
             doc_m = re.search(r'"""(.*?)"""', block, re.DOTALL)
             doc = doc_m.group(1).strip() if doc_m else ''
-            kw = set(re.findall(r'\w+', (doc + ' ' + name).lower()))
+            kw = self._keyword_set(doc, name)
             for c_m in re.finditer(r'# (.+)', block):
-                kw.update(re.findall(r'\w+', c_m.group(1).lower()))
+                kw.update(re.findall(r'\w+', c_m.group(1).lower().replace('_', ' ')))
             self._code_examples.append({'name': name, 'doc': doc, 'code': block, 'keywords': kw})
 
     def _load_html(self, path):
         with open(path, 'r', encoding='utf-8') as f:
             content = f.read()
-        # Extract <pre>/<code> blocks as code examples
         for match in re.finditer(r'<(?:pre|code)[^>]*>(.*?)</(?:pre|code)>', content, re.DOTALL | re.IGNORECASE):
             code = match.group(1).strip()
             lines = [l for l in code.split('\n') if l.strip()]
             if not lines:
                 continue
-            kw = set(re.findall(r'\w+', code.lower()))
+            kw = self._keyword_set(code)
             self._code_examples.append({'name': 'html_code', 'doc': code[:60], 'code': code, 'keywords': kw})
-        # Extract comments
         for match in re.finditer(r'<!--(.*?)-->', content, re.DOTALL):
             text = match.group(1).strip()
             if text:
-                kw = set(re.findall(r'\w+', text.lower()))
+                kw = self._keyword_set(text)
                 self._code_examples.append({'name': 'html_comment', 'doc': text[:60], 'code': text, 'keywords': kw})
 
     def _load_css(self, path):
@@ -103,25 +134,54 @@ class _AIModel:
                 continue
             sel_m = re.match(r'([^{]+)', rule)
             sel = sel_m.group(1).strip() if sel_m else ''
-            kw = set(re.findall(r'\w+', rule.lower()))
+            kw = self._keyword_set(rule)
             self._code_examples.append({'name': sel, 'doc': sel, 'code': rule, 'keywords': kw})
         for match in re.finditer(r'/\*(.*?)\*/', content, re.DOTALL):
             text = match.group(1).strip()
             if text:
-                kw = set(re.findall(r'\w+', text.lower()))
+                kw = self._keyword_set(text)
                 self._code_examples.append({'name': 'css_comment', 'doc': text[:60], 'code': text, 'keywords': kw})
+
+    @staticmethod
+    def _fuzzy_overlap(qw, ekw):
+        score = 0
+        for q in qw:
+            if len(q) < 4:
+                continue
+            for e in ekw:
+                if len(e) < 4:
+                    continue
+                if q in e or e in q:
+                    score += 1
+                    break
+        return score
+
+    def _score(self, qw, entry):
+        ekw = entry['keywords']
+        matches = qw & ekw
+        fuzzy = self._fuzzy_overlap(qw, ekw)
+        if not matches and not fuzzy:
+            return 0
+        rare = sum(4 for w in matches if w in _RARE_WORDS)
+        normal = sum(1 for w in matches if w not in _RARE_WORDS)
+        title_words = set(re.findall(r'\w+', entry.get('doc', '').lower() + ' ' + entry.get('name', '').lower()))
+        title_match = sum(2 for w in qw if w in title_words)
+        all_in = 8 if qw.issubset(ekw) else 0
+        return rare + normal + title_match + all_in + fuzzy
 
     def ask(self, query):
         if not self._ready:
             return "AI not trained. Use 'ai_train' first."
-        qw = set(re.findall(r'\w+', query.lower()))
-        best = ('', 0, None)
+        qw = set(re.findall(r'\w+', query.lower())) - _STOP_WORDS
+        if not qw:
+            return "Please be more specific."
+        best = ('', -1, None)
         for qa in self._qa_pairs:
-            s = len(qw & qa['keywords'])
+            s = self._score(qw, qa)
             if s > best[1]:
                 best = (qa['answer'], s, 'qa')
         for ex in self._code_examples:
-            s = len(qw & ex['keywords'])
+            s = self._score(qw, ex)
             if s > best[1]:
                 best = (ex, s, 'code')
         if best[2] is None:

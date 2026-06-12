@@ -1,7 +1,8 @@
 import random, datetime, os, math, string, json, re, hashlib, base64, uuid, time, statistics, sys, textwrap
-__version__ = "6.0.2"  # AiScript v0.3.1 integrated
+__version__ = "6.1.0"  # AI training system
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'AiScript'))
+sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'AiModel'))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'bin', 'datae'))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'bin', 'datab'))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'HBPE'))
