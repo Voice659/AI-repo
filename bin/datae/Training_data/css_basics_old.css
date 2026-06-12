@@ -1,0 +1,57 @@
+/* CSS reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Typography */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+/* Layout with flexbox */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Layout with grid */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+/* Links and buttons */
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
