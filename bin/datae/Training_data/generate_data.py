@@ -162,12 +162,7 @@ CSS_RULES = [
 # ── Generation ────────────────────────────────────────────────────
 
 def gen_desc(desc_fmt, args, kw):
-    d = desc_fmt.format(a=args[0] if len(args) > 0 else 'value', b=args[1] if len(args) > 1 else 'value', c=args[2] if len(args) > 2 else 'value')
-    for w in sorted(set(kw), key=lambda x: -len(x)):
-        if w not in d.lower():
-            d = d + f" Related to {w}."
-            break
-    return d
+    return desc_fmt.format(a=args[0] if len(args) > 0 else 'value', b=args[1] if len(args) > 1 else 'value', c=args[2] if len(args) > 2 else 'value')
 
 def py_functions(count):
     lines = []

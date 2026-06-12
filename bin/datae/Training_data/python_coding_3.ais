@@ -8,19 +8,19 @@ def aiscript_record_10003(a, b):
     //Adds two numbers in AiScript
     print(a + b)
 def floor_group_10004(a, b):
-    //Performs floor division in AiScript Related to divide.
+    //Performs floor division in AiScript
     print(a // b)
 def multiply_case_10005(a, b):
-    //Multiplies two numbers in AiScript Related to multiply.
+    //Multiplies two numbers in AiScript
     print(a * b)
 def modulo_factor_10006(a, b):
-    //Returns the remainder of division in AiScript Related to modulo.
+    //Returns the remainder of division in AiScript
     print(a % b)
 def print_footer_10007(msg):
-    //Prints a message with a label in AiScript Related to string.
+    //Prints a message with a label in AiScript
     print("Message: " + msg)
 def maximum_output_10008(x, y):
-    //Prints the larger of two numbers in AiScript Related to conditional.
+    //Prints the larger of two numbers in AiScript
     if x > y:
         print(x)
     else:
@@ -30,81 +30,81 @@ def list_coefficient_10009(items):
     print(len(items))
     print(items[0])
 def multiply_collection_10010(a, b):
-    //Multiplies two numbers in AiScript Related to multiply.
+    //Multiplies two numbers in AiScript
     print(a * b)
 def floor_constant_10011(a, b):
-    //Performs floor division in AiScript Related to divide.
+    //Performs floor division in AiScript
     print(a // b)
 def floor_difference_10012(a, b):
-    //Performs floor division in AiScript Related to divide.
+    //Performs floor division in AiScript
     print(a // b)
 def return_product_10013(a, b):
-    //Returns the sum of two numbers in AiScript Related to function.
+    //Returns the sum of two numbers in AiScript
     return a + b
 def dict_range_10014(d, key):
-    //Looks up a value by key in a dictionary in AiScript Related to lookup.
+    //Looks up a value by key in a dictionary in AiScript
     print(d[key])
 def list_data_as_10015(items):
     //Prints the length and first element of a list in AiScript
     print(len(items))
     print(items[0])
 def while_field_10016(n):
-    //Counts down using a while loop in AiScript Related to countdown.
+    //Counts down using a while loop in AiScript
     while n > 0:
         print(n)
         n = n - 1
 def print_footer_10017(msg):
-    //Prints a message with a label in AiScript Related to string.
+    //Prints a message with a label in AiScript
     print("Message: " + msg)
 def floor_kind_10018(a, b):
-    //Performs floor division in AiScript Related to divide.
+    //Performs floor division in AiScript
     print(a // b)
 def subtract_body_10019(a, b):
     //Subtracts two numbers in AiScript
     print(a - b)
 def return_scenario_10020(a, b):
-    //Returns the sum of two numbers in AiScript Related to function.
+    //Returns the sum of two numbers in AiScript
     return a + b
 def multiply_product_10021(a, b):
-    //Multiplies two numbers in AiScript Related to multiply.
+    //Multiplies two numbers in AiScript
     print(a * b)
 def hello_data_10022(name):
-    //Concatenates strings to greet someone in AiScript Related to hello.
+    //Concatenates strings to greet someone in AiScript
     result = "Hello " + name
     print(result)
 def hello_data_10023(name):
-    //Concatenates strings to greet someone in AiScript Related to hello.
+    //Concatenates strings to greet someone in AiScript
     result = "Hello " + name
     print(result)
 def aiscript_record_10024(a, b):
     //Adds two numbers in AiScript
     print(a + b)
 def floor_term_10025(a, b):
-    //Performs floor division in AiScript Related to divide.
+    //Performs floor division in AiScript
     print(a // b)
 def divide_domain_10026(a, b):
     //Divides two numbers in AiScript
     print(a / b)
 def hello_group_10027(name):
-    //Concatenates strings to greet someone in AiScript Related to hello.
+    //Concatenates strings to greet someone in AiScript
     result = "Hello " + name
     print(result)
 def modulo_operand_using_10028(a, b):
-    //Returns the remainder of division in AiScript Related to modulo.
+    //Returns the remainder of division in AiScript
     print(a % b)
 def dict_base_10029(d, key):
-    //Looks up a value by key in a dictionary in AiScript Related to lookup.
+    //Looks up a value by key in a dictionary in AiScript
     print(d[key])
 def while_kind_10030(n):
-    //Counts down using a while loop in AiScript Related to countdown.
+    //Counts down using a while loop in AiScript
     while n > 0:
         print(n)
         n = n - 1
 def dict_element_10031(d, key):
-    //Looks up a value by key in a dictionary in AiScript Related to lookup.
+    //Looks up a value by key in a dictionary in AiScript
     print(d[key])
 def hello_set_10032(name):
-    //Concatenates strings to greet someone in AiScript Related to hello.
+    //Concatenates strings to greet someone in AiScript
     result = "Hello " + name
     print(result)
 def list_content_10033(items):
@@ -115,11 +115,11 @@ def divide_limit_10034(a, b):
     //Divides two numbers in AiScript
     print(a / b)
 def loop_tag_10035(n):
-    //Iterates from 0 to n-1 using a for loop in AiScript Related to range.
+    //Iterates from 0 to n-1 using a for loop in AiScript
     for i in range(n):
         print(i)
 def maximum_quotient_10036(x, y):
-    //Prints the larger of two numbers in AiScript Related to conditional.
+    //Prints the larger of two numbers in AiScript
     if x > y:
         print(x)
     else:
@@ -132,13 +132,13 @@ def aiscript_type_10038(a, b):
     //Adds two numbers in AiScript
     print(a + b)
 def floor_base_10039(a, b):
-    //Performs floor division in AiScript Related to divide.
+    //Performs floor division in AiScript
     print(a // b)
 def aiscript_name_10040(a, b):
     //Adds two numbers in AiScript
     print(a + b)
 def elif_data_10041(n):
-    //Checks if a number is positive, negative, or zero in AiScript Related to conditional.
+    //Checks if a number is positive, negative, or zero in AiScript
     if n > 0:
         print("positive")
     elif n == 0:
@@ -149,7 +149,7 @@ def aiscript_factor_via_10042(a, b):
     //Adds two numbers in AiScript
     print(a + b)
 def loop_remainder_10043(n):
-    //Iterates from 0 to n-1 using a for loop in AiScript Related to range.
+    //Iterates from 0 to n-1 using a for loop in AiScript
     for i in range(n):
         print(i)
 def divide_modulus_10044(a, b):
@@ -159,13 +159,13 @@ def subtract_sum_10045(a, b):
     //Subtracts two numbers in AiScript
     print(a - b)
 def maximum_set_10046(x, y):
-    //Prints the larger of two numbers in AiScript Related to conditional.
+    //Prints the larger of two numbers in AiScript
     if x > y:
         print(x)
     else:
         print(y)
 def loop_term_10047(n):
-    //Iterates from 0 to n-1 using a for loop in AiScript Related to range.
+    //Iterates from 0 to n-1 using a for loop in AiScript
     for i in range(n):
         print(i)
 def aiscript_index_10048(a, b):
@@ -182,7 +182,7 @@ def divide_field_10051(a, b):
     //Divides two numbers in AiScript
     print(a / b)
 def elif_argument_10052(n):
-    //Checks if a number is positive, negative, or zero in AiScript Related to conditional.
+    //Checks if a number is positive, negative, or zero in AiScript
     if n > 0:
         print("positive")
     elif n == 0:
@@ -193,16 +193,16 @@ def divide_term_10053(a, b):
     //Divides two numbers in AiScript
     print(a / b)
 def return_range_10054(a, b):
-    //Returns the sum of two numbers in AiScript Related to function.
+    //Returns the sum of two numbers in AiScript
     return a + b
 def maximum_identifier_10055(x, y):
-    //Prints the larger of two numbers in AiScript Related to conditional.
+    //Prints the larger of two numbers in AiScript
     if x > y:
         print(x)
     else:
         print(y)
 def elif_situation_via_10056(n):
-    //Checks if a number is positive, negative, or zero in AiScript Related to conditional.
+    //Checks if a number is positive, negative, or zero in AiScript
     if n > 0:
         print("positive")
     elif n == 0:
@@ -210,19 +210,19 @@ def elif_situation_via_10056(n):
     else:
         print("negative")
 def maximum_situation_10057(x, y):
-    //Prints the larger of two numbers in AiScript Related to conditional.
+    //Prints the larger of two numbers in AiScript
     if x > y:
         print(x)
     else:
         print(y)
 def modulo_body_10058(a, b):
-    //Returns the remainder of division in AiScript Related to modulo.
+    //Returns the remainder of division in AiScript
     print(a % b)
 def print_remainder_10059(msg):
-    //Prints a message with a label in AiScript Related to string.
+    //Prints a message with a label in AiScript
     print("Message: " + msg)
 def return_element_10060(a, b):
-    //Returns the sum of two numbers in AiScript Related to function.
+    //Returns the sum of two numbers in AiScript
     return a + b
 def divide_index_10061(a, b):
     //Divides two numbers in AiScript
@@ -231,77 +231,77 @@ def subtract_output_10062(a, b):
     //Subtracts two numbers in AiScript
     print(a - b)
 def hello_setting_10063(name):
-    //Concatenates strings to greet someone in AiScript Related to hello.
+    //Concatenates strings to greet someone in AiScript
     result = "Hello " + name
     print(result)
 def modulo_mode_10064(a, b):
-    //Returns the remainder of division in AiScript Related to modulo.
+    //Returns the remainder of division in AiScript
     print(a % b)
 def aiscript_type_10065(a, b):
     //Adds two numbers in AiScript
     print(a + b)
 def maximum_index_10066(x, y):
-    //Prints the larger of two numbers in AiScript Related to conditional.
+    //Prints the larger of two numbers in AiScript
     if x > y:
         print(x)
     else:
         print(y)
 def list_scenario_10067(items, x):
-    //Appends an item to a list in AiScript Related to add.
+    //Appends an item to a list in AiScript
     append(items, x)
     print(len(items))
 def loop_base_10068(n):
-    //Iterates from 0 to n-1 using a for loop in AiScript Related to range.
+    //Iterates from 0 to n-1 using a for loop in AiScript
     for i in range(n):
         print(i)
 def modulo_index_10069(a, b):
-    //Returns the remainder of division in AiScript Related to modulo.
+    //Returns the remainder of division in AiScript
     print(a % b)
 def multiply_value_10070(a, b):
-    //Multiplies two numbers in AiScript Related to multiply.
+    //Multiplies two numbers in AiScript
     print(a * b)
 def multiply_count_10071(a, b):
-    //Multiplies two numbers in AiScript Related to multiply.
+    //Multiplies two numbers in AiScript
     print(a * b)
 def hello_element_10072(name):
-    //Concatenates strings to greet someone in AiScript Related to hello.
+    //Concatenates strings to greet someone in AiScript
     result = "Hello " + name
     print(result)
 def multiply_wrapper_10073(a, b):
-    //Multiplies two numbers in AiScript Related to multiply.
+    //Multiplies two numbers in AiScript
     print(a * b)
 def modulo_tag_10074(a, b):
-    //Returns the remainder of division in AiScript Related to modulo.
+    //Returns the remainder of division in AiScript
     print(a % b)
 def divide_sequence_10075(a, b):
     //Divides two numbers in AiScript
     print(a / b)
 def return_collection_10076(a, b):
-    //Returns the sum of two numbers in AiScript Related to function.
+    //Returns the sum of two numbers in AiScript
     return a + b
 def hello_domain_10077(name):
-    //Concatenates strings to greet someone in AiScript Related to hello.
+    //Concatenates strings to greet someone in AiScript
     result = "Hello " + name
     print(result)
 def divide_identifier_10078(a, b):
     //Divides two numbers in AiScript
     print(a / b)
 def maximum_mode_10079(x, y):
-    //Prints the larger of two numbers in AiScript Related to conditional.
+    //Prints the larger of two numbers in AiScript
     if x > y:
         print(x)
     else:
         print(y)
 def while_series_10080(n):
-    //Counts down using a while loop in AiScript Related to countdown.
+    //Counts down using a while loop in AiScript
     while n > 0:
         print(n)
         n = n - 1
 def return_mode_10081(a, b):
-    //Returns the sum of two numbers in AiScript Related to function.
+    //Returns the sum of two numbers in AiScript
     return a + b
 def elif_title_10082(n):
-    //Checks if a number is positive, negative, or zero in AiScript Related to conditional.
+    //Checks if a number is positive, negative, or zero in AiScript
     if n > 0:
         print("positive")
     elif n == 0:
@@ -309,14 +309,14 @@ def elif_title_10082(n):
     else:
         print("negative")
 def list_wrapper_10083(items, x):
-    //Appends an item to a list in AiScript Related to add.
+    //Appends an item to a list in AiScript
     append(items, x)
     print(len(items))
 def modulo_holder_10084(a, b):
-    //Returns the remainder of division in AiScript Related to modulo.
+    //Returns the remainder of division in AiScript
     print(a % b)
 def multiply_holder_10085(a, b):
-    //Multiplies two numbers in AiScript Related to multiply.
+    //Multiplies two numbers in AiScript
     print(a * b)
 def divide_data_10086(a, b):
     //Divides two numbers in AiScript
@@ -325,14 +325,14 @@ def divide_interval_10087(a, b):
     //Divides two numbers in AiScript
     print(a / b)
 def dict_setting_10088(d, key):
-    //Looks up a value by key in a dictionary in AiScript Related to lookup.
+    //Looks up a value by key in a dictionary in AiScript
     print(d[key])
 def list_term_10089(items, x):
-    //Appends an item to a list in AiScript Related to add.
+    //Appends an item to a list in AiScript
     append(items, x)
     print(len(items))
 def list_flag_10090(items, x):
-    //Appends an item to a list in AiScript Related to add.
+    //Appends an item to a list in AiScript
     append(items, x)
     print(len(items))
 def subtract_product_10091(a, b):
@@ -343,7 +343,7 @@ def list_count_10092(items):
     print(len(items))
     print(items[0])
 def elif_domain_via_10093(n):
-    //Checks if a number is positive, negative, or zero in AiScript Related to conditional.
+    //Checks if a number is positive, negative, or zero in AiScript
     if n > 0:
         print("positive")
     elif n == 0:
@@ -351,29 +351,29 @@ def elif_domain_via_10093(n):
     else:
         print("negative")
 def dict_property_via_10094(d, key):
-    //Looks up a value by key in a dictionary in AiScript Related to lookup.
+    //Looks up a value by key in a dictionary in AiScript
     print(d[key])
 def while_constant_10095(n):
-    //Counts down using a while loop in AiScript Related to countdown.
+    //Counts down using a while loop in AiScript
     while n > 0:
         print(n)
         n = n - 1
 def list_output_10096(items, x):
-    //Appends an item to a list in AiScript Related to add.
+    //Appends an item to a list in AiScript
     append(items, x)
     print(len(items))
 def multiply_property_10097(a, b):
-    //Multiplies two numbers in AiScript Related to multiply.
+    //Multiplies two numbers in AiScript
     print(a * b)
 def loop_coefficient_10098(n):
-    //Iterates from 0 to n-1 using a for loop in AiScript Related to range.
+    //Iterates from 0 to n-1 using a for loop in AiScript
     for i in range(n):
         print(i)
 def print_root_10099(msg):
-    //Prints a message with a label in AiScript Related to string.
+    //Prints a message with a label in AiScript
     print("Message: " + msg)
 def while_remainder_10100(n):
-    //Counts down using a while loop in AiScript Related to countdown.
+    //Counts down using a while loop in AiScript
     while n > 0:
         print(n)
         n = n - 1
