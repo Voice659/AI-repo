@@ -1,388 +1,398 @@
-def demo_ais_10001(items):
-    //Demonstrates process permanent header
+def demo_10001(a, b):
+    //Demonstrates produce joined record
+    return a + b
+def demo_10002(name):
+    //Demonstrates evaluate variable type
+    result = "Hello " + name
+    print(result)
+def demo_10003(a, b):
+    //Demonstrates transform hex item
+    print(a * b)
+def demo_10004(x, y):
+    //Demonstrates filter previous item
+    if x > y:
+        print(x)
+    else:
+        print(y)
+def demo_10005(a, b):
+    //Demonstrates buffer physical holder
+    print(a // b)
+def demo_10006(x, y):
+    //Demonstrates adjust variable term
+    if x > y:
+        print(x)
+    else:
+        print(y)
+def demo_10007(a, b):
+    //Demonstrates find advanced range
+    print(a // b)
+def demo_10008(a, b):
+    //Demonstrates compute nested option
+    print(a - b)
+def demo_10009(n):
+    //Demonstrates receive concrete scope
+    if n > 0:
+        print("positive")
+    elif n == 0:
+        print("zero")
+    else:
+        print("negative")
+def demo_10010(a, b):
+    //Demonstrates split separated sequence
+    print(a + b)
+def demo_10011(n):
+    //Demonstrates compare virtual flag
+    while n > 0:
+        print(n)
+        n = n - 1
+def demo_10012(a, b):
+    //Demonstrates run active output
+    print(a % b)
+def demo_10013(msg):
+    //Demonstrates calculate octal constant
+    print("Message: " + msg)
+def demo_10014(n):
+    //Demonstrates match external namespace
+    if n > 0:
+        print("positive")
+    elif n == 0:
+        print("zero")
+    else:
+        print("negative")
+def demo_10015(a, b):
+    //Demonstrates adjust raw input
+    print(a // b)
+def demo_10016(a, b):
+    //Demonstrates encrypt small collection
+    print(a % b)
+def demo_10017(a, b):
+    //Demonstrates configure physical case
+    print(a // b)
+def demo_10018(a, b):
+    //Demonstrates find raw entry
+    print(a * b)
+def demo_10019(d, key):
+    //Demonstrates split permanent difference
+    print(d[key])
+def demo_10020(a, b):
+    //Demonstrates save permanent data
+    print(a // b)
+def demo_10021(n):
+    //Demonstrates handle initial limit
+    while n > 0:
+        print(n)
+        n = n - 1
+def demo_10022(items):
+    //Demonstrates buffer massive kind
     print(len(items))
     print(items[0])
-def demo_ais_10002(a, b):
-    //Demonstrates run external input
-    print(a // b)
-def demo_ais_10003(a, b):
-    //Demonstrates sort big wrapper
-    print(a + b)
-def demo_ais_10004(a, b):
-    //Demonstrates find internal tag
-    print(a / b)
-def demo_ais_10005(a, b):
-    //Demonstrates encrypt narrow holder
-    print(a / b)
-def demo_ais_10006(items, x):
-    //Demonstrates form processed coefficient
-    append(items, x)
+def demo_10023(msg):
+    //Demonstrates perform active entry
+    print("Message: " + msg)
+def demo_10024(n):
+    //Demonstrates produce concrete holder
+    if n > 0:
+        print("positive")
+    elif n == 0:
+        print("zero")
+    else:
+        print("negative")
+def demo_10025(items):
+    //Demonstrates join basic setting
     print(len(items))
-def demo_ais_10007(n):
-    //Demonstrates convert local exponent
+    print(items[0])
+def demo_10026(n):
+    //Demonstrates evaluate split type
+    if n > 0:
+        print("positive")
+    elif n == 0:
+        print("zero")
+    else:
+        print("negative")
+def demo_10027(n):
+    //Demonstrates convert cooked situation
     for i in range(n):
         print(i)
-def demo_ais_10008(a, b):
-    //Demonstrates validate physical sum
-    print(a + b)
-def demo_ais_10009(a, b):
-    //Demonstrates generate short case
-    print(a - b)
-def demo_ais_10010(name):
-    //Demonstrates test joined name
-    result = "Hello " + name
-    print(result)
-def demo_ais_10011(x, y):
-    //Demonstrates parse advanced property
-    if x > y:
-        print(x)
-    else:
-        print(y)
-def demo_ais_10012(name):
-    //Demonstrates store big edge
-    result = "Hello " + name
-    print(result)
-def demo_ais_10013(n):
-    //Demonstrates transform advanced term
-    while n > 0:
-        print(n)
-        n = n - 1
-def demo_ais_10014(items):
-    //Demonstrates check public identifier
-    print(len(items))
-    print(items[0])
-def demo_ais_10015(n):
-    //Demonstrates load tiny case
-    if n > 0:
-        print("positive")
-    elif n == 0:
-        print("zero")
-    else:
-        print("negative")
-def demo_ais_10016(x, y):
-    //Demonstrates emit variable collection
-    if x > y:
-        print(x)
-    else:
-        print(y)
-def demo_ais_10017(n):
-    //Demonstrates configure simple sum
-    if n > 0:
-        print("positive")
-    elif n == 0:
-        print("zero")
-    else:
-        print("negative")
-def demo_ais_10018(n):
-    //Demonstrates parse pure sequence
-    while n > 0:
-        print(n)
-        n = n - 1
-def demo_ais_10019(n):
-    //Demonstrates calculate tertiary base
-    if n > 0:
-        print("positive")
-    elif n == 0:
-        print("zero")
-    else:
-        print("negative")
-def demo_ais_10020(msg):
-    //Demonstrates compress initial mode
+def demo_10028(msg):
+    //Demonstrates sort internal footer
     print("Message: " + msg)
-def demo_ais_10021(n):
-    //Demonstrates store simple scope
-    while n > 0:
-        print(n)
-        n = n - 1
-def demo_ais_10022(name):
-    //Demonstrates buffer large domain
-    result = "Hello " + name
-    print(result)
-def demo_ais_10023(items, x):
-    //Demonstrates parse joined label
-    append(items, x)
-    print(len(items))
-def demo_ais_10024(items, x):
-    //Demonstrates flush temporary remainder
-    append(items, x)
-    print(len(items))
-def demo_ais_10025(a, b):
-    //Demonstrates create logical root
-    print(a / b)
-def demo_ais_10026(msg):
-    //Demonstrates test current element
-    print("Message: " + msg)
-def demo_ais_10027(a, b):
-    //Demonstrates receive huge exponent
+def demo_10029(a, b):
+    //Demonstrates yield public name
     print(a - b)
-def demo_ais_10028(a, b):
-    //Demonstrates fetch small category
-    return a + b
-def demo_ais_10029(a, b):
-    //Demonstrates locate temporary scenario
-    print(a // b)
-def demo_ais_10030(msg):
-    //Demonstrates parse minimal modulus
-    print("Message: " + msg)
-def demo_ais_10031(a, b):
-    //Demonstrates emit refined scope
-    print(a % b)
-def demo_ais_10032(a, b):
-    //Demonstrates decode real remainder
-    return a + b
-def demo_ais_10033(a, b):
-    //Demonstrates cache complex type
-    print(a // b)
-def demo_ais_10034(a, b):
-    //Demonstrates verify constant name
-    print(a + b)
-def demo_ais_10035(items, x):
-    //Demonstrates tune concrete operand
-    append(items, x)
-    print(len(items))
-def demo_ais_10036(a, b):
-    //Demonstrates evaluate octal category
+def demo_10030(a, b):
+    //Demonstrates compare decimal quotient
     print(a / b)
-def demo_ais_10037(a, b):
-    //Demonstrates process raw quotient
-    print(a % b)
-def demo_ais_10038(x, y):
-    //Demonstrates send active record
-    if x > y:
-        print(x)
-    else:
-        print(y)
-def demo_ais_10039(n):
-    //Demonstrates compute complex option
-    while n > 0:
-        print(n)
-        n = n - 1
-def demo_ais_10040(a, b):
-    //Demonstrates tune concrete container
-    print(a / b)
-def demo_ais_10041(a, b):
-    //Demonstrates load raw option
-    print(a + b)
-def demo_ais_10042(x, y):
-    //Demonstrates encrypt public quotient
-    if x > y:
-        print(x)
-    else:
-        print(y)
-def demo_ais_10043(a, b):
-    //Demonstrates merge nested index
-    return a + b
-def demo_ais_10044(x, y):
-    //Demonstrates match hex entry
-    if x > y:
-        print(x)
-    else:
-        print(y)
-def demo_ais_10045(a, b):
-    //Demonstrates sign long record
-    print(a / b)
-def demo_ais_10046(a, b):
-    //Demonstrates perform deep range
-    print(a % b)
-def demo_ais_10047(a, b):
-    //Demonstrates init final collection
-    print(a / b)
-def demo_ais_10048(a, b):
-    //Demonstrates encode octal edge
-    print(a - b)
-def demo_ais_10049(name):
-    //Demonstrates sign final record
-    result = "Hello " + name
-    print(result)
-def demo_ais_10050(d, key):
-    //Demonstrates check nested name
+def demo_10031(n):
+    //Demonstrates locate flat domain
+    for i in range(n):
+        print(i)
+def demo_10032(d, key):
+    //Demonstrates buffer deep name
     print(d[key])
-def demo_ais_10051(a, b):
-    //Demonstrates compress numerical sum
-    return a + b
-def demo_ais_10052(a, b):
-    //Demonstrates build cooked result
-    print(a * b)
-def demo_ais_10053(a, b):
-    //Demonstrates encrypt previous setting
+def demo_10033(a, b):
+    //Demonstrates generate simple body
+    print(a / b)
+def demo_10034(a, b):
+    //Demonstrates compress primary content
     print(a + b)
-def demo_ais_10054(x, y):
-    //Demonstrates reduce concrete flag
+def demo_10035(x, y):
+    //Demonstrates reset private base
     if x > y:
         print(x)
     else:
         print(y)
-def demo_ais_10055(a, b):
-    //Demonstrates yield abstract namespace
-    print(a + b)
-def demo_ais_10056(a, b):
-    //Demonstrates produce primary container
-    print(a - b)
-def demo_ais_10057(a, b):
-    //Demonstrates filter numerical option
-    print(a + b)
-def demo_ais_10058(a, b):
-    //Demonstrates test initial power
-    print(a + b)
-def demo_ais_10059(items):
-    //Demonstrates run octal modulus
+def demo_10036(x, y):
+    //Demonstrates filter massive option
+    if x > y:
+        print(x)
+    else:
+        print(y)
+def demo_10037(items):
+    //Demonstrates hash complex context
     print(len(items))
     print(items[0])
-def demo_ais_10060(items, x):
-    //Demonstrates hash virtual result
+def demo_10038(items, x):
+    //Demonstrates execute logical index
     append(items, x)
     print(len(items))
-def demo_ais_10061(items):
-    //Demonstrates sign split case
+def demo_10039(x, y):
+    //Demonstrates handle pure quotient
+    if x > y:
+        print(x)
+    else:
+        print(y)
+def demo_10040(a, b):
+    //Demonstrates setup merged remainder
+    print(a / b)
+def demo_10041(a, b):
+    //Demonstrates process constant quotient
+    print(a // b)
+def demo_10042(name):
+    //Demonstrates verify static boundary
+    result = "Hello " + name
+    print(result)
+def demo_10043(a, b):
+    //Demonstrates perform huge entry
+    print(a * b)
+def demo_10044(a, b):
+    //Demonstrates evaluate small collection
+    print(a + b)
+def demo_10045(items):
+    //Demonstrates encrypt basic container
     print(len(items))
     print(items[0])
-def demo_ais_10062(a, b):
-    //Demonstrates flush external exponent
-    print(a - b)
-def demo_ais_10063(name):
-    //Demonstrates handle raw product
-    result = "Hello " + name
-    print(result)
-def demo_ais_10064(a, b):
-    //Demonstrates save big setting
-    print(a + b)
-def demo_ais_10065(a, b):
-    //Demonstrates form concrete set
-    print(a - b)
-def demo_ais_10066(a, b):
-    //Demonstrates test tiny footer
-    print(a + b)
-def demo_ais_10067(name):
-    //Demonstrates handle refined output
-    result = "Hello " + name
-    print(result)
-def demo_ais_10068(a, b):
-    //Demonstrates generate split difference
-    print(a / b)
-def demo_ais_10069(a, b):
-    //Demonstrates construct nested name
-    print(a - b)
-def demo_ais_10070(n):
-    //Demonstrates process big option
+def demo_10046(x, y):
+    //Demonstrates build real element
+    if x > y:
+        print(x)
+    else:
+        print(y)
+def demo_10047(n):
+    //Demonstrates perform variable situation
     if n > 0:
         print("positive")
     elif n == 0:
         print("zero")
     else:
         print("negative")
-def demo_ais_10071(items):
-    //Demonstrates receive flat index
-    print(len(items))
-    print(items[0])
-def demo_ais_10072(n):
-    //Demonstrates calibrate previous output
-    if n > 0:
-        print("positive")
-    elif n == 0:
-        print("zero")
-    else:
-        print("negative")
-def demo_ais_10073(items, x):
-    //Demonstrates run flat name
-    append(items, x)
-    print(len(items))
-def demo_ais_10074(n):
-    //Demonstrates parse previous remainder
-    while n > 0:
-        print(n)
-        n = n - 1
-def demo_ais_10075(n):
-    //Demonstrates sort octal constant
-    while n > 0:
-        print(n)
-        n = n - 1
-def demo_ais_10076(a, b):
-    //Demonstrates decrypt real remainder
-    print(a // b)
-def demo_ais_10077(a, b):
-    //Demonstrates adjust massive tag
-    return a + b
-def demo_ais_10078(items, x):
-    //Demonstrates validate current kind
-    append(items, x)
-    print(len(items))
-def demo_ais_10079(a, b):
-    //Demonstrates return temporary interval
-    print(a + b)
-def demo_ais_10080(d, key):
-    //Demonstrates search pure key
-    print(d[key])
-def demo_ais_10081(x, y):
-    //Demonstrates sign local boundary
-    if x > y:
-        print(x)
-    else:
-        print(y)
-def demo_ais_10082(a, b):
-    //Demonstrates send numerical situation
-    print(a // b)
-def demo_ais_10083(a, b):
-    //Demonstrates map basic kind
-    print(a * b)
-def demo_ais_10084(a, b):
-    //Demonstrates configure abstract record
-    print(a % b)
-def demo_ais_10085(a, b):
-    //Demonstrates construct virtual modulus
-    print(a - b)
-def demo_ais_10086(d, key):
-    //Demonstrates process static index
-    print(d[key])
-def demo_ais_10087(a, b):
-    //Demonstrates buffer long coefficient
-    return a + b
-def demo_ais_10088(a, b):
-    //Demonstrates send internal limit
-    print(a / b)
-def demo_ais_10089(a, b):
-    //Demonstrates validate permanent boundary
-    print(a % b)
-def demo_ais_10090(name):
-    //Demonstrates configure private wrapper
+def demo_10048(name):
+    //Demonstrates compute logical label
     result = "Hello " + name
     print(result)
-def demo_ais_10091(n):
-    //Demonstrates buffer binary situation
-    while n > 0:
-        print(n)
-        n = n - 1
-def demo_ais_10092(a, b):
-    //Demonstrates solve textual boundary
-    print(a - b)
-def demo_ais_10093(msg):
-    //Demonstrates generate tertiary record
+def demo_10049(name):
+    //Demonstrates execute binary option
+    result = "Hello " + name
+    print(result)
+def demo_10050(a, b):
+    //Demonstrates hash global property
+    print(a / b)
+def demo_10051(a, b):
+    //Demonstrates run textual series
+    print(a % b)
+def demo_10052(msg):
+    //Demonstrates merge final value
     print("Message: " + msg)
-def demo_ais_10094(a, b):
-    //Demonstrates emit decimal data
-    return a + b
-def demo_ais_10095(a, b):
-    //Demonstrates join abstract input
-    return a + b
-def demo_ais_10096(n):
-    //Demonstrates create private interval
+def demo_10053(n):
+    //Demonstrates clear global case
+    while n > 0:
+        print(n)
+        n = n - 1
+def demo_10054(a, b):
+    //Demonstrates match shallow root
+    print(a * b)
+def demo_10055(a, b):
+    //Demonstrates merge active body
+    print(a // b)
+def demo_10056(items):
+    //Demonstrates execute mixed name
+    print(len(items))
+    print(items[0])
+def demo_10057(a, b):
+    //Demonstrates hash small index
+    print(a // b)
+def demo_10058(n):
+    //Demonstrates convert wide sequence
     if n > 0:
         print("positive")
     elif n == 0:
         print("zero")
     else:
         print("negative")
-def demo_ais_10097(a, b):
-    //Demonstrates sort raw operand
-    print(a + b)
-def demo_ais_10098(a, b):
-    //Demonstrates encode short label
-    return a + b
-def demo_ais_10099(a, b):
-    //Demonstrates receive numerical value
+def demo_10059(a, b):
+    //Demonstrates filter combined group
     print(a * b)
-def demo_ais_10100(x, y):
-    //Demonstrates buffer abstract header
+def demo_10060(n):
+    //Demonstrates evaluate combined exponent
+    for i in range(n):
+        print(i)
+def demo_10061(a, b):
+    //Demonstrates build split scenario
+    print(a + b)
+def demo_10062(a, b):
+    //Demonstrates setup primary field
+    print(a / b)
+def demo_10063(n):
+    //Demonstrates decode narrow remainder
+    while n > 0:
+        print(n)
+        n = n - 1
+def demo_10064(a, b):
+    //Demonstrates yield flat context
+    print(a // b)
+def demo_10065(n):
+    //Demonstrates run wide constant
+    for i in range(n):
+        print(i)
+def demo_10066(n):
+    //Demonstrates send octal scope
+    while n > 0:
+        print(n)
+        n = n - 1
+def demo_10067(n):
+    //Demonstrates handle public situation
+    if n > 0:
+        print("positive")
+    elif n == 0:
+        print("zero")
+    else:
+        print("negative")
+def demo_10068(x, y):
+    //Demonstrates match basic setting
     if x > y:
         print(x)
     else:
         print(y)
+def demo_10069(a, b):
+    //Demonstrates merge big interval
+    print(a * b)
+def demo_10070(a, b):
+    //Demonstrates load octal sequence
+    print(a / b)
+def demo_10071(items, x):
+    //Demonstrates execute massive count
+    append(items, x)
+    print(len(items))
+def demo_10072(a, b):
+    //Demonstrates flatten small modulus
+    print(a / b)
+def demo_10073(items):
+    //Demonstrates join binary constant
+    print(len(items))
+    print(items[0])
+def demo_10074(a, b):
+    //Demonstrates store deep footer
+    print(a - b)
+def demo_10075(a, b):
+    //Demonstrates compare pure footer
+    print(a - b)
+def demo_10076(n):
+    //Demonstrates compute dynamic exponent
+    for i in range(n):
+        print(i)
+def demo_10077(a, b):
+    //Demonstrates run minimal quotient
+    print(a % b)
+def demo_10078(a, b):
+    //Demonstrates check tiny series
+    print(a + b)
+def demo_10079(a, b):
+    //Demonstrates execute permanent wrapper
+    print(a // b)
+def demo_10080(items):
+    //Demonstrates compress tiny label
+    print(len(items))
+    print(items[0])
+def demo_10081(a, b):
+    //Demonstrates configure dynamic remainder
+    print(a / b)
+def demo_10082(a, b):
+    //Demonstrates yield raw total
+    print(a % b)
+def demo_10083(name):
+    //Demonstrates store short content
+    result = "Hello " + name
+    print(result)
+def demo_10084(d, key):
+    //Demonstrates evaluate decimal category
+    print(d[key])
+def demo_10085(a, b):
+    //Demonstrates tune refined footer
+    print(a / b)
+def demo_10086(n):
+    //Demonstrates check complex output
+    for i in range(n):
+        print(i)
+def demo_10087(a, b):
+    //Demonstrates calculate combined difference
+    return a + b
+def demo_10088(items):
+    //Demonstrates adjust refined entry
+    print(len(items))
+    print(items[0])
+def demo_10089(n):
+    //Demonstrates store temporary setting
+    if n > 0:
+        print("positive")
+    elif n == 0:
+        print("zero")
+    else:
+        print("negative")
+def demo_10090(d, key):
+    //Demonstrates buffer hex tag
+    print(d[key])
+def demo_10091(msg):
+    //Demonstrates reduce active quotient
+    print("Message: " + msg)
+def demo_10092(items):
+    //Demonstrates validate current sum
+    print(len(items))
+    print(items[0])
+def demo_10093(a, b):
+    //Demonstrates calibrate current factor
+    print(a % b)
+def demo_10094(a, b):
+    //Demonstrates search static kind
+    print(a % b)
+def demo_10095(x, y):
+    //Demonstrates match nested record
+    if x > y:
+        print(x)
+    else:
+        print(y)
+def demo_10096(a, b):
+    //Demonstrates emit complex scope
+    print(a - b)
+def demo_10097(name):
+    //Demonstrates validate physical boundary
+    result = "Hello " + name
+    print(result)
+def demo_10098(a, b):
+    //Demonstrates perform textual holder
+    return a + b
+def demo_10099(items, x):
+    //Demonstrates save shallow key
+    append(items, x)
+    print(len(items))
+def demo_10100(a, b):
+    //Demonstrates adjust separated result
+    print(a - b)
