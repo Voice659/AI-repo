@@ -1,57 +1,4200 @@
-/* CSS reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* CSS rule for > child with display */
+> child-1 {
+    display: italic;
 }
-
-/* Typography */
-body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    color: #333;
+/* CSS rule for ::before with grid */
+::before-2 {
+    grid: blue;
 }
-
-h1 {
-    font-size: 2em;
-    font-weight: bold;
+/* CSS rule for > child with color */
+> child-3 {
+    color: fixed;
 }
-
-p {
-    line-height: 1.6;
-    margin-bottom: 1em;
+/* CSS rule for > child with grid */
+> child-4 {
+    grid: italic;
 }
-
-/* Layout with flexbox */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+/* CSS rule for [attr] with box-shadow */
+[attr]-5 {
+    box-shadow: hidden;
 }
-
-/* Layout with grid */
-.grid {
+/* CSS rule for .class with background */
+.class-6 {
+    background: absolute;
+}
+/* CSS rule for #id with transition */
+#id-7 {
+    transition: hidden;
+}
+/* CSS rule for ::before with cursor */
+::before-8 {
+    cursor: inline;
+}
+/* CSS rule for > child with box-shadow */
+> child-9 {
+    box-shadow: italic;
+}
+/* CSS rule for #id with grid */
+#id-10 {
+    grid: 1rem;
+}
+/* CSS rule for #id with font-size */
+#id-11 {
+    font-size: auto;
+}
+/* CSS rule for ::before with width */
+::before-12 {
+    width: flex;
+}
+/* CSS rule for > child with flex */
+> child-13 {
+    flex: underline;
+}
+/* CSS rule for ~ general with overflow */
+~ general-14 {
+    overflow: none;
+}
+/* CSS rule for + sibling with animation */
++ sibling-15 {
+    animation: fixed;
+}
+/* CSS rule for [attr] with overflow */
+[attr]-16 {
+    overflow: italic;
+}
+/* CSS rule for :pseudo with flex */
+:pseudo-17 {
+    flex: auto;
+}
+/* CSS rule for element with grid */
+element-18 {
+    grid: bold;
+}
+/* CSS rule for ::after with box-shadow */
+::after-19 {
+    box-shadow: red;
+}
+/* CSS rule for ~ general with width */
+~ general-20 {
+    width: inline;
+}
+/* CSS rule for > child with cursor */
+> child-21 {
+    cursor: center;
+}
+/* CSS rule for #id with overflow */
+#id-22 {
+    overflow: flex;
+}
+/* CSS rule for :pseudo with padding */
+:pseudo-23 {
+    padding: italic;
+}
+/* CSS rule for .class with background */
+.class-24 {
+    background: fixed;
+}
+/* CSS rule for ::after with z-index */
+::after-25 {
+    z-index: 10px;
+}
+/* CSS rule for ~ general with background */
+~ general-26 {
+    background: block;
+}
+/* CSS rule for > child with display */
+> child-27 {
+    display: hidden;
+}
+/* CSS rule for ::after with flex */
+::after-28 {
+    flex: 10px;
+}
+/* CSS rule for element with height */
+element-29 {
+    height: 10px;
+}
+/* CSS rule for .class with z-index */
+.class-30 {
+    z-index: inline;
+}
+/* CSS rule for ::before with margin */
+::before-31 {
+    margin: scroll;
+}
+/* CSS rule for :pseudo with border */
+:pseudo-32 {
+    border: fixed;
+}
+/* CSS rule for .class with flex */
+.class-33 {
+    flex: scroll;
+}
+/* CSS rule for :pseudo with animation */
+:pseudo-34 {
+    animation: block;
+}
+/* CSS rule for + sibling with z-index */
++ sibling-35 {
+    z-index: absolute;
+}
+/* CSS rule for #id with margin */
+#id-36 {
+    margin: blue;
+}
+/* CSS rule for ::before with width */
+::before-37 {
+    width: underline;
+}
+/* CSS rule for [attr] with opacity */
+[attr]-38 {
+    opacity: grid;
+}
+/* CSS rule for element with height */
+element-39 {
+    height: 1rem;
+}
+/* CSS rule for #id with position */
+#id-40 {
+    position: 1rem;
+}
+/* CSS rule for #id with color */
+#id-41 {
+    color: 100%;
+}
+/* CSS rule for ::before with animation */
+::before-42 {
+    animation: none;
+}
+/* CSS rule for #id with display */
+#id-43 {
+    display: bold;
+}
+/* CSS rule for ::after with padding */
+::after-44 {
+    padding: relative;
+}
+/* CSS rule for element with transform */
+element-45 {
+    transform: grid;
+}
+/* CSS rule for #id with opacity */
+#id-46 {
+    opacity: 10px;
+}
+/* CSS rule for + sibling with box-shadow */
++ sibling-47 {
+    box-shadow: 100%;
+}
+/* CSS rule for ~ general with width */
+~ general-48 {
+    width: center;
+}
+/* CSS rule for ~ general with box-shadow */
+~ general-49 {
+    box-shadow: red;
+}
+/* CSS rule for .class with font-size */
+.class-50 {
+    font-size: none;
+}
+/* CSS rule for ~ general with transition */
+~ general-51 {
+    transition: 1rem;
+}
+/* CSS rule for #id with transform */
+#id-52 {
+    transform: underline;
+}
+/* CSS rule for ~ general with opacity */
+~ general-53 {
+    opacity: scroll;
+}
+/* CSS rule for #id with display */
+#id-54 {
+    display: red;
+}
+/* CSS rule for > child with z-index */
+> child-55 {
+    z-index: 10px;
+}
+/* CSS rule for ~ general with opacity */
+~ general-56 {
+    opacity: underline;
+}
+/* CSS rule for ::after with transition */
+::after-57 {
+    transition: grid;
+}
+/* CSS rule for + sibling with transform */
++ sibling-58 {
+    transform: none;
+}
+/* CSS rule for :pseudo with overflow */
+:pseudo-59 {
+    overflow: none;
+}
+/* CSS rule for element with overflow */
+element-60 {
+    overflow: fixed;
+}
+/* CSS rule for ~ general with animation */
+~ general-61 {
+    animation: flex;
+}
+/* CSS rule for :pseudo with animation */
+:pseudo-62 {
+    animation: hidden;
+}
+/* CSS rule for ::before with overflow */
+::before-63 {
+    overflow: inline;
+}
+/* CSS rule for element with color */
+element-64 {
+    color: underline;
+}
+/* CSS rule for [attr] with flex */
+[attr]-65 {
+    flex: red;
+}
+/* CSS rule for .class with width */
+.class-66 {
+    width: 100%;
+}
+/* CSS rule for element with position */
+element-67 {
+    position: inline;
+}
+/* CSS rule for ~ general with box-shadow */
+~ general-68 {
+    box-shadow: hidden;
+}
+/* CSS rule for + sibling with transform */
++ sibling-69 {
+    transform: inline;
+}
+/* CSS rule for element with overflow */
+element-70 {
+    overflow: block;
+}
+/* CSS rule for ::before with animation */
+::before-71 {
+    animation: 1rem;
+}
+/* CSS rule for ~ general with transition */
+~ general-72 {
+    transition: inline;
+}
+/* CSS rule for [attr] with border */
+[attr]-73 {
+    border: blue;
+}
+/* CSS rule for > child with overflow */
+> child-74 {
+    overflow: scroll;
+}
+/* CSS rule for > child with width */
+> child-75 {
+    width: inline;
+}
+/* CSS rule for .class with box-shadow */
+.class-76 {
+    box-shadow: 10px;
+}
+/* CSS rule for ~ general with transition */
+~ general-77 {
+    transition: blue;
+}
+/* CSS rule for element with width */
+element-78 {
+    width: 100%;
+}
+/* CSS rule for + sibling with font-size */
++ sibling-79 {
+    font-size: italic;
+}
+/* CSS rule for :pseudo with overflow */
+:pseudo-80 {
+    overflow: relative;
+}
+/* CSS rule for [attr] with flex */
+[attr]-81 {
+    flex: italic;
+}
+/* CSS rule for > child with color */
+> child-82 {
+    color: grid;
+}
+/* CSS rule for #id with overflow */
+#id-83 {
+    overflow: block;
+}
+/* CSS rule for #id with z-index */
+#id-84 {
+    z-index: none;
+}
+/* CSS rule for element with box-shadow */
+element-85 {
+    box-shadow: block;
+}
+/* CSS rule for :pseudo with animation */
+:pseudo-86 {
+    animation: underline;
+}
+/* CSS rule for + sibling with background */
++ sibling-87 {
+    background: bold;
+}
+/* CSS rule for ::after with flex */
+::after-88 {
+    flex: inline;
+}
+/* CSS rule for ::after with margin */
+::after-89 {
+    margin: center;
+}
+/* CSS rule for ~ general with height */
+~ general-90 {
+    height: auto;
+}
+/* CSS rule for > child with height */
+> child-91 {
+    height: blue;
+}
+/* CSS rule for > child with transition */
+> child-92 {
+    transition: scroll;
+}
+/* CSS rule for > child with transform */
+> child-93 {
+    transform: fixed;
+}
+/* CSS rule for ~ general with overflow */
+~ general-94 {
+    overflow: center;
+}
+/* CSS rule for + sibling with animation */
++ sibling-95 {
+    animation: underline;
+}
+/* CSS rule for > child with padding */
+> child-96 {
+    padding: 100%;
+}
+/* CSS rule for + sibling with width */
++ sibling-97 {
+    width: none;
+}
+/* CSS rule for ~ general with padding */
+~ general-98 {
+    padding: scroll;
+}
+/* CSS rule for ::before with box-shadow */
+::before-99 {
+    box-shadow: inline;
+}
+/* CSS rule for > child with background */
+> child-100 {
+    background: blue;
+}
+/* CSS rule for > child with position */
+> child-101 {
+    position: 100%;
+}
+/* CSS rule for .class with font-size */
+.class-102 {
+    font-size: center;
+}
+/* CSS rule for :pseudo with background */
+:pseudo-103 {
+    background: center;
+}
+/* CSS rule for :pseudo with flex */
+:pseudo-104 {
+    flex: flex;
+}
+/* CSS rule for ::after with flex */
+::after-105 {
+    flex: blue;
+}
+/* CSS rule for element with border */
+element-106 {
+    border: relative;
+}
+/* CSS rule for #id with font-size */
+#id-107 {
+    font-size: hidden;
+}
+/* CSS rule for ::before with grid */
+::before-108 {
+    grid: center;
+}
+/* CSS rule for ::before with font-size */
+::before-109 {
+    font-size: red;
+}
+/* CSS rule for ~ general with transition */
+~ general-110 {
+    transition: center;
+}
+/* CSS rule for [attr] with transform */
+[attr]-111 {
+    transform: 100%;
+}
+/* CSS rule for #id with transition */
+#id-112 {
+    transition: auto;
+}
+/* CSS rule for element with cursor */
+element-113 {
+    cursor: none;
+}
+/* CSS rule for + sibling with transform */
++ sibling-114 {
+    transform: 10px;
+}
+/* CSS rule for ::before with width */
+::before-115 {
+    width: flex;
+}
+/* CSS rule for element with box-shadow */
+element-116 {
+    box-shadow: 100%;
+}
+/* CSS rule for + sibling with transform */
++ sibling-117 {
+    transform: fixed;
+}
+/* CSS rule for ::after with background */
+::after-118 {
+    background: italic;
+}
+/* CSS rule for :pseudo with overflow */
+:pseudo-119 {
+    overflow: 100%;
+}
+/* CSS rule for ::after with color */
+::after-120 {
+    color: center;
+}
+/* CSS rule for :pseudo with color */
+:pseudo-121 {
+    color: none;
+}
+/* CSS rule for .class with box-shadow */
+.class-122 {
+    box-shadow: absolute;
+}
+/* CSS rule for :pseudo with grid */
+:pseudo-123 {
+    grid: underline;
+}
+/* CSS rule for .class with padding */
+.class-124 {
+    padding: 1rem;
+}
+/* CSS rule for ::before with position */
+::before-125 {
+    position: flex;
+}
+/* CSS rule for > child with background */
+> child-126 {
+    background: bold;
+}
+/* CSS rule for ~ general with transition */
+~ general-127 {
+    transition: 10px;
+}
+/* CSS rule for ::before with box-shadow */
+::before-128 {
+    box-shadow: underline;
+}
+/* CSS rule for + sibling with box-shadow */
++ sibling-129 {
+    box-shadow: 1rem;
+}
+/* CSS rule for > child with box-shadow */
+> child-130 {
+    box-shadow: italic;
+}
+/* CSS rule for ::after with transform */
+::after-131 {
+    transform: italic;
+}
+/* CSS rule for ::after with grid */
+::after-132 {
+    grid: scroll;
+}
+/* CSS rule for ~ general with box-shadow */
+~ general-133 {
+    box-shadow: block;
+}
+/* CSS rule for ::after with color */
+::after-134 {
+    color: grid;
+}
+/* CSS rule for #id with font-size */
+#id-135 {
+    font-size: scroll;
+}
+/* CSS rule for .class with flex */
+.class-136 {
+    flex: hidden;
+}
+/* CSS rule for [attr] with flex */
+[attr]-137 {
+    flex: scroll;
+}
+/* CSS rule for [attr] with grid */
+[attr]-138 {
+    grid: hidden;
+}
+/* CSS rule for ~ general with animation */
+~ general-139 {
+    animation: underline;
+}
+/* CSS rule for ~ general with display */
+~ general-140 {
+    display: 1rem;
+}
+/* CSS rule for #id with box-shadow */
+#id-141 {
+    box-shadow: inline;
+}
+/* CSS rule for ::after with background */
+::after-142 {
+    background: inline;
+}
+/* CSS rule for #id with font-size */
+#id-143 {
+    font-size: italic;
+}
+/* CSS rule for #id with background */
+#id-144 {
+    background: absolute;
+}
+/* CSS rule for element with margin */
+element-145 {
+    margin: italic;
+}
+/* CSS rule for element with font-size */
+element-146 {
+    font-size: center;
+}
+/* CSS rule for ::before with position */
+::before-147 {
+    position: underline;
+}
+/* CSS rule for .class with display */
+.class-148 {
+    display: underline;
+}
+/* CSS rule for :pseudo with grid */
+:pseudo-149 {
+    grid: absolute;
+}
+/* CSS rule for + sibling with font-size */
++ sibling-150 {
+    font-size: grid;
+}
+/* CSS rule for :pseudo with transition */
+:pseudo-151 {
+    transition: 100%;
+}
+/* CSS rule for .class with background */
+.class-152 {
+    background: blue;
+}
+/* CSS rule for ::before with grid */
+::before-153 {
+    grid: red;
+}
+/* CSS rule for > child with width */
+> child-154 {
+    width: center;
+}
+/* CSS rule for :pseudo with font-size */
+:pseudo-155 {
+    font-size: inline;
+}
+/* CSS rule for ::after with background */
+::after-156 {
+    background: italic;
+}
+/* CSS rule for > child with transform */
+> child-157 {
+    transform: red;
+}
+/* CSS rule for [attr] with cursor */
+[attr]-158 {
+    cursor: italic;
+}
+/* CSS rule for ~ general with cursor */
+~ general-159 {
+    cursor: 10px;
+}
+/* CSS rule for .class with font-size */
+.class-160 {
+    font-size: flex;
+}
+/* CSS rule for element with margin */
+element-161 {
+    margin: blue;
+}
+/* CSS rule for element with background */
+element-162 {
+    background: italic;
+}
+/* CSS rule for element with cursor */
+element-163 {
+    cursor: inline;
+}
+/* CSS rule for .class with transform */
+.class-164 {
+    transform: italic;
+}
+/* CSS rule for ~ general with height */
+~ general-165 {
+    height: fixed;
+}
+/* CSS rule for ::after with flex */
+::after-166 {
+    flex: scroll;
+}
+/* CSS rule for .class with grid */
+.class-167 {
+    grid: blue;
+}
+/* CSS rule for .class with font-size */
+.class-168 {
+    font-size: underline;
+}
+/* CSS rule for ~ general with height */
+~ general-169 {
+    height: block;
+}
+/* CSS rule for element with overflow */
+element-170 {
+    overflow: relative;
+}
+/* CSS rule for [attr] with display */
+[attr]-171 {
+    display: center;
+}
+/* CSS rule for ::before with z-index */
+::before-172 {
+    z-index: none;
+}
+/* CSS rule for :pseudo with opacity */
+:pseudo-173 {
+    opacity: blue;
+}
+/* CSS rule for > child with transition */
+> child-174 {
+    transition: block;
+}
+/* CSS rule for .class with font-size */
+.class-175 {
+    font-size: auto;
+}
+/* CSS rule for element with transition */
+element-176 {
+    transition: relative;
+}
+/* CSS rule for > child with width */
+> child-177 {
+    width: red;
+}
+/* CSS rule for + sibling with width */
++ sibling-178 {
+    width: underline;
+}
+/* CSS rule for :pseudo with height */
+:pseudo-179 {
+    height: 1rem;
+}
+/* CSS rule for + sibling with transition */
++ sibling-180 {
+    transition: underline;
+}
+/* CSS rule for ::before with color */
+::before-181 {
+    color: underline;
+}
+/* CSS rule for .class with height */
+.class-182 {
+    height: blue;
+}
+/* CSS rule for :pseudo with z-index */
+:pseudo-183 {
+    z-index: 100%;
+}
+/* CSS rule for ::before with display */
+::before-184 {
+    display: bold;
+}
+/* CSS rule for ~ general with grid */
+~ general-185 {
+    grid: 10px;
+}
+/* CSS rule for > child with flex */
+> child-186 {
+    flex: red;
+}
+/* CSS rule for .class with padding */
+.class-187 {
+    padding: relative;
+}
+/* CSS rule for element with height */
+element-188 {
+    height: blue;
+}
+/* CSS rule for [attr] with height */
+[attr]-189 {
+    height: 1rem;
+}
+/* CSS rule for ~ general with grid */
+~ general-190 {
+    grid: 10px;
+}
+/* CSS rule for > child with animation */
+> child-191 {
+    animation: scroll;
+}
+/* CSS rule for > child with cursor */
+> child-192 {
+    cursor: fixed;
+}
+/* CSS rule for .class with margin */
+.class-193 {
+    margin: flex;
+}
+/* CSS rule for [attr] with overflow */
+[attr]-194 {
+    overflow: underline;
+}
+/* CSS rule for + sibling with position */
++ sibling-195 {
+    position: 1rem;
+}
+/* CSS rule for ::after with background */
+::after-196 {
+    background: hidden;
+}
+/* CSS rule for :pseudo with height */
+:pseudo-197 {
+    height: scroll;
+}
+/* CSS rule for > child with cursor */
+> child-198 {
+    cursor: auto;
+}
+/* CSS rule for ::after with grid */
+::after-199 {
+    grid: 1rem;
+}
+/* CSS rule for :pseudo with height */
+:pseudo-200 {
+    height: fixed;
+}
+/* CSS rule for #id with display */
+#id-201 {
+    display: italic;
+}
+/* CSS rule for > child with border */
+> child-202 {
+    border: flex;
+}
+/* CSS rule for #id with transform */
+#id-203 {
+    transform: underline;
+}
+/* CSS rule for .class with border */
+.class-204 {
+    border: inline;
+}
+/* CSS rule for element with width */
+element-205 {
+    width: block;
+}
+/* CSS rule for ::before with z-index */
+::before-206 {
+    z-index: red;
+}
+/* CSS rule for ~ general with cursor */
+~ general-207 {
+    cursor: block;
+}
+/* CSS rule for ::after with height */
+::after-208 {
+    height: red;
+}
+/* CSS rule for :pseudo with transition */
+:pseudo-209 {
+    transition: relative;
+}
+/* CSS rule for ::before with transform */
+::before-210 {
+    transform: hidden;
+}
+/* CSS rule for #id with flex */
+#id-211 {
+    flex: hidden;
+}
+/* CSS rule for .class with flex */
+.class-212 {
+    flex: blue;
+}
+/* CSS rule for ::before with transform */
+::before-213 {
+    transform: fixed;
+}
+/* CSS rule for ::before with grid */
+::before-214 {
+    grid: bold;
+}
+/* CSS rule for .class with flex */
+.class-215 {
+    flex: fixed;
+}
+/* CSS rule for element with cursor */
+element-216 {
+    cursor: bold;
+}
+/* CSS rule for #id with padding */
+#id-217 {
+    padding: hidden;
+}
+/* CSS rule for + sibling with background */
++ sibling-218 {
+    background: absolute;
+}
+/* CSS rule for .class with display */
+.class-219 {
+    display: scroll;
+}
+/* CSS rule for ~ general with flex */
+~ general-220 {
+    flex: hidden;
+}
+/* CSS rule for .class with transition */
+.class-221 {
+    transition: italic;
+}
+/* CSS rule for > child with z-index */
+> child-222 {
+    z-index: absolute;
+}
+/* CSS rule for ~ general with display */
+~ general-223 {
+    display: italic;
+}
+/* CSS rule for .class with grid */
+.class-224 {
+    grid: relative;
+}
+/* CSS rule for :pseudo with width */
+:pseudo-225 {
+    width: underline;
+}
+/* CSS rule for ::after with width */
+::after-226 {
+    width: 10px;
+}
+/* CSS rule for ::before with cursor */
+::before-227 {
+    cursor: italic;
+}
+/* CSS rule for + sibling with cursor */
++ sibling-228 {
+    cursor: scroll;
+}
+/* CSS rule for ~ general with background */
+~ general-229 {
+    background: 100%;
+}
+/* CSS rule for ~ general with grid */
+~ general-230 {
+    grid: bold;
+}
+/* CSS rule for .class with transform */
+.class-231 {
+    transform: hidden;
+}
+/* CSS rule for > child with height */
+> child-232 {
+    height: hidden;
+}
+/* CSS rule for :pseudo with display */
+:pseudo-233 {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
 }
-
-/* Links and buttons */
-a {
+/* CSS rule for [attr] with border */
+[attr]-234 {
+    border: italic;
+}
+/* CSS rule for + sibling with display */
++ sibling-235 {
+    display: 10px;
+}
+/* CSS rule for #id with animation */
+#id-236 {
+    animation: 1rem;
+}
+/* CSS rule for + sibling with color */
++ sibling-237 {
+    color: flex;
+}
+/* CSS rule for ::before with width */
+::before-238 {
+    width: center;
+}
+/* CSS rule for #id with background */
+#id-239 {
+    background: block;
+}
+/* CSS rule for :pseudo with cursor */
+:pseudo-240 {
+    cursor: grid;
+}
+/* CSS rule for #id with flex */
+#id-241 {
+    flex: underline;
+}
+/* CSS rule for [attr] with position */
+[attr]-242 {
+    position: block;
+}
+/* CSS rule for > child with position */
+> child-243 {
+    position: red;
+}
+/* CSS rule for + sibling with box-shadow */
++ sibling-244 {
+    box-shadow: italic;
+}
+/* CSS rule for ::after with padding */
+::after-245 {
+    padding: relative;
+}
+/* CSS rule for [attr] with flex */
+[attr]-246 {
+    flex: blue;
+}
+/* CSS rule for + sibling with overflow */
++ sibling-247 {
+    overflow: auto;
+}
+/* CSS rule for ::before with box-shadow */
+::before-248 {
+    box-shadow: auto;
+}
+/* CSS rule for ::after with grid */
+::after-249 {
+    grid: bold;
+}
+/* CSS rule for .class with z-index */
+.class-250 {
+    z-index: flex;
+}
+/* CSS rule for ~ general with border */
+~ general-251 {
+    border: center;
+}
+/* CSS rule for ::before with background */
+::before-252 {
+    background: flex;
+}
+/* CSS rule for ::after with margin */
+::after-253 {
+    margin: hidden;
+}
+/* CSS rule for + sibling with transform */
++ sibling-254 {
+    transform: scroll;
+}
+/* CSS rule for + sibling with z-index */
++ sibling-255 {
+    z-index: 100%;
+}
+/* CSS rule for [attr] with z-index */
+[attr]-256 {
+    z-index: center;
+}
+/* CSS rule for element with height */
+element-257 {
+    height: italic;
+}
+/* CSS rule for #id with cursor */
+#id-258 {
+    cursor: inline;
+}
+/* CSS rule for element with width */
+element-259 {
+    width: inline;
+}
+/* CSS rule for element with transform */
+element-260 {
+    transform: underline;
+}
+/* CSS rule for ::after with z-index */
+::after-261 {
+    z-index: 100%;
+}
+/* CSS rule for #id with box-shadow */
+#id-262 {
+    box-shadow: 1rem;
+}
+/* CSS rule for :pseudo with display */
+:pseudo-263 {
+    display: hidden;
+}
+/* CSS rule for #id with overflow */
+#id-264 {
+    overflow: red;
+}
+/* CSS rule for + sibling with width */
++ sibling-265 {
+    width: italic;
+}
+/* CSS rule for ::after with overflow */
+::after-266 {
+    overflow: 1rem;
+}
+/* CSS rule for .class with opacity */
+.class-267 {
+    opacity: underline;
+}
+/* CSS rule for [attr] with grid */
+[attr]-268 {
+    grid: bold;
+}
+/* CSS rule for [attr] with background */
+[attr]-269 {
+    background: relative;
+}
+/* CSS rule for ::after with padding */
+::after-270 {
+    padding: grid;
+}
+/* CSS rule for ::after with z-index */
+::after-271 {
+    z-index: fixed;
+}
+/* CSS rule for > child with transform */
+> child-272 {
+    transform: hidden;
+}
+/* CSS rule for element with font-size */
+element-273 {
+    font-size: blue;
+}
+/* CSS rule for + sibling with box-shadow */
++ sibling-274 {
+    box-shadow: center;
+}
+/* CSS rule for #id with grid */
+#id-275 {
+    grid: grid;
+}
+/* CSS rule for ~ general with box-shadow */
+~ general-276 {
+    box-shadow: blue;
+}
+/* CSS rule for + sibling with padding */
++ sibling-277 {
+    padding: flex;
+}
+/* CSS rule for ::before with z-index */
+::before-278 {
+    z-index: center;
+}
+/* CSS rule for :pseudo with position */
+:pseudo-279 {
+    position: 10px;
+}
+/* CSS rule for #id with overflow */
+#id-280 {
+    overflow: blue;
+}
+/* CSS rule for > child with background */
+> child-281 {
+    background: inline;
+}
+/* CSS rule for #id with height */
+#id-282 {
+    height: blue;
+}
+/* CSS rule for element with font-size */
+element-283 {
+    font-size: inline;
+}
+/* CSS rule for + sibling with transition */
++ sibling-284 {
+    transition: 10px;
+}
+/* CSS rule for ~ general with padding */
+~ general-285 {
+    padding: block;
+}
+/* CSS rule for ::before with width */
+::before-286 {
+    width: scroll;
+}
+/* CSS rule for ::after with cursor */
+::after-287 {
+    cursor: 1rem;
+}
+/* CSS rule for [attr] with box-shadow */
+[attr]-288 {
+    box-shadow: flex;
+}
+/* CSS rule for .class with position */
+.class-289 {
+    position: blue;
+}
+/* CSS rule for [attr] with overflow */
+[attr]-290 {
+    overflow: none;
+}
+/* CSS rule for ::after with position */
+::after-291 {
+    position: underline;
+}
+/* CSS rule for #id with grid */
+#id-292 {
+    grid: inline;
+}
+/* CSS rule for ~ general with transition */
+~ general-293 {
+    transition: relative;
+}
+/* CSS rule for ::before with box-shadow */
+::before-294 {
+    box-shadow: none;
+}
+/* CSS rule for + sibling with cursor */
++ sibling-295 {
+    cursor: flex;
+}
+/* CSS rule for element with transition */
+element-296 {
+    transition: flex;
+}
+/* CSS rule for ::after with display */
+::after-297 {
+    display: center;
+}
+/* CSS rule for .class with grid */
+.class-298 {
+    grid: fixed;
+}
+/* CSS rule for ::before with width */
+::before-299 {
+    width: underline;
+}
+/* CSS rule for > child with z-index */
+> child-300 {
+    z-index: scroll;
+}
+/* CSS rule for :pseudo with z-index */
+:pseudo-301 {
+    z-index: center;
+}
+/* CSS rule for > child with grid */
+> child-302 {
+    grid: center;
+}
+/* CSS rule for ~ general with z-index */
+~ general-303 {
+    z-index: relative;
+}
+/* CSS rule for :pseudo with animation */
+:pseudo-304 {
+    animation: scroll;
+}
+/* CSS rule for .class with position */
+.class-305 {
+    position: none;
+}
+/* CSS rule for > child with height */
+> child-306 {
+    height: scroll;
+}
+/* CSS rule for .class with height */
+.class-307 {
+    height: 100%;
+}
+/* CSS rule for :pseudo with height */
+:pseudo-308 {
+    height: 100%;
+}
+/* CSS rule for ::before with background */
+::before-309 {
+    background: block;
+}
+/* CSS rule for > child with margin */
+> child-310 {
+    margin: absolute;
+}
+/* CSS rule for ::after with color */
+::after-311 {
+    color: red;
+}
+/* CSS rule for #id with color */
+#id-312 {
+    color: relative;
+}
+/* CSS rule for ~ general with width */
+~ general-313 {
+    width: red;
+}
+/* CSS rule for ~ general with animation */
+~ general-314 {
+    animation: relative;
+}
+/* CSS rule for #id with opacity */
+#id-315 {
+    opacity: 1rem;
+}
+/* CSS rule for + sibling with padding */
++ sibling-316 {
+    padding: fixed;
+}
+/* CSS rule for > child with box-shadow */
+> child-317 {
+    box-shadow: underline;
+}
+/* CSS rule for element with display */
+element-318 {
+    display: fixed;
+}
+/* CSS rule for > child with position */
+> child-319 {
+    position: 100%;
+}
+/* CSS rule for [attr] with width */
+[attr]-320 {
+    width: none;
+}
+/* CSS rule for #id with color */
+#id-321 {
+    color: flex;
+}
+/* CSS rule for ::before with margin */
+::before-322 {
+    margin: 100%;
+}
+/* CSS rule for ::before with height */
+::before-323 {
+    height: blue;
+}
+/* CSS rule for ::before with height */
+::before-324 {
+    height: auto;
+}
+/* CSS rule for element with display */
+element-325 {
+    display: auto;
+}
+/* CSS rule for :pseudo with border */
+:pseudo-326 {
+    border: inline;
+}
+/* CSS rule for ::before with animation */
+::before-327 {
+    animation: scroll;
+}
+/* CSS rule for #id with display */
+#id-328 {
+    display: 100%;
+}
+/* CSS rule for #id with transform */
+#id-329 {
+    transform: italic;
+}
+/* CSS rule for .class with z-index */
+.class-330 {
+    z-index: auto;
+}
+/* CSS rule for ::before with width */
+::before-331 {
+    width: block;
+}
+/* CSS rule for :pseudo with width */
+:pseudo-332 {
+    width: bold;
+}
+/* CSS rule for .class with overflow */
+.class-333 {
+    overflow: fixed;
+}
+/* CSS rule for ~ general with box-shadow */
+~ general-334 {
+    box-shadow: scroll;
+}
+/* CSS rule for [attr] with opacity */
+[attr]-335 {
+    opacity: scroll;
+}
+/* CSS rule for ::before with grid */
+::before-336 {
+    grid: 1rem;
+}
+/* CSS rule for ~ general with animation */
+~ general-337 {
+    animation: hidden;
+}
+/* CSS rule for #id with flex */
+#id-338 {
+    flex: 10px;
+}
+/* CSS rule for [attr] with grid */
+[attr]-339 {
+    grid: absolute;
+}
+/* CSS rule for > child with margin */
+> child-340 {
+    margin: center;
+}
+/* CSS rule for ::before with background */
+::before-341 {
+    background: relative;
+}
+/* CSS rule for #id with width */
+#id-342 {
+    width: fixed;
+}
+/* CSS rule for ::before with transition */
+::before-343 {
+    transition: block;
+}
+/* CSS rule for element with background */
+element-344 {
+    background: underline;
+}
+/* CSS rule for ::after with color */
+::after-345 {
+    color: absolute;
+}
+/* CSS rule for :pseudo with z-index */
+:pseudo-346 {
+    z-index: fixed;
+}
+/* CSS rule for ::before with background */
+::before-347 {
+    background: 100%;
+}
+/* CSS rule for ::before with border */
+::before-348 {
+    border: relative;
+}
+/* CSS rule for :pseudo with border */
+:pseudo-349 {
+    border: italic;
+}
+/* CSS rule for :pseudo with display */
+:pseudo-350 {
+    display: scroll;
+}
+/* CSS rule for ::before with color */
+::before-351 {
+    color: 1rem;
+}
+/* CSS rule for ::after with transition */
+::after-352 {
+    transition: 1rem;
+}
+/* CSS rule for ~ general with transition */
+~ general-353 {
+    transition: relative;
+}
+/* CSS rule for ::after with color */
+::after-354 {
     color: blue;
-    text-decoration: none;
 }
-
-a:hover {
-    text-decoration: underline;
+/* CSS rule for [attr] with background */
+[attr]-355 {
+    background: blue;
 }
-
-.button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
+/* CSS rule for ::before with display */
+::before-356 {
+    display: hidden;
+}
+/* CSS rule for [attr] with transform */
+[attr]-357 {
+    transform: center;
+}
+/* CSS rule for :pseudo with grid */
+:pseudo-358 {
+    grid: underline;
+}
+/* CSS rule for .class with color */
+.class-359 {
+    color: 1rem;
+}
+/* CSS rule for element with overflow */
+element-360 {
+    overflow: grid;
+}
+/* CSS rule for element with height */
+element-361 {
+    height: center;
+}
+/* CSS rule for ::before with grid */
+::before-362 {
+    grid: blue;
+}
+/* CSS rule for :pseudo with transition */
+:pseudo-363 {
+    transition: center;
+}
+/* CSS rule for ::after with display */
+::after-364 {
+    display: italic;
+}
+/* CSS rule for element with margin */
+element-365 {
+    margin: flex;
+}
+/* CSS rule for ::after with box-shadow */
+::after-366 {
+    box-shadow: bold;
+}
+/* CSS rule for ~ general with cursor */
+~ general-367 {
+    cursor: inline;
+}
+/* CSS rule for > child with width */
+> child-368 {
+    width: absolute;
+}
+/* CSS rule for #id with border */
+#id-369 {
+    border: auto;
+}
+/* CSS rule for + sibling with overflow */
++ sibling-370 {
+    overflow: block;
+}
+/* CSS rule for element with color */
+element-371 {
+    color: flex;
+}
+/* CSS rule for > child with position */
+> child-372 {
+    position: flex;
+}
+/* CSS rule for #id with overflow */
+#id-373 {
+    overflow: block;
+}
+/* CSS rule for ::before with height */
+::before-374 {
+    height: bold;
+}
+/* CSS rule for ~ general with margin */
+~ general-375 {
+    margin: red;
+}
+/* CSS rule for ::after with background */
+::after-376 {
+    background: underline;
+}
+/* CSS rule for > child with position */
+> child-377 {
+    position: inline;
+}
+/* CSS rule for :pseudo with opacity */
+:pseudo-378 {
+    opacity: relative;
+}
+/* CSS rule for element with margin */
+element-379 {
+    margin: auto;
+}
+/* CSS rule for ::after with z-index */
+::after-380 {
+    z-index: absolute;
+}
+/* CSS rule for + sibling with border */
++ sibling-381 {
+    border: scroll;
+}
+/* CSS rule for [attr] with display */
+[attr]-382 {
+    display: relative;
+}
+/* CSS rule for + sibling with box-shadow */
++ sibling-383 {
+    box-shadow: fixed;
+}
+/* CSS rule for [attr] with animation */
+[attr]-384 {
+    animation: red;
+}
+/* CSS rule for [attr] with border */
+[attr]-385 {
+    border: fixed;
+}
+/* CSS rule for + sibling with margin */
++ sibling-386 {
+    margin: underline;
+}
+/* CSS rule for #id with position */
+#id-387 {
+    position: none;
+}
+/* CSS rule for #id with padding */
+#id-388 {
+    padding: blue;
+}
+/* CSS rule for ::after with z-index */
+::after-389 {
+    z-index: red;
+}
+/* CSS rule for element with opacity */
+element-390 {
+    opacity: relative;
+}
+/* CSS rule for #id with font-size */
+#id-391 {
+    font-size: auto;
+}
+/* CSS rule for :pseudo with grid */
+:pseudo-392 {
+    grid: 10px;
+}
+/* CSS rule for ::before with color */
+::before-393 {
+    color: fixed;
+}
+/* CSS rule for element with flex */
+element-394 {
+    flex: auto;
+}
+/* CSS rule for [attr] with font-size */
+[attr]-395 {
+    font-size: hidden;
+}
+/* CSS rule for :pseudo with overflow */
+:pseudo-396 {
+    overflow: none;
+}
+/* CSS rule for > child with width */
+> child-397 {
+    width: blue;
+}
+/* CSS rule for .class with z-index */
+.class-398 {
+    z-index: hidden;
+}
+/* CSS rule for > child with cursor */
+> child-399 {
+    cursor: fixed;
+}
+/* CSS rule for + sibling with cursor */
++ sibling-400 {
+    cursor: flex;
+}
+/* CSS rule for > child with color */
+> child-401 {
+    color: italic;
+}
+/* CSS rule for ::after with box-shadow */
+::after-402 {
+    box-shadow: relative;
+}
+/* CSS rule for element with margin */
+element-403 {
+    margin: center;
+}
+/* CSS rule for ::before with cursor */
+::before-404 {
+    cursor: bold;
+}
+/* CSS rule for ~ general with opacity */
+~ general-405 {
+    opacity: flex;
+}
+/* CSS rule for #id with color */
+#id-406 {
+    color: grid;
+}
+/* CSS rule for #id with font-size */
+#id-407 {
+    font-size: none;
+}
+/* CSS rule for ~ general with box-shadow */
+~ general-408 {
+    box-shadow: inline;
+}
+/* CSS rule for ::before with margin */
+::before-409 {
+    margin: underline;
+}
+/* CSS rule for ~ general with transition */
+~ general-410 {
+    transition: inline;
+}
+/* CSS rule for + sibling with color */
++ sibling-411 {
+    color: 10px;
+}
+/* CSS rule for :pseudo with display */
+:pseudo-412 {
+    display: none;
+}
+/* CSS rule for + sibling with font-size */
++ sibling-413 {
+    font-size: hidden;
+}
+/* CSS rule for > child with position */
+> child-414 {
+    position: none;
+}
+/* CSS rule for ::after with border */
+::after-415 {
+    border: 1rem;
+}
+/* CSS rule for #id with grid */
+#id-416 {
+    grid: inline;
+}
+/* CSS rule for > child with transform */
+> child-417 {
+    transform: absolute;
+}
+/* CSS rule for :pseudo with background */
+:pseudo-418 {
+    background: red;
+}
+/* CSS rule for > child with height */
+> child-419 {
+    height: none;
+}
+/* CSS rule for #id with transition */
+#id-420 {
+    transition: red;
+}
+/* CSS rule for #id with border */
+#id-421 {
+    border: 1rem;
+}
+/* CSS rule for :pseudo with color */
+:pseudo-422 {
+    color: block;
+}
+/* CSS rule for #id with animation */
+#id-423 {
+    animation: none;
+}
+/* CSS rule for ::after with transition */
+::after-424 {
+    transition: underline;
+}
+/* CSS rule for ::before with color */
+::before-425 {
+    color: fixed;
+}
+/* CSS rule for element with border */
+element-426 {
+    border: center;
+}
+/* CSS rule for ::after with display */
+::after-427 {
+    display: flex;
+}
+/* CSS rule for + sibling with flex */
++ sibling-428 {
+    flex: flex;
+}
+/* CSS rule for #id with width */
+#id-429 {
+    width: relative;
+}
+/* CSS rule for ::after with transition */
+::after-430 {
+    transition: scroll;
+}
+/* CSS rule for + sibling with border */
++ sibling-431 {
+    border: flex;
+}
+/* CSS rule for > child with opacity */
+> child-432 {
+    opacity: auto;
+}
+/* CSS rule for ::before with padding */
+::before-433 {
+    padding: center;
+}
+/* CSS rule for ::after with grid */
+::after-434 {
+    grid: fixed;
+}
+/* CSS rule for ::after with color */
+::after-435 {
+    color: 100%;
+}
+/* CSS rule for > child with box-shadow */
+> child-436 {
+    box-shadow: inline;
+}
+/* CSS rule for ::after with width */
+::after-437 {
+    width: 10px;
+}
+/* CSS rule for element with background */
+element-438 {
+    background: 100%;
+}
+/* CSS rule for ::before with padding */
+::before-439 {
+    padding: inline;
+}
+/* CSS rule for ::after with animation */
+::after-440 {
+    animation: center;
+}
+/* CSS rule for [attr] with cursor */
+[attr]-441 {
+    cursor: auto;
+}
+/* CSS rule for > child with margin */
+> child-442 {
+    margin: hidden;
+}
+/* CSS rule for ::after with background */
+::after-443 {
+    background: relative;
+}
+/* CSS rule for ~ general with position */
+~ general-444 {
+    position: block;
+}
+/* CSS rule for element with background */
+element-445 {
+    background: underline;
+}
+/* CSS rule for #id with transition */
+#id-446 {
+    transition: red;
+}
+/* CSS rule for + sibling with height */
++ sibling-447 {
+    height: 100%;
+}
+/* CSS rule for :pseudo with box-shadow */
+:pseudo-448 {
+    box-shadow: 10px;
+}
+/* CSS rule for > child with z-index */
+> child-449 {
+    z-index: 1rem;
+}
+/* CSS rule for element with border */
+element-450 {
+    border: underline;
+}
+/* CSS rule for > child with color */
+> child-451 {
+    color: block;
+}
+/* CSS rule for element with font-size */
+element-452 {
+    font-size: center;
+}
+/* CSS rule for :pseudo with transition */
+:pseudo-453 {
+    transition: 10px;
+}
+/* CSS rule for + sibling with padding */
++ sibling-454 {
+    padding: fixed;
+}
+/* CSS rule for [attr] with color */
+[attr]-455 {
+    color: red;
+}
+/* CSS rule for [attr] with margin */
+[attr]-456 {
+    margin: 1rem;
+}
+/* CSS rule for [attr] with height */
+[attr]-457 {
+    height: red;
+}
+/* CSS rule for ::before with color */
+::before-458 {
+    color: flex;
+}
+/* CSS rule for + sibling with position */
++ sibling-459 {
+    position: blue;
+}
+/* CSS rule for .class with background */
+.class-460 {
+    background: hidden;
+}
+/* CSS rule for [attr] with z-index */
+[attr]-461 {
+    z-index: center;
+}
+/* CSS rule for :pseudo with transition */
+:pseudo-462 {
+    transition: bold;
+}
+/* CSS rule for > child with transition */
+> child-463 {
+    transition: block;
+}
+/* CSS rule for ::after with transform */
+::after-464 {
+    transform: inline;
+}
+/* CSS rule for ~ general with height */
+~ general-465 {
+    height: 100%;
+}
+/* CSS rule for :pseudo with display */
+:pseudo-466 {
+    display: bold;
+}
+/* CSS rule for element with margin */
+element-467 {
+    margin: absolute;
+}
+/* CSS rule for #id with width */
+#id-468 {
+    width: grid;
+}
+/* CSS rule for ~ general with margin */
+~ general-469 {
+    margin: bold;
+}
+/* CSS rule for > child with animation */
+> child-470 {
+    animation: fixed;
+}
+/* CSS rule for .class with box-shadow */
+.class-471 {
+    box-shadow: none;
+}
+/* CSS rule for :pseudo with cursor */
+:pseudo-472 {
+    cursor: 10px;
+}
+/* CSS rule for :pseudo with display */
+:pseudo-473 {
+    display: scroll;
+}
+/* CSS rule for ::after with overflow */
+::after-474 {
+    overflow: absolute;
+}
+/* CSS rule for ::after with padding */
+::after-475 {
+    padding: center;
+}
+/* CSS rule for #id with animation */
+#id-476 {
+    animation: absolute;
+}
+/* CSS rule for :pseudo with box-shadow */
+:pseudo-477 {
+    box-shadow: block;
+}
+/* CSS rule for + sibling with padding */
++ sibling-478 {
+    padding: auto;
+}
+/* CSS rule for ::after with z-index */
+::after-479 {
+    z-index: italic;
+}
+/* CSS rule for :pseudo with position */
+:pseudo-480 {
+    position: grid;
+}
+/* CSS rule for #id with transition */
+#id-481 {
+    transition: blue;
+}
+/* CSS rule for :pseudo with cursor */
+:pseudo-482 {
+    cursor: none;
+}
+/* CSS rule for element with overflow */
+element-483 {
+    overflow: blue;
+}
+/* CSS rule for [attr] with border */
+[attr]-484 {
+    border: 1rem;
+}
+/* CSS rule for ::before with overflow */
+::before-485 {
+    overflow: auto;
+}
+/* CSS rule for > child with display */
+> child-486 {
+    display: 1rem;
+}
+/* CSS rule for > child with color */
+> child-487 {
+    color: italic;
+}
+/* CSS rule for > child with border */
+> child-488 {
+    border: 10px;
+}
+/* CSS rule for ::before with height */
+::before-489 {
+    height: red;
+}
+/* CSS rule for .class with transform */
+.class-490 {
+    transform: none;
+}
+/* CSS rule for ::before with opacity */
+::before-491 {
+    opacity: underline;
+}
+/* CSS rule for .class with font-size */
+.class-492 {
+    font-size: center;
+}
+/* CSS rule for + sibling with height */
++ sibling-493 {
+    height: hidden;
+}
+/* CSS rule for ::before with cursor */
+::before-494 {
+    cursor: absolute;
+}
+/* CSS rule for [attr] with width */
+[attr]-495 {
+    width: underline;
+}
+/* CSS rule for :pseudo with padding */
+:pseudo-496 {
+    padding: grid;
+}
+/* CSS rule for + sibling with transform */
++ sibling-497 {
+    transform: flex;
+}
+/* CSS rule for ::after with transition */
+::after-498 {
+    transition: scroll;
+}
+/* CSS rule for > child with flex */
+> child-499 {
+    flex: block;
+}
+/* CSS rule for #id with transform */
+#id-500 {
+    transform: 1rem;
+}
+/* CSS rule for [attr] with margin */
+[attr]-501 {
+    margin: red;
+}
+/* CSS rule for ::before with position */
+::before-502 {
+    position: relative;
+}
+/* CSS rule for [attr] with cursor */
+[attr]-503 {
+    cursor: center;
+}
+/* CSS rule for element with height */
+element-504 {
+    height: red;
+}
+/* CSS rule for ::before with overflow */
+::before-505 {
+    overflow: blue;
+}
+/* CSS rule for ::before with background */
+::before-506 {
+    background: none;
+}
+/* CSS rule for element with padding */
+element-507 {
+    padding: grid;
+}
+/* CSS rule for ~ general with position */
+~ general-508 {
+    position: block;
+}
+/* CSS rule for + sibling with border */
++ sibling-509 {
+    border: red;
+}
+/* CSS rule for element with transition */
+element-510 {
+    transition: inline;
+}
+/* CSS rule for ~ general with opacity */
+~ general-511 {
+    opacity: blue;
+}
+/* CSS rule for ::after with grid */
+::after-512 {
+    grid: grid;
+}
+/* CSS rule for #id with overflow */
+#id-513 {
+    overflow: absolute;
+}
+/* CSS rule for .class with color */
+.class-514 {
+    color: blue;
+}
+/* CSS rule for [attr] with font-size */
+[attr]-515 {
+    font-size: hidden;
+}
+/* CSS rule for + sibling with box-shadow */
++ sibling-516 {
+    box-shadow: 10px;
+}
+/* CSS rule for .class with font-size */
+.class-517 {
+    font-size: 1rem;
+}
+/* CSS rule for #id with position */
+#id-518 {
+    position: relative;
+}
+/* CSS rule for #id with display */
+#id-519 {
+    display: 1rem;
+}
+/* CSS rule for + sibling with box-shadow */
++ sibling-520 {
+    box-shadow: italic;
+}
+/* CSS rule for .class with margin */
+.class-521 {
+    margin: auto;
+}
+/* CSS rule for element with z-index */
+element-522 {
+    z-index: grid;
+}
+/* CSS rule for ~ general with height */
+~ general-523 {
+    height: relative;
+}
+/* CSS rule for ::after with height */
+::after-524 {
+    height: inline;
+}
+/* CSS rule for ::after with z-index */
+::after-525 {
+    z-index: hidden;
+}
+/* CSS rule for [attr] with background */
+[attr]-526 {
+    background: flex;
+}
+/* CSS rule for ::before with height */
+::before-527 {
+    height: auto;
+}
+/* CSS rule for element with margin */
+element-528 {
+    margin: flex;
+}
+/* CSS rule for ::before with box-shadow */
+::before-529 {
+    box-shadow: hidden;
+}
+/* CSS rule for ::before with color */
+::before-530 {
+    color: blue;
+}
+/* CSS rule for #id with transform */
+#id-531 {
+    transform: relative;
+}
+/* CSS rule for .class with color */
+.class-532 {
+    color: 10px;
+}
+/* CSS rule for + sibling with flex */
++ sibling-533 {
+    flex: 1rem;
+}
+/* CSS rule for .class with opacity */
+.class-534 {
+    opacity: scroll;
+}
+/* CSS rule for ~ general with cursor */
+~ general-535 {
+    cursor: scroll;
+}
+/* CSS rule for #id with border */
+#id-536 {
+    border: scroll;
+}
+/* CSS rule for element with display */
+element-537 {
+    display: none;
+}
+/* CSS rule for ::before with position */
+::before-538 {
+    position: absolute;
+}
+/* CSS rule for #id with color */
+#id-539 {
+    color: grid;
+}
+/* CSS rule for element with transition */
+element-540 {
+    transition: 100%;
+}
+/* CSS rule for ::after with overflow */
+::after-541 {
+    overflow: none;
+}
+/* CSS rule for [attr] with background */
+[attr]-542 {
+    background: italic;
+}
+/* CSS rule for [attr] with border */
+[attr]-543 {
+    border: 100%;
+}
+/* CSS rule for :pseudo with opacity */
+:pseudo-544 {
+    opacity: relative;
+}
+/* CSS rule for ~ general with flex */
+~ general-545 {
+    flex: scroll;
+}
+/* CSS rule for ::after with position */
+::after-546 {
+    position: red;
+}
+/* CSS rule for > child with font-size */
+> child-547 {
+    font-size: 10px;
+}
+/* CSS rule for ::after with z-index */
+::after-548 {
+    z-index: underline;
+}
+/* CSS rule for .class with background */
+.class-549 {
+    background: bold;
+}
+/* CSS rule for > child with height */
+> child-550 {
+    height: bold;
+}
+/* CSS rule for > child with opacity */
+> child-551 {
+    opacity: red;
+}
+/* CSS rule for [attr] with margin */
+[attr]-552 {
+    margin: italic;
+}
+/* CSS rule for element with z-index */
+element-553 {
+    z-index: italic;
+}
+/* CSS rule for #id with box-shadow */
+#id-554 {
+    box-shadow: 100%;
+}
+/* CSS rule for > child with cursor */
+> child-555 {
+    cursor: red;
+}
+/* CSS rule for .class with cursor */
+.class-556 {
+    cursor: inline;
+}
+/* CSS rule for .class with grid */
+.class-557 {
+    grid: relative;
+}
+/* CSS rule for ~ general with animation */
+~ general-558 {
+    animation: italic;
+}
+/* CSS rule for > child with margin */
+> child-559 {
+    margin: bold;
+}
+/* CSS rule for .class with transition */
+.class-560 {
+    transition: grid;
+}
+/* CSS rule for .class with box-shadow */
+.class-561 {
+    box-shadow: absolute;
+}
+/* CSS rule for ~ general with height */
+~ general-562 {
+    height: italic;
+}
+/* CSS rule for ::after with grid */
+::after-563 {
+    grid: block;
+}
+/* CSS rule for ~ general with animation */
+~ general-564 {
+    animation: flex;
+}
+/* CSS rule for #id with position */
+#id-565 {
+    position: hidden;
+}
+/* CSS rule for ~ general with width */
+~ general-566 {
+    width: fixed;
+}
+/* CSS rule for ~ general with padding */
+~ general-567 {
+    padding: relative;
+}
+/* CSS rule for :pseudo with padding */
+:pseudo-568 {
+    padding: 1rem;
+}
+/* CSS rule for :pseudo with grid */
+:pseudo-569 {
+    grid: none;
+}
+/* CSS rule for :pseudo with background */
+:pseudo-570 {
+    background: blue;
+}
+/* CSS rule for + sibling with transform */
++ sibling-571 {
+    transform: flex;
+}
+/* CSS rule for .class with overflow */
+.class-572 {
+    overflow: blue;
+}
+/* CSS rule for [attr] with z-index */
+[attr]-573 {
+    z-index: blue;
+}
+/* CSS rule for [attr] with box-shadow */
+[attr]-574 {
+    box-shadow: 1rem;
+}
+/* CSS rule for + sibling with grid */
++ sibling-575 {
+    grid: 1rem;
+}
+/* CSS rule for #id with font-size */
+#id-576 {
+    font-size: auto;
+}
+/* CSS rule for > child with animation */
+> child-577 {
+    animation: none;
+}
+/* CSS rule for #id with transform */
+#id-578 {
+    transform: 100%;
+}
+/* CSS rule for :pseudo with overflow */
+:pseudo-579 {
+    overflow: 10px;
+}
+/* CSS rule for .class with opacity */
+.class-580 {
+    opacity: 10px;
+}
+/* CSS rule for .class with animation */
+.class-581 {
+    animation: scroll;
+}
+/* CSS rule for .class with background */
+.class-582 {
+    background: blue;
+}
+/* CSS rule for #id with color */
+#id-583 {
+    color: grid;
+}
+/* CSS rule for [attr] with transform */
+[attr]-584 {
+    transform: absolute;
+}
+/* CSS rule for ::after with box-shadow */
+::after-585 {
+    box-shadow: inline;
+}
+/* CSS rule for :pseudo with padding */
+:pseudo-586 {
+    padding: blue;
+}
+/* CSS rule for ::after with height */
+::after-587 {
+    height: relative;
+}
+/* CSS rule for ::after with color */
+::after-588 {
+    color: 10px;
+}
+/* CSS rule for [attr] with overflow */
+[attr]-589 {
+    overflow: fixed;
+}
+/* CSS rule for ::before with z-index */
+::before-590 {
+    z-index: hidden;
+}
+/* CSS rule for + sibling with height */
++ sibling-591 {
+    height: hidden;
+}
+/* CSS rule for > child with animation */
+> child-592 {
+    animation: scroll;
+}
+/* CSS rule for + sibling with border */
++ sibling-593 {
+    border: grid;
+}
+/* CSS rule for ::before with opacity */
+::before-594 {
+    opacity: 100%;
+}
+/* CSS rule for + sibling with z-index */
++ sibling-595 {
+    z-index: block;
+}
+/* CSS rule for .class with position */
+.class-596 {
+    position: red;
+}
+/* CSS rule for [attr] with display */
+[attr]-597 {
+    display: 1rem;
+}
+/* CSS rule for ::after with flex */
+::after-598 {
+    flex: block;
+}
+/* CSS rule for :pseudo with width */
+:pseudo-599 {
+    width: relative;
+}
+/* CSS rule for ~ general with font-size */
+~ general-600 {
+    font-size: flex;
+}
+/* CSS rule for :pseudo with z-index */
+:pseudo-601 {
+    z-index: center;
+}
+/* CSS rule for + sibling with overflow */
++ sibling-602 {
+    overflow: 10px;
+}
+/* CSS rule for element with animation */
+element-603 {
+    animation: 10px;
+}
+/* CSS rule for [attr] with width */
+[attr]-604 {
+    width: 10px;
+}
+/* CSS rule for .class with border */
+.class-605 {
+    border: grid;
+}
+/* CSS rule for ~ general with height */
+~ general-606 {
+    height: auto;
+}
+/* CSS rule for [attr] with color */
+[attr]-607 {
+    color: auto;
+}
+/* CSS rule for > child with cursor */
+> child-608 {
+    cursor: red;
+}
+/* CSS rule for :pseudo with z-index */
+:pseudo-609 {
+    z-index: bold;
+}
+/* CSS rule for [attr] with width */
+[attr]-610 {
+    width: grid;
+}
+/* CSS rule for ::before with box-shadow */
+::before-611 {
+    box-shadow: none;
+}
+/* CSS rule for [attr] with box-shadow */
+[attr]-612 {
+    box-shadow: fixed;
+}
+/* CSS rule for ~ general with opacity */
+~ general-613 {
+    opacity: none;
+}
+/* CSS rule for ::before with padding */
+::before-614 {
+    padding: 1rem;
+}
+/* CSS rule for ::before with background */
+::before-615 {
+    background: scroll;
+}
+/* CSS rule for .class with animation */
+.class-616 {
+    animation: scroll;
+}
+/* CSS rule for [attr] with cursor */
+[attr]-617 {
+    cursor: relative;
+}
+/* CSS rule for #id with z-index */
+#id-618 {
+    z-index: inline;
+}
+/* CSS rule for ::before with height */
+::before-619 {
+    height: inline;
+}
+/* CSS rule for ~ general with border */
+~ general-620 {
+    border: 10px;
+}
+/* CSS rule for [attr] with overflow */
+[attr]-621 {
+    overflow: blue;
+}
+/* CSS rule for .class with transition */
+.class-622 {
+    transition: center;
+}
+/* CSS rule for #id with box-shadow */
+#id-623 {
+    box-shadow: inline;
+}
+/* CSS rule for + sibling with cursor */
++ sibling-624 {
+    cursor: absolute;
+}
+/* CSS rule for :pseudo with font-size */
+:pseudo-625 {
+    font-size: bold;
+}
+/* CSS rule for ::after with transition */
+::after-626 {
+    transition: blue;
+}
+/* CSS rule for .class with cursor */
+.class-627 {
+    cursor: red;
+}
+/* CSS rule for [attr] with transform */
+[attr]-628 {
+    transform: none;
+}
+/* CSS rule for #id with font-size */
+#id-629 {
+    font-size: red;
+}
+/* CSS rule for ~ general with z-index */
+~ general-630 {
+    z-index: underline;
+}
+/* CSS rule for .class with border */
+.class-631 {
+    border: underline;
+}
+/* CSS rule for #id with position */
+#id-632 {
+    position: none;
+}
+/* CSS rule for .class with position */
+.class-633 {
+    position: block;
+}
+/* CSS rule for :pseudo with z-index */
+:pseudo-634 {
+    z-index: grid;
+}
+/* CSS rule for + sibling with position */
++ sibling-635 {
+    position: flex;
+}
+/* CSS rule for + sibling with margin */
++ sibling-636 {
+    margin: blue;
+}
+/* CSS rule for [attr] with flex */
+[attr]-637 {
+    flex: hidden;
+}
+/* CSS rule for ~ general with transition */
+~ general-638 {
+    transition: none;
+}
+/* CSS rule for ~ general with animation */
+~ general-639 {
+    animation: absolute;
+}
+/* CSS rule for [attr] with color */
+[attr]-640 {
+    color: red;
+}
+/* CSS rule for ::before with flex */
+::before-641 {
+    flex: center;
+}
+/* CSS rule for [attr] with display */
+[attr]-642 {
+    display: scroll;
+}
+/* CSS rule for > child with background */
+> child-643 {
+    background: relative;
+}
+/* CSS rule for ~ general with height */
+~ general-644 {
+    height: center;
+}
+/* CSS rule for element with overflow */
+element-645 {
+    overflow: bold;
+}
+/* CSS rule for element with width */
+element-646 {
+    width: italic;
+}
+/* CSS rule for .class with box-shadow */
+.class-647 {
+    box-shadow: fixed;
+}
+/* CSS rule for ~ general with color */
+~ general-648 {
+    color: none;
+}
+/* CSS rule for .class with display */
+.class-649 {
+    display: bold;
+}
+/* CSS rule for > child with transition */
+> child-650 {
+    transition: red;
+}
+/* CSS rule for #id with display */
+#id-651 {
+    display: center;
+}
+/* CSS rule for [attr] with box-shadow */
+[attr]-652 {
+    box-shadow: center;
+}
+/* CSS rule for + sibling with width */
++ sibling-653 {
+    width: inline;
+}
+/* CSS rule for > child with color */
+> child-654 {
+    color: blue;
+}
+/* CSS rule for > child with transform */
+> child-655 {
+    transform: fixed;
+}
+/* CSS rule for > child with font-size */
+> child-656 {
+    font-size: 1rem;
+}
+/* CSS rule for .class with position */
+.class-657 {
+    position: center;
+}
+/* CSS rule for :pseudo with transform */
+:pseudo-658 {
+    transform: 10px;
+}
+/* CSS rule for + sibling with display */
++ sibling-659 {
+    display: 10px;
+}
+/* CSS rule for > child with overflow */
+> child-660 {
+    overflow: 100%;
+}
+/* CSS rule for [attr] with transition */
+[attr]-661 {
+    transition: fixed;
+}
+/* CSS rule for ::after with position */
+::after-662 {
+    position: blue;
+}
+/* CSS rule for ~ general with margin */
+~ general-663 {
+    margin: relative;
+}
+/* CSS rule for #id with display */
+#id-664 {
+    display: 100%;
+}
+/* CSS rule for + sibling with font-size */
++ sibling-665 {
+    font-size: flex;
+}
+/* CSS rule for element with padding */
+element-666 {
+    padding: absolute;
+}
+/* CSS rule for .class with display */
+.class-667 {
+    display: 1rem;
+}
+/* CSS rule for element with width */
+element-668 {
+    width: scroll;
+}
+/* CSS rule for ~ general with position */
+~ general-669 {
+    position: hidden;
+}
+/* CSS rule for .class with margin */
+.class-670 {
+    margin: 100%;
+}
+/* CSS rule for .class with box-shadow */
+.class-671 {
+    box-shadow: grid;
+}
+/* CSS rule for .class with overflow */
+.class-672 {
+    overflow: block;
+}
+/* CSS rule for > child with position */
+> child-673 {
+    position: fixed;
+}
+/* CSS rule for element with animation */
+element-674 {
+    animation: italic;
+}
+/* CSS rule for [attr] with z-index */
+[attr]-675 {
+    z-index: bold;
+}
+/* CSS rule for ::before with border */
+::before-676 {
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+}
+/* CSS rule for [attr] with color */
+[attr]-677 {
+    color: red;
+}
+/* CSS rule for .class with margin */
+.class-678 {
+    margin: 100%;
+}
+/* CSS rule for element with box-shadow */
+element-679 {
+    box-shadow: 100%;
+}
+/* CSS rule for + sibling with font-size */
++ sibling-680 {
+    font-size: flex;
+}
+/* CSS rule for ~ general with border */
+~ general-681 {
+    border: fixed;
+}
+/* CSS rule for [attr] with grid */
+[attr]-682 {
+    grid: relative;
+}
+/* CSS rule for #id with z-index */
+#id-683 {
+    z-index: inline;
+}
+/* CSS rule for :pseudo with transform */
+:pseudo-684 {
+    transform: grid;
+}
+/* CSS rule for [attr] with box-shadow */
+[attr]-685 {
+    box-shadow: scroll;
+}
+/* CSS rule for ~ general with width */
+~ general-686 {
+    width: 10px;
+}
+/* CSS rule for ~ general with padding */
+~ general-687 {
+    padding: 100%;
+}
+/* CSS rule for [attr] with border */
+[attr]-688 {
+    border: fixed;
+}
+/* CSS rule for [attr] with z-index */
+[attr]-689 {
+    z-index: red;
+}
+/* CSS rule for .class with height */
+.class-690 {
+    height: flex;
+}
+/* CSS rule for [attr] with position */
+[attr]-691 {
+    position: grid;
+}
+/* CSS rule for #id with opacity */
+#id-692 {
+    opacity: 100%;
+}
+/* CSS rule for ::before with z-index */
+::before-693 {
+    z-index: flex;
+}
+/* CSS rule for .class with transition */
+.class-694 {
+    transition: underline;
+}
+/* CSS rule for > child with cursor */
+> child-695 {
+    cursor: italic;
+}
+/* CSS rule for element with overflow */
+element-696 {
+    overflow: auto;
+}
+/* CSS rule for .class with height */
+.class-697 {
+    height: 1rem;
+}
+/* CSS rule for ::after with width */
+::after-698 {
+    width: 1rem;
+}
+/* CSS rule for ::before with height */
+::before-699 {
+    height: flex;
+}
+/* CSS rule for ::before with opacity */
+::before-700 {
+    opacity: red;
+}
+/* CSS rule for ::before with transition */
+::before-701 {
+    transition: 100%;
+}
+/* CSS rule for [attr] with grid */
+[attr]-702 {
+    grid: absolute;
+}
+/* CSS rule for ::before with height */
+::before-703 {
+    height: 100%;
+}
+/* CSS rule for ::after with box-shadow */
+::after-704 {
+    box-shadow: absolute;
+}
+/* CSS rule for ::before with z-index */
+::before-705 {
+    z-index: hidden;
+}
+/* CSS rule for ::after with box-shadow */
+::after-706 {
+    box-shadow: inline;
+}
+/* CSS rule for .class with position */
+.class-707 {
+    position: center;
+}
+/* CSS rule for :pseudo with box-shadow */
+:pseudo-708 {
+    box-shadow: italic;
+}
+/* CSS rule for ::before with opacity */
+::before-709 {
+    opacity: block;
+}
+/* CSS rule for ::after with position */
+::after-710 {
+    position: flex;
+}
+/* CSS rule for + sibling with transform */
++ sibling-711 {
+    transform: grid;
+}
+/* CSS rule for + sibling with box-shadow */
++ sibling-712 {
+    box-shadow: red;
+}
+/* CSS rule for > child with margin */
+> child-713 {
+    margin: flex;
+}
+/* CSS rule for [attr] with opacity */
+[attr]-714 {
+    opacity: flex;
+}
+/* CSS rule for ::before with padding */
+::before-715 {
+    padding: 10px;
+}
+/* CSS rule for ::after with transition */
+::after-716 {
+    transition: flex;
+}
+/* CSS rule for #id with z-index */
+#id-717 {
+    z-index: 10px;
+}
+/* CSS rule for ::before with transform */
+::before-718 {
+    transform: 100%;
+}
+/* CSS rule for + sibling with animation */
++ sibling-719 {
+    animation: none;
+}
+/* CSS rule for ~ general with transform */
+~ general-720 {
+    transform: relative;
+}
+/* CSS rule for ::after with animation */
+::after-721 {
+    animation: block;
+}
+/* CSS rule for > child with display */
+> child-722 {
+    display: hidden;
+}
+/* CSS rule for .class with box-shadow */
+.class-723 {
+    box-shadow: scroll;
+}
+/* CSS rule for :pseudo with color */
+:pseudo-724 {
+    color: 10px;
+}
+/* CSS rule for element with overflow */
+element-725 {
+    overflow: grid;
+}
+/* CSS rule for [attr] with box-shadow */
+[attr]-726 {
+    box-shadow: bold;
+}
+/* CSS rule for #id with border */
+#id-727 {
+    border: absolute;
+}
+/* CSS rule for [attr] with border */
+[attr]-728 {
+    border: scroll;
+}
+/* CSS rule for ::after with position */
+::after-729 {
+    position: center;
+}
+/* CSS rule for element with grid */
+element-730 {
+    grid: grid;
+}
+/* CSS rule for [attr] with padding */
+[attr]-731 {
+    padding: center;
+}
+/* CSS rule for element with box-shadow */
+element-732 {
+    box-shadow: italic;
+}
+/* CSS rule for .class with transform */
+.class-733 {
+    transform: 100%;
+}
+/* CSS rule for ~ general with animation */
+~ general-734 {
+    animation: fixed;
+}
+/* CSS rule for #id with flex */
+#id-735 {
+    flex: absolute;
+}
+/* CSS rule for :pseudo with opacity */
+:pseudo-736 {
+    opacity: fixed;
+}
+/* CSS rule for #id with transform */
+#id-737 {
+    transform: hidden;
+}
+/* CSS rule for .class with transition */
+.class-738 {
+    transition: fixed;
+}
+/* CSS rule for #id with width */
+#id-739 {
+    width: block;
+}
+/* CSS rule for .class with animation */
+.class-740 {
+    animation: 10px;
+}
+/* CSS rule for [attr] with transform */
+[attr]-741 {
+    transform: inline;
+}
+/* CSS rule for element with padding */
+element-742 {
+    padding: bold;
+}
+/* CSS rule for [attr] with flex */
+[attr]-743 {
+    flex: center;
+}
+/* CSS rule for element with border */
+element-744 {
+    border: red;
+}
+/* CSS rule for > child with cursor */
+> child-745 {
+    cursor: bold;
+}
+/* CSS rule for [attr] with color */
+[attr]-746 {
+    color: red;
+}
+/* CSS rule for ::after with display */
+::after-747 {
+    display: red;
+}
+/* CSS rule for element with transition */
+element-748 {
+    transition: block;
+}
+/* CSS rule for #id with width */
+#id-749 {
+    width: italic;
+}
+/* CSS rule for ~ general with border */
+~ general-750 {
+    border: 1rem;
+}
+/* CSS rule for :pseudo with grid */
+:pseudo-751 {
+    grid: 1rem;
+}
+/* CSS rule for element with height */
+element-752 {
+    height: 10px;
+}
+/* CSS rule for element with font-size */
+element-753 {
+    font-size: 10px;
+}
+/* CSS rule for ::after with box-shadow */
+::after-754 {
+    box-shadow: block;
+}
+/* CSS rule for #id with color */
+#id-755 {
+    color: 10px;
+}
+/* CSS rule for [attr] with height */
+[attr]-756 {
+    height: 1rem;
+}
+/* CSS rule for [attr] with box-shadow */
+[attr]-757 {
+    box-shadow: block;
+}
+/* CSS rule for :pseudo with font-size */
+:pseudo-758 {
+    font-size: inline;
+}
+/* CSS rule for ~ general with animation */
+~ general-759 {
+    animation: hidden;
+}
+/* CSS rule for > child with z-index */
+> child-760 {
+    z-index: relative;
+}
+/* CSS rule for + sibling with transition */
++ sibling-761 {
+    transition: hidden;
+}
+/* CSS rule for ::after with opacity */
+::after-762 {
+    opacity: italic;
+}
+/* CSS rule for ~ general with width */
+~ general-763 {
+    width: block;
+}
+/* CSS rule for ~ general with color */
+~ general-764 {
+    color: italic;
+}
+/* CSS rule for element with z-index */
+element-765 {
+    z-index: fixed;
+}
+/* CSS rule for :pseudo with color */
+:pseudo-766 {
+    color: inline;
+}
+/* CSS rule for :pseudo with border */
+:pseudo-767 {
+    border: 100%;
+}
+/* CSS rule for :pseudo with margin */
+:pseudo-768 {
+    margin: 1rem;
+}
+/* CSS rule for > child with overflow */
+> child-769 {
+    overflow: blue;
+}
+/* CSS rule for :pseudo with box-shadow */
+:pseudo-770 {
+    box-shadow: fixed;
+}
+/* CSS rule for ::before with transform */
+::before-771 {
+    transform: fixed;
+}
+/* CSS rule for [attr] with position */
+[attr]-772 {
+    position: flex;
+}
+/* CSS rule for :pseudo with grid */
+:pseudo-773 {
+    grid: center;
+}
+/* CSS rule for ~ general with cursor */
+~ general-774 {
+    cursor: inline;
+}
+/* CSS rule for + sibling with grid */
++ sibling-775 {
+    grid: underline;
+}
+/* CSS rule for ::after with position */
+::after-776 {
+    position: 100%;
+}
+/* CSS rule for + sibling with transition */
++ sibling-777 {
+    transition: fixed;
+}
+/* CSS rule for ::before with height */
+::before-778 {
+    height: blue;
+}
+/* CSS rule for ~ general with animation */
+~ general-779 {
+    animation: center;
+}
+/* CSS rule for ::after with transform */
+::after-780 {
+    transform: flex;
+}
+/* CSS rule for > child with padding */
+> child-781 {
+    padding: 100%;
+}
+/* CSS rule for #id with display */
+#id-782 {
+    display: relative;
+}
+/* CSS rule for .class with flex */
+.class-783 {
+    flex: grid;
+}
+/* CSS rule for > child with display */
+> child-784 {
+    display: auto;
+}
+/* CSS rule for > child with height */
+> child-785 {
+    height: flex;
+}
+/* CSS rule for ::before with border */
+::before-786 {
+    border: 100%;
+}
+/* CSS rule for ::before with background */
+::before-787 {
+    background: flex;
+}
+/* CSS rule for #id with animation */
+#id-788 {
+    animation: 100%;
+}
+/* CSS rule for ::after with cursor */
+::after-789 {
+    cursor: hidden;
+}
+/* CSS rule for :pseudo with flex */
+:pseudo-790 {
+    flex: none;
+}
+/* CSS rule for [attr] with padding */
+[attr]-791 {
+    padding: 10px;
+}
+/* CSS rule for + sibling with grid */
++ sibling-792 {
+    grid: bold;
+}
+/* CSS rule for #id with animation */
+#id-793 {
+    animation: red;
+}
+/* CSS rule for + sibling with display */
++ sibling-794 {
+    display: absolute;
+}
+/* CSS rule for element with width */
+element-795 {
+    width: underline;
+}
+/* CSS rule for + sibling with flex */
++ sibling-796 {
+    flex: 1rem;
+}
+/* CSS rule for [attr] with padding */
+[attr]-797 {
+    padding: auto;
+}
+/* CSS rule for ~ general with position */
+~ general-798 {
+    position: underline;
+}
+/* CSS rule for ~ general with transition */
+~ general-799 {
+    transition: inline;
+}
+/* CSS rule for > child with width */
+> child-800 {
+    width: flex;
+}
+/* CSS rule for element with overflow */
+element-801 {
+    overflow: relative;
+}
+/* CSS rule for element with animation */
+element-802 {
+    animation: absolute;
+}
+/* CSS rule for [attr] with flex */
+[attr]-803 {
+    flex: block;
+}
+/* CSS rule for :pseudo with z-index */
+:pseudo-804 {
+    z-index: absolute;
+}
+/* CSS rule for + sibling with width */
++ sibling-805 {
+    width: 1rem;
+}
+/* CSS rule for ::before with flex */
+::before-806 {
+    flex: absolute;
+}
+/* CSS rule for #id with flex */
+#id-807 {
+    flex: 1rem;
+}
+/* CSS rule for .class with font-size */
+.class-808 {
+    font-size: 100%;
+}
+/* CSS rule for element with font-size */
+element-809 {
+    font-size: bold;
+}
+/* CSS rule for element with z-index */
+element-810 {
+    z-index: bold;
+}
+/* CSS rule for .class with color */
+.class-811 {
+    color: fixed;
+}
+/* CSS rule for [attr] with cursor */
+[attr]-812 {
+    cursor: blue;
+}
+/* CSS rule for .class with position */
+.class-813 {
+    position: 1rem;
+}
+/* CSS rule for ::after with opacity */
+::after-814 {
+    opacity: blue;
+}
+/* CSS rule for ::before with height */
+::before-815 {
+    height: absolute;
+}
+/* CSS rule for ::before with margin */
+::before-816 {
+    margin: fixed;
+}
+/* CSS rule for + sibling with box-shadow */
++ sibling-817 {
+    box-shadow: blue;
+}
+/* CSS rule for .class with margin */
+.class-818 {
+    margin: none;
+}
+/* CSS rule for element with margin */
+element-819 {
+    margin: grid;
+}
+/* CSS rule for ~ general with overflow */
+~ general-820 {
+    overflow: 1rem;
+}
+/* CSS rule for ::after with transition */
+::after-821 {
+    transition: hidden;
+}
+/* CSS rule for + sibling with color */
++ sibling-822 {
+    color: italic;
+}
+/* CSS rule for .class with opacity */
+.class-823 {
+    opacity: italic;
+}
+/* CSS rule for .class with color */
+.class-824 {
+    color: 10px;
+}
+/* CSS rule for #id with font-size */
+#id-825 {
+    font-size: block;
+}
+/* CSS rule for ~ general with transform */
+~ general-826 {
+    transform: italic;
+}
+/* CSS rule for .class with grid */
+.class-827 {
+    grid: 10px;
+}
+/* CSS rule for ~ general with border */
+~ general-828 {
+    border: flex;
+}
+/* CSS rule for ::before with box-shadow */
+::before-829 {
+    box-shadow: flex;
+}
+/* CSS rule for ::before with color */
+::before-830 {
+    color: auto;
+}
+/* CSS rule for ::before with margin */
+::before-831 {
+    margin: 1rem;
+}
+/* CSS rule for element with grid */
+element-832 {
+    grid: 1rem;
+}
+/* CSS rule for + sibling with margin */
++ sibling-833 {
+    margin: relative;
+}
+/* CSS rule for element with box-shadow */
+element-834 {
+    box-shadow: underline;
+}
+/* CSS rule for :pseudo with color */
+:pseudo-835 {
+    color: relative;
+}
+/* CSS rule for #id with display */
+#id-836 {
+    display: italic;
+}
+/* CSS rule for ::after with z-index */
+::after-837 {
+    z-index: 1rem;
+}
+/* CSS rule for #id with transform */
+#id-838 {
+    transform: red;
+}
+/* CSS rule for > child with overflow */
+> child-839 {
+    overflow: scroll;
+}
+/* CSS rule for ~ general with z-index */
+~ general-840 {
+    z-index: 100%;
+}
+/* CSS rule for #id with display */
+#id-841 {
+    display: grid;
+}
+/* CSS rule for element with border */
+element-842 {
+    border: 10px;
+}
+/* CSS rule for element with width */
+element-843 {
+    width: blue;
+}
+/* CSS rule for ::after with box-shadow */
+::after-844 {
+    box-shadow: flex;
+}
+/* CSS rule for element with grid */
+element-845 {
+    grid: red;
+}
+/* CSS rule for element with font-size */
+element-846 {
+    font-size: inline;
+}
+/* CSS rule for ~ general with background */
+~ general-847 {
+    background: relative;
+}
+/* CSS rule for #id with grid */
+#id-848 {
+    grid: fixed;
+}
+/* CSS rule for ::before with background */
+::before-849 {
+    background: relative;
+}
+/* CSS rule for ::before with width */
+::before-850 {
+    width: 10px;
+}
+/* CSS rule for .class with font-size */
+.class-851 {
+    font-size: grid;
+}
+/* CSS rule for [attr] with overflow */
+[attr]-852 {
+    overflow: auto;
+}
+/* CSS rule for > child with height */
+> child-853 {
+    height: blue;
+}
+/* CSS rule for ::after with margin */
+::after-854 {
+    margin: none;
+}
+/* CSS rule for ::before with z-index */
+::before-855 {
+    z-index: blue;
+}
+/* CSS rule for element with cursor */
+element-856 {
+    cursor: center;
+}
+/* CSS rule for [attr] with grid */
+[attr]-857 {
+    grid: absolute;
+}
+/* CSS rule for ::before with font-size */
+::before-858 {
+    font-size: 10px;
+}
+/* CSS rule for ::after with padding */
+::after-859 {
+    padding: underline;
+}
+/* CSS rule for ~ general with margin */
+~ general-860 {
+    margin: underline;
+}
+/* CSS rule for .class with border */
+.class-861 {
+    border: block;
+}
+/* CSS rule for > child with flex */
+> child-862 {
+    flex: fixed;
+}
+/* CSS rule for + sibling with color */
++ sibling-863 {
+    color: red;
+}
+/* CSS rule for + sibling with transform */
++ sibling-864 {
+    transform: blue;
+}
+/* CSS rule for [attr] with font-size */
+[attr]-865 {
+    font-size: fixed;
+}
+/* CSS rule for [attr] with display */
+[attr]-866 {
+    display: red;
+}
+/* CSS rule for ~ general with display */
+~ general-867 {
+    display: flex;
+}
+/* CSS rule for ~ general with display */
+~ general-868 {
+    display: 10px;
+}
+/* CSS rule for [attr] with z-index */
+[attr]-869 {
+    z-index: flex;
+}
+/* CSS rule for ::before with transform */
+::before-870 {
+    transform: fixed;
+}
+/* CSS rule for ::before with color */
+::before-871 {
+    color: block;
+}
+/* CSS rule for #id with margin */
+#id-872 {
+    margin: center;
+}
+/* CSS rule for > child with position */
+> child-873 {
+    position: center;
+}
+/* CSS rule for element with flex */
+element-874 {
+    flex: grid;
+}
+/* CSS rule for :pseudo with animation */
+:pseudo-875 {
+    animation: auto;
+}
+/* CSS rule for ::before with z-index */
+::before-876 {
+    z-index: flex;
+}
+/* CSS rule for ::before with transform */
+::before-877 {
+    transform: inline;
+}
+/* CSS rule for #id with width */
+#id-878 {
+    width: block;
+}
+/* CSS rule for ::after with box-shadow */
+::after-879 {
+    box-shadow: hidden;
+}
+/* CSS rule for [attr] with animation */
+[attr]-880 {
+    animation: red;
+}
+/* CSS rule for :pseudo with z-index */
+:pseudo-881 {
+    z-index: flex;
+}
+/* CSS rule for > child with transition */
+> child-882 {
+    transition: bold;
+}
+/* CSS rule for + sibling with position */
++ sibling-883 {
+    position: fixed;
+}
+/* CSS rule for element with grid */
+element-884 {
+    grid: block;
+}
+/* CSS rule for ~ general with margin */
+~ general-885 {
+    margin: flex;
+}
+/* CSS rule for ~ general with position */
+~ general-886 {
+    position: auto;
+}
+/* CSS rule for [attr] with margin */
+[attr]-887 {
+    margin: blue;
+}
+/* CSS rule for ::after with background */
+::after-888 {
+    background: flex;
+}
+/* CSS rule for #id with display */
+#id-889 {
+    display: auto;
+}
+/* CSS rule for + sibling with animation */
++ sibling-890 {
+    animation: 10px;
+}
+/* CSS rule for .class with box-shadow */
+.class-891 {
+    box-shadow: center;
+}
+/* CSS rule for :pseudo with z-index */
+:pseudo-892 {
+    z-index: 10px;
+}
+/* CSS rule for .class with opacity */
+.class-893 {
+    opacity: 100%;
+}
+/* CSS rule for element with width */
+element-894 {
+    width: inline;
+}
+/* CSS rule for ::before with margin */
+::before-895 {
+    margin: none;
+}
+/* CSS rule for ::before with padding */
+::before-896 {
+    padding: inline;
+}
+/* CSS rule for element with opacity */
+element-897 {
+    opacity: blue;
+}
+/* CSS rule for > child with cursor */
+> child-898 {
+    cursor: hidden;
+}
+/* CSS rule for ::after with transform */
+::after-899 {
+    transform: auto;
+}
+/* CSS rule for ::before with color */
+::before-900 {
+    color: scroll;
+}
+/* CSS rule for .class with transition */
+.class-901 {
+    transition: flex;
+}
+/* CSS rule for ::before with height */
+::before-902 {
+    height: 10px;
+}
+/* CSS rule for ::after with flex */
+::after-903 {
+    flex: scroll;
+}
+/* CSS rule for :pseudo with grid */
+:pseudo-904 {
+    grid: auto;
+}
+/* CSS rule for ~ general with transform */
+~ general-905 {
+    transform: scroll;
+}
+/* CSS rule for > child with position */
+> child-906 {
+    position: 1rem;
+}
+/* CSS rule for ::before with grid */
+::before-907 {
+    grid: inline;
+}
+/* CSS rule for element with grid */
+element-908 {
+    grid: none;
+}
+/* CSS rule for > child with color */
+> child-909 {
+    color: block;
+}
+/* CSS rule for :pseudo with grid */
+:pseudo-910 {
+    grid: flex;
+}
+/* CSS rule for .class with flex */
+.class-911 {
+    flex: flex;
+}
+/* CSS rule for element with transition */
+element-912 {
+    transition: 10px;
+}
+/* CSS rule for :pseudo with overflow */
+:pseudo-913 {
+    overflow: 1rem;
+}
+/* CSS rule for #id with color */
+#id-914 {
+    color: underline;
+}
+/* CSS rule for ::before with transition */
+::before-915 {
+    transition: fixed;
+}
+/* CSS rule for ~ general with overflow */
+~ general-916 {
+    overflow: underline;
+}
+/* CSS rule for [attr] with position */
+[attr]-917 {
+    position: flex;
+}
+/* CSS rule for #id with position */
+#id-918 {
+    position: scroll;
+}
+/* CSS rule for .class with animation */
+.class-919 {
+    animation: absolute;
+}
+/* CSS rule for ::after with position */
+::after-920 {
+    position: absolute;
+}
+/* CSS rule for + sibling with grid */
++ sibling-921 {
+    grid: center;
+}
+/* CSS rule for #id with display */
+#id-922 {
+    display: blue;
+}
+/* CSS rule for .class with position */
+.class-923 {
+    position: italic;
+}
+/* CSS rule for ::before with flex */
+::before-924 {
+    flex: relative;
+}
+/* CSS rule for + sibling with opacity */
++ sibling-925 {
+    opacity: flex;
+}
+/* CSS rule for .class with transform */
+.class-926 {
+    transform: hidden;
+}
+/* CSS rule for :pseudo with animation */
+:pseudo-927 {
+    animation: inline;
+}
+/* CSS rule for .class with overflow */
+.class-928 {
+    overflow: inline;
+}
+/* CSS rule for ::after with z-index */
+::after-929 {
+    z-index: flex;
+}
+/* CSS rule for ::before with box-shadow */
+::before-930 {
+    box-shadow: bold;
+}
+/* CSS rule for ::before with flex */
+::before-931 {
+    flex: blue;
+}
+/* CSS rule for ::before with color */
+::before-932 {
+    color: auto;
+}
+/* CSS rule for ~ general with background */
+~ general-933 {
+    background: italic;
+}
+/* CSS rule for ~ general with z-index */
+~ general-934 {
+    z-index: 1rem;
+}
+/* CSS rule for .class with margin */
+.class-935 {
+    margin: auto;
+}
+/* CSS rule for + sibling with width */
++ sibling-936 {
+    width: hidden;
+}
+/* CSS rule for ::before with z-index */
+::before-937 {
+    z-index: italic;
+}
+/* CSS rule for .class with padding */
+.class-938 {
+    padding: 1rem;
+}
+/* CSS rule for :pseudo with transition */
+:pseudo-939 {
+    transition: relative;
+}
+/* CSS rule for element with display */
+element-940 {
+    display: center;
+}
+/* CSS rule for element with position */
+element-941 {
+    position: hidden;
+}
+/* CSS rule for element with color */
+element-942 {
+    color: block;
+}
+/* CSS rule for + sibling with width */
++ sibling-943 {
+    width: hidden;
+}
+/* CSS rule for ~ general with background */
+~ general-944 {
+    background: relative;
+}
+/* CSS rule for ::before with z-index */
+::before-945 {
+    z-index: scroll;
+}
+/* CSS rule for ::after with border */
+::after-946 {
+    border: auto;
+}
+/* CSS rule for > child with grid */
+> child-947 {
+    grid: 100%;
+}
+/* CSS rule for ::after with color */
+::after-948 {
+    color: grid;
+}
+/* CSS rule for > child with z-index */
+> child-949 {
+    z-index: underline;
+}
+/* CSS rule for > child with overflow */
+> child-950 {
+    overflow: hidden;
+}
+/* CSS rule for > child with box-shadow */
+> child-951 {
+    box-shadow: center;
+}
+/* CSS rule for :pseudo with opacity */
+:pseudo-952 {
+    opacity: center;
+}
+/* CSS rule for > child with opacity */
+> child-953 {
+    opacity: grid;
+}
+/* CSS rule for #id with font-size */
+#id-954 {
+    font-size: none;
+}
+/* CSS rule for [attr] with display */
+[attr]-955 {
+    display: bold;
+}
+/* CSS rule for + sibling with border */
++ sibling-956 {
+    border: relative;
+}
+/* CSS rule for ::before with opacity */
+::before-957 {
+    opacity: bold;
+}
+/* CSS rule for + sibling with cursor */
++ sibling-958 {
+    cursor: relative;
+}
+/* CSS rule for > child with z-index */
+> child-959 {
+    z-index: auto;
+}
+/* CSS rule for ::before with grid */
+::before-960 {
+    grid: blue;
+}
+/* CSS rule for .class with border */
+.class-961 {
+    border: bold;
+}
+/* CSS rule for > child with grid */
+> child-962 {
+    grid: inline;
+}
+/* CSS rule for [attr] with grid */
+[attr]-963 {
+    grid: block;
+}
+/* CSS rule for ::after with box-shadow */
+::after-964 {
+    box-shadow: none;
+}
+/* CSS rule for element with font-size */
+element-965 {
+    font-size: underline;
+}
+/* CSS rule for .class with position */
+.class-966 {
+    position: bold;
+}
+/* CSS rule for ::before with grid */
+::before-967 {
+    grid: inline;
+}
+/* CSS rule for #id with overflow */
+#id-968 {
+    overflow: underline;
+}
+/* CSS rule for [attr] with color */
+[attr]-969 {
+    color: center;
+}
+/* CSS rule for [attr] with border */
+[attr]-970 {
+    border: blue;
+}
+/* CSS rule for [attr] with animation */
+[attr]-971 {
+    animation: flex;
+}
+/* CSS rule for ::after with overflow */
+::after-972 {
+    overflow: underline;
+}
+/* CSS rule for ::before with width */
+::before-973 {
+    width: 100%;
+}
+/* CSS rule for .class with border */
+.class-974 {
+    border: absolute;
+}
+/* CSS rule for > child with grid */
+> child-975 {
+    grid: scroll;
+}
+/* CSS rule for ~ general with margin */
+~ general-976 {
+    margin: italic;
+}
+/* CSS rule for :pseudo with width */
+:pseudo-977 {
+    width: fixed;
+}
+/* CSS rule for [attr] with height */
+[attr]-978 {
+    height: red;
+}
+/* CSS rule for #id with box-shadow */
+#id-979 {
+    box-shadow: grid;
+}
+/* CSS rule for :pseudo with display */
+:pseudo-980 {
+    display: red;
+}
+/* CSS rule for :pseudo with background */
+:pseudo-981 {
+    background: 100%;
+}
+/* CSS rule for ~ general with z-index */
+~ general-982 {
+    z-index: italic;
+}
+/* CSS rule for > child with margin */
+> child-983 {
+    margin: inline;
+}
+/* CSS rule for > child with z-index */
+> child-984 {
+    z-index: scroll;
+}
+/* CSS rule for :pseudo with font-size */
+:pseudo-985 {
+    font-size: absolute;
+}
+/* CSS rule for > child with border */
+> child-986 {
+    border: 10px;
+}
+/* CSS rule for .class with height */
+.class-987 {
+    height: hidden;
+}
+/* CSS rule for :pseudo with box-shadow */
+:pseudo-988 {
+    box-shadow: block;
+}
+/* CSS rule for .class with cursor */
+.class-989 {
+    cursor: relative;
+}
+/* CSS rule for [attr] with cursor */
+[attr]-990 {
+    cursor: auto;
+}
+/* CSS rule for #id with animation */
+#id-991 {
+    animation: relative;
+}
+/* CSS rule for ~ general with transform */
+~ general-992 {
+    transform: none;
+}
+/* CSS rule for > child with height */
+> child-993 {
+    height: bold;
+}
+/* CSS rule for > child with display */
+> child-994 {
+    display: blue;
+}
+/* CSS rule for element with flex */
+element-995 {
+    flex: blue;
+}
+/* CSS rule for ~ general with overflow */
+~ general-996 {
+    overflow: underline;
+}
+/* CSS rule for ~ general with margin */
+~ general-997 {
+    margin: relative;
+}
+/* CSS rule for .class with cursor */
+.class-998 {
+    cursor: relative;
+}
+/* CSS rule for + sibling with animation */
++ sibling-999 {
+    animation: block;
+}
+/* CSS rule for ::after with border */
+::after-1000 {
+    border: red;
+}
+/* CSS rule for ::after with transition */
+::after-1001 {
+    transition: none;
+}
+/* CSS rule for > child with display */
+> child-1002 {
+    display: relative;
+}
+/* CSS rule for ::after with background */
+::after-1003 {
+    background: block;
+}
+/* CSS rule for + sibling with border */
++ sibling-1004 {
+    border: scroll;
+}
+/* CSS rule for [attr] with display */
+[attr]-1005 {
+    display: scroll;
+}
+/* CSS rule for + sibling with animation */
++ sibling-1006 {
+    animation: fixed;
+}
+/* CSS rule for #id with transition */
+#id-1007 {
+    transition: 10px;
+}
+/* CSS rule for > child with border */
+> child-1008 {
+    border: 100%;
+}
+/* CSS rule for > child with overflow */
+> child-1009 {
+    overflow: flex;
+}
+/* CSS rule for ~ general with flex */
+~ general-1010 {
+    flex: scroll;
+}
+/* CSS rule for + sibling with color */
++ sibling-1011 {
+    color: center;
+}
+/* CSS rule for element with cursor */
+element-1012 {
+    cursor: auto;
+}
+/* CSS rule for element with background */
+element-1013 {
+    background: block;
+}
+/* CSS rule for > child with font-size */
+> child-1014 {
+    font-size: hidden;
+}
+/* CSS rule for ~ general with overflow */
+~ general-1015 {
+    overflow: relative;
+}
+/* CSS rule for > child with cursor */
+> child-1016 {
+    cursor: underline;
+}
+/* CSS rule for ::before with color */
+::before-1017 {
+    color: underline;
+}
+/* CSS rule for #id with background */
+#id-1018 {
+    background: italic;
+}
+/* CSS rule for > child with cursor */
+> child-1019 {
+    cursor: grid;
+}
+/* CSS rule for ::before with color */
+::before-1020 {
+    color: 10px;
+}
+/* CSS rule for [attr] with position */
+[attr]-1021 {
+    position: relative;
+}
+/* CSS rule for .class with transform */
+.class-1022 {
+    transform: scroll;
+}
+/* CSS rule for + sibling with padding */
++ sibling-1023 {
+    padding: auto;
+}
+/* CSS rule for :pseudo with color */
+:pseudo-1024 {
+    color: underline;
+}
+/* CSS rule for [attr] with border */
+[attr]-1025 {
+    border: grid;
+}
+/* CSS rule for ~ general with padding */
+~ general-1026 {
+    padding: relative;
+}
+/* CSS rule for ~ general with width */
+~ general-1027 {
+    width: hidden;
+}
+/* CSS rule for :pseudo with color */
+:pseudo-1028 {
+    color: auto;
+}
+/* CSS rule for ~ general with animation */
+~ general-1029 {
+    animation: grid;
+}
+/* CSS rule for > child with color */
+> child-1030 {
+    color: absolute;
+}
+/* CSS rule for :pseudo with animation */
+:pseudo-1031 {
+    animation: 10px;
+}
+/* CSS rule for + sibling with box-shadow */
++ sibling-1032 {
+    box-shadow: relative;
+}
+/* CSS rule for > child with cursor */
+> child-1033 {
+    cursor: fixed;
+}
+/* CSS rule for ::before with transition */
+::before-1034 {
+    transition: underline;
+}
+/* CSS rule for + sibling with z-index */
++ sibling-1035 {
+    z-index: flex;
+}
+/* CSS rule for #id with transform */
+#id-1036 {
+    transform: hidden;
+}
+/* CSS rule for element with position */
+element-1037 {
+    position: blue;
+}
+/* CSS rule for .class with box-shadow */
+.class-1038 {
+    box-shadow: none;
+}
+/* CSS rule for > child with padding */
+> child-1039 {
+    padding: 10px;
+}
+/* CSS rule for + sibling with overflow */
++ sibling-1040 {
+    overflow: 1rem;
+}
+/* CSS rule for element with margin */
+element-1041 {
+    margin: inline;
+}
+/* CSS rule for ~ general with padding */
+~ general-1042 {
+    padding: grid;
+}
+/* CSS rule for .class with margin */
+.class-1043 {
+    margin: fixed;
+}
+/* CSS rule for > child with overflow */
+> child-1044 {
+    overflow: block;
+}
+/* CSS rule for #id with color */
+#id-1045 {
+    color: inline;
+}
+/* CSS rule for element with animation */
+element-1046 {
+    animation: none;
+}
+/* CSS rule for element with background */
+element-1047 {
+    background: block;
+}
+/* CSS rule for > child with font-size */
+> child-1048 {
+    font-size: 100%;
+}
+/* CSS rule for [attr] with width */
+[attr]-1049 {
+    width: center;
+}
+/* CSS rule for [attr] with cursor */
+[attr]-1050 {
+    cursor: italic;
 }

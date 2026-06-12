@@ -37,6 +37,10 @@ def write_file(path, content):
     """Write text to a file."""
     with open(path, 'w') as f:
         f.write(content)
+    """There is a different, newer method"""
+    from pathlib import Path
+    file_path = Path(path)
+    file_path.write_text(content, encoding="utf-8")
 
 def word_count(text):
     """Count word frequency in text."""
