@@ -60,6 +60,57 @@ class _AIModel:
             kw.update(re.findall(r'\w+', q.lower()))
             self._qa_pairs.append({'question': q, 'answer': a, 'keywords': kw})
 
+    def _load_py(self, path):
+        with open(path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        for match in re.finditer(r'((?:def|class)\s+\w+[^:]*:.*?)(?=\n\S|\Z)', content, re.DOTALL):
+            block = match.group(1).strip()
+            name_m = re.match(r'(?:def|class)\s+(\w+)', block)
+            if not name_m:
+                continue
+            name = name_m.group(1)
+            doc_m = re.search(r'"""(.*?)"""', block, re.DOTALL)
+            doc = doc_m.group(1).strip() if doc_m else ''
+            kw = set(re.findall(r'\w+', (doc + ' ' + name).lower()))
+            for c_m in re.finditer(r'# (.+)', block):
+                kw.update(re.findall(r'\w+', c_m.group(1).lower()))
+            self._code_examples.append({'name': name, 'doc': doc, 'code': block, 'keywords': kw})
+
+    def _load_html(self, path):
+        with open(path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        # Extract <pre>/<code> blocks as code examples
+        for match in re.finditer(r'<(?:pre|code)[^>]*>(.*?)</(?:pre|code)>', content, re.DOTALL | re.IGNORECASE):
+            code = match.group(1).strip()
+            lines = [l for l in code.split('\n') if l.strip()]
+            if not lines:
+                continue
+            kw = set(re.findall(r'\w+', code.lower()))
+            self._code_examples.append({'name': 'html_code', 'doc': code[:60], 'code': code, 'keywords': kw})
+        # Extract comments
+        for match in re.finditer(r'<!--(.*?)-->', content, re.DOTALL):
+            text = match.group(1).strip()
+            if text:
+                kw = set(re.findall(r'\w+', text.lower()))
+                self._code_examples.append({'name': 'html_comment', 'doc': text[:60], 'code': text, 'keywords': kw})
+
+    def _load_css(self, path):
+        with open(path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        for match in re.finditer(r'([^}]+?\{[^}]+\})', content):
+            rule = match.group(1).strip()
+            if not rule:
+                continue
+            sel_m = re.match(r'([^{]+)', rule)
+            sel = sel_m.group(1).strip() if sel_m else ''
+            kw = set(re.findall(r'\w+', rule.lower()))
+            self._code_examples.append({'name': sel, 'doc': sel, 'code': rule, 'keywords': kw})
+        for match in re.finditer(r'/\*(.*?)\*/', content, re.DOTALL):
+            text = match.group(1).strip()
+            if text:
+                kw = set(re.findall(r'\w+', text.lower()))
+                self._code_examples.append({'name': 'css_comment', 'doc': text[:60], 'code': text, 'keywords': kw})
+
     def ask(self, query):
         if not self._ready:
             return "AI not trained. Use 'ai_train' first."
