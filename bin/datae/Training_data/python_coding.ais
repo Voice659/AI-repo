@@ -1,0 +1,98 @@
+// Python/AiScript coding examples — used as AI training data
+
+def hello_world():
+    //How to print hello world in AiScript
+    print("Hello, World!")
+
+def variables_demo():
+    //how to use variables strings and numbers in AiScript
+    name = "Alice"
+    age = 25
+    print(name + " is " + age + " years old")
+
+def if_else_demo(x):
+    //how to use if elif else conditionals in AiScript
+    if x > 0:
+        print("positive")
+    elif x == 0:
+        print("zero")
+    else:
+        print("negative")
+
+def for_loop_demo():
+    //how to use for loops to iterate over a range in AiScript
+    for i in range(5):
+        print(i)
+
+def while_loop_demo(n):
+    //how to use while loops in AiScript
+    while n > 0:
+        print(n)
+        n = n - 1
+
+def list_demo():
+    //how to create and use lists append items access indexes in AiScript
+    items = [10, 20, 30]
+    print(len(items))
+    print(items[0])
+    append(items, 40)
+    print(len(items))
+
+def dict_demo():
+    //how to create and use dictionaries key value pairs in AiScript
+    d = {"a": 1, "b": 2}
+    print(d["a"])
+
+def add_function(a, b):
+    //how to define and call a function that returns a value
+    return a + b
+
+def string_concat():
+    //how to concatenate strings
+    first = "Hello"
+    second = "World"
+    result = first + " " + second
+    print(result)
+
+def math_operations():
+    //how to do math addition subtraction multiplication division floor division
+    x = 10
+    y = 3
+    print(x + y)
+    print(x - y)
+    print(x * y)
+    print(x / y)
+    print(x // y)
+    print(x % y)
+
+def input_demo():
+    //how to get user input in AiScript
+    name = input("Enter your name: ")
+    print("Hello " + name)
+
+def comment_syntax():
+    //how to write comments in AiScript
+    // This is a single-line comment
+    # This also works as a comment
+    print("Comments shown")
+
+def nested_ifs(x, y):
+    //how to use nested if statements
+    if x > 0:
+        if y > 0:
+            print("both positive")
+        else:
+            print("x positive y not")
+    else:
+        print("x not positive")
+
+def range_loop():
+    //how to use range with start and end
+    for i in range(2, 6):
+        print(i)
+
+def list_operations():
+    //how to access list items by index and slice
+    items = [1, 2, 3, 4, 5]
+    print(items[0])
+    print(items[-1])

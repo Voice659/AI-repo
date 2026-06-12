@@ -11,7 +11,7 @@ if _SCRIPT_DIR not in sys.path: sys.path.insert(0, _SCRIPT_DIR)
 
 import aiscript
 
-__version__ = "0.3.0.post3"
+__version__ = "0.3.1"
 
 BG = "#1e1e1e"          # editor background
 FG = "#d4d4d4"          # default text

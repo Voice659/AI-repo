@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What is AI.py?",
+    "answer": "AI.py is a Python-based AI assistant with over 900 utility functions, games, quizzes, and an integrated AiScript interpreter. Type 'h' to see all commands.",
+    "keywords": ["ai.py", "what", "about", "introduction"]
+  },
+  {
+    "question": "What is AiScript?",
+    "answer": "AiScript is a Python-like scripting language. It supports variables, functions, loops, conditionals, lists, and dictionaries. Run .ais files through the Kite IDE or the REPL.",
+    "keywords": ["aiscript", "language", "what", "script"]
+  },
+  {
+    "question": "How do I get started?",
+    "answer": "Run AI.py, enter your name, and type 'h' for a list of commands. Try 'hello', 'fact', 'joke', 'math', or 'quiz' to explore features.",
+    "keywords": ["get started", "start", "beginner", "how", "begin"]
+  },
+  {
+    "question": "What commands are available?",
+    "answer": "Type 'h' or 'help' to see all available commands. Commands include hello, fact, joke, quote, math, quiz, draw, game, weather, and many more.",
+    "keywords": ["commands", "help", "list", "available"]
+  },
+  {
+    "question": "How do I use math commands?",
+    "answer": "AI.py has hundreds of math functions. Try 'calculate', 'circle', 'square', 'rectangle', 'triangle', 'prime', 'fibonacci', 'factorial', 'convert', or 'statistics'.",
+    "keywords": ["math", "calculate", "calculator", "numbers", "arithmetic"]
+  },
+  {
+    "question": "What is PyLevel?",
+    "answer": "PyLevel is a general knowledge testing library. Use 'lvl' or 'pylevel' commands to access operations like encryption, validation, JSON parsing, and calculator functions.",
+    "keywords": ["pylevel", "level", "lvl", "knowledge test", "test"]
+  },
+  {
+    "question": "What is HubBasePE?",
+    "answer": "HubBasePE is the Python edition of the HubBase platform. Use 'hbpe_start' to launch it, then access programs with 'hbpe_program1' through 'hbpe_program13'.",
+    "keywords": ["hubbasepe", "hbpe", "hub base", "programs"]
+  },
+  {
+    "question": "What is HubBaseUtility?",
+    "answer": "HubBaseUtility is a utility library. Use 'hb_util', 'hb_utility', or 'hbu' to access its tools.",
+    "keywords": ["hubbaseutility", "hb_util", "hb_utility", "hbu", "utility"]
+  },
+  {
+    "question": "How do I run an AiScript file?",
+    "answer": "Use the 'run' command in AI.py followed by the path to your .ais file. You can also use the Kite IDE which opens .ais files with syntax highlighting and run support.",
+    "keywords": ["run", "aiscript", "file", "execute", ".ais"]
+  },
+  {
+    "question": "How do I exit AI.py?",
+    "answer": "Type 'q' or 'quit' at any prompt to exit AI.py.",
+    "keywords": ["exit", "quit", "close", "stop", "end"]
+  },
+  {
+    "question": "What games are available?",
+    "answer": "AI.py includes number guessing, hangman, tic-tac-toe, trivia quiz, word scramble, and more. Try 'game', 'guess', 'hangman', 'tictactoe', or 'trivia'.",
+    "keywords": ["games", "game", "play", "fun", "guess", "hangman"]
+  },
+  {
+    "question": "How do I use the AI system?",
+    "answer": "Type 'ai' followed by your question. For example: 'ai how do I use a for loop' or 'ai what is AI.py'. Training data comes from .ais and .json files in Training_data/.",
+    "keywords": ["ai", "ask", "question", "learn", "train"]
+  }
+]
