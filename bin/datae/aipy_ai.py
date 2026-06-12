@@ -2,6 +2,30 @@ import os, json, re
 
 _TRAINING_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'Training_data')
 
+_STOP_WORDS = {
+    'a','an','the','in','on','at','to','for','of','by','with','from','is','are',
+    'was','were','be','been','being','have','has','had','do','does','did','will',
+    'would','can','could','may','might','shall','should','it','its','this','that',
+    'these','those','i','you','he','she','they','we','what','how','when','where',
+    'why','which','who','and','or','but','not','no','yes','if','then','else','so',
+    'about','just','also','very','too','get','got','use','used','using','like',
+    'make','made','code','way','much','many','some','any','all','each','every',
+    'both','few','more','most','other','such','only','own','same','than','too',
+    'very','just','because','as','into','over','again','further','once','here',
+    'there','up','down','out','off','above','below'
+}
+
+_RARE_WORDS = frozenset([
+    'reverse','sort','filter','validate','convert','parse','encode','decode',
+    'encrypt','decrypt','hash','regex','recursion','recursive','iterate',
+    'iteration','compile','compile','optimize','debug','serialize','deserialize',
+    'concatenate','truncate','normalize','sanitize','authenticate','authorize',
+    'aggregate','cache','buffer','stream','async','concurrent','parallel',
+    'callback','promise','await','generator','coroutine','decorator','context',
+    'comprehension','lambda','closure','mixin','singleton','factory','observer',
+    'strategy','template','adapter','facade','proxy','delegate'
+])
+
 class _AIModel:
     def __init__(self):
         self._qa_pairs = []
@@ -111,17 +135,33 @@ class _AIModel:
                 kw = set(re.findall(r'\w+', text.lower()))
                 self._code_examples.append({'name': 'css_comment', 'doc': text[:60], 'code': text, 'keywords': kw})
 
+    def _score(self, qw, entry):
+        ekw = entry['keywords']
+        matches = qw & ekw
+        if not matches:
+            return 0
+        rare = sum(3 for w in matches if w in _RARE_WORDS)
+        normal = sum(1 for w in matches if w not in _RARE_WORDS)
+        union = len(qw | ekw)
+        jaccard = (len(matches) / union) if union else 0
+        title_words = set(re.findall(r'\w+', entry.get('doc', '').lower() + ' ' + entry.get('name', '').lower()))
+        title_match = sum(2 for w in qw if w in title_words)
+        all_in = 5 if qw.issubset(ekw) else 0
+        return jaccard * 10 + rare + normal + title_match + all_in
+
     def ask(self, query):
         if not self._ready:
             return "AI not trained. Use 'ai_train' first."
-        qw = set(re.findall(r'\w+', query.lower()))
-        best = ('', 0, None)
+        qw = set(re.findall(r'\w+', query.lower())) - _STOP_WORDS
+        if not qw:
+            return "Please be more specific."
+        best = ('', -1, None)
         for qa in self._qa_pairs:
-            s = len(qw & qa['keywords'])
+            s = self._score(qw, qa)
             if s > best[1]:
                 best = (qa['answer'], s, 'qa')
         for ex in self._code_examples:
-            s = len(qw & ex['keywords'])
+            s = self._score(qw, ex)
             if s > best[1]:
                 best = (ex, s, 'code')
         if best[2] is None:
