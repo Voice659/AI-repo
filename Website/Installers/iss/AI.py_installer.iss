@@ -58,6 +58,20 @@ Source: "..\..\hbpe_compat.py"; DestDir: "{app}"; Components: core; Flags: ignor
 Source: "..\..\Json\*"; DestDir: "{app}\Json"; Components: core; Flags: ignoreversion recursesubdirs
 Source: "..\..\HBPE\**"; DestDir: "{app}\HBPE"; Components: core; Flags: ignoreversion recursesubdirs
 
+; bin/datae modules (aipy_*, data files, AI system, Training_data)
+Source: "..\..\bin\datae\aipy_*.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\hbpe_compat.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\hbu_compat.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\lvl_test.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\mini_games.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\art_extra.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\space_data.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\story_data.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\word_play.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\trivia_pack.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\world_data.py"; DestDir: "{app}\bin\datae"; Components: core; Flags: ignoreversion
+Source: "..\..\bin\datae\Training_data\*"; DestDir: "{app}\bin\datae\Training_data"; Components: core; Flags: ignoreversion recursesubdirs
+
 ; Data Bulk files 32-38
 Source: "..\..\bin\datab\data_bulk32.py"; DestDir: "{app}\bin\datab"; Components: data_bulk_32_38; Flags: ignoreversion
 Source: "..\..\bin\datab\data_bulk33.py"; DestDir: "{app}\bin\datab"; Components: data_bulk_32_38; Flags: ignoreversion

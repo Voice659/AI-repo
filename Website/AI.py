@@ -94,6 +94,7 @@ from aipy_ansi import *
 from aipy_data import *
 
 from aipy_help import *
+import aipy_ai
 
 _cmd_registry = {}
 
@@ -14896,6 +14897,13 @@ def handle_cmd(cmd, role, name, badge):
         print(network_utils_ip_checksum())
     elif cmd in ("3607","network_utils_ping_simulate"):
         print(network_utils_ping_simulate())
+    elif cmd.startswith('ai '):
+        print(aipy_ai.ask(cmd[3:]))
+    elif cmd.startswith('ask '):
+        print(aipy_ai.ask(cmd[4:]))
+    elif cmd == 'ai_train':
+        ok = aipy_ai.reload()
+        print("AI training {}.".format('loaded' if ok else 'failed - no data'))
     else:
         print("Unknown. Type 'h' for help.")
 
