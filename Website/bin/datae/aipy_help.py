@@ -39,7 +39,7 @@ from data_bulk37 import *
 from data_bulk38 import *
 import aiscript
 import random, os, json, textwrap
-__version__ = "6.1.0"
+__version__ = "6.1.1"
 
 def show_help(role=None):
     print("15 - ASCII house            16 - ASCII flower")

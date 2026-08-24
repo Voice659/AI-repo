@@ -1,5 +1,5 @@
 import random, datetime, os, math, string, json, re, hashlib, base64, uuid, time, statistics, sys, textwrap
-__version__ = "6.1.0"  # AI training system
+__version__ = "6.1.1"  # AI training system
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'AiScript'))
 sys.path.insert(0, os.path.join(_SCRIPT_DIR, 'AiModel'))
@@ -214,16 +214,62 @@ def handle_cmd(cmd, role, name, badge):
         print("HBPE version: v{}".format(HB.HBPE_VERSION))
         print("Programm20: {}".format(HB.HBPE_HAS_PROGRAM20))
         print("Dev console: {}".format(HB.HBPE_HAS_DEV_CONSOLE))
+        print("API: {}".format(HB.HBPE_API))
+        _vip_user = HB.current_user() if hasattr(HB, "current_user") else None
+        print("VIP: {}".format(bool(getattr(_vip_user, "VipAccess", False)) if _vip_user else False))
+    elif cmd == "hbpe_vip" or cmd == "hbpe_vip off":
+        if cmd.endswith("off"):
+            if hasattr(HB, "set_vip"):
+                HB.set_vip(False)
+                print("VIP mode off.")
+            else:
+                print("VIP control not available in this HBPE version.")
+        else:
+            _vip_pw = input("VIP password -- ")
+            if _vip_pw == "5280":
+                if hasattr(HB, "set_vip"):
+                    HB.set_vip(True)
+                    print("Correct.")
+                    print("VIP mode enabled.")
+                else:
+                    print("VIP control not available in this HBPE version.")
+            else:
+                print("Incorrect.")
+    elif cmd.startswith("hbpe_run"):
+        _run_arg = cmd[8:].strip()
+        _plist = getattr(HB, "_prList", {}) or {}
+        _key = None
+        if _run_arg:
+            if _run_arg[:1].upper() == "P" and _run_arg[1:].isdigit():
+                _key = int(_run_arg[1:]) + int(getattr(HB._raw_hb, "progs", 20) or 20)
+            elif _run_arg.isdigit():
+                _key = int(_run_arg)
+        if _key is None or _key not in _plist:
+            print("Usage: hbpe_run <1-20 | P1-P5>  - run a single HubBasePE program")
+        else:
+            print("Running HubBasePE program {}...".format(_run_arg.upper()))
+            try:
+                _plist[_key]()
+            except SystemExit:
+                pass
     elif cmd in ("3608", "pylevel", "lvl"):
         print("--- PyLevel Module ---")
         pylevel_main()
-    elif cmd in ("hb_util", "hb_utility", "hbu"):
+    elif cmd.split(" ", 1)[0] in ("hb_util", "hb_utility", "hbut", "hbu"):
+        _hbu_arg = cmd.split(" ", 1)[1].strip() if " " in cmd else ""
         try:
-            import Main as _HBU
+            import HubBaseUtility.Main as _HBU
+            if not hasattr(_HBU, "ProgrammCycle"):
+                _HBU.ProgrammCycle = _HBU.ProgramCycle
             print("--- HubBase Utility v{} ---".format(getattr(_HBU, '__version__', '?')))
-            _HBU.Showcase()
+            if _hbu_arg in ("0", "1", "2"):
+                getattr(_HBU, "ProgrammU" + _hbu_arg)()
+            elif not _hbu_arg:
+                _HBU.Showcase()
+            else:
+                print("Usage: hbut [0|1|2]  (0 hello, 1 type detector, 2 calculator)")
         except ImportError:
-            print("HubBaseUtility not installed locally.")
+            print("HubBaseUtility not installed.")
         except Exception as _hbu_e:
             print("HubBaseUtility error:", _hbu_e)
     elif cmd.startswith("ais ") or cmd.startswith("aiscript_run "):
