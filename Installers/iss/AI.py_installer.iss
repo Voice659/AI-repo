@@ -1,8 +1,8 @@
-﻿; AI.py v6.1.0 Installer with AiScript components
+﻿; AI.py v6.1.1 Installer with AiScript components
 ; Inno Setup 6 Script
 
-#define MyAppName "AI.py v6.1.0"
-#define MyAppVersion "6.1.0"
+#define MyAppName "AI.py v6.1.1"
+#define MyAppVersion "6.1.1"
 #define MyAIScriptVersion "0.3.1"
 
 [Setup]
@@ -12,14 +12,14 @@ DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir=output
-OutputBaseFilename=AI.py_Setup_v6.1.0
+OutputBaseFilename=AI.py_Setup_v6.1.1
 Compression=lzma2
 SolidCompression=yes
 PrivilegesRequired=admin
 DisableDirPage=no
 DisableProgramGroupPage=yes
 ArchitecturesInstallIn64BitMode=x64compatible
-UninstallDisplayName=AI.py v6.1.0
+UninstallDisplayName=AI.py v6.1.1
 ChangesAssociations=yes
 
 [Languages]
