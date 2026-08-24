@@ -322,7 +322,7 @@ def show_help(role=None):
             print("hbpe_advance  - Advance HubBasePE")
             print("hbpe_restart  - Restart HubBasePE")
             print("hbpe_stop     - Stop HubBasePE")
-            print("hbpe_program1-20 - Run programs 1-20")
+            print("hbpe_program1-21 - Run programs 1-21")
             print("hbpe_programp1-5 - Run programs P1-P5")
             print("hbpe_dev_console - HubBasePE dev console")
             print("hbpe_compat   - Show HBPE version info")
@@ -337,7 +337,7 @@ def show_help(role=None):
             print("hbpe_start    - Start HubBasePE")
             print("hbpe_advance  - Advance HubBasePE")
             print("hbpe_stop     - Stop HubBasePE")
-            print("hbpe_program1-20 - Run programs 1-20")
+            print("hbpe_program1-21 - Run programs 1-21")
             print("hbpe_dev_console - HubBasePE dev console")
             print("hbpe_compat   - Show HBPE version info")
             print("aiscript_run  - Run AiScript code inline")
@@ -348,7 +348,7 @@ def show_help(role=None):
             print("vip_fact  - VIP exclusive fact")
             print("vip_quote - VIP exclusive quote")
             print("hbpe_start    - Start HubBasePE")
-            print("hbpe_program1-20 - Run programs 1-20")
+            print("hbpe_program1-21 - Run programs 1-21")
             print("hbpe_dev_console - HubBasePE dev console")
             print("hbpe_compat   - Show HBPE version info")
             print("aiscript_run  - Run AiScript code inline")
@@ -372,7 +372,7 @@ def show_help(role=None):
     print("remind <s> <m> - Set a timer reminder")
     print("explain <cmd> - Detailed help for a specific command")
     print("hbpe_start    - Start HubBasePE (turtle graphics)")
-    print("hbpe_program1-20 - Run HBPE programs 1-20")
+    print("hbpe_program1-21 - Run HBPE programs 1-21")
     print("hbpe_programp1-5 - Run HBPE programs P1-P5")
     print("hbpe_dev_console - HBPE developer console")
     print("hb_util/hbu   - HubBase Utility showcase")
@@ -1499,7 +1499,7 @@ def help_cat():
         ("Data", "67-75, 121-132 (quote, animals, colors, fruits, vegetables, elements, random number, UUID, shuffle, flatten, chunk, unique, intersect)"),
         ("Admin/Mod/VIP", "system_info, list_users, toggle_debug, featured_joke, vip_fact, vip_quote"),
         ("Debug", "debug_functions, debug_vars, debug_cmd_count, debug_exec"),
-        ("HBPE / HB Util", "345, hbpe_start, hbpe_advance, hbpe_restart, hbpe_stop, hbpe_program1-20, hbpe_programp1-5, hbpe_dev_console, hbpe_compat, hb_util/hbu"),
+        ("HBPE / HB Util", "345, hbpe_start, hbpe_advance, hbpe_restart, hbpe_stop, hbpe_program1-21, hbpe_programp1-5, hbpe_dev_console, hbpe_compat, hb_util/hbu"),
         ("AiScript", "aiscript_run <code> (run inline code), aiscript_file <path> (run .ais file)"),
         ("PyLevel", "3608, pylevel, lvl — interactive file/string/crypto learning module"),
         ("New v3.6", "quiz, chart, suggest, ask/ai/query, flashcard/learn, colors, pager_test, cls, version, timer, stopwatch, calc, categories, save/export"),

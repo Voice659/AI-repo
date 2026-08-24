@@ -204,6 +204,11 @@ def handle_cmd(cmd, role, name, badge):
             print("Running HubBasePE Program 20..."); HB.Programm20()
         else:
             print("Program 20 not available in this HBPE version (v{}).".format(HB.HBPE_VERSION))
+    elif cmd in ("hbpe_program21","hbpe_prog21"):
+        if getattr(HB, "HBPE_HAS_PROGRAM21", False):
+            print("Running HubBasePE Program 21..."); HB.Programm21()
+        else:
+            print("Program 21 not available in this HBPE version (v{}).".format(HB.HBPE_VERSION))
     elif cmd == "hbpe_dev_console":
         if HB.HBPE_HAS_DEV_CONSOLE:
             print("Opening HubBasePE developer console...")
@@ -213,6 +218,7 @@ def handle_cmd(cmd, role, name, badge):
     elif cmd == "hbpe_compat":
         print("HBPE version: v{}".format(HB.HBPE_VERSION))
         print("Programm20: {}".format(HB.HBPE_HAS_PROGRAM20))
+        print("Programm21: {}".format(getattr(HB, "HBPE_HAS_PROGRAM21", False)))
         print("Dev console: {}".format(HB.HBPE_HAS_DEV_CONSOLE))
         print("API: {}".format(HB.HBPE_API))
         _vip_user = HB.current_user() if hasattr(HB, "current_user") else None
@@ -245,7 +251,7 @@ def handle_cmd(cmd, role, name, badge):
             elif _run_arg.isdigit():
                 _key = int(_run_arg)
         if _key is None or _key not in _plist:
-            print("Usage: hbpe_run <1-20 | P1-P5>  - run a single HubBasePE program")
+            print("Usage: hbpe_run <1-21 | P1-P5>  - run a single HubBasePE program")
         else:
             print("Running HubBasePE program {}...".format(_run_arg.upper()))
             try:
