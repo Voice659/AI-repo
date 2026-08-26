@@ -1,21 +1,24 @@
-"""HBPE Compatibility Layer - supports HubBasePE 0.0.2.x:
-old globals-based API (<= 0.0.2.0.0.5), list-based API (0.0.2.0.1 - 0.0.2.0.10,
-Code/Restart take prList) and the User-based API (>= 0.0.2.0.11,
-Code/Restart take (prList, User)). Also previews the 0.0.3+ HubBase_rewrite
-(Session/Program architecture, filesystem-discovered programs).
-0.0.2.x is LTS upstream: "auto" keeps it primary until at least 0.0.3.0.00
-final; the rewrite stays opt-in behind AI_HBPE_MODE=rewrite.
+"""HBPE Compatibility Layer - bridges all HubBasePE eras.
+
+Supported upstream APIs:
+  0.0.2.x  globals-based (<= 0.0.2.0.0.5), list-based (0.0.2.0.1+),
+           User-based (>= 0.0.2.0.11, Code/Restart take (prList, User)).
+  0.0.3+   HubBase main Programs/ architecture (Program.run(), no Session).
+
+Detection order:
+  1. Local vendor (HBPE/HubBasePE/Main.py) → old 0.0.2.x list/globals API.
+  2. AI_HBPE_REWRITE_PATH env var → HubBase main Programs/ (rewrite-v2).
+  3. HubBase_rewrite package → old b1 preview (rewrite-v1, Session-based).
+
+LTS: 0.0.2.1.x is bugfix-only LTS (EOL after any 0.0.3 pre-release).
+Scenario C: PE 0.0.3 winds down to P-programs only, eventually absorbed
+into HubBase main (~0.0.3.2 / 0.0.4 / 0.1.0).
+
 Mode selection via environment variable AI_HBPE_MODE (set before import):
-  - "auto" (default): HubBasePE 0.0.2.x first, then HubBase_rewrite preview
-  - "list":           HubBasePE 0.0.2.x only
-  - "rewrite":        HubBase_rewrite only (needs Python >= 3.12 and the
-                      folder named HubBase_rewrite importable on sys.path)
-The rewrite bridge synthesizes a silent Session (never prompts, never
-registers), discovers programs from disk, exposes lazy Programm<id>
-callables plus an interactive picker shim for Code()/Start()/Restart().
-Callers always use arg-less forms; the layer shields callers from upstream
-sys.exit() calls.
-Usage: import hbpe_compat as HB (replaces 'import HubBasePE.Main as HB')
+  "auto"   (default): old vendor first, then rewrite-v2, then rewrite-v1.
+  "list":             old vendor only.
+  "rewrite":          rewrite-v2 only (needs AI_HBPE_REWRITE_PATH or
+                      HubBase_rewrite importable on sys.path).
 """
 import os as _os
 import sys as _sys
@@ -41,6 +44,7 @@ _prList = {}
 _pprList = {}
 _user = None
 _rw_session = None
+_rewrite_path = _os.environ.get("AI_HBPE_REWRITE_PATH")
 
 _FORWARD_ATTRS = frozenset(["VipAccess", "PassGuess", "Login", "Stop", "RA"])
 
@@ -115,20 +119,64 @@ try:
             _imp_errs.append(_e)
 
     if _raw_hb is None and _mode in ("auto", "rewrite"):
-        try:
-            # The rewrite mixes two import roots: 'HubBase_rewrite.*' needs
-            # its parent on sys.path, while main.py's bare 'import Programs'
-            # needs the package dir itself. Prepare both before importing.
-            import HubBase_rewrite as _rw_pkg
+        _rw_programs = []
+        _RWSession = None
+        _RWProgram = None
+        _RWUser = None
+        _rw_v2 = False
+
+        if _rewrite_path:
+            _rewrite_path = _os.path.abspath(_rewrite_path)
+            if _os.path.isdir(_rewrite_path):
+                try:
+                    import importlib.util as _ilu
+
+                    _mgr_file = _os.path.join(_rewrite_path, "Programs", "Manager.py")
+                    if _os.path.isfile(_mgr_file):
+                        _mgr_spec = _ilu.spec_from_file_location("_hb_rw_manager", _mgr_file)
+                        _mgr_mod = _ilu.module_from_spec(_mgr_spec)
+                        _sys.modules["_hb_rw_manager"] = _mgr_mod
+                        _mgr_spec.loader.exec_module(_mgr_mod)
+                        _RWProgram = _mgr_mod.Program
+
+                    _prog_dir = _os.path.join(_rewrite_path, "Programs")
+                    if _os.path.isdir(_prog_dir):
+                        for _entry in _os.listdir(_prog_dir):
+                            _mp = _os.path.join(_prog_dir, _entry, "main.py")
+                            if _os.path.isfile(_mp) and _entry.isdigit():
+                                _rw_programs.append(_entry)
+
+                    _raw_rw = _types.ModuleType("_hb_rw_v2")
+                    _raw_rw.__version__ = "0.0.3"
+                    _ver_file = _os.path.join(_rewrite_path, "Data", "versions.json")
+                    if _os.path.isfile(_ver_file):
+                        try:
+                            import json as _json
+                            with open(_ver_file, "r", encoding="utf-8") as _vf:
+                                _vd = _json.load(_vf)
+                            _raw_rw.__version__ = max(_vd.keys())
+                        except Exception:
+                            pass
+                    _sys.modules["_hb_rw_v2"] = _raw_rw
+
+                    _rw_v2 = True
+                    HBPE_API = "rewrite"
+                except Exception as _e:
+                    _imp_errs.append(_e)
+                    _rewrite_path = None
+
+        if _raw_rw is None:
             try:
-                _rw_dir = list(_rw_pkg.__path__)[0]
-                if _rw_dir not in _sys.path:
-                    _sys.path.insert(0, _rw_dir)
-            except Exception:
-                pass
-            import HubBase_rewrite.main as _raw_rw
-        except (ImportError, SyntaxError) as _e:
-            _imp_errs.append(_e)
+                import HubBase_rewrite as _rw_pkg
+                try:
+                    _rw_dir = list(_rw_pkg.__path__)[0]
+                    if _rw_dir not in _sys.path:
+                        _sys.path.insert(0, _rw_dir)
+                except Exception:
+                    pass
+                import HubBase_rewrite.main as _raw_rw
+            except (ImportError, SyntaxError) as _e:
+                _imp_errs.append(_e)
 
     _this = _sys.modules[__name__]
     _this.__class__ = _CompatModule
@@ -167,7 +215,6 @@ try:
             _code_params = 0
 
         if _code_params > 0:
-            # List-based API (0.0.2.0.1+): functions require prList.
             HBPE_API = "list"
             try:
                 _lists = _raw_hb.Setup_HubBase()
@@ -175,7 +222,6 @@ try:
                 _second = _lists[1] if len(_lists) > 1 else {}
                 if isinstance(_second, dict):
                     if _second and all(isinstance(k, str) for k in _second.keys()):
-                        # Future launcher-style Setup returning (prList, modules).
                         HBPE_MODULES = _second
                         _pprList = getattr(_raw_hb, "pprList", {})
                         if not isinstance(_pprList, dict):
@@ -220,7 +266,6 @@ try:
                     return None
 
         else:
-            # Old-style globals-based API (<= 0.0.2.0.0.5): raw callables already copied.
             HBPE_API = "globals"
 
         if not hasattr(_this, "ProgrammCycle"):
@@ -248,91 +293,118 @@ try:
             _this.Login = "usr"
 
     elif _raw_rw is not None:
-        # 0.0.3+ HubBase_rewrite bridge (Session/Program architecture).
         HBPE_API = "rewrite"
         HBPE_VERSION = getattr(_raw_rw, "__version__", "") or "0.0.3"
         HBPE_VERSION_TUPLE = _parse_version(HBPE_VERSION)
 
-        _rw_programs = []
-        _RWSession = None
-        _RWProgram = None
-        _RWUser = None
-        try:
-            from Programs import all_programs as _rw_all
-            _rw_programs = [str(_p) for _p in _rw_all]
-            from Programs.Manager import Session as _S, Program as _P
-            _RWSession, _RWProgram = _S, _P
-            from HubBase_rewrite.Database import User as _U
-            _RWUser = _U
-        except Exception:
-            _rw_programs = []
-            _RWSession = _RWSession or None
-            _RWProgram = _RWProgram or None
-
-        def _ensure_session():
-            """Silent Session: never prompts, never registers."""
-            global _rw_session
-            if _RWSession is None:
-                return None
-            if _rw_session is None:
-                _rw_session = _RWSession()
-                _rw_session.logged_in = True
-            return _rw_session
-
-        def _run_id(pid):
-            sess = _ensure_session()
-            if sess is None:
-                print("Rewrite engine unavailable (Programs.Manager import failed).")
-                return False
+        if not _rw_v2:
             try:
-                _ok, _meta = _RWProgram(str(pid)).run(sess)
-                return bool(_ok)
-            except SystemExit:
+                from Programs import all_programs as _rw_all
+                _rw_programs = [str(_p) for _p in _rw_all]
+                from Programs.Manager import Session as _S, Program as _P
+                _RWSession, _RWProgram = _S, _P
+                from HubBase_rewrite.Database import User as _U
+                _RWUser = _U
+            except Exception:
+                _rw_programs = []
+                _RWSession = _RWSession or None
+                _RWProgram = _RWProgram or None
+
+        _rw_programs_sorted = sorted(set(_rw_programs))
+
+        if _rw_v2:
+            def _run_id(pid):
+                if _RWProgram is None:
+                    print("Rewrite-v2 engine unavailable (Programs.Manager import failed).")
+                    return False
+                try:
+                    _ok, _meta = _RWProgram(str(pid)).run()
+                    return bool(_ok)
+                except SystemExit:
+                    return None
+
+            def current_user():
                 return None
 
-        for _pid in sorted(set(_rw_programs)):
+            def set_vip(state):
+                _this.VipAccess = "T" if state else "F"
+
+        else:
+            def _ensure_session():
+                global _rw_session
+                if _RWSession is None:
+                    return None
+                if _rw_session is None:
+                    _rw_session = _RWSession()
+                    _rw_session.logged_in = True
+                return _rw_session
+
+            def _run_id(pid):
+                sess = _ensure_session()
+                if sess is None:
+                    print("Rewrite engine unavailable (Programs.Manager import failed).")
+                    return False
+                try:
+                    _ok, _meta = _RWProgram(str(pid)).run(sess)
+                    return bool(_ok)
+                except SystemExit:
+                    return None
+
+            def current_user():
+                _sess = _ensure_session()
+                _u = getattr(_sess, "user", None)
+                return _u if (_RWUser is not None and isinstance(_u, _RWUser)) else None
+
+            def set_vip(state):
+                _st = bool(state)
+                _sess = _ensure_session()
+                _u = getattr(_sess, "user", None)
+                if _u is not None and _RWUser is not None and isinstance(_u, _RWUser):
+                    _u.VipAccess = _st
+                _this.VipAccess = "T" if _st else "F"
+
+        for _pid in _rw_programs_sorted:
             if _pid.isdigit():
                 setattr(_this, "Programm{}".format(int(_pid)),
                         (lambda _p: lambda *_a, **_k: _run_id(_p))(_pid))
 
         _prList = {int(_p): (lambda q: lambda *_a, **_k: _run_id(q))(_p)
-                   for _p in _rw_programs if str(_p).isdigit()}
+                   for _p in _rw_programs_sorted if _p.isdigit()}
         _pprList = {}
 
-        HBPE_HAS_PROGRAM20 = "20" in _rw_programs
-        HBPE_HAS_PROGRAM21 = False
+        HBPE_HAS_PROGRAM20 = "20" in _rw_programs_sorted
+        HBPE_HAS_PROGRAM21 = "21" in _rw_programs_sorted
         HBPE_HAS_DEV_CONSOLE = False
 
         def _picker():
-            """Interactive program chooser standing in for upstream's future menu."""
-            print("=== HubBase v{} (preview bridge) ===".format(HBPE_VERSION))
+            print("=== HubBase v{} (rewrite bridge) ===".format(HBPE_VERSION))
             while True:
-                print("Available programs: {}".format(", ".join(_rw_programs) or "(none discovered)"))
+                print("Available programs: {}".format(", ".join(_rw_programs_sorted) or "(none discovered)"))
                 _choice = input("Program number or q -- ").strip()
                 if _choice.lower() in ("q", "n", "quit", "exit"):
                     return None
                 _cid = _choice[1:] if _choice[:1].upper() == "P" else _choice
-                if _cid.isdigit() and _cid in _rw_programs:
+                if _cid.isdigit() and _cid in _rw_programs_sorted:
                     _run_id(_cid)
                 elif _choice:
                     print("Unknown program.")
 
         def Start(pprList=None):
-            """Preview alias: opens the interactive program picker."""
+            """Rewrite alias: opens the interactive program picker."""
             try:
                 return _picker()
             except SystemExit:
                 return None
 
         def Code(prList=None):
-            """Preview alias: opens the interactive program picker."""
+            """Rewrite alias: opens the interactive program picker."""
             try:
                 return _picker()
             except SystemExit:
                 return None
 
         def Restart(prList=None):
-            """Preview alias: reopens the interactive program picker."""
+            """Rewrite alias: reopens the interactive program picker."""
             try:
                 return _picker()
             except SystemExit:
@@ -345,21 +417,6 @@ try:
         def PStop(*_args, **_kwargs):
             """Legacy no-op."""
             return None
-
-        def current_user():
-            """Session user if a real rewrite User is attached, else None."""
-            _sess = _ensure_session()
-            _u = getattr(_sess, "user", None)
-            return _u if (_RWUser is not None and isinstance(_u, _RWUser)) else None
-
-        def set_vip(state):
-            """Map VIP state onto the session's rewrite User when present."""
-            _st = bool(state)
-            _sess = _ensure_session()
-            _u = getattr(_sess, "user", None)
-            if _u is not None and _RWUser is not None and isinstance(_u, _RWUser):
-                _u.VipAccess = _st
-            _this.VipAccess = "T" if _st else "F"
 
         if not hasattr(_this, "VipAccess"):
             _this.VipAccess = "F"
@@ -374,7 +431,7 @@ try:
         _missing = _missing or "; ".join(str(e) for e in _imp_errs) or "no compatible package found"
         _mode_note = ""
         if _mode == "rewrite":
-            _mode_note = " (AI_HBPE_MODE=rewrite: HubBase_rewrite requires Python >= 3.12 and its parent folder on sys.path)"
+            _mode_note = " (AI_HBPE_MODE=rewrite: set AI_HBPE_REWRITE_PATH or install HubBasePE 0.0.2.x)"
         elif _mode == "list":
             _mode_note = " (AI_HBPE_MODE=list: HubBasePE 0.0.2.x not found)"
 
