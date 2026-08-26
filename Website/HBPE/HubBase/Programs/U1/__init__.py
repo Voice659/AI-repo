@@ -1,0 +1,4 @@
+ProgramInfo = {
+    "Name": "Type detector",
+    "Build": "0.0.0.1.00"
+}

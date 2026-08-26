@@ -1,0 +1,32 @@
+Metadata-Version: 2.5
+Name: HubBaseUtility
+Version: 0.0.0.0.4.2
+Summary: HubBaseUtility – Utility programms!!
+Project-URL: Homepage, https://github.com/HubBase-Authority/HubBaseUtility
+Project-URL: Issues, https://github.com/HubBase-Authority/HubBaseUtility/issues
+Project-URL: Documentation, https://github.com/HubBase-Authority/HubBaseUtility/wiki
+Project-URL: Webpage, https://voice659.github.io/index-pr-hbut.html
+Author-email: Voice659 <E.R.Fahretdinov@yandex.ru>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+
+## **HubBase*Utility*** - It is used in [HubBase](https://github.com/HubBase-Authority/HubBase) as a utility manager.
+| Project | Role |
+| --- | --- |
+| HubBase | The Main launcher. |
+| HubBasePE | 5 additional programms. |
+| HubBaseJE | The JavaScript port of HubBase |
+| HubBaseUnified | The Unified launcher |
+| **HubBaseUtility** | *The Utility programs* |
+
+## Programs (as of 24.08.2026):
+| Program id | What it does |
+| --- | --- |
+| 0 | Prints "Hello world" |
+| 1 | string/int/float detector |
+| 2 | Calculator |
+

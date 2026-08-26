@@ -6,18 +6,19 @@ Supported upstream APIs:
   0.0.3+   HubBase main Programs/ architecture (Program.run(), no Session).
 
 Detection order:
-  1. Local vendor (HBPE/HubBasePE/Main.py) → old 0.0.2.x list/globals API.
-  2. AI_HBPE_REWRITE_PATH env var → HubBase main Programs/ (rewrite-v2).
-  3. HubBase_rewrite package → old b1 preview (rewrite-v1, Session-based).
+  1. HBPE/HubBase/ local vendor → rewrite-v2 (Program.run(), no Session).
+  2. HBPE/HubBasePE/ local vendor → old 0.0.2.x list/globals API.
+  3. AI_HBPE_REWRITE_PATH env var → HubBase main Programs/ (rewrite-v2).
+  4. HubBase_rewrite package → old b1 preview (rewrite-v1, Session-based).
 
 LTS: 0.0.2.1.x is bugfix-only LTS (EOL after any 0.0.3 pre-release).
 Scenario C: PE 0.0.3 winds down to P-programs only, eventually absorbed
 into HubBase main (~0.0.3.2 / 0.0.4 / 0.1.0).
 
 Mode selection via environment variable AI_HBPE_MODE (set before import):
-  "auto"   (default): old vendor first, then rewrite-v2, then rewrite-v1.
+  "auto"   (default): HB/ vendor first, then old vendor, then rewrite-v2/v1.
   "list":             old vendor only.
-  "rewrite":          rewrite-v2 only (needs AI_HBPE_REWRITE_PATH or
+  "rewrite":          rewrite-v2/v1 only (HB/ vendor, env var, or
                       HubBase_rewrite importable on sys.path).
 """
 import os as _os
@@ -101,6 +102,48 @@ def set_vip(state):
     VipAccess = st
 
 
+def _load_rewrite_v2(_path):
+    """Load a HubBase rewrite-v2 Programs/ directory. Returns (synth_module, programs_list, RWProgram, v2_flag) or None."""
+    import importlib.util as _ilu
+    import json as _json
+
+    _path = _os.path.abspath(_path)
+    if not _os.path.isdir(_path):
+        return None
+
+    _mgr_file = _os.path.join(_path, "Programs", "Manager.py")
+    if not _os.path.isfile(_mgr_file):
+        return None
+
+    _mgr_spec = _ilu.spec_from_file_location("_hb_rw_manager", _mgr_file)
+    _mgr_mod = _ilu.module_from_spec(_mgr_spec)
+    _sys.modules["_hb_rw_manager"] = _mgr_mod
+    _mgr_spec.loader.exec_module(_mgr_mod)
+    _RWProgram = _mgr_mod.Program
+
+    _rw_programs = []
+    _prog_dir = _os.path.join(_path, "Programs")
+    if _os.path.isdir(_prog_dir):
+        for _entry in _os.listdir(_prog_dir):
+            _mp = _os.path.join(_prog_dir, _entry, "main.py")
+            if _os.path.isfile(_mp):
+                _rw_programs.append(_entry)
+
+    _raw_rw = _types.ModuleType("_hb_rw_v2")
+    _raw_rw.__version__ = "0.0.3"
+    _ver_file = _os.path.join(_path, "Data", "versions.json")
+    if _os.path.isfile(_ver_file):
+        try:
+            with open(_ver_file, "r", encoding="utf-8") as _vf:
+                _vd = _json.load(_vf)
+            _raw_rw.__version__ = max(_vd.keys())
+        except Exception:
+            pass
+    _sys.modules["_hb_rw_v2"] = _raw_rw
+
+    return _raw_rw, _rw_programs, _RWProgram, True
+
+
 try:
     import inspect as _inspect
 
@@ -112,58 +155,43 @@ try:
 
     _imp_errs = []
 
-    if _mode in ("auto", "list"):
+    _rw_programs = []
+    _RWSession = None
+    _RWProgram = None
+    _RWUser = None
+    _rw_v2 = False
+
+    _vendor_dir = _os.path.normpath(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "HBPE", "HubBase"))
+
+    if _mode in ("auto", "rewrite"):
+        if _os.path.isdir(_vendor_dir):
+            try:
+                _result = _load_rewrite_v2(_vendor_dir)
+                if _result is not None:
+                    _raw_rw, _rw_programs, _RWProgram, _rw_v2 = _result
+                    HBPE_API = "rewrite"
+                    _num_count = sum(1 for _p in _rw_programs if _p.isdigit())
+                    _raw_rw.progs = _num_count
+            except Exception as _e:
+                _imp_errs.append(_e)
+
+    if _raw_hb is None and _raw_rw is None and _mode in ("auto", "list"):
         try:
             import HubBasePE.Main as _raw_hb
         except ImportError as _e:
             _imp_errs.append(_e)
 
-    if _raw_hb is None and _mode in ("auto", "rewrite"):
-        _rw_programs = []
-        _RWSession = None
-        _RWProgram = None
-        _RWUser = None
-        _rw_v2 = False
-
+    if _raw_hb is None and _raw_rw is None and _mode in ("auto", "rewrite"):
         if _rewrite_path:
             _rewrite_path = _os.path.abspath(_rewrite_path)
-            if _os.path.isdir(_rewrite_path):
-                try:
-                    import importlib.util as _ilu
-
-                    _mgr_file = _os.path.join(_rewrite_path, "Programs", "Manager.py")
-                    if _os.path.isfile(_mgr_file):
-                        _mgr_spec = _ilu.spec_from_file_location("_hb_rw_manager", _mgr_file)
-                        _mgr_mod = _ilu.module_from_spec(_mgr_spec)
-                        _sys.modules["_hb_rw_manager"] = _mgr_mod
-                        _mgr_spec.loader.exec_module(_mgr_mod)
-                        _RWProgram = _mgr_mod.Program
-
-                    _prog_dir = _os.path.join(_rewrite_path, "Programs")
-                    if _os.path.isdir(_prog_dir):
-                        for _entry in _os.listdir(_prog_dir):
-                            _mp = _os.path.join(_prog_dir, _entry, "main.py")
-                            if _os.path.isfile(_mp) and _entry.isdigit():
-                                _rw_programs.append(_entry)
-
-                    _raw_rw = _types.ModuleType("_hb_rw_v2")
-                    _raw_rw.__version__ = "0.0.3"
-                    _ver_file = _os.path.join(_rewrite_path, "Data", "versions.json")
-                    if _os.path.isfile(_ver_file):
-                        try:
-                            import json as _json
-                            with open(_ver_file, "r", encoding="utf-8") as _vf:
-                                _vd = _json.load(_vf)
-                            _raw_rw.__version__ = max(_vd.keys())
-                        except Exception:
-                            pass
-                    _sys.modules["_hb_rw_v2"] = _raw_rw
-
-                    _rw_v2 = True
+            try:
+                _result = _load_rewrite_v2(_rewrite_path)
+                if _result is not None:
+                    _raw_rw, _rw_programs, _RWProgram, _rw_v2 = _result
                     HBPE_API = "rewrite"
-                except Exception as _e:
-                    _imp_errs.append(_e)
-                    _rewrite_path = None
+            except Exception as _e:
+                _imp_errs.append(_e)
+                _rewrite_path = None
 
         if _raw_rw is None:
             try:
@@ -370,7 +398,14 @@ try:
 
         _prList = {int(_p): (lambda q: lambda *_a, **_k: _run_id(q))(_p)
                    for _p in _rw_programs_sorted if _p.isdigit()}
+
+        _p_offset = max((int(_p) for _p in _rw_programs_sorted if _p.isdigit()), default=0)
         _pprList = {}
+        for _pid in _rw_programs_sorted:
+            if _pid.upper().startswith("P") and _pid[1:].isdigit():
+                _pk = int(_pid[1:]) + _p_offset
+                _pprList[int(_pid[1:])] = (lambda q: lambda *_a, **_k: _run_id(q))(_pid)
+                _prList[_pk] = _pprList[int(_pid[1:])]
 
         HBPE_HAS_PROGRAM20 = "20" in _rw_programs_sorted
         HBPE_HAS_PROGRAM21 = "21" in _rw_programs_sorted
@@ -384,7 +419,7 @@ try:
                 if _choice.lower() in ("q", "n", "quit", "exit"):
                     return None
                 _cid = _choice[1:] if _choice[:1].upper() == "P" else _choice
-                if _cid.isdigit() and _cid in _rw_programs_sorted:
+                if _cid in _rw_programs_sorted:
                     _run_id(_cid)
                 elif _choice:
                     print("Unknown program.")
